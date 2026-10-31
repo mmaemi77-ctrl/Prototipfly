@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="Папки для ноутбука и косметички по вашим размерам: главный экран и структура сайта Адаи">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Адая · главный экран и структура сайта">
+<meta property="og:title" content="Адая — главный экран и структура сайта">
 <meta property="og:description" content="Папки для ноутбука и косметички по вашим размерам: главный экран и структура сайта Адаи">
 <meta property="og:image" content="https://mmaemi77-ctrl.github.io/Prototipfly/adaya/og-glavnyi.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
-<title>Адая · главный экран</title>
+<title>Адая — главный экран</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;600;700&family=Marck+Script&family=Nunito:wght@400;600;700;800;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap">
 <style>
 /* Layout: витрина-мозаика из шаблона «Магазин». Перламутрово-голубая плитка со стёжкой ромбом и обещанием «по вашим размерам», большая плитка с фото изделий и переключателем, под ними строка подбора по ноутбуку; ниже структура сайта мини-макетами и живая заявка для компаний */
 :root{
@@ -34,12 +34,13 @@
   --thread:#C2577A;
   --display:"Comfortaa","Trebuchet MS",system-ui,sans-serif;
   --body:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --script:"Marck Script","Segoe Script","Brush Script MT",cursive;
+  --tape:#F3DD72;
+  --tape-ink:#3A3524;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#13141D;--surface:#1C1E2B;--ink:#EDEFF9;--muted:#A2A7C2;--line:#2D3044;--peri:#34406E;--peri-soft:#232843;--accent:#AFBDF4;--on-accent:#13141D;--butter:#8C7D36;--rose:#7C4A58;--wine:#D27382;--thread:#F0A3BC;color-scheme:dark}}
+  --bg:#13141D;--surface:#1C1E2B;--ink:#EDEFF9;--muted:#A2A7C2;--line:#2D3044;--peri:#34406E;--peri-soft:#232843;--accent:#AFBDF4;--on-accent:#13141D;--butter:#8C7D36;--rose:#7C4A58;--wine:#D27382;--thread:#F0A3BC;--tape:#E2CA62;--tape-ink:#2E2A1C;color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#13141D;--surface:#1C1E2B;--ink:#EDEFF9;--muted:#A2A7C2;--line:#2D3044;--peri:#34406E;--peri-soft:#232843;--accent:#AFBDF4;--on-accent:#13141D;--butter:#8C7D36;--rose:#7C4A58;--wine:#D27382;--thread:#F0A3BC;color-scheme:dark}
+  --bg:#13141D;--surface:#1C1E2B;--ink:#EDEFF9;--muted:#A2A7C2;--line:#2D3044;--peri:#34406E;--peri-soft:#232843;--accent:#AFBDF4;--on-accent:#13141D;--butter:#8C7D36;--rose:#7C4A58;--wine:#D27382;--thread:#F0A3BC;--tape:#E2CA62;--tape-ink:#2E2A1C;color-scheme:dark}
 
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;margin:0;overflow-x:hidden}
@@ -59,13 +60,11 @@ button{font-family:var(--body)}
 .btn.sm{padding:10px 16px;font-size:14px}
 .btn svg{width:18px;height:18px;flex:none}
 .link{background:none;border:0;padding:0;font:inherit;color:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
-.script{font-family:var(--script);font-weight:400;color:var(--thread);letter-spacing:.01em}
 
 /* шапка */
 .topline{background:var(--ink);color:var(--bg);font-size:13px;font-weight:700;text-align:center;padding-block:8px}
-.topline .wrap{display:flex;justify-content:center;gap:8px 22px;flex-wrap:wrap}
-.topline i{font-style:normal;opacity:.55}
-@media (max-width:520px){.topline i{display:none}.topline .wrap{gap:2px}}
+.topline .wrap{display:flex;justify-content:center;gap:8px 44px;flex-wrap:wrap}
+@media (max-width:520px){.topline .wrap{gap:2px}}
 header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 header .wrap{display:flex;align-items:center;gap:22px;padding-block:12px}
 .logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:.01em}
@@ -88,9 +87,12 @@ header .btn{margin-left:4px}
 .t-main > *{position:relative;z-index:1}
 .t-main .tagrow{display:flex;flex-wrap:wrap;gap:8px}
 .chip{display:inline-flex;align-items:center;gap:6px;background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:800}
-.chip .dot{width:8px;height:8px;border-radius:50%;background:var(--thread)}
 .t-main h1{font-size:clamp(36px,5vw,60px);line-height:1.02;margin-top:4px}
-.t-main .script{font-size:clamp(26px,3.2vw,36px);display:block;margin-top:10px;transform:rotate(-2deg);transform-origin:left;text-shadow:0 1px 0 color-mix(in srgb,var(--surface) 60%,transparent)}
+.seam{background-image:linear-gradient(90deg,var(--thread) 0 9px,transparent 9px 15px);background-size:15px 3px;background-repeat:repeat-x;background-position:0 94%;padding-bottom:6px;white-space:nowrap;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.tape{position:relative;display:flex;justify-content:space-between;align-items:flex-end;gap:10px;height:42px;max-width:430px;margin-top:22px;padding:0 6px 6px 14px;border-radius:4px;transform:rotate(-1.6deg);transform-origin:left;color:var(--tape-ink);font-size:12.5px;font-weight:800;
+  background:repeating-linear-gradient(90deg,var(--tape-ink) 0 1.5px,transparent 1.5px 50px) 14px 0/calc(100% - 14px) 15px no-repeat,repeating-linear-gradient(90deg,color-mix(in srgb,var(--tape-ink) 70%,transparent) 0 1px,transparent 1px 10px) 14px 0/calc(100% - 14px) 8px no-repeat,var(--tape);
+  box-shadow:0 8px 18px rgb(30 34 60 / .14)}
+.tape b{background:var(--surface);color:var(--ink);border-radius:999px;padding:2px 10px;font-variant-numeric:tabular-nums}
 .t-main .sub{font-size:clamp(16px,1.6vw,18.5px);max-width:40ch;margin-top:16px;font-weight:600}
 .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
 .cta .btn.ghost{background:color-mix(in srgb,var(--surface) 55%,transparent);box-shadow:none}
@@ -99,17 +101,19 @@ header .btn{margin-left:4px}
 .facts span{display:block;font-size:13px;color:color-mix(in srgb,var(--ink) 72%,transparent);margin-top:4px;line-height:1.35}
 
 .t-photo{position:relative;border-radius:34px;overflow:hidden;background:#F6F5F2;min-height:590px}
-.t-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .35s}
-.t-photo img.fade{opacity:0}
-.t-photo .coll{position:absolute;top:18px;left:18px;z-index:2}
-.t-photo .size{position:absolute;top:18px;right:18px;z-index:2;background:var(--ink);color:var(--bg);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:800}
+.t-photo > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .35s}
+.t-photo > img.fade{opacity:0}
+.t-photo .size{position:absolute;top:20px;left:20px;z-index:2;background:var(--ink);color:var(--bg);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:800}
 .panel{position:absolute;left:14px;right:14px;bottom:14px;z-index:2;background:var(--surface);border-radius:24px;padding:14px 14px 14px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;box-shadow:0 14px 40px rgb(30 34 60 / .12)}
 .panel .info{flex:1;min-width:170px;display:grid;gap:2px}
 .panel .name{font-family:var(--display);font-weight:700;font-size:17px;line-height:1.25}
 .panel .spec{font-size:13.5px;color:var(--muted)}
-.arrows{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums}
-.arrows button{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font-size:17px;cursor:pointer}
-.arrows button:hover{border-color:var(--ink)}
+.thumbs{position:absolute;top:14px;right:14px;z-index:2;display:flex;gap:6px;padding:6px;border-radius:20px;background:color-mix(in srgb,var(--surface) 82%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.panel .coll{font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--thread)}
+.thumbs button{width:46px;height:46px;border-radius:13px;border:0;padding:0;overflow:hidden;cursor:pointer;background:#F6F5F2;box-shadow:0 0 0 1.5px var(--line);opacity:.65;transition:opacity .2s,box-shadow .2s}
+.thumbs button:hover{opacity:1}
+.thumbs button[aria-pressed="true"]{opacity:1;box-shadow:0 0 0 2px var(--surface),0 0 0 4px var(--ink)}
+.thumbs img{width:100%;height:100%;object-fit:cover;display:block}
 
 .pick{grid-column:1/-1;background:var(--surface);border-radius:28px;padding:16px;display:grid;grid-template-columns:minmax(150px,1.1fr) repeat(4,minmax(0,1fr)) auto;gap:12px;align-items:end;border:1px solid var(--line)}
 .pick .lbl{font-family:var(--display);font-weight:700;font-size:17px;line-height:1.25;padding:0 6px 8px}
@@ -123,7 +127,7 @@ select:focus,input:focus{border-color:var(--accent);outline:none}
 .pick .own span{font-size:14px;color:var(--muted);font-weight:700}
 @media (max-width:1020px){.pick{grid-template-columns:repeat(2,minmax(0,1fr))}.pick .lbl{grid-column:1/-1;padding-bottom:0}.pick .btn{grid-column:1/-1}.pick .own{grid-column:1/-1}}
 @media (max-width:860px){.hero{grid-template-columns:1fr}.t-main{min-height:0}.t-photo{min-height:0;aspect-ratio:1/1.05;max-width:100%}}
-@media (max-width:520px){.facts{grid-template-columns:1fr;gap:10px}.facts div{display:flex;gap:10px;align-items:baseline}.facts span{margin:0}.pick{grid-template-columns:1fr}.t-photo{aspect-ratio:4/5}}
+@media (max-width:520px){.t-photo .size{display:none}.thumbs{left:50%;right:auto;transform:translateX(-50%)}.thumbs button{width:40px;height:40px;border-radius:11px}.facts{grid-template-columns:1fr;gap:10px}.facts div{display:flex;gap:10px;align-items:baseline}.facts span{margin:0}.pick{grid-template-columns:1fr}.t-photo{aspect-ratio:4/5}}
 
 /* структура */
 section{padding-block:56px}
@@ -215,6 +219,7 @@ section{padding-block:56px}
 
 footer{padding-block:36px 44px;font-size:14px;color:var(--muted)}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
+.flinks{display:flex;flex-wrap:wrap;gap:6px 18px}
 .sign{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap}
 .sign b{font-family:var(--display);font-weight:700;letter-spacing:.08em;color:var(--ink)}
 .socials{display:flex;gap:8px}
@@ -240,7 +245,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-ite
 <body>
 
 
-<div class="topline"><div class="wrap"><span>При заказе от 5&nbsp;000&nbsp;₽ стикер-пак в&nbsp;подарок</span><i aria-hidden="true">·</i><span>Шьём по&nbsp;вашим размерам</span></div></div>
+<div class="topline"><div class="wrap"><span>При заказе от 5&nbsp;000&nbsp;₽ стикер-пак в&nbsp;подарок</span><span>Шьём по&nbsp;вашим размерам</span></div></div>
 <header>
   <div class="wrap">
     <a class="logo" href="#top" aria-label="Адая"><span class="mark" aria-hidden="true">a.</span>adaya</a>
@@ -254,10 +259,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-ite
 
 <section class="wrap hero" style="padding-block:14px 10px">
   <div class="t-main">
-    <div class="tagrow"><span class="chip"><span class="dot"></span>Ручная работа</span><span class="chip">Екатеринбург</span><span class="chip">Есть в&nbsp;Золотом яблоке</span></div>
+    <div class="tagrow"><span class="chip">Ручная работа</span><span class="chip">Екатеринбург</span><span class="chip">Есть в&nbsp;Золотом яблоке</span></div>
     <div>
-      <h1>Папка для ноутбука, сшитая по&nbsp;его размеру</h1>
-      <span class="script">нежность. стиль. ручная работа</span>
+      <h1>Папка для ноутбука, сшитая <span class="seam">по&nbsp;его размеру</span></h1>
+      <div class="tape" aria-hidden="true"><span>MacBook Air 13″</span><b>30,41 см</b></div>
       <p class="sub">И&nbsp;косметички к&nbsp;ней в&nbsp;пару. Вышьем имя, инициалы, болид из&nbsp;Баку или гранат из&nbsp;Стамбула.</p>
       <div class="cta"><a class="btn" href="#pick">Подобрать по&nbsp;размеру</a><a class="btn ghost" href="#s-korp">Подарки для команды</a></div>
     </div>
@@ -270,11 +275,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-ite
 
   <div class="t-photo" aria-live="polite">
     <img id="ph" src="img/baku.jpg" alt="">
-    <span class="chip coll" id="p-coll"><span class="dot"></span><span></span></span>
     <span class="size" id="p-size"></span>
+    <div class="thumbs" id="thumbs" role="group" aria-label="Изделия"></div>
     <div class="panel">
-      <div class="info"><span class="name" id="p-name"></span><span class="spec" id="p-spec"></span></div>
-      <div class="arrows"><button type="button" id="prev" aria-label="Предыдущее изделие">←</button><span id="p-n"></span><button type="button" id="next" aria-label="Следующее изделие">→</button></div>
+      <div class="info"><span class="coll" id="p-coll"></span><span class="name" id="p-name"></span><span class="spec" id="p-spec"></span></div>
       <button type="button" class="btn sm accent" id="p-want">Хочу такую</button>
     </div>
   </div>
@@ -308,7 +312,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-ite
 
 <article class="blk" id="s-glavnyi">
   <div class="wf" style="grid-template-columns:1fr 1fr;grid-template-rows:1fr auto">
-    <div class="peri" style="padding:10px;display:grid;gap:6px;align-content:end"><span class="ln" style="width:90%;height:9px;background:var(--ink)"></span><span class="ln" style="width:70%;height:9px;background:var(--ink)"></span><span class="script" style="font-size:13px;line-height:1">нежность. стиль</span><span class="pl" style="width:60%;height:16px;background:var(--ink);border-color:var(--ink);margin-top:4px"></span></div>
+    <div class="peri" style="padding:10px;display:grid;gap:6px;align-content:end"><span class="ln" style="width:90%;height:9px;background:var(--ink)"></span><span class="ln" style="width:70%;height:9px;background:var(--ink)"></span><span style="display:block;width:62%;height:9px;border-radius:2px;background:var(--tape);transform:rotate(-2deg)"></span><span class="pl" style="width:60%;height:16px;background:var(--ink);border-color:var(--ink);margin-top:4px"></span></div>
     <div class="ph" style="background-image:url(img/baku.jpg);position:relative"><span class="pl" style="position:absolute;left:6px;right:6px;bottom:6px;height:22px"></span></div>
     <div style="grid-column:1/-1;background:var(--surface);border-radius:10px;padding:5px;display:grid;grid-template-columns:repeat(4,1fr) .8fr;gap:5px"><span class="pl"></span><span class="pl"></span><span class="pl"></span><span class="pl"></span><span class="pl a"></span></div>
   </div>
@@ -356,7 +360,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-ite
 <div class="wrap" style="padding-bottom:14px">
 <article class="corp" id="s-korp">
   <div class="corp-top">
-    <div><span class="no">05 · Корпоративные заказы</span><h3>Подарки команде с&nbsp;логотипом за&nbsp;5&nbsp;вопросов</h3><p>Компания отвечает на&nbsp;пять вопросов, а&nbsp;вам приходит готовый запрос: изделия, тираж, оформление, цвета и&nbsp;дата. Попробуйте, всё нажимается.</p></div>
+    <div><span class="no">05</span><span class="eyebrow" style="margin-left:10px">Корпоративные заказы</span><h3>Подарки команде с&nbsp;логотипом за&nbsp;5&nbsp;вопросов</h3><p>Компания отвечает на&nbsp;пять вопросов, а&nbsp;вам приходит готовый запрос: изделия, тираж, оформление, цвета и&nbsp;дата. Попробуйте, всё нажимается.</p></div>
     <span class="live">Работает в&nbsp;наброске</span>
   </div>
   <div class="corp-grid">
@@ -388,7 +392,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-ite
       <span style="position:absolute;inset:7px;border:1.5px dashed rgb(255 255 255 / .8);border-radius:9px"></span>
       <span style="position:absolute;left:0;right:0;top:44%;height:10px;background:var(--rose)"></span>
       <span style="position:absolute;top:0;bottom:0;left:22%;width:10px;background:var(--rose)"></span>
-      <div style="position:relative;background:var(--surface);border-radius:10px;padding:8px 14px;text-align:center;display:grid;gap:2px"><span style="font-family:var(--display);font-weight:700;font-size:15px">a.</span><span class="script" style="font-size:15px;line-height:1">папка по&nbsp;размеру</span><span class="tiny">сертификат</span></div>
+      <div style="position:relative;background:var(--surface);border-radius:10px;padding:8px 14px;text-align:center;display:grid;gap:2px"><span style="font-family:var(--display);font-weight:700;font-size:15px">a.</span><span style="font-family:var(--display);font-weight:700;font-size:12px;line-height:1.2;color:var(--thread)">папка по&nbsp;размеру</span><span class="tiny">сертификат</span></div>
     </div>
   </div>
   <div class="txt"><span class="no">06</span><h3>Подарок к&nbsp;Новому году</h3><p class="why">Сертификат на&nbsp;папку по&nbsp;размеру: дарят, даже не&nbsp;зная модель ноутбука</p><ul><li>Сертификат в&nbsp;коробке</li><li>Получатель сам выбирает цвет и&nbsp;вышивку</li><li>Последний день заказа к&nbsp;31 декабря</li></ul></div>
@@ -462,7 +466,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-ite
 
 <footer>
   <div class="wrap">
-    <span>Подготовила Анастасия Абдуллаева · <button type="button" class="link" data-doc="politika">Политика</button> · <button type="button" class="link" data-doc="soglasie">Согласие на&nbsp;обработку данных</button></span>
+    <span class="flinks"><span>Подготовила Анастасия Абдуллаева</span><button type="button" class="link" data-doc="politika">Политика</button><button type="button" class="link" data-doc="soglasie">Согласие на&nbsp;обработку данных</button></span>
     <span class="sign"><span><b>FOR.MI</b> designed &amp; developed by ABN</span><span class="socials" id="dev-socials"></span></span>
   </div>
 </footer>
@@ -492,10 +496,10 @@ const SHOP={
 };
 /* изделия из постов: названия описательные, как называете модели — уточнить */
 const ITEMS=[
-  {img:"img/baku.jpg",coll:"Коллекция F1",name:"Папка-конверт с вышивкой BAKU",spec:"Стёжка полосами · розовый болид",size:"по размеру ноутбука",alt:"Белая стёганая папка-конверт для ноутбука с вышивкой BAKU и розовым болидом"},
-  {img:"img/granat.jpg",coll:"Welcome to Istanbul",name:"Косметичка с вышивкой граната",spec:"Бордовая · стёжка ромбом",size:"косметичка",alt:"Бордовая стёганая косметичка с вышитыми гранатами"},
-  {img:"img/simit.jpg",coll:"Welcome to Istanbul",name:"Косметичка в клетку с симитом",spec:"Красная клетка · вышитый бублик-симит",size:"косметичка",alt:"Косметичка в красно-белую клетку с вышитым турецким бубликом"},
-  {img:"img/mama.jpg",coll:"День матери",name:"Папка на молнии «С днём мам»",spec:"Бежевая · гусыня с гусёнком",size:"по размеру ноутбука",alt:"Бежевая стёганая папка на молнии с вышивкой гусыни и надписью «с днём мам»"}
+  {img:"img/baku.jpg",coll:"Коллекция F1",name:"Папка-конверт с вышивкой BAKU",spec:"Стёжка полосами, розовый болид",size:"по размеру ноутбука",alt:"Белая стёганая папка-конверт для ноутбука с вышивкой BAKU и розовым болидом"},
+  {img:"img/granat.jpg",coll:"Welcome to Istanbul",name:"Косметичка с вышивкой граната",spec:"Бордовая, стёжка ромбом",size:"косметичка",alt:"Бордовая стёганая косметичка с вышитыми гранатами"},
+  {img:"img/simit.jpg",coll:"Welcome to Istanbul",name:"Косметичка в клетку с симитом",spec:"Красная клетка, вышитый бублик-симит",size:"косметичка",alt:"Косметичка в красно-белую клетку с вышитым турецким бубликом"},
+  {img:"img/mama.jpg",coll:"День матери",name:"Папка на молнии «С днём мам»",spec:"Бежевая, гусыня с гусёнком",size:"по размеру ноутбука",alt:"Бежевая стёганая папка на молнии с вышивкой гусыни и надписью «с днём мам»"}
 ];
 /* размеры ноутбуков: ширина × глубина × толщина, см (данные производителя) */
 const LAPTOPS=[
@@ -517,13 +521,13 @@ function show(k){
   cur=(k+ITEMS.length)%ITEMS.length;const m=ITEMS[cur],ph=$("#ph");
   ph.classList.add("fade");
   setTimeout(()=>{ph.src=m.img;ph.alt=m.alt;ph.classList.remove("fade")},180);
-  $("#p-coll span:last-child").textContent=m.coll;
+  $("#p-coll").textContent=m.coll;
   $("#p-name").textContent=m.name;$("#p-spec").textContent=m.spec;$("#p-size").textContent=m.size;
-  $("#p-n").textContent=(cur+1)+" / "+ITEMS.length;
+  $("#thumbs").querySelectorAll("button").forEach((b,i)=>b.setAttribute("aria-pressed",String(i===cur)));
 }
+$("#thumbs").innerHTML=ITEMS.map((m,i)=>`<button type="button" data-i="${i}" aria-label="${esc(m.name)}" aria-pressed="false"><img src="${m.img}" alt=""></button>`).join("");
+$("#thumbs").addEventListener("click",e=>{const b=e.target.closest("[data-i]");if(b&&+b.dataset.i!==cur)show(+b.dataset.i)});
 $("#ph").alt=ITEMS[0].alt;show(0);
-$("#prev").onclick=()=>show(cur-1);
-$("#next").onclick=()=>show(cur+1);
 
 /* подбор по размеру */
 $("#f-laptop").innerHTML=LAPTOPS.map(([n,s])=>`<option value="${esc(n)}">${esc(n)}</option>`).join("");
@@ -568,7 +572,7 @@ function corpLines(){
 function renderCorp(sent){
   const company=$("#c-company").value.trim(),name=$("#c-name").value.trim(),phone=$("#c-phone").value.trim();
   const lines=corpLines();
-  $("#corpmsg").innerHTML=`<span class="t">${sent?"Новый запрос от компании":"Черновик запроса"}${company?" · "+esc(company):""}</span><dl>${lines.map(([k,v])=>`<dt>${esc(k)}</dt><dd class="${v?"":"empty"}">${v?esc(v):"не выбрано"}</dd>`).join("")}<dt>Контакт</dt><dd class="${name||phone?"":"empty"}">${name||phone?esc([name,phone].filter(Boolean).join(", ")):"появится после заполнения"}</dd></dl><span class="time">${sent?"только что":"обновляется по ходу ответов"}</span>`;
+  $("#corpmsg").innerHTML=`<span class="t">${sent?"Новый запрос от компании":"Черновик запроса"}</span><dl>${company?`<dt>Компания</dt><dd>${esc(company)}</dd>`:""}${lines.map(([k,v])=>`<dt>${esc(k)}</dt><dd class="${v?"":"empty"}">${v?esc(v):"не выбрано"}</dd>`).join("")}<dt>Контакт</dt><dd class="${name||phone?"":"empty"}">${name||phone?esc([name,phone].filter(Boolean).join(", ")):"появится после заполнения"}</dd></dl><span class="time">${sent?"только что":"обновляется по ходу ответов"}</span>`;
 }
 document.querySelectorAll(".opts").forEach(g=>g.addEventListener("click",e=>{
   const b=e.target.closest(".opt");if(!b)return;
