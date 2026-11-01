@@ -297,6 +297,24 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-ite
 .dock .sq{width:50px;padding:0}
 @media (max-width:760px){.dock{display:flex}}
 
+/* окно «Отправить, где я» */
+.sheet{position:fixed;z-index:55;left:50%;transform:translateX(-50%);bottom:calc(80px + env(safe-area-inset-bottom,0px));width:min(460px,calc(100% - 24px));max-height:calc(100% - 110px);overflow:auto;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:0 24px 60px rgb(0 0 0 / .35)}
+@media (min-width:761px){.sheet{bottom:calc(24px + env(safe-area-inset-bottom,0px))}}
+.sh-body{display:grid;gap:12px}
+.sh-head{display:flex;align-items:center;gap:12px;padding-right:40px}
+.sh-head h3{font-family:var(--display);font-weight:700;font-size:21px;line-height:1.2}
+.sheet p{font-size:15px;color:var(--muted)}
+.sheet p b{color:var(--ink)}
+.sheet .btn{width:100%}
+.sh-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sh-row .btn{padding:12px 10px;font-size:14.5px;white-space:normal}
+.sheet-x{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:20px;line-height:1;cursor:pointer}
+.spin{width:26px;height:26px;flex:none;border-radius:50%;border:3px solid var(--line);border-top-color:var(--signal);animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.sh-ic{width:28px;height:28px;flex:none;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:15px}
+.sh-ic.ok{background:var(--wa);color:var(--on-msg)}
+.sh-ic.no{background:var(--signal);color:var(--on-signal)}
+
 /* подсказка */
 .toast{position:fixed;white-space:pre-line;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:60;background:var(--ink);color:var(--bg);padding:12px 18px;border-radius:14px;font-weight:600;font-size:14.5px;width:max-content;max-width:calc(100% - 32px);text-align:center;box-shadow:0 14px 34px rgb(0 0 0 / .3)}
 @media (min-width:761px){.toast{bottom:calc(24px + env(safe-area-inset-bottom,0px))}}
@@ -388,7 +406,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-ite
           </div>
           <div class="total"><span id="total-lbl">Ориентир по&nbsp;тарифу</span><b id="total">15&nbsp;000&nbsp;₽</b></div>
           <p class="note">Точную сумму водитель назовёт по&nbsp;телефону до&nbsp;выезда.</p>
-          <button type="submit" class="btn wa"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>Отправить расчёт в&nbsp;WhatsApp</button>
+          <a class="btn wa" id="calc-send" href="https://wa.me/79785442676" target="_blank" rel="noopener" data-goal="calc_whatsapp"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>Отправить расчёт в&nbsp;WhatsApp</a>
         </form>
       </div>
     </div>
@@ -498,7 +516,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-ite
         <details><summary>Повезёте бус или мотоцикл?</summary><p>Да. Легковые, бусы, минивэны и&nbsp;мотоциклы, всё, что весит до&nbsp;3,5&nbsp;тонны.</p></details>
         <details><summary>Ездите через Крымский мост?</summary><p>Да, возим по&nbsp;Крыму и&nbsp;на&nbsp;материк. За&nbsp;городом считаем 150&nbsp;₽ за&nbsp;километр.</p></details>
         <details><summary>Работаете ночью?</summary><p>Да, круглосуточно. Звоните в&nbsp;любое время.</p></details>
-        <details><summary>Как показать, где я&nbsp;стою?</summary><p>Нажмите «Отправить, где я». Телефон спросит доступ к&nbsp;геолокации, и&nbsp;откроется WhatsApp с&nbsp;готовым сообщением и&nbsp;точкой на&nbsp;карте. Останется нажать «Отправить». Если геолокация выключена, отправьте точку в&nbsp;самом WhatsApp: скрепка → «Местоположение».</p></details>
+        <details><summary>Как показать, где я&nbsp;стою?</summary><p>Нажмите «Отправить, где я». Телефон спросит доступ к&nbsp;геолокации, а&nbsp;сайт покажет кнопку «Отправить точку в&nbsp;WhatsApp». В&nbsp;чате уже будет сообщение с&nbsp;точкой на&nbsp;карте, останется нажать «Отправить». Если геолокация выключена, отправьте точку в&nbsp;самом WhatsApp: скрепка → «Местоположение».</p></details>
       </div>
     </div>
   </section>
@@ -524,7 +542,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-ite
       <div class="how">
         <h3>Сломались за&nbsp;городом?</h3>
         <p>Ориентиры искать не&nbsp;нужно. Пришлите точку, и&nbsp;водитель откроет её&nbsp;в&nbsp;навигаторе.</p>
-        <ol><li>Нажмите «Отправить, где я»</li><li>Разрешите телефону доступ к&nbsp;геолокации</li><li>В&nbsp;WhatsApp уже будет сообщение с&nbsp;точкой на&nbsp;карте, нажмите «Отправить»</li></ol>
+        <ol><li>Нажмите «Отправить, где я»</li><li>Разрешите телефону доступ к&nbsp;геолокации</li><li>Нажмите «Отправить точку в&nbsp;WhatsApp», в&nbsp;чате уже будет сообщение с&nbsp;точкой</li></ol>
         <button type="button" class="btn call" data-geo><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg>Отправить, где я</button>
         <a class="btn line" href="evakuator-dzhankoy.vcf" download="Эвакуатор Джанкой.vcf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="8" r="3.5"/><path d="M3.5 19.5c.8-3.4 3.4-5.5 6.5-5.5s5.7 2.1 6.5 5.5M19 8v6M16 11h6"/></svg>Сохранить номер в&nbsp;контакты</a>
       </div>
@@ -544,6 +562,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-ite
   <a class="btn wa sq" href="https://wa.me/79785442676" target="_blank" rel="noopener" data-wa aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg></a>
   <a class="btn tg sq" href="https://t.me/abdu_laev" target="_blank" rel="noopener" data-tg aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tg"/></svg></a>
 </div>
+
+<div class="sheet" id="geo" role="dialog" aria-labelledby="geo-t" hidden><button type="button" class="sheet-x" id="geo-x" aria-label="Закрыть">×</button><div class="sh-body" id="geo-body" aria-live="polite"></div></div>
 
 <div class="toast" id="toast" role="status" hidden></div>
 
@@ -582,7 +602,8 @@ if(TOW.metrika){
 function goal(name){try{if(TOW.metrika&&window.ym)ym(Number(TOW.metrika),"reachGoal",name)}catch(e){}}
 document.addEventListener("click",e=>{
   const a=e.target.closest("a");if(!a)return;
-  if(a.matches('a[href^="tel:"]'))goal("call");
+  if(a.dataset.goal)goal(a.dataset.goal);
+  else if(a.matches('a[href^="tel:"]'))goal("call");
   else if(a.matches("a[data-wa]"))goal("whatsapp");
   else if(a.matches("a[data-tg]"))goal("telegram");
   else if(a.matches('a[href$=".vcf"]'))goal("save_contact");
@@ -615,39 +636,82 @@ function calc(){
   const sum=far?Number(km.value)*TOW.perKm:TOW.cityPrice;
   $("#total").textContent=rub(sum);
   $("#total-lbl").textContent=far?`${km.value} км × ${TOW.perKm} ₽`:"Весь выезд по городу";
+  const car=$("input[name=car]:checked").value;
+  $("#calc-send").href=waLink([HELLO,`Машина: ${car}`,far?`За город, примерно ${km.value} км`:"По Джанкою",`Ориентир с сайта: ${rub(sum).replace(/\u00A0/g," ")}`].join("\n"));
   return sum;
 }
 $("#calc").addEventListener("input",calc);
 $$("[data-km]").forEach(b=>b.addEventListener("click",()=>{km.value=b.dataset.km;calc()}));
+$("#calc").addEventListener("submit",e=>e.preventDefault());
 calc();
-$("#calc").addEventListener("submit",e=>{
-  e.preventDefault();
-  const car=$("input[name=car]:checked").value,far=$("input[name=where]:checked").value==="far";
-  const text=[HELLO,`Машина: ${car}`,far?`За город, примерно ${km.value} км`:"По Джанкою",`Ориентир с сайта: ${rub(calc()).replace(/ /g," ")}`].join("\n");
-  goal("calc_whatsapp");
-  const w=window.open(waLink(text),"_blank");
-  if(!w)location.href=waLink(text);
-});
 
-/* «Отправить, где я»: геолокация → WhatsApp с точкой на карте */
-function sendWithoutGeo(reason){
-  goal("geo_fallback");
-  toast(`${reason}\nОткрываем WhatsApp: отправьте точку через скрепку → «Местоположение»`,4200);
-  setTimeout(()=>{location.href=waLink(HELLO+" Сейчас отправлю, где я.")},2200);
+/* «Отправить, где я»: окно с понятными шагами. WhatsApp открывается обычной кнопкой по нажатию,
+   поэтому работает и на iPhone, и во встроенных браузерах */
+const UA=navigator.userAgent;
+const IS_IOS=/iPhone|iPad|iPod/.test(UA)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
+const IN_APP=/Instagram|FBAN|FBAV|Telegram|VKClient|OKApp|Line\//i.test(UA);
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const ICON=id=>`<svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-${id}"/></svg>`;
+const sheet=$("#geo");
+let geoRun=0;
+
+function showSheet(html){$("#geo-body").innerHTML=html;sheet.hidden=false}
+function closeSheet(){sheet.hidden=true;geoRun++}
+$("#geo-x").addEventListener("click",closeSheet);
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!sheet.hidden)closeSheet()});
+
+const fallbackActions=()=>`
+  <a class="btn wa" href="${esc(waLink(HELLO+" Сейчас отправлю, где я."))}" target="_blank" rel="noopener" data-goal="geo_fallback">${ICON("wa")}Открыть WhatsApp</a>
+  <div class="sh-row"><button type="button" class="btn line" data-geo-retry>Попробовать ещё раз</button><a class="btn line" href="tel:+79785442676">${ICON("phone")}Позвонить</a></div>`;
+const manualHint=`Или отправьте точку в&nbsp;самом WhatsApp: скрепка → <b>«Местоположение»</b>.`;
+function permissionHint(){
+  if(IN_APP)return `Сайт открыт внутри приложения, и&nbsp;оно не&nbsp;даёт определить место. Откройте сайт в&nbsp;Safari или Chrome: меню <b>···</b> → <b>«Открыть в&nbsp;браузере»</b>.`;
+  if(IS_IOS)return `Разрешите доступ: <b>Настройки → Конфиденциальность → Службы геолокации</b>, включите их, а&nbsp;для Safari выберите <b>«При использовании»</b>. Потом нажмите «Попробовать ещё раз».`;
+  return `Нажмите на&nbsp;значок слева от&nbsp;адреса сайта → <b>Разрешения → Местоположение → Разрешить</b>. Потом нажмите «Попробовать ещё раз».`;
 }
-$$("[data-geo]").forEach(b=>b.addEventListener("click",()=>{
-  if(!("geolocation" in navigator))return sendWithoutGeo("Телефон не даёт определить место.");
-  b.disabled=true;toast("Определяем, где вы…",12000);
-  navigator.geolocation.getCurrentPosition(pos=>{
-    const la=pos.coords.latitude.toFixed(6),lo=pos.coords.longitude.toFixed(6);
-    const text=[HELLO,`Я здесь: https://yandex.ru/maps/?pt=${lo},${la}&z=17&l=map`,`Координаты: ${la}, ${lo}`].join("\n");
-    b.disabled=false;toast("Открываем WhatsApp с вашей точкой",2000);goal("geo_whatsapp");
-    location.href=waLink(text);
-  },err=>{
-    b.disabled=false;
-    sendWithoutGeo(err.code===1?"Доступ к геолокации запрещён.":"Не получилось определить место.");
-  },{enableHighAccuracy:true,timeout:12000,maximumAge:60000});
-}));
+const VIEWS={
+  wait:()=>`<div class="sh-head"><span class="spin" aria-hidden="true"></span><h3 id="geo-t">Определяем, где вы…</h3></div>
+    <p>Если телефон спросит доступ к&nbsp;геолокации, нажмите <b>«Разрешить»</b>.</p>`,
+  found:d=>`<div class="sh-head"><span class="sh-ic ok" aria-hidden="true">✓</span><h3 id="geo-t">Место найдено</h3></div>
+    <p>Точность около ${d.acc}&nbsp;м. Нажмите кнопку: в&nbsp;WhatsApp уже будет сообщение с&nbsp;точкой на&nbsp;карте, останется нажать «Отправить».</p>
+    ${d.acc>1000?`<p>Точность низкая. Включите GPS и&nbsp;нажмите «Ещё раз» или уточните место в&nbsp;чате.</p>`:""}
+    <a class="btn wa" href="${esc(waLink(d.text))}" target="_blank" rel="noopener" data-goal="geo_whatsapp">${ICON("wa")}Отправить точку в&nbsp;WhatsApp</a>
+    <div class="sh-row"><button type="button" class="btn line" data-copy="${esc(d.la+", "+d.lo)}">Скопировать координаты</button><a class="btn line" href="${esc(d.map)}" target="_blank" rel="noopener">Проверить на&nbsp;карте</a></div>
+    ${d.acc>1000?`<button type="button" class="btn line" data-geo-retry>Ещё раз</button>`:""}`,
+  denied:()=>`<div class="sh-head"><span class="sh-ic no" aria-hidden="true">!</span><h3 id="geo-t">Нет доступа к&nbsp;геолокации</h3></div>
+    <p>${permissionHint()}</p><p>${manualHint}</p>${fallbackActions()}`,
+  nogps:()=>`<div class="sh-head"><span class="sh-ic no" aria-hidden="true">!</span><h3 id="geo-t">Телефон не&nbsp;смог определить место</h3></div>
+    <p>Проверьте, что геолокация (GPS) включена, и&nbsp;попробуйте ещё раз.</p><p>${manualHint}</p>${fallbackActions()}`,
+  nosupport:()=>`<div class="sh-head"><span class="sh-ic no" aria-hidden="true">!</span><h3 id="geo-t">Браузер не&nbsp;умеет определять место</h3></div>
+    <p>${IN_APP?permissionHint():"Откройте сайт в&nbsp;Safari или Chrome."}</p><p>${manualHint}</p>${fallbackActions()}`
+};
+function locate(){
+  const run=++geoRun;
+  showSheet(VIEWS.wait());
+  if(!("geolocation" in navigator)||window.isSecureContext===false)return showSheet(VIEWS.nosupport());
+  const found=pos=>{
+    if(run!==geoRun)return;
+    const la=pos.coords.latitude.toFixed(6),lo=pos.coords.longitude.toFixed(6),acc=Math.max(1,Math.round(pos.coords.accuracy||0));
+    const map=`https://yandex.ru/maps/?pt=${lo},${la}&z=17&l=map`;
+    const text=[HELLO,`Я здесь: ${map}`,`Координаты: ${la}, ${lo}`].join("\n");
+    showSheet(VIEWS.found({la,lo,acc,map,text}));
+  };
+  /* сначала точно (GPS), если не вышло за 10 секунд, то по сети */
+  const ask=high=>navigator.geolocation.getCurrentPosition(found,err=>{
+    if(run!==geoRun)return;
+    if(err.code===1)return showSheet(VIEWS.denied());
+    if(high)return ask(false);
+    showSheet(VIEWS.nogps());
+  },high?{enableHighAccuracy:true,timeout:10000,maximumAge:30000}:{enableHighAccuracy:false,timeout:12000,maximumAge:600000});
+  ask(true);
+}
+$$("[data-geo]").forEach(b=>b.addEventListener("click",locate));
+sheet.addEventListener("click",e=>{
+  if(e.target.closest("[data-geo-retry]"))return locate();
+  const c=e.target.closest("[data-copy]");
+  if(c){const t=c.dataset.copy,done=()=>{c.textContent="Скопировано"};
+    try{navigator.clipboard.writeText(t).then(done,()=>{c.textContent=t})}catch(err){c.textContent=t}}
+});
 </script>
 
 </body>
