@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Разбор для эвакуатора из Джанкоя: сильные стороны, кто ещё в поиске, задачи сайта и вопросы">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Сайт для эвакуатора из Джанкоя: рынок и конкуренты">
+<meta property="og:description" content="Сильные стороны, кто ещё в поиске по «эвакуатор Джанкой», что должен делать сайт и что в наброске">
+<meta property="og:image" content="https://mmaemi77-ctrl.github.io/Prototipfly/evakuator-dzhankoy/og-analiz.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<title>Эвакуатор Джанкой · анализ</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Jost:wght@500;600;700&display=swap">
+<style>
+/* Layout: разбор-документ в одну колонку. Шапка на «ночном» фоне с полоской маячка и фото выезда, дальше светлые разделы с пунктиром разметки; карточки только у отдельных объектов (конкуренты, переписка, идеи) */
+:root{
+  --bg:#EDF0F4;
+  --surface:#FFFFFF;
+  --ink:#0F1626;
+  --muted:#525C73;
+  --line:#D5DBE5;
+  --blue:#2441B8;
+  --blue-text:#2441B8;
+  --on-blue:#FFFFFF;
+  --tint:#E3E8FA;
+  --signal:#FF7A1A;
+  --on-signal:#1C0E02;
+  --night:#0B1020;
+  --night-2:#151C31;
+  --on-night:#EEF1F8;
+  --night-muted:#A3ACC4;
+  --night-line:#2A3350;
+  --chatbg:#E2E6EE;
+  --bubble:#D9F2DC;
+  --bubble-in:#FFFFFF;
+  --display:"Jost","Futura","Trebuchet MS",system-ui,sans-serif;
+  --body:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#090D17;--surface:#121A2B;--ink:#E8ECF4;--muted:#99A3BA;--line:#232C41;--blue:#4664E6;--blue-text:#93A6FF;--on-blue:#FFFFFF;--tint:#18234A;--signal:#FF8A33;--on-signal:#1C0E02;--night:#0E1630;--night-2:#18213D;--on-night:#EEF1F8;--night-muted:#A3ACC4;--night-line:#2E3858;--chatbg:#0F1524;--bubble:#173A22;--bubble-in:#1B2438;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#090D17;--surface:#121A2B;--ink:#E8ECF4;--muted:#99A3BA;--line:#232C41;--blue:#4664E6;--blue-text:#93A6FF;--on-blue:#FFFFFF;--tint:#18234A;--signal:#FF8A33;--on-signal:#1C0E02;--night:#0E1630;--night-2:#18213D;--on-night:#EEF1F8;--night-muted:#A3ACC4;--night-line:#2E3858;--chatbg:#0F1524;--bubble:#173A22;--bubble-in:#1B2438;color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.6;margin:0;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--night)}
+.wrap{max-width:880px;margin:0 auto;padding-left:max(clamp(16px,4vw,32px),env(safe-area-inset-left,0px));padding-right:max(clamp(16px,4vw,32px),env(safe-area-inset-right,0px))}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:14px;padding:15px 24px;font-weight:700;font-size:16px;text-decoration:none;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.signal{background:var(--signal);color:var(--on-signal)}
+.btn svg{width:18px;height:18px}
+
+/* шапка */
+.top{background:var(--night);color:var(--on-night);position:relative;overflow:hidden;isolation:isolate}
+.top::before{content:"";position:absolute;z-index:-1;width:900px;height:640px;right:-300px;top:-380px;background:radial-gradient(closest-side,color-mix(in srgb,var(--signal) 55%,transparent),transparent 70%);opacity:.45}
+.top .wrap{padding-block:clamp(32px,6vw,64px) clamp(32px,5vw,52px);display:grid;gap:20px}
+.bar{width:64px;height:7px;border-radius:4px;background:var(--signal);box-shadow:0 0 18px 3px color-mix(in srgb,var(--signal) 55%,transparent)}
+.top .eyebrow{color:var(--night-muted)}
+.top h1{font-family:var(--display);font-weight:700;font-size:clamp(34px,5.6vw,58px);line-height:1.02;letter-spacing:-.01em}
+.top p{max-width:58ch;font-size:clamp(17px,1.8vw,19px);color:var(--night-muted)}
+.top-ph{border-radius:22px;overflow:hidden;aspect-ratio:21/9;max-width:100%;background:var(--night-2) center 62%/cover no-repeat;margin-top:6px}
+@media (max-width:560px){.top-ph{aspect-ratio:16/10}}
+
+/* разделы */
+section{padding-block:clamp(36px,5vw,56px);background-image:repeating-linear-gradient(90deg,var(--line) 0 28px,transparent 28px 48px);background-size:100% 3px;background-repeat:no-repeat;background-position:0 100%}
+section:last-of-type{background:none}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(27px,3.4vw,38px);line-height:1.08;margin:8px 0 20px}
+h3{font-size:17.5px;font-weight:700;line-height:1.3}
+.lead{color:var(--muted);max-width:62ch;margin:-6px 0 22px}
+.list{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.list li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;align-items:start}
+.list li::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--signal);margin:9px 0 0 9px}
+.list.plus li::before{content:"✓";width:24px;height:24px;border-radius:50%;background:var(--tint);color:var(--blue-text);font-weight:700;font-size:13px;display:grid;place-items:center;margin:2px 0 0}
+.list b{font-weight:700}
+
+/* главное */
+.key{display:grid;counter-reset:k;background:var(--surface);border-radius:22px;border:1px solid var(--line);overflow:hidden}
+.key div{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;padding:18px 20px;border-bottom:1px solid var(--line)}
+.key div:last-child{border-bottom:0}
+.key div::before{counter-increment:k;content:counter(k);font-family:var(--display);font-weight:700;font-size:30px;line-height:1;color:var(--signal)}
+
+/* три вопроса */
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:2px solid var(--ink)}
+.three div{padding:14px 16px 0 0;display:grid;gap:4px;align-content:start}
+.three b{font-family:var(--display);font-weight:700;font-size:22px;line-height:1.15}
+.three span{font-size:15px;color:var(--muted)}
+.three em{font-style:normal;font-weight:700;color:var(--ink)}
+@media (max-width:600px){.three{grid-template-columns:1fr;gap:10px}}
+
+/* конкуренты */
+.comp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:680px){.comp{grid-template-columns:1fr}}
+.cc{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:18px 20px;display:grid;gap:8px;align-content:start;min-width:0}
+.cc .where{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.cc a{font-size:14px;font-weight:600;color:var(--blue-text);text-underline-offset:3px;word-break:break-all}
+.cc .links{display:flex;flex-wrap:wrap;gap:4px 14px}
+.cc p{font-size:15px;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.tags span{font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--bg);border:1px solid var(--line)}
+.small{font-size:13.5px;color:var(--muted);margin-top:14px}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px}
+@media (max-width:680px){.two{grid-template-columns:1fr}}
+.box{border-radius:20px;padding:20px;display:grid;gap:12px;align-content:start}
+.box.norm{background:var(--surface);border:1px solid var(--line)}
+.box.gap{background:var(--tint)}
+.box h3{font-family:var(--display);font-weight:700;font-size:21px}
+.box ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:15px}
+
+/* задачи */
+.tasks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 14px}
+@media (max-width:680px){.tasks{grid-template-columns:1fr}}
+.tasks div{border-top:2px solid var(--ink);padding-top:12px;display:grid;gap:4px}
+.tasks p{font-size:15px;color:var(--muted)}
+
+/* было и стало */
+.ba{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:680px){.ba{grid-template-columns:1fr}}
+.chat{background:var(--chatbg);border-radius:20px;padding:16px;display:grid;gap:8px;align-content:start}
+.chat .lbl{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.b{max-width:88%;padding:8px 12px;border-radius:14px;font-size:14.5px;line-height:1.45;white-space:pre-line}
+.b.in{justify-self:start;background:var(--bubble-in);border-bottom-left-radius:4px}
+.b.out{justify-self:end;background:var(--bubble);border-bottom-right-radius:4px}
+.b .pin{color:var(--blue-text);text-decoration:underline;text-underline-offset:2px}
+.chat .foot{font-size:13.5px;color:var(--muted);margin-top:6px}
+
+/* что в наброске */
+.draft{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,3vw,28px);display:grid;gap:20px}
+.draft ul{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+.draft li{display:grid;gap:2px;padding-left:16px;border-left:3px solid var(--blue)}
+.draft li span{font-size:15px;color:var(--muted)}
+.draft .btn{justify-self:start}
+@media (max-width:480px){.draft .btn{justify-self:stretch}}
+
+/* идеи */
+.ideas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:680px){.ideas{grid-template-columns:1fr}}
+.ideas div{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px 18px;display:grid;gap:4px;align-content:start}
+.ideas p{font-size:15px;color:var(--muted)}
+
+/* вопросы */
+.qlist{margin:0;padding-left:24px;display:grid;gap:10px}
+.qlist li::marker{font-weight:700;color:var(--signal)}
+
+footer{background:var(--night);color:var(--night-muted)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding-block:22px;font-size:13.5px}
+footer b{font-family:var(--display);font-weight:700;letter-spacing:.06em;color:var(--on-night)}
+.sign{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;color:var(--on-night)}
+.tg{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--night-2);color:var(--on-night)}
+.tg:hover{background:var(--on-night);color:var(--night)}
+.tg svg{width:15px;height:15px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap">
+    <span class="bar" aria-hidden="true"></span>
+    <div class="eyebrow">Разбор для эвакуатора из&nbsp;Джанкоя · 1&nbsp;ноября 2026</div>
+    <h1>Сайт для эвакуатора из&nbsp;Джанкоя: рынок, конкуренты и&nbsp;набросок</h1>
+    <p>Посмотрела ваши ответы, фото с&nbsp;выездов и&nbsp;поисковую выдачу по&nbsp;запросу «эвакуатор Джанкой». Ниже: что у&nbsp;вас уже сильное, где теряются вызовы и&nbsp;что должен делать сайт.</p>
+    <div class="top-ph" style="background-image:url(img/noch.jpg)" role="img" aria-label="Эвакуатор с белым минивэном ночью, горит оранжевый маячок"></div>
+  </div>
+</div>
+
+<main class="wrap">
+  <section>
+    <div class="eyebrow">Коротко</div>
+    <h2>Главное в&nbsp;пяти пунктах</h2>
+    <div class="key">
+      <div><p>Человек со&nbsp;сломанной машиной решает за&nbsp;пару минут. Ему нужно знать, сколько ждать, сколько стоит и&nbsp;платить ли вперёд. У&nbsp;вас есть ответ на&nbsp;все три: <b>20&nbsp;минут по&nbsp;городу, 3&nbsp;000&nbsp;₽, без предоплаты</b>.</p></div>
+      <div><p>По&nbsp;запросу «эвакуатор Джанкой» сверху стоят каталоги и&nbsp;агрегаторы. Только на&nbsp;Яндекс Услугах в&nbsp;заголовке страницы <b>153&nbsp;исполнителя</b>. Сайта местного водителя с&nbsp;фото своей машины в&nbsp;первой выдаче я&nbsp;не&nbsp;встретила.</p></div>
+      <div><p>У&nbsp;служб в&nbsp;выдаче цены начинаются со&nbsp;слова «от»: от&nbsp;2&nbsp;000&nbsp;₽, от&nbsp;2&nbsp;500&nbsp;₽, от&nbsp;80&nbsp;₽ за&nbsp;км. Ваши <b>3&nbsp;000&nbsp;₽ по&nbsp;городу и&nbsp;150&nbsp;₽ за&nbsp;км</b> названы без «от», и&nbsp;сумму понятно ещё до&nbsp;звонка.</p></div>
+      <div><p>Вы прислали 10&nbsp;фото с&nbsp;настоящих вызовов: Sprinter, «шестёрка», Doblo, маршрутка, ночной выезд с&nbsp;маячком. По&nbsp;ним сразу видно, что машина ваша и&nbsp;работает каждый день.</p></div>
+      <div><p>Сайт можно уложить в&nbsp;одну страницу: звонок в&nbsp;одно касание, цена в&nbsp;калькуляторе и&nbsp;кнопка, которая отправляет вам точку на&nbsp;карте.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Ваши сильные стороны</div>
+    <h2>Что у&nbsp;вас уже сильное</h2>
+    <ul class="list plus">
+      <li><span><b>Круглосуточно.</b> Ночью человек звонит тому, кто возьмёт трубку сейчас, и&nbsp;ему не&nbsp;важно, кто был первым в&nbsp;списке.</span></li>
+      <li><span><b>20&nbsp;минут по&nbsp;Джанкою.</b> Конкретное время звучит надёжнее, чем «быстрая подача».</span></li>
+      <li><span><b>Без предоплаты.</b> Не&nbsp;нужно переводить деньги незнакомому номеру, пока машина стоит на&nbsp;обочине.</span></li>
+      <li><span><b>Оплата картой или переводом.</b> Ночью не&nbsp;придётся искать банкомат.</span></li>
+      <li><span><b>Две понятные цены.</b> 3&nbsp;000&nbsp;₽ по&nbsp;городу и&nbsp;150&nbsp;₽ за&nbsp;км за&nbsp;городом.</span></li>
+      <li><span><b>Межгород и&nbsp;через мост.</b> Так написано в&nbsp;заголовке вашего объявления на&nbsp;Авито. Значит, вы&nbsp;возите и&nbsp;по&nbsp;Крыму, и&nbsp;на&nbsp;материк.</span></li>
+      <li><span><b>До&nbsp;3,5&nbsp;тонны.</b> Легковые, средние бусы, мотоциклы. На&nbsp;фото даже старая ГАЗель-маршрутка.</span></li>
+      <li><span><b>Отзывы на&nbsp;Авито, WhatsApp и&nbsp;Telegram, два номера.</b> Если один занят, клиент дозвонится на&nbsp;второй.</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="eyebrow">Где теряются вызовы</div>
+    <h2>Что сейчас мешает получать вызовы</h2>
+    <ul class="list">
+      <li><span>Сейчас вас находят через Авито. Рядом с&nbsp;объявлением площадка показывает другие эвакуаторы, и&nbsp;человек часто звонит тому, кто попался первым.</span></li>
+      <li><span>В&nbsp;поиске сверху каталоги со&nbsp;списками телефонов. Клиент звонит по&nbsp;номеру из&nbsp;списка и&nbsp;не&nbsp;знает, кто и&nbsp;на&nbsp;какой машине к&nbsp;нему приедет.</span></li>
+      <li><span>На&nbsp;трассе трудно объяснить, где ты стоишь. Разговор «после заправки, у&nbsp;какого-то поворота» отнимает время у&nbsp;обоих.</span></li>
+      <li><span>Ссылку на&nbsp;объявление неудобно давать СТО, шиномонтажу или в&nbsp;чат района: у&nbsp;вас нет своей короткой страницы со&nbsp;всем сразу.</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="eyebrow">Ниша</div>
+    <h2>Как выбирают эвакуатор</h2>
+    <p class="lead">Эвакуатор вызывают в&nbsp;стрессе: машина встала, рядом трасса или двор, часто ночь. Сравнивать долго никто не&nbsp;будет. Обычно человек звонит, пока не&nbsp;услышит три ответа:</p>
+    <div class="three">
+      <div><b>Когда приедете?</b><span>У&nbsp;вас: <em>около 20&nbsp;минут</em> по&nbsp;городу</span></div>
+      <div><b>Сколько будет стоить?</b><span>У&nbsp;вас: <em>3&nbsp;000&nbsp;₽</em> или <em>150&nbsp;₽ за&nbsp;км</em></span></div>
+      <div><b>Платить сейчас?</b><span>У&nbsp;вас: <em>нет</em>, картой после</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Рынок</div>
+    <h2>Кто ещё есть в&nbsp;поиске</h2>
+    <div class="comp">
+      <div class="cc">
+        <span class="where">Джанкой · ул.&nbsp;Толстого, 9</span>
+        <h3>«Эвакуатор 24»</h3>
+        <a href="https://katalogevakuatorov.ru/dzhankoy/evakuator-24-23209" target="_blank" rel="noopener">katalogevakuatorov.ru</a>
+        <p>Карточка в&nbsp;каталоге: ГАЗель с&nbsp;лебёдкой до&nbsp;3,5&nbsp;т, работа круглосуточно, вызов без эвакуации от&nbsp;2&nbsp;500&nbsp;₽.</p>
+        <div class="tags"><span>Круглосуточно</span><span>Лебёдка</span><span>Цена «от»</span></div>
+      </div>
+      <div class="cc">
+        <span class="where">Крым · грузовые и&nbsp;автобусы</span>
+        <h3>«Грузовой эвакуатор в&nbsp;Джанкое»</h3>
+        <a href="https://krim-evakuator.ru/cargo/dzhankoy/" target="_blank" rel="noopener">krim-evakuator.ru</a>
+        <p>Страница под Джанкой: от&nbsp;2&nbsp;000&nbsp;₽, за&nbsp;городом от&nbsp;80&nbsp;₽ за&nbsp;км, автобусы от&nbsp;4&nbsp;000&nbsp;₽.</p>
+        <div class="tags"><span>Цена «от»</span><span>Цена за&nbsp;км</span><span>Грузовые</span></div>
+      </div>
+      <div class="cc">
+        <span class="where">Агрегатор</span>
+        <h3>Яндекс Услуги</h3>
+        <a href="https://uslugi.yandex.ru/27555-jankoy/category?text=%D0%BD%D0%B0%D0%BD%D1%8F%D1%82%D1%8C+%D1%8D%D0%B2%D0%B0%D0%BA%D1%83%D0%B0%D1%82%D0%BE%D1%80" target="_blank" rel="noopener">uslugi.yandex.ru</a>
+        <p>По&nbsp;заголовку страницы, в&nbsp;Джанкое 153&nbsp;эвакуаторщика с&nbsp;отзывами и&nbsp;ценами. Клиент выбирает из&nbsp;общего списка.</p>
+        <div class="tags"><span>Отзывы</span><span>Общий список</span></div>
+      </div>
+      <div class="cc">
+        <span class="where">Каталоги эвакуаторов</span>
+        <h3>Списки телефонов по&nbsp;Джанкою</h3>
+        <div class="links"><a href="https://evador.ru/respublika-krym/dzhankoy" target="_blank" rel="noopener">evador.ru</a><a href="https://vse-taxi.com/evakuator-dzhankoy-page-all.aspx" target="_blank" rel="noopener">vse-taxi.com</a><a href="https://vizvat-evakuator.ru/evakuator-djankoi-gorod-respublika-krim/" target="_blank" rel="noopener">vizvat-evakuator.ru</a><a href="https://dzhankoy.allevacuators.ru/" target="_blank" rel="noopener">allevacuators.ru</a></div>
+        <p>Номера разных служб и&nbsp;цены «от». В&nbsp;одном из&nbsp;каталогов: легковые от&nbsp;2&nbsp;000&nbsp;₽, грузовые от&nbsp;8&nbsp;000&nbsp;₽.</p>
+        <div class="tags"><span>Цена «от»</span><span>Много номеров</span></div>
+      </div>
+    </div>
+    <p class="small">Описания собраны по&nbsp;поисковой выдаче на&nbsp;1&nbsp;ноября 2026, сами страницы я&nbsp;не&nbsp;открывала. Цены и&nbsp;условия у&nbsp;служб могли измениться.</p>
+    <div class="two">
+      <div class="box norm"><h3>Что стало нормой</h3><ul><li>Работа круглосуточно</li><li>Цена со&nbsp;словом «от»</li><li>ГАЗель до&nbsp;3,5&nbsp;т</li><li>Номер в&nbsp;каталоге или на&nbsp;агрегаторе</li></ul></div>
+      <div class="box gap"><h3>Чего я&nbsp;не&nbsp;встретила в&nbsp;выдаче</h3><ul><li>Фото своей машины и&nbsp;реальных вызовов</li><li>Точную цену по&nbsp;городу без «от»</li><li>«Без предоплаты, картой» прямо на&nbsp;первом экране</li><li>Кнопку, которая отправляет водителю точку на&nbsp;карте</li></ul></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Задачи</div>
+    <h2>Что должен делать ваш сайт</h2>
+    <div class="tasks">
+      <div><h3>Звонок в&nbsp;одно касание</h3><p>Кнопка «Позвонить» видна на&nbsp;любом экране телефона, даже когда человек листает фото.</p></div>
+      <div><h3>Цена до&nbsp;звонка</h3><p>3&nbsp;000&nbsp;₽ по&nbsp;городу и&nbsp;калькулятор км для межгорода. Человек звонит, уже зная сумму.</p></div>
+      <div><h3>Точка на&nbsp;карте</h3><p>Кнопка «Отправить, где я» присылает вам в&nbsp;WhatsApp сообщение с&nbsp;геолокацией. Открыли в&nbsp;навигаторе и&nbsp;поехали.</p></div>
+      <div><h3>Показать машину</h3><p>Ваша ГАЗель, платформа и&nbsp;реальные вызовы: днём, ночью, с&nbsp;бусом и&nbsp;с&nbsp;«шестёркой».</p></div>
+      <div><h3>Собрать отзывы</h3><p>Отзывы с&nbsp;Авито на&nbsp;одной странице, без поиска объявления.</p></div>
+      <div><h3>Одна ссылка для всех</h3><p>Её&nbsp;можно дать СТО и&nbsp;шиномонтажу, поставить в&nbsp;чат района и&nbsp;на&nbsp;визитку.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Пример</div>
+    <h2>Было и&nbsp;стало</h2>
+    <p class="lead">Для примера: так обычно начинается ночной вызов в&nbsp;мессенджере, и&nbsp;так он выглядит, если человек нажал кнопку на&nbsp;сайте.</p>
+    <div class="ba">
+      <div class="chat">
+        <span class="lbl">Сейчас</span>
+        <div class="b in">Здравствуйте, нужен эвакуатор</div>
+        <div class="b out">Здравствуйте! Где вы?</div>
+        <div class="b in">На трассе за Джанкоем, в сторону Симферополя. Тут поворот какой-то</div>
+        <div class="b out">А что за машина? Своим ходом заедет?</div>
+        <div class="b in">Бус, Спринтер. А сколько будет стоить?</div>
+        <p class="foot">Пять сообщений, а&nbsp;точное место всё ещё непонятно.</p>
+      </div>
+      <div class="chat">
+        <span class="lbl">С&nbsp;сайтом</span>
+        <div class="b out">Здравствуйте! Нужен эвакуатор.
+• Машина: бус
+• Куда: за город, 100 км
+• Ориентир с сайта: 15 000 ₽
+• Я здесь: <span class="pin">точка на карте</span></div>
+        <p class="foot">Одно сообщение. Точка открывается в&nbsp;навигаторе, остаётся выехать.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Набросок</div>
+    <h2>Что уже есть в&nbsp;наброске</h2>
+    <div class="draft">
+      <ul>
+        <li><b>Первый экран</b><span>Телефон, «20&nbsp;минут», цены и&nbsp;«без предоплаты» сразу. Днём на&nbsp;фото Sprinter, вечером сайт сам ставит ночной вызов с&nbsp;маячком.</span></li>
+        <li><b>Кнопка «Отправить, где я»</b><span>Точка на&nbsp;карте уходит вам в&nbsp;WhatsApp.</span></li>
+        <li><b>Цены и&nbsp;калькулятор</b><span>3&nbsp;000&nbsp;₽ по&nbsp;городу, км × 150&nbsp;₽ за&nbsp;городом. Расчёт отправляется в&nbsp;WhatsApp готовым сообщением.</span></li>
+        <li><b>Что возим</b><span>Легковые, бусы, минивэны, мотоциклы и&nbsp;пара слов про ломаную платформу.</span></li>
+        <li><b>Почему звонят вам</b><span>Шесть причин вашими словами: срочно, 20&nbsp;минут, без предоплаты, картой, круглосуточно, через мост.</span></li>
+        <li><b>Как проходит вызов</b><span>Пять шагов от&nbsp;звонка до&nbsp;оплаты.</span></li>
+        <li><b>Фото с&nbsp;выездов</b><span>Ваши кадры: трасса на&nbsp;закате, ночь, маршрутка, Sprinter.</span></li>
+        <li><b>Отзывы, вопросы, контакты</b><span>Место под отзывы с&nbsp;Авито, ответы на&nbsp;частые вопросы, два номера, мессенджеры и&nbsp;форма «Перезвоним сами».</span></li>
+        <li><b>Панель на&nbsp;телефоне</b><span>«Позвонить», WhatsApp и&nbsp;Telegram всегда внизу экрана.</span></li>
+      </ul>
+      <a class="btn signal" href="./" id="open-draft">Открыть набросок<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Идеи</div>
+    <h2>Что можно предложить вашим клиентам</h2>
+    <p class="lead">Это варианты на&nbsp;обсуждение, берите то, что подходит.</p>
+    <div class="ideas">
+      <div><h3>Договорённость с&nbsp;СТО</h3><p>Автосервисам и&nbsp;шиномонтажам Джанкоя часто нужно привезти машину клиента. Своя цена для них и&nbsp;ссылка на&nbsp;сайт, и&nbsp;они звонят вам первыми.</p></div>
+      <div><h3>Привезём купленную машину</h3><p>Купили машину с&nbsp;рук или на&nbsp;материке? Заберём и&nbsp;привезём домой, в&nbsp;том числе через мост.</p></div>
+      <div><h3>Фиксированные направления</h3><p>Готовые цены до&nbsp;Симферополя, Крымского моста или Краснодара. Клиенту проще прочитать одну сумму, чем считать километры.</p></div>
+      <div><h3>Мотосезон весной</h3><p>Перевозка мотоциклов в&nbsp;сервис и&nbsp;обратно, когда люди достают их&nbsp;из&nbsp;гаражей.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Вопросы</div>
+    <h2>Что нужно уточнить</h2>
+    <ol class="qlist">
+      <li>Как назвать сервис на&nbsp;сайте: просто «Эвакуатор, Джанкой» или у&nbsp;вас есть своё название?</li>
+      <li>ФИО и&nbsp;ИНН самозанятого для политики конфиденциальности.</li>
+      <li>На&nbsp;каком номере WhatsApp и&nbsp;какой ник в&nbsp;Telegram?</li>
+      <li>3&nbsp;000&nbsp;₽ по&nbsp;городу: это весь вызов или только выезд? До&nbsp;каких сёл действует городская цена?</li>
+      <li>150&nbsp;₽ за&nbsp;км: как считаете километры, от&nbsp;Джанкоя туда и&nbsp;обратно или только путь с&nbsp;машиной? С&nbsp;какого расстояния начинается «межгород»?</li>
+      <li>Мотоцикл и&nbsp;бус по&nbsp;городу стоят тоже 3&nbsp;000&nbsp;₽?</li>
+      <li>Есть ли лебёдка, если машина не&nbsp;заводится или колёса заблокированы? Может ли владелец ехать в&nbsp;кабине?</li>
+      <li>Куда чаще всего ездите через мост, и&nbsp;есть ли готовые цены на&nbsp;эти направления?</li>
+      <li>Можно ли поставить на&nbsp;сайт отзывы с&nbsp;Авито, и&nbsp;сколько их&nbsp;сейчас? И&nbsp;есть ли фото мотоцикла на&nbsp;платформе?</li>
+    </ol>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Подготовила Анастасия Абдуллаева</span>
+    <span class="sign"><span><b>FOR.MI</b> designed &amp; developed by ABN</span><a class="tg" href="https://t.me/abanev_dev" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.4 4.3 2.9 11.5c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.5c.2.6.4.8.9.8s.6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8L22.8 5.8c.3-1.3-.4-1.9-1.4-1.5zM8.6 14.1l9.6-6c.5-.3.9-.1.5.2l-7.8 7.1-.3 3.3-2-4.6z"/></svg></a></span>
+  </div>
+</footer>
+
+</body>
+</html>
