@@ -25,6 +25,16 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Jost:wght@500;600;700;800&display=swap">
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+  ym(113986969, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true});
+</script>
+<!-- /Yandex.Metrika counter -->
 <style>
 /* Сайт эвакуатора из Джанкоя. Layout: «ночная трасса». Тёмная полоса первого экрана с фото выезда и светом маячка, дальше светлый асфальт: тарифы и калькулятор, что возим, как проходит вызов, фото выездов; пунктир дорожной разметки между разделами, контакты снова на тёмном */
 :root{
@@ -335,6 +345,13 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-ite
 .sh-ic.ok{background:var(--wa);color:var(--on-msg)}
 .sh-ic.no{background:var(--signal);color:var(--on-signal)}
 
+/* уведомление о cookies */
+.cookie{position:fixed;z-index:50;left:50%;transform:translateX(-50%);bottom:calc(80px + env(safe-area-inset-bottom,0px));width:min(560px,calc(100% - 24px));display:flex;align-items:center;gap:12px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:16px;padding:12px 12px 12px 16px;box-shadow:0 16px 40px rgb(0 0 0 / .25);font-size:14px;line-height:1.4}
+.cookie p{flex:1;min-width:0;color:var(--muted)}
+.cookie a{color:var(--blue-text);text-underline-offset:2px}
+.cookie .btn{padding:10px 16px;font-size:14.5px;border-radius:12px;flex:none}
+@media (min-width:761px){.cookie{bottom:calc(24px + env(safe-area-inset-bottom,0px))}}
+
 /* подсказка */
 .toast{position:fixed;white-space:pre-line;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:60;background:var(--ink);color:var(--bg);padding:12px 18px;border-radius:14px;font-weight:600;font-size:14.5px;width:max-content;max-width:calc(100% - 32px);text-align:center;box-shadow:0 14px 34px rgb(0 0 0 / .3)}
 @media (min-width:761px){.toast{bottom:calc(24px + env(safe-area-inset-bottom,0px))}}
@@ -342,6 +359,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-ite
 </style>
 </head>
 <body>
+<noscript><div><img src="https://mc.yandex.ru/watch/113986969" style="position:absolute;left:-9999px" alt=""></div></noscript>
 
 <header>
   <div class="wrap">
@@ -573,7 +591,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-ite
 
 <footer>
   <div class="wrap">
-    <div class="legal"><span>© 2026 Эвакуатор, Джанкой · круглосуточно</span><a href="tel:+79785442676">+7&nbsp;978&nbsp;544-26-76</a><a href="tel:+79783189613">+7&nbsp;978&nbsp;318-96-13</a></div>
+    <div class="legal"><span>© 2026 Эвакуатор, Джанкой · круглосуточно</span><a href="tel:+79785442676">+7&nbsp;978&nbsp;544-26-76</a><a href="tel:+79783189613">+7&nbsp;978&nbsp;318-96-13</a><a href="privacy.html">Политика конфиденциальности</a></div>
     <span class="sign"><span><b>FOR.MI</b> designed &amp; developed by ABN</span><a class="tgsig" href="https://t.me/abanev_dev" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tg"/></svg></a></span>
   </div>
 </footer>
@@ -585,6 +603,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-ite
 </div>
 
 <div class="sheet" id="geo" role="dialog" aria-labelledby="geo-t" hidden><button type="button" class="sheet-x" id="geo-x" aria-label="Закрыть">×</button><div class="sh-body" id="geo-body" aria-live="polite"></div></div>
+
+<div class="cookie" id="cookie" role="region" aria-label="Cookies" hidden><p>Сайт использует cookies и&nbsp;Яндекс Метрику, чтобы считать посещения. Подробнее в&nbsp;<a href="privacy.html">политике конфиденциальности</a>.</p><button type="button" class="btn blue" id="cookie-ok">Хорошо</button></div>
 
 <div class="toast" id="toast" role="status" hidden></div>
 
@@ -601,7 +621,7 @@ const TOW={
   wa:"79785442676",   // номер WhatsApp без плюса
   cityPrice:2500,     // весь выезд по Джанкою, ₽
   perKm:150,          // межгород и через мост, ₽ за км
-  metrika:""          // номер счётчика Яндекс Метрики; включать вместе с политикой и уведомлением о cookies
+  metrika:"113986969"   // номер счётчика Яндекс Метрики (код счётчика в <head>)
 };
 const PHOTOS={
   day:{src:"img/sprinter.jpg",alt:"Синий Mercedes Sprinter закреплён ремнями на платформе белой ГАЗели",cap:"Mercedes Sprinter на нашей платформе"},
@@ -616,10 +636,6 @@ const HELLO="Здравствуйте! Нужен эвакуатор.";
 function toast(t,ms=3600){const el=$("#toast");el.textContent=t;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>el.hidden=true,ms)}
 
 /* Яндекс Метрика и цели для Директа: call, whatsapp, telegram, calc_whatsapp, geo_whatsapp, geo_fallback, save_contact, avito */
-if(TOW.metrika){
-  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t);a=e.getElementsByTagName(t)[0];k.async=1;k.src=r;a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
-  ym(Number(TOW.metrika),"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});
-}
 function goal(name){try{if(TOW.metrika&&window.ym)ym(Number(TOW.metrika),"reachGoal",name)}catch(e){}}
 document.addEventListener("click",e=>{
   const a=e.target.closest("a");if(!a)return;
@@ -633,6 +649,14 @@ function linkGoal(a){
   else if(a.matches('a[href$=".vcf"]'))goal("save_contact");
   else if(a.matches('a[href*="avito.ru"]'))goal("avito");
 }
+
+/* уведомление о cookies: показываем, пока человек не нажал «Хорошо» */
+(function(){
+  const box=$("#cookie");let seen=false;
+  try{seen=localStorage.getItem("cookie-ok")==="1"}catch(e){}
+  if(!seen)box.hidden=false;
+  $("#cookie-ok").addEventListener("click",()=>{box.hidden=true;try{localStorage.setItem("cookie-ok","1")}catch(e){}});
+})();
 
 /* WhatsApp сразу с приветствием */
 $$("a[data-wa]").forEach(a=>a.href=waLink(HELLO));
