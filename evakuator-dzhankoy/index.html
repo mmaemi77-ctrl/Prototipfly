@@ -179,7 +179,9 @@ input[type=range]{width:100%;accent-color:var(--blue);height:28px;margin:0}
 
 /* что возим */
 .fleet{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-.vh{background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:grid;grid-template-rows:auto 1fr}
+.vh{background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:grid;grid-template-rows:auto 1fr;grid-template-columns:minmax(0,1fr)}
+.vh h3{overflow-wrap:anywhere;hyphens:auto}
+@media (max-width:340px){.fleet{grid-template-columns:1fr}}
 .vh .ph{aspect-ratio:4/3;max-width:100%;background:var(--line) center/cover no-repeat}
 .vh .ph.moto{display:grid;place-items:center;background:var(--blue-tint);color:var(--blue-text)}
 .vh .ph.moto svg{width:clamp(72px,9vw,104px);height:auto}
@@ -297,13 +299,19 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-ite
 .dock .sq{width:50px;padding:0}
 @media (max-width:760px){.dock{display:flex}}
 
+/* карточки с кнопками: колонка не шире карточки, длинный текст кнопки переносится */
+.calc,.how,.sh-body,.tariffs{grid-template-columns:minmax(0,1fr)}
+.calc .btn,.how .btn,.sheet .btn{white-space:normal;text-align:center;line-height:1.25}
+
 /* точка в калькуляторе */
 .calc-geo{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 12px;align-items:center;border:1.5px dashed var(--line);border-radius:16px;padding:12px 14px;transition:box-shadow .2s,border-color .2s}
 .calc-geo b{display:block;font-size:15px;line-height:1.3}
 .calc-geo .cg-s{display:block;font-size:13.5px;color:var(--muted);margin-top:2px}
+.calc-geo .cg-s b{display:inline;font-size:inherit;color:var(--ink)}
 .calc .calc-geo .btn{width:auto;padding:10px 14px;font-size:14.5px}
 .calc-geo .cg-alt{grid-column:1/-1;justify-self:start;font-size:14px;font-weight:600;color:var(--blue-text);text-underline-offset:3px}
 .calc-geo .spin{width:20px;height:20px;border-width:2.5px}
+.calc-geo.warn{border-style:solid;border-color:var(--signal);background:color-mix(in srgb,var(--signal) 7%,var(--surface))}
 .calc-geo.ok{border-style:solid;border-color:var(--wa);background:color-mix(in srgb,var(--wa) 8%,var(--surface))}
 .calc-geo.ask{border-style:solid;border-color:var(--signal);box-shadow:0 0 0 4px color-mix(in srgb,var(--signal) 22%,transparent)}
 .calc-geo.err{border-style:solid;border-color:var(--signal)}
@@ -646,7 +654,9 @@ tick();setInterval(tick,30000);
 /* калькулятор */
 const km=$("#km");
 let point=null;   // место человека, если он его определил: {la,lo,acc,map}
-const pointLines=p=>[`Я здесь: ${p.map}`,`Координаты: ${p.la}, ${p.lo}`];
+const fmtAcc=a=>a<1000?`${a}\u00A0м`:`${(a/1000).toFixed(1).replace(".",",")}\u00A0км`;
+const LOW_ACC=500;   // точнее этого считаем точку хорошей, метров
+const pointLines=p=>[`Я здесь: ${p.map}`,`Координаты: ${p.la}, ${p.lo} (точность около ${fmtAcc(p.acc).replace(/\u00A0/g," ")})`];
 function calcText(withPoint){
   const far=$("input[name=where]:checked").value==="far",car=$("input[name=car]:checked").value;
   const sum=far?Number(km.value)*TOW.perKm:TOW.cityPrice;
@@ -690,20 +700,24 @@ const fallbackActions=()=>`
   <a class="btn wa" href="${esc(waLink(HELLO+" Сейчас отправлю, где я."))}" target="_blank" rel="noopener" data-goal="geo_fallback">${ICON("wa")}Открыть WhatsApp</a>
   <div class="sh-row"><button type="button" class="btn line" data-geo-retry>Попробовать ещё раз</button><a class="btn line" href="tel:+79785442676">${ICON("phone")}Позвонить</a></div>`;
 const manualHint=`Или отправьте точку в&nbsp;самом WhatsApp: скрепка → <b>«Местоположение»</b>.`;
+function preciseHint(){
+  if(IS_IOS)return `Чтобы точнее: <b>Настройки → Конфиденциальность и&nbsp;безопасность → Службы геолокации → Сайты Safari</b>, включите <b>«Точная геопозиция»</b> и&nbsp;нажмите «Обновить».`;
+  return `Чтобы точнее, включите GPS и&nbsp;нажмите «Обновить».`;
+}
 function permissionHint(){
   if(IN_APP)return `Сайт открыт внутри приложения, и&nbsp;оно не&nbsp;даёт определить место. Откройте сайт в&nbsp;Safari или Chrome: меню <b>···</b> → <b>«Открыть в&nbsp;браузере»</b>.`;
-  if(IS_IOS)return `Разрешите доступ: <b>Настройки → Конфиденциальность → Службы геолокации</b>, включите их, а&nbsp;для Safari выберите <b>«При использовании»</b>. Потом нажмите «Попробовать ещё раз».`;
+  if(IS_IOS)return `Разрешите доступ: <b>Настройки → Конфиденциальность и&nbsp;безопасность → Службы геолокации → Сайты Safari → «При использовании»</b>. Потом нажмите «Попробовать ещё раз».`;
   return `Нажмите на&nbsp;значок слева от&nbsp;адреса сайта → <b>Разрешения → Местоположение → Разрешить</b>. Потом нажмите «Попробовать ещё раз».`;
 }
 const VIEWS={
   wait:()=>`<div class="sh-head"><span class="spin" aria-hidden="true"></span><h3 id="geo-t">Определяем, где вы…</h3></div>
     <p>Если телефон спросит доступ к&nbsp;геолокации, нажмите <b>«Разрешить»</b>.</p>`,
   found:d=>`<div class="sh-head"><span class="sh-ic ok" aria-hidden="true">✓</span><h3 id="geo-t">Место найдено</h3></div>
-    <p>Точность около ${d.acc}&nbsp;м. Нажмите кнопку: в&nbsp;WhatsApp уже будет сообщение с&nbsp;точкой на&nbsp;карте, останется нажать «Отправить».</p>
-    ${d.acc>1000?`<p>Точность низкая. Включите GPS и&nbsp;нажмите «Ещё раз» или уточните место в&nbsp;чате.</p>`:""}
+    <p>Точность около ${fmtAcc(d.acc)}. Нажмите кнопку: в&nbsp;WhatsApp уже будет сообщение с&nbsp;точкой на&nbsp;карте, останется нажать «Отправить».</p>
+    ${d.acc>LOW_ACC?`<p>Точка примерная. ${preciseHint().replace("«Обновить»","«Обновить точку»")} Или уточните место в&nbsp;чате.</p>`:""}
     <a class="btn wa" href="${esc(waLink(d.text))}" target="_blank" rel="noopener" data-goal="geo_whatsapp">${ICON("wa")}Отправить точку в&nbsp;WhatsApp</a>
     <div class="sh-row"><button type="button" class="btn line" data-copy="${esc(d.la+", "+d.lo)}">Скопировать координаты</button><a class="btn line" href="${esc(d.map)}" target="_blank" rel="noopener">Проверить на&nbsp;карте</a></div>
-    ${d.acc>1000?`<button type="button" class="btn line" data-geo-retry>Ещё раз</button>`:""}`,
+    ${d.acc>LOW_ACC?`<button type="button" class="btn line" data-geo-retry>Обновить точку</button>`:""}`,
   denied:()=>`<div class="sh-head"><span class="sh-ic no" aria-hidden="true">!</span><h3 id="geo-t">Нет доступа к&nbsp;геолокации</h3></div>
     <p>${permissionHint()}</p><p>${manualHint}</p>${fallbackActions()}`,
   nogps:()=>`<div class="sh-head"><span class="sh-ic no" aria-hidden="true">!</span><h3 id="geo-t">Телефон не&nbsp;смог определить место</h3></div>
@@ -744,7 +758,8 @@ const cg=$("#cg");
 let cgState="idle",cgAsked=false;
 function setCG(state,res){
   cgState=state;
-  cg.className="calc-geo"+({ok:" ok",ask:" ask",err:" err"}[state]||"");
+  if(state==="ok"&&point&&point.acc>LOW_ACC)state="warn";
+  cg.className="calc-geo"+({ok:" ok",warn:" warn",ask:" ask",err:" err"}[state]||"");
   const btn=(label,attr)=>`<button type="button" class="btn line" ${attr}>${ICON("pin")}${label}</button>`;
   const withoutPoint=`<a class="cg-alt" href="${esc(waLink(calcText(false)))}" target="_blank" rel="noopener" data-goal="calc_whatsapp">Отправить без точки</a>`;
   const help={
@@ -756,7 +771,8 @@ function setCG(state,res){
     idle:()=>`<span><b>Где машина?</b><span class="cg-s">Добавьте точку, и&nbsp;водитель сразу увидит, куда ехать</span></span>${btn("Добавить точку","data-cg-find")}`,
     ask:()=>`<span><b>Добавить, где вы?</b><span class="cg-s">Точка на&nbsp;карте уйдёт вместе с&nbsp;расчётом, объяснять дорогу не&nbsp;придётся</span></span>${btn("Добавить точку","data-cg-find")}${withoutPoint}`,
     wait:()=>`<span><b>Определяем, где вы…</b><span class="cg-s">Если телефон спросит доступ, нажмите «Разрешить»</span></span><span class="spin" aria-hidden="true"></span>`,
-    ok:()=>`<span><b>✓ Точка добавлена</b><span class="cg-s">Точность около ${point.acc}&nbsp;м. Она уйдёт вместе с&nbsp;расчётом</span></span><button type="button" class="btn line" data-cg-find>Обновить</button>`,
+    ok:()=>`<span><b>✓ Точка добавлена</b><span class="cg-s">Точность около ${fmtAcc(point.acc)}. Она уйдёт вместе с&nbsp;расчётом</span></span><button type="button" class="btn line" data-cg-find>Обновить</button>`,
+    warn:()=>`<span><b>Точка примерная, около ${fmtAcc(point.acc)}</b><span class="cg-s">${preciseHint()} Или отправьте как есть и&nbsp;уточните место в&nbsp;чате.</span></span><button type="button" class="btn line" data-cg-find>Обновить</button>`,
     err:()=>`<span><b>Точку не&nbsp;добавили</b><span class="cg-s">${help[res]||help.nogps}</span></span>${res==="denied"?`<button type="button" class="btn line" data-cg-help>Как разрешить</button>`:btn("Ещё раз","data-cg-find")}`
   };
   cg.innerHTML=html[state]();
