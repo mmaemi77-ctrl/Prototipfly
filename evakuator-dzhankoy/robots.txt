@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mmaemi77-ctrl.github.io/evakuator-dzhankoy/sitemap.xml
