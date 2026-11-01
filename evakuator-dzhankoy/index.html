@@ -3,21 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Эвакуатор в Джанкое круглосуточно: по городу 3 000 ₽, межгород и через Крымский мост 150 ₽ за км. Легковые, бусы, мотоциклы до 3,5 т.">
+<meta name="description" content="Эвакуатор в Джанкое круглосуточно. По городу 3 000 ₽, межгород по Крыму и через Крымский мост 150 ₽ за км. Легковые, бусы, мотоциклы до 3,5 т. Подача по городу около 20 минут, без предоплаты, оплата картой.">
+<meta name="theme-color" content="#0B1020">
+<link rel="canonical" href="https://mmaemi77-ctrl.github.io/Prototipfly/evakuator-dzhankoy/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Эвакуатор в Джанкое · набросок сайта">
-<meta property="og:description" content="По городу 3 000 ₽, межгород 150 ₽ за км. Круглосуточно, без предоплаты, оплата картой.">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:url" content="https://mmaemi77-ctrl.github.io/Prototipfly/evakuator-dzhankoy/">
+<meta property="og:title" content="Эвакуатор в Джанкое круглосуточно">
+<meta property="og:description" content="По городу 3 000 ₽, межгород и через мост 150 ₽ за км. Без предоплаты, оплата картой.">
 <meta property="og:image" content="https://mmaemi77-ctrl.github.io/Prototipfly/evakuator-dzhankoy/og-glavnyi.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"AutomotiveBusiness","name":"Эвакуатор Джанкой","description":"Эвакуатор круглосуточно: легковые, бусы, мотоциклы до 3,5 т. По городу 3000 ₽, межгород и через Крымский мост 150 ₽ за км.","url":"https://mmaemi77-ctrl.github.io/Prototipfly/evakuator-dzhankoy/","image":"https://mmaemi77-ctrl.github.io/Prototipfly/evakuator-dzhankoy/og-glavnyi.jpg","telephone":["+79785442676","+79783189613"],"address":{"@type":"PostalAddress","addressLocality":"Джанкой","addressRegion":"Республика Крым","addressCountry":"RU"},"areaServed":["Джанкой","Республика Крым"],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"priceRange":"3000 ₽ по городу, 150 ₽/км межгород","paymentAccepted":"Банковская карта, перевод"}
+</script>
 <style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
-<title>Эвакуатор Джанкой · набросок</title>
+<title>Эвакуатор в Джанкое круглосуточно · 3 000 ₽ по городу</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Jost:wght@500;600;700;800&display=swap">
 <style>
-/* Layout: «ночная трасса». Тёмная полоса первого экрана с фото выезда и светом маячка, дальше светлый асфальт: тарифы и калькулятор, что возим, как проходит вызов, фото выездов; пунктир дорожной разметки между разделами, контакты снова на тёмном */
+/* Сайт эвакуатора из Джанкоя. Layout: «ночная трасса». Тёмная полоса первого экрана с фото выезда и светом маячка, дальше светлый асфальт: тарифы и калькулятор, что возим, как проходит вызов, фото выездов; пунктир дорожной разметки между разделами, контакты снова на тёмном */
 :root{
   --bg:#EDF0F4;
   --surface:#FFFFFF;
@@ -71,8 +80,7 @@ svg{flex:none}
 .eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .num{font-variant-numeric:tabular-nums}
 
-/* плашка наброска и шапка */
-.draft{background:var(--signal);color:var(--on-signal);font-size:13px;font-weight:600;text-align:center;padding-block:7px}
+/* шапка */
 header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--night) 92%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--on-night);border-bottom:1px solid var(--night-line)}
 header .wrap{display:flex;align-items:center;gap:24px;padding-block:12px}
 .logo{display:grid;gap:3px;text-decoration:none;line-height:1}
@@ -105,7 +113,7 @@ h1{display:grid;gap:10px}
 .sub b{color:var(--on-night);font-weight:600}
 .cta{display:flex;flex-wrap:wrap;gap:10px}
 .write{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:14.5px;color:var(--night-muted)}
-.chip-btn{display:inline-flex;align-items:center;gap:7px;border:0;border-radius:999px;padding:7px 13px;font:600 14px var(--body);cursor:pointer;color:var(--on-msg)}
+.chip-btn{display:inline-flex;align-items:center;gap:7px;border:0;text-decoration:none;border-radius:999px;padding:7px 13px;font:600 14px var(--body);cursor:pointer;color:var(--on-msg)}
 .chip-btn svg{width:16px;height:16px}
 .chip-btn.wa{background:var(--wa)}
 .chip-btn.tg{background:var(--tg)}
@@ -120,12 +128,8 @@ h1{display:grid;gap:10px}
 .h-photo img.fade{opacity:0}
 .h-photo figcaption{position:absolute;left:14px;bottom:14px;right:14px;display:flex;justify-content:space-between;align-items:flex-end;gap:10px;pointer-events:none}
 .cap{background:rgb(11 16 32 / .78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#EEF1F8;border-radius:12px;padding:8px 12px;font-size:13.5px;font-weight:600;max-width:70%}
-.dn{position:absolute;top:14px;right:14px;display:flex;gap:2px;background:rgb(11 16 32 / .78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:999px;padding:3px}
-.dn button{border:0;background:transparent;color:#C9D0E2;border-radius:999px;padding:6px 12px;font:600 13px var(--body);cursor:pointer}
-.dn button[aria-pressed="true"]{background:#FF7A1A;color:#1C0E02}
-.dn-note{position:absolute;top:58px;right:14px;font-size:11.5px;font-weight:600;color:#EEF1F8;background:rgb(11 16 32 / .6);border-radius:8px;padding:4px 8px}
 @media (max-width:900px){.hero-in{grid-template-columns:1fr}.h-photo{aspect-ratio:16/11}}
-@media (max-width:480px){.cta .btn{flex:1 1 100%}.dn-note{display:none}.cap{max-width:100%}}
+@media (max-width:480px){.cta .btn{flex:1 1 100%}.cap{max-width:100%}}
 
 /* разметка */
 .lane{height:4px;background:repeating-linear-gradient(90deg,var(--line) 0 34px,transparent 34px 58px);margin-block:0}
@@ -177,8 +181,8 @@ input[type=range]{width:100%;accent-color:var(--blue);height:28px;margin:0}
 .fleet{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
 .vh{background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:grid;grid-template-rows:auto 1fr}
 .vh .ph{aspect-ratio:4/3;max-width:100%;background:var(--line) center/cover no-repeat}
-.vh .ph.empty{display:grid;place-content:center;justify-items:center;gap:8px;text-align:center;padding:16px;background:repeating-linear-gradient(-45deg,var(--bg) 0 12px,var(--surface) 12px 24px);border-bottom:1px dashed var(--line);color:var(--muted);font-size:13.5px;font-weight:600}
-.vh .ph.empty svg{width:44px;height:44px;color:var(--muted)}
+.vh .ph.moto{display:grid;place-items:center;background:var(--blue-tint);color:var(--blue-text)}
+.vh .ph.moto svg{width:clamp(72px,9vw,104px);height:auto}
 .vh .tx{padding:16px 18px 18px;display:grid;gap:4px;align-content:start}
 .vh h3{font-family:var(--display);font-weight:700;font-size:21px}
 .vh p{font-size:14.5px;color:var(--muted)}
@@ -219,16 +223,8 @@ input[type=range]{width:100%;accent-color:var(--blue);height:28px;margin:0}
 @media (max-width:820px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:clamp(140px,38vw,220px);grid-template-areas:"n n" "z t" "z t" "m g" "s s"}}
 
 /* отзывы */
-.reviews{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-.rv{border:1.5px dashed var(--line);border-radius:22px;padding:20px;display:grid;gap:12px;align-content:start;background:var(--surface)}
-.rv .stars{color:var(--signal);letter-spacing:3px;font-size:16px}
-.rv .ln{height:9px;border-radius:5px;background:var(--line)}
-.rv .who{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted);font-weight:600}
-.rv .who i{width:34px;height:34px;border-radius:50%;background:var(--line)}
-.rv-note{margin-top:16px;display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:space-between;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px 20px}
-.rv-note p{font-size:15px;color:var(--muted);max-width:60ch}
-.rv-note a{font-weight:700;color:var(--blue-text);text-underline-offset:3px}
-@media (max-width:820px){.reviews{grid-template-columns:1fr}.rv:nth-child(n+2){display:none}}
+.rv-card{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:clamp(22px,3vw,34px)}
+.rv-card .sec-head{margin:0}
 
 /* вопросы */
 .faq{display:grid;gap:10px;max-width:860px}
@@ -253,24 +249,24 @@ input[type=range]{width:100%;accent-color:var(--blue);height:28px;margin:0}
 .c-info{margin-top:22px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;border-top:1px solid var(--night-line);padding-top:18px}
 .c-info b{display:block;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--night-muted);font-weight:700}
 .c-info span{font-size:16px;font-weight:600}
-.cb{background:var(--surface);color:var(--ink);border-radius:24px;padding:22px;display:grid;gap:14px}
-.cb h3{font-family:var(--display);font-weight:700;font-size:23px}
-.cb p{font-size:14.5px;color:var(--muted)}
-.cb label.f{display:grid;gap:6px;font-size:13px;font-weight:700;color:var(--muted)}
-.cb input[type=tel],.cb input[type=text]{font:500 17px var(--body);color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:13px 14px;width:100%}
-.cb input:focus{outline:none;border-color:var(--blue)}
-.agree{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;align-items:start;font-size:13.5px;color:var(--muted);cursor:pointer}
-.agree input{width:20px;height:20px;margin:1px 0 0;accent-color:var(--blue)}
-.agree button{border:0;background:none;padding:0;font:inherit;color:var(--blue-text);text-decoration:underline;text-underline-offset:2px;cursor:pointer}
-.cb .err{font-size:13.5px;font-weight:600;color:var(--err)}
+.how{background:var(--surface);color:var(--ink);border-radius:24px;padding:22px;display:grid;gap:14px}
+.how h3{font-family:var(--display);font-weight:700;font-size:23px}
+.how p{font-size:15px;color:var(--muted)}
+.how ol{margin:0;padding:0;list-style:none;display:grid;gap:10px;counter-reset:h}
+.how li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;align-items:start;font-size:15px}
+.how li::before{counter-increment:h;content:counter(h);width:30px;height:30px;border-radius:50%;background:var(--blue-tint);color:var(--blue-text);display:grid;place-items:center;font-weight:700;font-size:14px}
+.how .btn{width:100%}
+.btn.line{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn.line:hover{box-shadow:inset 0 0 0 1.5px var(--muted)}
+.btn:disabled{opacity:.6;cursor:progress}
 @media (max-width:900px){.contacts .wrap{grid-template-columns:1fr}}
 @media (max-width:420px){.c-info{grid-template-columns:1fr}}
 
 footer{background:var(--night);color:var(--night-muted);border-top:1px solid var(--night-line)}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 24px;padding-block:22px calc(22px + 70px);font-size:13.5px}
 .legal{display:flex;flex-wrap:wrap;gap:6px 18px}
-.legal button{border:0;background:none;padding:0;font:inherit;color:var(--night-muted);text-decoration:underline;text-underline-offset:2px;cursor:pointer}
-.legal button:hover{color:var(--on-night)}
+.legal a{color:var(--night-muted);text-decoration:none;font-variant-numeric:tabular-nums;white-space:nowrap}
+.legal a:hover{color:var(--on-night)}
 .sign{display:inline-flex;align-items:center;flex-wrap:wrap;gap:10px;color:var(--on-night)}
 .sign b{font-family:var(--display);font-weight:700;letter-spacing:.06em}
 .tgsig{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--night-2);color:var(--on-night)}
@@ -285,23 +281,13 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-ite
 .dock .sq{width:50px;padding:0}
 @media (max-width:760px){.dock{display:flex}}
 
-/* окна документов и подсказка */
-dialog{border:0;border-radius:22px;padding:0;width:min(640px,calc(100% - 32px));max-height:min(80vh,720px);background:var(--surface);color:var(--ink);box-shadow:0 30px 80px rgb(0 0 0 / .35)}
-dialog::backdrop{background:rgb(8 12 24 / .6)}
-.dlg{display:grid;grid-template-rows:auto minmax(0,1fr);max-height:min(80vh,720px)}
-.dlg-h{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 20px;border-bottom:1px solid var(--line)}
-.dlg-h h3{font-family:var(--display);font-weight:700;font-size:21px}
-.dlg-h button{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--bg);font-size:20px;cursor:pointer;flex:none}
-.dlg-b{overflow:auto;padding:16px 20px 22px;display:grid;gap:10px;font-size:14.5px;color:var(--muted)}
-.dlg-b b{color:var(--ink)}
-.toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:60;background:var(--ink);color:var(--bg);padding:12px 18px;border-radius:14px;font-weight:600;font-size:14.5px;width:max-content;max-width:calc(100% - 32px);text-align:center;box-shadow:0 14px 34px rgb(0 0 0 / .3)}
+/* подсказка */
+.toast{position:fixed;white-space:pre-line;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:60;background:var(--ink);color:var(--bg);padding:12px 18px;border-radius:14px;font-weight:600;font-size:14.5px;width:max-content;max-width:calc(100% - 32px);text-align:center;box-shadow:0 14px 34px rgb(0 0 0 / .3)}
 @media (min-width:761px){.toast{bottom:calc(24px + env(safe-area-inset-bottom,0px))}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-
-<div class="draft"><div class="wrap">Набросок сайта: цены и тексты из ваших ответов, фото ваши, кнопки пока показывают подсказку</div></div>
 
 <header>
   <div class="wrap">
@@ -326,8 +312,8 @@ dialog::backdrop{background:rgb(8 12 24 / .6)}
           <button type="button" class="btn ghost" data-geo><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg>Отправить, где я</button>
         </div>
         <div class="write">Неудобно говорить? Напишите:
-          <button type="button" class="chip-btn wa" data-wa><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</button>
-          <button type="button" class="chip-btn tg" data-tg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tg"/></svg>Telegram</button>
+          <a class="chip-btn wa" href="https://wa.me/79785442676" target="_blank" rel="noopener" data-wa><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
+          <a class="chip-btn tg" href="https://t.me/+79785442676" target="_blank" rel="noopener" data-tg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tg"/></svg>Telegram</a>
         </div>
         <dl class="facts">
           <div><dt>20&nbsp;мин</dt><dd>подача по&nbsp;Джанкою</dd></div>
@@ -338,8 +324,6 @@ dialog::backdrop{background:rgb(8 12 24 / .6)}
       </div>
       <figure class="h-photo">
         <img id="hero-img" src="img/sprinter.jpg" alt="Синий Mercedes Sprinter закреплён ремнями на платформе белой ГАЗели">
-        <div class="dn" role="group" aria-label="Фото днём или ночью"><button type="button" data-mode="day" aria-pressed="true">Днём</button><button type="button" data-mode="night" aria-pressed="false">Ночью</button></div>
-        <span class="dn-note">Сайт сам меняет фото по&nbsp;времени суток</span>
         <figcaption><span class="cap" id="hero-cap">Mercedes Sprinter на&nbsp;нашей платформе</span></figcaption>
       </figure>
     </div>
@@ -403,7 +387,7 @@ dialog::backdrop{background:rgb(8 12 24 / .6)}
         <article class="vh"><div class="ph" style="background-image:url(img/shesterka.jpg)" role="img" aria-label="Бежевый ВАЗ-2106 на платформе эвакуатора"></div><div class="tx"><h3>Легковые</h3><p>Седаны, хэтчбеки, кроссоверы. Старые и&nbsp;новые.</p></div></article>
         <article class="vh"><div class="ph" style="background-image:url(img/sprinter.jpg)" role="img" aria-label="Mercedes Sprinter на платформе"></div><div class="tx"><h3>Бусы</h3><p>Средние бусы и&nbsp;микроавтобусы, как этот Sprinter.</p></div></article>
         <article class="vh"><div class="ph" style="background-image:url(img/doblo.jpg)" role="img" aria-label="Белый Fiat Doblo на платформе"></div><div class="tx"><h3>Минивэны и&nbsp;каблучки</h3><p>Doblo, минивэны и&nbsp;другие коммерческие машины.</p></div></article>
-        <article class="vh"><div class="ph empty"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="33" r="7"/><circle cx="37" cy="33" r="7"/><path d="M11 33l8-13h9l4 6h5M19 20l-3-5h-4M28 20l4-6h5"/></svg>Нужно фото: мотоцикл на&nbsp;платформе</div><div class="tx"><h3>Мотоциклы</h3><p>Мотоциклы, скутеры и&nbsp;квадроциклы.</p></div></article>
+        <article class="vh"><div class="ph moto" role="img" aria-label="Мотоцикл"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="33" r="7"/><circle cx="37" cy="33" r="7"/><path d="M11 33l8-13h9l4 6h5M19 20l-3-5h-4M28 20l4-6h5"/></svg></div><div class="tx"><h3>Мотоциклы</h3><p>Мотоциклы, скутеры и&nbsp;квадроциклы.</p></div></article>
       </div>
       <div class="platform">
         <svg viewBox="0 0 160 60" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 52h40"/><path d="M46 52 L96 30 H154"/><path d="M96 30 v-14"/><circle cx="118" cy="44" r="7"/><circle cx="140" cy="44" r="7"/><path d="M56 48 l12 -5" stroke-dasharray="2 6"/></svg>
@@ -464,13 +448,10 @@ dialog::backdrop{background:rgb(8 12 24 / .6)}
 
   <section class="block" id="otzyvy">
     <div class="wrap">
-      <div class="sec-head"><span class="eyebrow">Отзывы</span><h2>Что пишут на&nbsp;Авито</h2></div>
-      <div class="reviews" aria-label="Место для отзывов">
-        <div class="rv"><span class="stars" aria-hidden="true">★★★★★</span><span class="ln" style="width:92%"></span><span class="ln" style="width:78%"></span><span class="ln" style="width:56%"></span><span class="who"><i></i>Отзыв с&nbsp;Авито</span></div>
-        <div class="rv"><span class="stars" aria-hidden="true">★★★★★</span><span class="ln" style="width:86%"></span><span class="ln" style="width:64%"></span><span class="ln" style="width:72%"></span><span class="who"><i></i>Отзыв с&nbsp;Авито</span></div>
-        <div class="rv"><span class="stars" aria-hidden="true">★★★★★</span><span class="ln" style="width:95%"></span><span class="ln" style="width:70%"></span><span class="ln" style="width:48%"></span><span class="who"><i></i>Отзыв с&nbsp;Авито</span></div>
+      <div class="rv-card">
+        <div class="sec-head"><span class="eyebrow">Отзывы</span><h2>Что о&nbsp;нас пишут на&nbsp;Авито</h2><p>Отзывы оставляют те, кого мы уже возили. Почитайте перед звонком.</p></div>
+        <a class="btn blue" href="https://www.avito.ru/dzhankoy/predlozheniya_uslug/uslugi_evakuatora_gorod_mezhgorod_cherez_most_8007108464" target="_blank" rel="noopener">Открыть отзывы на&nbsp;Авито ↗</a>
       </div>
-      <div class="rv-note"><p>Здесь будут ваши отзывы с&nbsp;Авито: имя, дата и&nbsp;текст, как на&nbsp;площадке.</p><a href="https://www.avito.ru/dzhankoy/predlozheniya_uslug/uslugi_evakuatora_gorod_mezhgorod_cherez_most_8007108464" target="_blank" rel="noopener">Объявление на&nbsp;Авито ↗</a></div>
     </div>
   </section>
 
@@ -486,6 +467,7 @@ dialog::backdrop{background:rgb(8 12 24 / .6)}
         <details><summary>Повезёте бус или мотоцикл?</summary><p>Да. Легковые, бусы, минивэны и&nbsp;мотоциклы, всё, что весит до&nbsp;3,5&nbsp;тонны.</p></details>
         <details><summary>Ездите через Крымский мост?</summary><p>Да, возим по&nbsp;Крыму и&nbsp;на&nbsp;материк. За&nbsp;городом считаем 150&nbsp;₽ за&nbsp;километр.</p></details>
         <details><summary>Работаете ночью?</summary><p>Да, круглосуточно. Звоните в&nbsp;любое время.</p></details>
+        <details><summary>Как показать, где я&nbsp;стою?</summary><p>Нажмите «Отправить, где я». Телефон спросит доступ к&nbsp;геолокации, и&nbsp;откроется WhatsApp с&nbsp;готовым сообщением и&nbsp;точкой на&nbsp;карте. Останется нажать «Отправить». Если геолокация выключена, отправьте точку в&nbsp;самом WhatsApp: скрепка → «Местоположение».</p></details>
       </div>
     </div>
   </section>
@@ -500,54 +482,37 @@ dialog::backdrop{background:rgb(8 12 24 / .6)}
           <div class="phone"><a href="tel:+79783189613"><small>Второй номер</small>+7&nbsp;978&nbsp;318-96-13</a><a class="btn ghost" href="tel:+79783189613"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg>Позвонить</a></div>
         </div>
         <div class="c-msg">
-          <button type="button" class="btn wa" data-wa><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</button>
-          <button type="button" class="btn tg" data-tg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tg"/></svg>Telegram</button>
-          <button type="button" class="btn ghost" data-geo><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg>Отправить, где я</button>
+          <a class="btn wa" href="https://wa.me/79785442676" target="_blank" rel="noopener" data-wa><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
+          <a class="btn tg" href="https://t.me/+79785442676" target="_blank" rel="noopener" data-tg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tg"/></svg>Telegram</a>
         </div>
         <div class="c-info">
           <div><b>Откуда выезжаем</b><span>Джанкой</span></div>
           <div><b>Режим</b><span>Круглосуточно, без выходных</span></div>
         </div>
       </div>
-      <form class="cb" id="cb" novalidate>
-        <h3>Перезвоним сами</h3>
-        <p>Если сейчас неудобно говорить, оставьте номер.</p>
-        <label class="f" for="cb-name">Как к&nbsp;вам обращаться<input type="text" id="cb-name" autocomplete="given-name" placeholder="Имя"></label>
-        <label class="f" for="cb-phone">Телефон<input type="tel" id="cb-phone" autocomplete="tel" placeholder="+7 978 000-00-00"></label>
-        <label class="agree" for="cb-ok"><input type="checkbox" id="cb-ok"><span>Соглашаюсь на&nbsp;<button type="button" data-doc="consent">обработку персональных данных</button> и&nbsp;принимаю <button type="button" data-doc="policy">политику конфиденциальности</button></span></label>
-        <p class="err" id="cb-err" hidden></p>
-        <button type="submit" class="btn blue">Жду звонка</button>
-      </form>
+      <div class="how">
+        <h3>Сломались за&nbsp;городом?</h3>
+        <p>Ориентиры искать не&nbsp;нужно. Пришлите точку, и&nbsp;водитель откроет её&nbsp;в&nbsp;навигаторе.</p>
+        <ol><li>Нажмите «Отправить, где я»</li><li>Разрешите телефону доступ к&nbsp;геолокации</li><li>В&nbsp;WhatsApp уже будет сообщение с&nbsp;точкой на&nbsp;карте, нажмите «Отправить»</li></ol>
+        <button type="button" class="btn call" data-geo><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg>Отправить, где я</button>
+        <a class="btn line" href="evakuator-dzhankoy.vcf" download="Эвакуатор Джанкой.vcf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="8" r="3.5"/><path d="M3.5 19.5c.8-3.4 3.4-5.5 6.5-5.5s5.7 2.1 6.5 5.5M19 8v6M16 11h6"/></svg>Сохранить номер в&nbsp;контакты</a>
+      </div>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <div class="legal"><span>Эвакуатор, Джанкой · самозанятый [ФИО, уточнить] · ИНН [уточнить]</span><button type="button" data-doc="policy">Политика конфиденциальности</button><button type="button" data-doc="consent">Согласие на&nbsp;обработку данных</button></div>
+    <div class="legal"><span>© 2026 Эвакуатор, Джанкой · круглосуточно</span><a href="tel:+79785442676">+7&nbsp;978&nbsp;544-26-76</a><a href="tel:+79783189613">+7&nbsp;978&nbsp;318-96-13</a></div>
     <span class="sign"><span><b>FOR.MI</b> designed &amp; developed by ABN</span><a class="tgsig" href="https://t.me/abanev_dev" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tg"/></svg></a></span>
   </div>
 </footer>
 
 <div class="dock" aria-label="Быстрая связь">
   <a class="btn call" href="tel:+79785442676"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg>Позвонить</a>
-  <button type="button" class="btn wa sq" data-wa aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg></button>
-  <button type="button" class="btn tg sq" data-tg aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tg"/></svg></button>
+  <a class="btn wa sq" href="https://wa.me/79785442676" target="_blank" rel="noopener" data-wa aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg></a>
+  <a class="btn tg sq" href="https://t.me/+79785442676" target="_blank" rel="noopener" data-tg aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tg"/></svg></a>
 </div>
-
-<dialog id="doc-policy" aria-labelledby="doc-policy-t"><div class="dlg"><div class="dlg-h"><h3 id="doc-policy-t">Политика конфиденциальности</h3><button type="button" data-close aria-label="Закрыть">×</button></div><div class="dlg-b">
-  <p><b>Оператор:</b> самозанятый [ФИО, уточнить], ИНН [уточнить], Республика Крым, г.&nbsp;Джанкой. Телефон: +7&nbsp;978&nbsp;544-26-76.</p>
-  <p><b>Какие данные собираем.</b> Имя и&nbsp;номер телефона из&nbsp;формы «Перезвоним сами». Если вы сами отправляете геолокацию в&nbsp;мессенджер, мы видим точку на&nbsp;карте.</p>
-  <p><b>Зачем.</b> Чтобы перезвонить, уточнить, где машина, и&nbsp;выполнить перевозку.</p>
-  <p><b>Сколько храним.</b> Не&nbsp;дольше, чем нужно для вызова, и&nbsp;удаляем по&nbsp;вашей просьбе.</p>
-  <p><b>Кому передаём.</b> Никому, кроме случаев, которые прямо требует закон.</p>
-  <p><b>Как отозвать согласие.</b> Позвоните или напишите по&nbsp;номеру выше, данные удалим.</p>
-</div></div></dialog>
-<dialog id="doc-consent" aria-labelledby="doc-consent-t"><div class="dlg"><div class="dlg-h"><h3 id="doc-consent-t">Согласие на&nbsp;обработку персональных данных</h3><button type="button" data-close aria-label="Закрыть">×</button></div><div class="dlg-b">
-  <p>Отправляя форму, я&nbsp;даю согласие самозанятому [ФИО, уточнить], ИНН [уточнить], на&nbsp;обработку моих персональных данных: имени и&nbsp;номера телефона.</p>
-  <p>Цель: связаться со&nbsp;мной по&nbsp;вызову эвакуатора. Действия: сбор, запись, хранение, использование и&nbsp;удаление, по&nbsp;правилам Федерального закона №&nbsp;152-ФЗ «О&nbsp;персональных данных».</p>
-  <p>Согласие действует до&nbsp;его отзыва. Отозвать его можно звонком или сообщением на&nbsp;+7&nbsp;978&nbsp;544-26-76.</p>
-</div></div></dialog>
 
 <div class="toast" id="toast" role="status" hidden></div>
 
@@ -559,14 +524,11 @@ dialog::backdrop{background:rgb(8 12 24 / .6)}
 </svg>
 
 <script>
-/* Факты из ответов владельца (1 ноября 2026) и заголовка объявления на Авито */
+/* Данные сервиса: менять здесь */
 const TOW={
-  phones:["+7 978 544-26-76","+7 978 318-96-13"],
-  cityPrice:3000,      // по Джанкою
-  perKm:150,           // межгород и через мост
-  arrive:"20 минут",   // подача по городу
-  maxWeight:"3,5 т",
-  owner:"самозанятый [ФИО, уточнить], ИНН [уточнить]"
+  wa:"79785442676",   // номер WhatsApp без плюса
+  cityPrice:3000,     // вызов по Джанкою, ₽
+  perKm:150           // межгород и через мост, ₽ за км
 };
 const PHOTOS={
   day:{src:"img/sprinter.jpg",alt:"Синий Mercedes Sprinter закреплён ремнями на платформе белой ГАЗели",cap:"Mercedes Sprinter на нашей платформе"},
@@ -575,27 +537,27 @@ const PHOTOS={
 const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
 const rub=n=>n.toLocaleString("ru-RU").replace(/\s/g," ")+" ₽";
 const pad=n=>String(n).padStart(2,"0");
+const waLink=text=>`https://wa.me/${TOW.wa}?text=${encodeURIComponent(text)}`;
+const HELLO="Здравствуйте! Нужен эвакуатор.";
 
-function toast(t){const el=$("#toast");el.textContent=t;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>el.hidden=true,3200)}
+function toast(t,ms=3600){const el=$("#toast");el.textContent=t;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>el.hidden=true,ms)}
 
-/* часы и фото по времени суток */
-let manual=false;
-function isNight(d){const h=d.getHours();return h>=20||h<6}
+/* WhatsApp сразу с приветствием */
+$$("a[data-wa]").forEach(a=>a.href=waLink(HELLO));
+
+/* часы и фото по времени суток: с 20:00 до 6:00 ночной вызов */
 function setMode(m){
   const p=PHOTOS[m],img=$("#hero-img");
-  $$(".dn button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.mode===m)));
   if(img.getAttribute("src")===p.src)return;
   img.classList.add("fade");
   setTimeout(()=>{img.src=p.src;img.alt=p.alt;$("#hero-cap").textContent=p.cap;img.classList.remove("fade")},200);
 }
 function tick(){
-  const d=new Date();
-  $("#clock").textContent=`Сейчас ${pad(d.getHours())}:${pad(d.getMinutes())} · принимаем вызовы`;
-  if(!manual)setMode(isNight(d)?"night":"day");
+  const d=new Date(),h=d.getHours();
+  $("#clock").textContent=`Сейчас ${pad(h)}:${pad(d.getMinutes())} · принимаем вызовы`;
+  setMode(h>=20||h<6?"night":"day");
 }
-Object.values(PHOTOS).forEach(p=>{const i=new Image();i.src=p.src});
 tick();setInterval(tick,30000);
-$$(".dn button").forEach(b=>b.addEventListener("click",()=>{manual=true;setMode(b.dataset.mode)}));
 
 /* калькулятор */
 const km=$("#km");
@@ -614,29 +576,29 @@ calc();
 $("#calc").addEventListener("submit",e=>{
   e.preventDefault();
   const car=$("input[name=car]:checked").value,far=$("input[name=where]:checked").value==="far";
-  toast(`На сайте откроется WhatsApp с текстом: ${car}, ${far?km.value+" км":"по Джанкою"}, ориентир ${rub(calc()).replace(/ /g," ")}`);
+  const text=[HELLO,`Машина: ${car}`,far?`За город, примерно ${km.value} км`:"По Джанкою",`Ориентир с сайта: ${rub(calc()).replace(/ /g," ")}`].join("\n");
+  const w=window.open(waLink(text),"_blank");
+  if(!w)location.href=waLink(text);
 });
 
-/* мессенджеры и геолокация: в наброске только подсказки */
-$$("[data-wa]").forEach(b=>b.addEventListener("click",()=>toast("На сайте здесь откроется чат WhatsApp")));
-$$("[data-tg]").forEach(b=>b.addEventListener("click",()=>toast("На сайте здесь откроется чат Telegram")));
-$$("[data-geo]").forEach(b=>b.addEventListener("click",()=>toast("На сайте откроется WhatsApp с точкой на карте: водитель сразу увидит, где вы")));
-
-/* форма обратного звонка */
-$("#cb").addEventListener("submit",e=>{
-  e.preventDefault();
-  const err=$("#cb-err"),ph=$("#cb-phone").value.replace(/\D/g,"");
-  if(ph.length<10){err.textContent="Впишите номер телефона, чтобы мы могли перезвонить";err.hidden=false;return}
-  if(!$("#cb-ok").checked){err.textContent="Отметьте согласие на обработку данных";err.hidden=false;return}
-  err.hidden=true;toast("В наброске форма ничего не отправляет. На сайте заявка придёт вам в Telegram");
-});
-
-/* документы */
-$$("[data-doc]").forEach(b=>b.addEventListener("click",()=>{const d=$("#doc-"+b.dataset.doc);if(d.showModal)d.showModal();else d.setAttribute("open","")}));
-$$("dialog").forEach(d=>{
-  d.addEventListener("click",e=>{if(e.target===d)d.close()});
-  d.querySelector("[data-close]").addEventListener("click",()=>d.close());
-});
+/* «Отправить, где я»: геолокация → WhatsApp с точкой на карте */
+function sendWithoutGeo(reason){
+  toast(`${reason}\nОткрываем WhatsApp: отправьте точку через скрепку → «Местоположение»`,4200);
+  setTimeout(()=>{location.href=waLink(HELLO+" Сейчас отправлю, где я.")},2200);
+}
+$$("[data-geo]").forEach(b=>b.addEventListener("click",()=>{
+  if(!("geolocation" in navigator))return sendWithoutGeo("Телефон не даёт определить место.");
+  b.disabled=true;toast("Определяем, где вы…",12000);
+  navigator.geolocation.getCurrentPosition(pos=>{
+    const la=pos.coords.latitude.toFixed(6),lo=pos.coords.longitude.toFixed(6);
+    const text=[HELLO,`Я здесь: https://yandex.ru/maps/?pt=${lo},${la}&z=17&l=map`,`Координаты: ${la}, ${lo}`].join("\n");
+    b.disabled=false;toast("Открываем WhatsApp с вашей точкой",2000);
+    location.href=waLink(text);
+  },err=>{
+    b.disabled=false;
+    sendWithoutGeo(err.code===1?"Доступ к геолокации запрещён.":"Не получилось определить место.");
+  },{enableHighAccuracy:true,timeout:12000,maximumAge:60000});
+}));
 </script>
 
 </body>
