@@ -297,6 +297,18 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-ite
 .dock .sq{width:50px;padding:0}
 @media (max-width:760px){.dock{display:flex}}
 
+/* точка в калькуляторе */
+.calc-geo{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 12px;align-items:center;border:1.5px dashed var(--line);border-radius:16px;padding:12px 14px;transition:box-shadow .2s,border-color .2s}
+.calc-geo b{display:block;font-size:15px;line-height:1.3}
+.calc-geo .cg-s{display:block;font-size:13.5px;color:var(--muted);margin-top:2px}
+.calc .calc-geo .btn{width:auto;padding:10px 14px;font-size:14.5px}
+.calc-geo .cg-alt{grid-column:1/-1;justify-self:start;font-size:14px;font-weight:600;color:var(--blue-text);text-underline-offset:3px}
+.calc-geo .spin{width:20px;height:20px;border-width:2.5px}
+.calc-geo.ok{border-style:solid;border-color:var(--wa);background:color-mix(in srgb,var(--wa) 8%,var(--surface))}
+.calc-geo.ask{border-style:solid;border-color:var(--signal);box-shadow:0 0 0 4px color-mix(in srgb,var(--signal) 22%,transparent)}
+.calc-geo.err{border-style:solid;border-color:var(--signal)}
+@media (max-width:420px){.calc-geo{grid-template-columns:1fr}.calc .calc-geo .btn{width:100%}}
+
 /* окно «Отправить, где я» */
 .sheet{position:fixed;z-index:55;left:50%;transform:translateX(-50%);bottom:calc(80px + env(safe-area-inset-bottom,0px));width:min(460px,calc(100% - 24px));max-height:calc(100% - 110px);overflow:auto;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:0 24px 60px rgb(0 0 0 / .35)}
 @media (min-width:761px){.sheet{bottom:calc(24px + env(safe-area-inset-bottom,0px))}}
@@ -406,7 +418,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-ite
           </div>
           <div class="total"><span id="total-lbl">Ориентир по&nbsp;тарифу</span><b id="total">15&nbsp;000&nbsp;₽</b></div>
           <p class="note">Точную сумму водитель назовёт по&nbsp;телефону до&nbsp;выезда.</p>
-          <a class="btn wa" id="calc-send" href="https://wa.me/79785442676" target="_blank" rel="noopener" data-goal="calc_whatsapp"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>Отправить расчёт в&nbsp;WhatsApp</a>
+          <div class="calc-geo" id="cg" aria-live="polite"></div>
+          <a class="btn wa" id="calc-send" href="https://wa.me/79785442676" target="_blank" rel="noopener" data-goal="calc_whatsapp"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg><span id="calc-send-t">Отправить расчёт в&nbsp;WhatsApp</span></a>
         </form>
       </div>
     </div>
@@ -602,13 +615,16 @@ if(TOW.metrika){
 function goal(name){try{if(TOW.metrika&&window.ym)ym(Number(TOW.metrika),"reachGoal",name)}catch(e){}}
 document.addEventListener("click",e=>{
   const a=e.target.closest("a");if(!a)return;
+  setTimeout(()=>{if(!e.defaultPrevented)linkGoal(a)},0);
+},true);
+function linkGoal(a){
   if(a.dataset.goal)goal(a.dataset.goal);
   else if(a.matches('a[href^="tel:"]'))goal("call");
   else if(a.matches("a[data-wa]"))goal("whatsapp");
   else if(a.matches("a[data-tg]"))goal("telegram");
   else if(a.matches('a[href$=".vcf"]'))goal("save_contact");
   else if(a.matches('a[href*="avito.ru"]'))goal("avito");
-},true);
+}
 
 /* WhatsApp сразу с приветствием */
 $$("a[data-wa]").forEach(a=>a.href=waLink(HELLO));
@@ -629,6 +645,15 @@ tick();setInterval(tick,30000);
 
 /* калькулятор */
 const km=$("#km");
+let point=null;   // место человека, если он его определил: {la,lo,acc,map}
+const pointLines=p=>[`Я здесь: ${p.map}`,`Координаты: ${p.la}, ${p.lo}`];
+function calcText(withPoint){
+  const far=$("input[name=where]:checked").value==="far",car=$("input[name=car]:checked").value;
+  const sum=far?Number(km.value)*TOW.perKm:TOW.cityPrice;
+  const lines=[HELLO,`Машина: ${car}`,far?`За город, примерно ${km.value} км`:"По Джанкою",`Ориентир с сайта: ${rub(sum).replace(/\u00A0/g," ")}`];
+  if(withPoint&&point)lines.push(...pointLines(point));
+  return lines.join("\n");
+}
 function calc(){
   const far=$("input[name=where]:checked").value==="far";
   $("#km-row").hidden=!far;
@@ -636,8 +661,9 @@ function calc(){
   const sum=far?Number(km.value)*TOW.perKm:TOW.cityPrice;
   $("#total").textContent=rub(sum);
   $("#total-lbl").textContent=far?`${km.value} км × ${TOW.perKm} ₽`:"Весь выезд по городу";
-  const car=$("input[name=car]:checked").value;
-  $("#calc-send").href=waLink([HELLO,`Машина: ${car}`,far?`За город, примерно ${km.value} км`:"По Джанкою",`Ориентир с сайта: ${rub(sum).replace(/\u00A0/g," ")}`].join("\n"));
+  $("#calc-send").href=waLink(calcText(true));
+  const alt=document.querySelector("#cg .cg-alt");if(alt)alt.href=waLink(calcText(false));
+  $("#calc-send-t").textContent=point?"Отправить расчёт и точку в\u00A0WhatsApp":"Отправить расчёт в\u00A0WhatsApp";
   return sum;
 }
 $("#calc").addEventListener("input",calc);
@@ -685,27 +711,74 @@ const VIEWS={
   nosupport:()=>`<div class="sh-head"><span class="sh-ic no" aria-hidden="true">!</span><h3 id="geo-t">Браузер не&nbsp;умеет определять место</h3></div>
     <p>${IN_APP?permissionHint():"Откройте сайт в&nbsp;Safari или Chrome."}</p><p>${manualHint}</p>${fallbackActions()}`
 };
-function locate(){
-  const run=++geoRun;
-  showSheet(VIEWS.wait());
-  if(!("geolocation" in navigator)||window.isSecureContext===false)return showSheet(VIEWS.nosupport());
+/* определение места: сначала точно (GPS), если не вышло за 10 секунд, то по сети */
+function findMe(cb){
+  if(!("geolocation" in navigator)||window.isSecureContext===false)return cb({code:"nosupport"});
   const found=pos=>{
-    if(run!==geoRun)return;
     const la=pos.coords.latitude.toFixed(6),lo=pos.coords.longitude.toFixed(6),acc=Math.max(1,Math.round(pos.coords.accuracy||0));
-    const map=`https://yandex.ru/maps/?pt=${lo},${la}&z=17&l=map`;
-    const text=[HELLO,`Я здесь: ${map}`,`Координаты: ${la}, ${lo}`].join("\n");
-    showSheet(VIEWS.found({la,lo,acc,map,text}));
+    point={la,lo,acc,map:`https://yandex.ru/maps/?pt=${lo},${la}&z=17&l=map`};
+    calc();
+    if(cgState!=="wait")setCG("ok");
+    cb({code:"ok",p:point});
   };
-  /* сначала точно (GPS), если не вышло за 10 секунд, то по сети */
   const ask=high=>navigator.geolocation.getCurrentPosition(found,err=>{
-    if(run!==geoRun)return;
-    if(err.code===1)return showSheet(VIEWS.denied());
+    if(err.code===1)return cb({code:"denied"});
     if(high)return ask(false);
-    showSheet(VIEWS.nogps());
+    cb({code:"nogps"});
   },high?{enableHighAccuracy:true,timeout:10000,maximumAge:30000}:{enableHighAccuracy:false,timeout:12000,maximumAge:600000});
   ask(true);
 }
+function locate(){
+  const run=++geoRun;
+  showSheet(VIEWS.wait());
+  findMe(res=>{
+    if(run!==geoRun)return;
+    if(res.code!=="ok")return showSheet(VIEWS[res.code]());
+    const p=res.p;
+    showSheet(VIEWS.found({...p,text:[HELLO,...pointLines(p)].join("\n")}));
+  });
+}
 $$("[data-geo]").forEach(b=>b.addEventListener("click",locate));
+/* «Где машина?» в калькуляторе: точка уходит в одном сообщении с расчётом */
+const cg=$("#cg");
+let cgState="idle",cgAsked=false;
+function setCG(state,res){
+  cgState=state;
+  cg.className="calc-geo"+({ok:" ok",ask:" ask",err:" err"}[state]||"");
+  const btn=(label,attr)=>`<button type="button" class="btn line" ${attr}>${ICON("pin")}${label}</button>`;
+  const withoutPoint=`<a class="cg-alt" href="${esc(waLink(calcText(false)))}" target="_blank" rel="noopener" data-goal="calc_whatsapp">Отправить без точки</a>`;
+  const help={
+    denied:"Нет доступа к&nbsp;геолокации. Отправьте точку в&nbsp;чате: скрепка → «Местоположение».",
+    nogps:"Телефон не&nbsp;смог определить место. Отправьте точку в&nbsp;чате: скрепка → «Местоположение».",
+    nosupport:"Браузер не&nbsp;умеет определять место. Отправьте точку в&nbsp;чате: скрепка → «Местоположение»."
+  };
+  const html={
+    idle:()=>`<span><b>Где машина?</b><span class="cg-s">Добавьте точку, и&nbsp;водитель сразу увидит, куда ехать</span></span>${btn("Добавить точку","data-cg-find")}`,
+    ask:()=>`<span><b>Добавить, где вы?</b><span class="cg-s">Точка на&nbsp;карте уйдёт вместе с&nbsp;расчётом, объяснять дорогу не&nbsp;придётся</span></span>${btn("Добавить точку","data-cg-find")}${withoutPoint}`,
+    wait:()=>`<span><b>Определяем, где вы…</b><span class="cg-s">Если телефон спросит доступ, нажмите «Разрешить»</span></span><span class="spin" aria-hidden="true"></span>`,
+    ok:()=>`<span><b>✓ Точка добавлена</b><span class="cg-s">Точность около ${point.acc}&nbsp;м. Она уйдёт вместе с&nbsp;расчётом</span></span><button type="button" class="btn line" data-cg-find>Обновить</button>`,
+    err:()=>`<span><b>Точку не&nbsp;добавили</b><span class="cg-s">${help[res]||help.nogps}</span></span>${res==="denied"?`<button type="button" class="btn line" data-cg-help>Как разрешить</button>`:btn("Ещё раз","data-cg-find")}`
+  };
+  cg.innerHTML=html[state]();
+}
+let cgRun=0;
+function cgFind(){
+  const run=++cgRun;setCG("wait");
+  findMe(res=>{if(run!==cgRun)return;res.code==="ok"?setCG("ok"):setCG("err",res.code)});
+}
+cg.addEventListener("click",e=>{
+  if(e.target.closest("[data-cg-find]"))cgFind();
+  else if(e.target.closest("[data-cg-help]"))showSheet(VIEWS.denied());
+});
+/* не заметил строку и сразу нажал «Отправить»: один раз предлагаем добавить точку */
+$("#calc-send").addEventListener("click",e=>{
+  if(point||cgAsked||cgState!=="idle"||!("geolocation" in navigator))return;
+  e.preventDefault();cgAsked=true;setCG("ask");
+  cg.scrollIntoView({behavior:"smooth",block:"center"});
+});
+setCG("idle");
+calc();
+
 sheet.addEventListener("click",e=>{
   if(e.target.closest("[data-geo-retry]"))return locate();
   const c=e.target.closest("[data-copy]");
