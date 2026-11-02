@@ -123,9 +123,9 @@ section{padding-block:34px;border-top:1px solid var(--line)}
 .draft h2 em{color:inherit}
 .draft p{opacity:.85;margin-top:12px}
 .draft ol{margin:0;padding:0;list-style:none;display:grid;gap:6px;counter-reset:d}
-.draft li{display:flex;gap:10px;align-items:baseline;font-size:15px}
+.draft li{display:grid;grid-template-columns:26px minmax(0,1fr);column-gap:8px;align-items:baseline;font-size:15px}
 .draft li::before{counter-increment:d;content:counter(d,decimal-leading-zero);font-family:var(--display);font-weight:600;font-size:17px;opacity:.7;flex:none;width:24px}
-.draft li span{opacity:.75}
+.draft li span{opacity:.75;grid-column:2;font-size:13.5px}
 .draft .btn{background:var(--on-walnut);color:var(--walnut);margin-top:20px}
 @media (max-width:760px){.draft{grid-template-columns:1fr}}
 
