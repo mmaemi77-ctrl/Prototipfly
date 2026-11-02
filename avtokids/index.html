@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Главный экран и структура сайта AutoKids: электромобили, багги, квадроциклы и скутеры с наличием и бронью в Краснодаре, Анапе и Ставрополе">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AutoKids · главный экран и структура сайта">
+<meta property="og:description" content="Электромобили, багги и квадроциклы с наличием и бронью в трёх магазинах: Краснодар, Анапа, Ставрополь">
+<meta property="og:image" content="https://mmaemi77-ctrl.github.io/avtokids/og-glavnyi.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<title>AutoKids · главный экран</title>
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&display=swap">
+<style>
+/* Layout: витрина «три магазина». Слева выбор своего магазина и обещание, справа карточка модели с наличием по городам и бронью; под ними разделы каталога. Ниже структура сайта блоками с мини-схемами */
+:root{
+  --bg:#F4F1ED;
+  --surface:#FFFFFF;
+  --ink:#1C1A19;
+  --muted:#67605B;
+  --line:#E3DDD6;
+  --soft:#EDE8E2;
+  --red:#A8231A;
+  --red-hi:#C02B21;
+  --on-red:#FFFFFF;
+  --tint:#F8E6E3;
+  --ok:#1D8248;
+  --wait:#B86E00;
+  --tg:#2A9BD8;
+  --font:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141211;--surface:#1E1B1A;--ink:#F3EEEA;--muted:#ADA59F;--line:#332E2B;--soft:#2A2624;--red:#D9392E;--red-hi:#E84A3F;--on-red:#FFFFFF;--tint:#3A1D1A;--ok:#43BE77;--wait:#E5A43C;--tg:#4BB0E8;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141211;--surface:#1E1B1A;--ink:#F3EEEA;--muted:#ADA59F;--line:#332E2B;--soft:#2A2624;--red:#D9392E;--red-hi:#E84A3F;--on-red:#FFFFFF;--tint:#3A1D1A;--ok:#43BE77;--wait:#E5A43C;--tg:#4BB0E8;color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+.wrap{max-width:1280px;margin:0 auto;padding-left:max(clamp(16px,2.6vw,32px),env(safe-area-inset-left,0px));padding-right:max(clamp(16px,2.6vw,32px),env(safe-area-inset-right,0px))}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+button,input{font-family:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:16px;padding:15px 24px;font-weight:700;font-size:16px;line-height:1.2;cursor:pointer;text-decoration:none;transition:transform .15s,background-color .15s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px)}
+.btn svg{width:19px;height:19px;flex:none}
+.btn.red{background:var(--red);color:var(--on-red)}
+.btn.red:hover{background:var(--red-hi)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn.ghost:hover{box-shadow:inset 0 0 0 1.5px var(--ink)}
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* метка наброска и шапка */
+.draft{background:var(--ink);color:var(--bg);font-size:12.5px;line-height:1.35;padding:7px 16px;text-align:center}
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;gap:28px;padding-block:12px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex:none}
+.logo img{width:46px;height:46px;border-radius:50%}
+.logo b{display:block;font-weight:800;font-size:19px;letter-spacing:-.01em;line-height:1.1}
+.logo small{display:block;font-size:12px;font-weight:600;color:var(--muted)}
+nav{display:flex;gap:22px;font-size:15px;font-weight:600;margin-left:auto}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+.h-right{display:flex;align-items:center;gap:10px}
+.h-phone{display:grid;text-align:right;text-decoration:none;line-height:1.2}
+.h-phone b{font-weight:800;font-size:15.5px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.h-phone small{font-size:12px;color:var(--muted);font-weight:600}
+.ic{width:46px;height:46px;border-radius:14px;border:1.5px solid var(--line);background:var(--surface);display:grid;place-items:center;cursor:pointer;text-decoration:none;flex:none}
+.ic:hover{border-color:var(--ink)}
+.ic svg{width:20px;height:20px}
+.ic.tg{color:var(--tg)}
+.ic.menu,.ic.call{display:none}
+@media (max-width:1140px){nav{display:none}.h-right{margin-left:auto}}
+@media (max-width:640px){.h-phone{display:none}.ic.call,.ic.menu{display:grid}.logo img{width:40px;height:40px}.logo b{font-size:17px}header .wrap{gap:12px;padding-block:10px}.ic{width:42px;height:42px;border-radius:12px}}
+
+/* первый экран */
+.hero{display:grid;grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);grid-template-areas:"l s" "m s" "f f";column-gap:clamp(24px,4vw,56px);padding-block:26px 22px;align-items:start}
+.h-left{grid-area:l;display:grid;gap:18px;padding-top:8px}
+.h-more{grid-area:m;display:grid;gap:22px;padding-top:22px}
+.stage{grid-area:s}
+.city{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.city>span{font-size:14px;font-weight:600;color:var(--muted);margin-right:4px}
+.seg{display:inline-flex;background:var(--soft);border-radius:14px;padding:4px;gap:2px}
+.seg button{border:0;background:transparent;border-radius:11px;padding:9px 16px;font-size:15px;font-weight:700;color:var(--muted);cursor:pointer;white-space:nowrap}
+.seg button[aria-selected="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgb(0 0 0 / .08),0 4px 12px rgb(0 0 0 / .06)}
+h1{font-weight:800;font-size:clamp(34px,4.1vw,58px);line-height:1.04;letter-spacing:-.035em}
+h1 em{font-style:normal;color:var(--red);white-space:nowrap;background:linear-gradient(transparent 84%,color-mix(in srgb,var(--red) 22%,transparent) 84%)}
+.sub{font-size:clamp(16.5px,1.35vw,19px);line-height:1.5;color:var(--muted);max-width:40ch}
+.cta{display:flex;flex-wrap:wrap;gap:10px}
+.store{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:12px 16px;max-width:520px}
+.store>svg{width:22px;height:22px;color:var(--red);flex:none}
+.store div{display:grid;gap:1px;min-width:0}
+.store b{font-weight:700;font-size:15.5px}
+.store span{font-size:13.5px;color:var(--muted)}
+.store a{margin-left:auto;font-weight:800;font-size:15px;text-decoration:none;white-space:nowrap;font-variant-numeric:tabular-nums}
+.facts{grid-area:f;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;border-top:1px solid var(--line);padding-top:16px;margin-top:26px}
+.facts div{display:grid;gap:2px;align-content:start}
+.facts b{font-weight:800;font-size:clamp(18px,1.6vw,23px);letter-spacing:-.02em;line-height:1.15;white-space:nowrap;font-variant-numeric:tabular-nums}
+.facts span{font-size:13px;line-height:1.35;color:var(--muted)}
+
+/* карточка модели */
+.stage{background:var(--surface);border:1px solid var(--line);border-radius:30px;overflow:hidden;box-shadow:0 30px 60px -40px rgb(0 0 0 / .35)}
+.st-photo{position:relative;aspect-ratio:16/10;background:#E8E5E1;overflow:hidden}
+@media (min-width:641px){.stage{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1fr)}.st-photo{aspect-ratio:auto;min-height:100%}.st-photo img{object-position:50% 50%}.st-body{align-content:start}}
+.st-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 58%;transition:opacity .3s}
+.st-photo img.fade{opacity:0}
+.ny{position:absolute;left:14px;top:14px;display:inline-flex;align-items:center;gap:8px;background:var(--red);color:var(--on-red);border-radius:999px;padding:6px 14px 6px 6px;font-weight:700;font-size:13.5px;box-shadow:0 8px 20px rgb(0 0 0 / .2)}
+.ny i{width:26px;height:26px;border-radius:50%;background:#FFFFFF;color:#A8231A;display:grid;place-items:center}
+.ny i svg{width:15px;height:15px}
+.arrows{position:absolute;right:14px;bottom:14px;display:flex;align-items:center;gap:6px;background:rgb(255 255 255 / .92);border-radius:999px;padding:4px;color:#1C1A19;box-shadow:0 8px 20px rgb(0 0 0 / .15)}
+.arrows button{width:38px;height:38px;border-radius:50%;border:0;background:#F1EDE8;color:#1C1A19;cursor:pointer;font-size:17px;display:grid;place-items:center}
+.arrows button:hover{background:#E3DDD6}
+.arrows span{font-size:13px;font-weight:700;min-width:36px;text-align:center;font-variant-numeric:tabular-nums}
+.st-body{padding:18px 20px 20px;display:grid;grid-template-columns:minmax(0,1fr);gap:14px;min-width:0}
+.stock,.srow{min-width:0}
+.st-top{display:grid;gap:3px}
+.st-top small{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--red)}
+.st-top h2{font-size:clamp(21px,1.9vw,26px);font-weight:800;letter-spacing:-.02em;line-height:1.15}
+.chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.chips li{font-size:13.5px;font-weight:600;background:var(--soft);border-radius:999px;padding:5px 12px;white-space:nowrap}
+.stock{display:grid;gap:6px}
+.stock-h{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;font-weight:700;color:var(--muted)}
+.stock-h small{font-weight:600;font-size:12px}
+.srow{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:11px;border:1.5px solid var(--line);background:transparent;border-radius:14px;padding:9px 12px;text-align:left;cursor:pointer;width:100%}
+.srow:hover{border-color:var(--muted)}
+.srow[aria-pressed="true"]{border-color:var(--red);background:var(--tint)}
+.srow .dot{width:10px;height:10px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px color-mix(in srgb,var(--ok) 18%,transparent)}
+.srow .dot.order{background:var(--wait);box-shadow:0 0 0 4px color-mix(in srgb,var(--wait) 18%,transparent)}
+.srow span{display:grid;min-width:0}
+.srow b{font-weight:700;font-size:15px}
+.srow small{font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.srow em{font-style:normal;font-weight:700;font-size:13.5px;color:var(--ok);white-space:nowrap}
+.srow em.order{color:var(--wait)}
+.gift{display:flex;align-items:center;gap:10px;font-size:14.5px;font-weight:600;cursor:pointer;user-select:none}
+.gift input{width:20px;height:20px;accent-color:var(--red);flex:none;margin:0}
+.st-body .btn{width:100%;padding-block:16px;white-space:normal;text-align:center}
+
+/* разделы каталога */
+.cats{padding-bottom:clamp(40px,5vw,64px)}
+.cats-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px}
+.cats-h h2{font-size:20px;font-weight:800;letter-spacing:-.01em}
+.cats-h a{font-size:14.5px;font-weight:700;color:var(--red);text-decoration:none}
+.cat-row{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px}
+.cat{position:relative;border-radius:20px;overflow:hidden;background:var(--surface);border:1px solid var(--line);text-decoration:none;display:grid;grid-template-rows:auto auto}
+.cat .im{aspect-ratio:4/3;background:#E8E5E1 center/cover no-repeat}
+.cat .im.ph{background:repeating-linear-gradient(-45deg,var(--soft) 0 10px,transparent 10px 20px);display:grid;place-items:center;padding:10px;text-align:center;font-size:11.5px;line-height:1.3;font-weight:600;color:var(--muted)}
+.cat b{display:block;padding:10px 12px 12px;font-size:14.5px;font-weight:700;line-height:1.2}
+@media (max-width:1060px){.cat-row{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:640px){.cat-row{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-16px;padding-inline:16px;scrollbar-width:none}.cat-row::-webkit-scrollbar{display:none}.cat{flex:0 0 42%;scroll-snap-align:start}}
+
+@media (max-width:980px){
+  .hero{grid-template-columns:1fr;grid-template-areas:"l" "s" "m" "f";padding-top:16px}
+  .h-left{padding-top:0}
+  .stage{margin-top:18px}
+}
+@media (max-width:640px){
+  .draft{font-size:11.5px;padding-block:6px}
+  .hero{padding-block:12px 10px}
+  .h-left{gap:12px}
+  .city>span,.h-left .eyebrow{display:none}
+  .seg{display:grid;grid-template-columns:repeat(3,1fr);width:100%}
+  .seg button{padding:9px 6px;font-size:14.5px}
+  h1{font-size:31px;letter-spacing:-.03em}
+  .store{padding:0;border:0;background:transparent;gap:8px}
+  .store>svg{width:18px;height:18px}
+  .store b{font-size:14px}
+  .store span{display:none}
+  .store a{font-size:14px}
+  .stage{margin-top:14px;border-radius:24px}
+  .st-photo{aspect-ratio:16/9.4}
+  .ny{left:10px;top:10px;font-size:12.5px}
+  .arrows{right:10px;bottom:10px}
+  .arrows button{width:34px;height:34px}
+  .st-body{padding:14px 14px 16px;gap:11px}
+  .st-top h2{font-size:20px}
+  .chips li{font-size:12.5px;padding:4px 10px}
+  .stock-h{display:none}
+  .stock{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+  .srow{grid-template-columns:1fr;gap:3px;padding:8px 10px;border-radius:12px}
+  .srow .dot{position:absolute;opacity:0}
+  .srow small{display:none}
+  .srow b{font-size:13.5px}
+  .srow em{font-size:12px;display:flex;align-items:center;gap:5px}
+  .srow em::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+  .gift{font-size:13.5px}
+  .st-body .btn{padding-block:15px}
+  .h-more{padding-top:18px}
+  .facts{grid-template-columns:1fr 1fr;row-gap:16px;margin-top:20px}
+}
+
+/* структура */
+.s-head{background:var(--ink);color:var(--bg);padding-block:clamp(44px,6vw,76px)}
+.s-head .eyebrow{color:color-mix(in srgb,var(--bg) 62%,transparent)}
+.s-head h2{font-weight:800;font-size:clamp(28px,4vw,48px);letter-spacing:-.03em;line-height:1.06;margin-top:10px}
+.s-head .lead{font-size:clamp(16px,1.6vw,19px);color:color-mix(in srgb,var(--bg) 76%,transparent);max-width:54ch;margin-top:14px}
+.flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:34px;counter-reset:f}
+.flow div{position:relative;border:1.5px solid color-mix(in srgb,var(--bg) 22%,transparent);border-radius:22px;padding:18px 18px 20px;display:grid;gap:8px;align-content:start}
+.flow div::before{counter-increment:f;content:counter(f);width:30px;height:30px;border-radius:50%;background:color-mix(in srgb,var(--bg) 14%,transparent);display:grid;place-items:center;font-weight:800;font-size:14px}
+.flow div:last-child{background:var(--red);border-color:var(--red);color:#FFFFFF}
+.flow div:last-child::before{background:rgb(255 255 255 / .2)}
+.flow b{font-size:16.5px;line-height:1.3}
+.flow span{font-size:14px;color:color-mix(in srgb,currentColor 75%,transparent)}
+.flow div:not(:last-child)::after{content:"→";position:absolute;right:-12px;top:50%;transform:translate(50%,-50%);width:26px;height:26px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-weight:800;z-index:1}
+@media (max-width:860px){.flow{grid-template-columns:1fr 1fr}.flow div:nth-child(2)::after{display:none}}
+@media (max-width:520px){.flow{grid-template-columns:1fr}.flow div::after{display:none!important}}
+
+.blocks{padding-block:clamp(36px,5vw,64px);display:grid;gap:14px}
+.blk{display:grid;grid-template-columns:minmax(0,350px) minmax(0,1fr);gap:clamp(18px,3vw,40px);align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:clamp(14px,2vw,22px);scroll-margin-top:90px;transition:box-shadow .3s}
+.blk.hl{box-shadow:0 0 0 3px var(--red)}
+.blk .txt{display:grid;gap:10px;min-width:0;padding-right:8px}
+.blk .no{font-weight:800;font-size:14px;color:var(--red);letter-spacing:.04em}
+.blk h3{font-weight:800;font-size:clamp(20px,2.2vw,26px);letter-spacing:-.02em;line-height:1.15}
+.blk .why{font-weight:600;font-size:16px}
+.blk ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.blk li{font-size:14px;font-weight:600;background:var(--bg);border-radius:999px;padding:6px 12px;color:var(--muted)}
+@media (max-width:760px){.blk{grid-template-columns:1fr}.blk .txt{padding:0 4px 6px}}
+
+/* мини-схемы блоков */
+.wf{aspect-ratio:16/10;max-width:100%;border-radius:18px;background:var(--bg);border:1px solid var(--line);padding:10px;display:grid;gap:7px;overflow:hidden}
+.wf i{display:block;border-radius:6px;background:var(--line)}
+.ln{display:block;height:7px;border-radius:4px;background:var(--line)}
+.ln.r{background:var(--red)}
+.ln.w{background:rgb(255 255 255 / .75)}
+.pl{display:block;height:16px;border-radius:999px;background:var(--line)}
+.pl.r{background:var(--red)}
+.pl.s{background:var(--surface)}
+.ph{border-radius:10px;background:#E8E5E1 center/cover no-repeat}
+.wcard{background:var(--surface);border-radius:10px;padding:5px;display:grid;gap:4px;align-content:start}
+.wcard .ph{aspect-ratio:4/3}
+.wcard b{font-size:10px;font-weight:800;line-height:1.1}
+.dt{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--ok);flex:none}
+.dt.o{background:var(--wait)}
+.wrow{display:flex;align-items:center;gap:6px;background:var(--surface);border-radius:8px;padding:5px 7px}
+.wrow .ln{flex:1}
+
+/* что дальше */
+.next{padding-bottom:clamp(40px,6vw,72px)}
+.next-in{background:var(--red);color:#FFFFFF;border-radius:30px;padding:clamp(24px,4vw,44px);display:grid;gap:22px}
+.next-in .eyebrow{color:rgb(255 255 255 / .8)}
+.next-in h2{font-weight:800;font-size:clamp(24px,3vw,36px);letter-spacing:-.02em;margin-top:8px}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;counter-reset:n}
+.steps div{background:rgb(255 255 255 / .12);border-radius:22px;padding:18px;display:grid;gap:6px;align-content:start}
+.steps div::before{counter-increment:n;content:counter(n);font-weight:800;font-size:28px;line-height:1}
+.steps b{font-size:16.5px}
+.steps span{font-size:14.5px;color:rgb(255 255 255 / .86)}
+@media (max-width:760px){.steps{grid-template-columns:1fr}}
+
+footer{background:var(--ink);color:var(--bg)}
+footer .wrap{display:grid;gap:16px;padding-block:24px;font-size:13.5px}
+.f-top,.f-bot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
+.f-bot{border-top:1px solid color-mix(in srgb,var(--bg) 16%,transparent);padding-top:16px}
+.soc{display:flex;gap:8px}
+.f-docs{display:flex;flex-wrap:wrap;gap:6px 18px}
+.f-docs button{border:0;background:none;padding:0;cursor:pointer;color:color-mix(in srgb,var(--bg) 76%,transparent);text-decoration:underline;text-underline-offset:3px;font-size:13.5px}
+.sign{display:inline-flex;align-items:center;flex-wrap:wrap;gap:10px}
+.sign b{font-weight:800;letter-spacing:.06em}
+.rnd{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:color-mix(in srgb,var(--bg) 14%,transparent);color:var(--bg);text-decoration:none}
+.rnd:hover{background:var(--bg);color:var(--ink)}
+.rnd svg{width:16px;height:16px}
+
+/* окно брони и документы */
+dialog{border:0;padding:0;border-radius:26px;background:var(--surface);color:var(--ink);width:min(460px,calc(100% - 24px));max-height:calc(100dvh - 24px);box-shadow:0 40px 80px -20px rgb(0 0 0 / .45)}
+dialog::backdrop{background:rgb(20 18 17 / .55);backdrop-filter:blur(3px)}
+.dl{padding:22px;display:grid;gap:16px}
+.dl-h{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.dl-h h2{font-size:22px;font-weight:800;letter-spacing:-.02em}
+.x{width:38px;height:38px;border-radius:50%;border:0;background:var(--soft);cursor:pointer;font-size:20px;line-height:1;display:grid;place-items:center}
+.sum{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;align-items:center;background:var(--bg);border-radius:16px;padding:8px}
+.sum img{width:64px;height:64px;border-radius:10px;object-fit:cover}
+.sum b{display:block;font-weight:800;font-size:15.5px;line-height:1.25}
+.sum span{font-size:13px;color:var(--muted)}
+fieldset{border:0;margin:0;padding:0;display:grid;gap:8px}
+legend{font-size:13.5px;font-weight:700;color:var(--muted);margin-bottom:8px;padding:0}
+.when{display:flex;flex-wrap:wrap;gap:6px}
+.when label{position:relative;cursor:pointer}
+.when input{position:absolute;opacity:0;pointer-events:none}
+.when span{display:block;border:1.5px solid var(--line);border-radius:12px;padding:9px 13px;font-size:14px;font-weight:600}
+.when input:checked+span{border-color:var(--red);background:var(--tint);color:var(--ink)}
+.when input:focus-visible+span{outline:2px solid var(--red);outline-offset:2px}
+.inp{display:grid;gap:5px;font-size:13.5px;font-weight:700;color:var(--muted)}
+.inp input{border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;font-size:16px;background:var(--surface);color:var(--ink);outline:none}
+.inp input:focus{border-color:var(--red)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:420px){.two{grid-template-columns:1fr}}
+.agree{display:grid;grid-template-columns:20px minmax(0,1fr);gap:10px;align-items:start;font-size:13px;line-height:1.45;color:var(--muted);cursor:pointer}
+.agree input{width:18px;height:18px;margin:1px 0 0;accent-color:var(--red)}
+.agree button{border:0;background:none;padding:0;color:var(--ink);text-decoration:underline;text-underline-offset:2px;cursor:pointer;font-size:13px}
+.dl .btn{width:100%}
+.dl .btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.note{font-size:12.5px;color:var(--muted);text-align:center}
+.tgmsg{background:#E3F1FA;color:#16222B;border-radius:18px 18px 18px 6px;padding:12px 14px;font-size:14.5px;line-height:1.5;white-space:pre-line}
+.tgmsg b{display:block;font-size:12.5px;color:#2A7FB8;margin-bottom:2px}
+.doc{font-size:14px;line-height:1.55;color:var(--muted);display:grid;gap:10px}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:12px 20px;border-radius:999px;font-weight:700;font-size:14px;z-index:60;width:max-content;max-width:calc(100% - 32px);text-align:center}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="draft">Набросок для&nbsp;AutoKids: фото и&nbsp;адреса из&nbsp;вашего Instagram, наличие для&nbsp;примера, форма ничего не&nbsp;отправляет</div>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top"><img src="img/logo.png" alt="" width="46" height="46"><span><b>AutoKids</b><small>Дарим эмоции с&nbsp;2014 года</small></span></a>
+    <nav><a href="#s-catalog">Электромобили</a><a href="#s-catalog">Багги и&nbsp;квадроциклы</a><a href="#s-moto">Скутеры и&nbsp;эндуро</a><a href="#s-servis">Сервис</a><a href="#s-magaziny">Магазины</a></nav>
+    <div class="h-right">
+      <a class="h-phone" id="h-phone" href="tel:+79388707220"><b id="h-num">8&nbsp;(938)&nbsp;870-72-20</b><small id="h-city">магазин в&nbsp;Краснодаре</small></a>
+      <a class="ic call" id="h-call" href="tel:+79388707220" aria-label="Позвонить в магазин"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg></a>
+      <a class="ic tg" href="https://t.me/avtokids" target="_blank" rel="noopener" aria-label="Telegram AutoKids" title="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tg"/></svg></a>
+      <button type="button" class="ic menu" aria-label="Меню" data-toast="На сайте здесь откроется меню разделов"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="wrap hero">
+    <div class="h-left">
+      <div class="city"><span>Ваш магазин:</span>
+        <div class="seg" role="tablist" aria-label="Выбор магазина">
+          <button type="button" role="tab" data-city="krd" aria-selected="true">Краснодар</button>
+          <button type="button" role="tab" data-city="anp" aria-selected="false">Анапа</button>
+          <button type="button" role="tab" data-city="stv" aria-selected="false">Ставрополь</button>
+        </div>
+      </div>
+      <p class="eyebrow">Электромобили · багги · квадроциклы · скутеры · эндуро</p>
+      <h1>Забронируйте онлайн и&nbsp;заберите в&nbsp;<em id="h1-city">Краснодаре</em></h1>
+      <div class="store">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg>
+        <div><b id="st-addr">ул. Алма-Атинская, 164</b><span>без выходных, 10:00–20:00</span></div>
+        <a id="st-tel" href="tel:+79388707220">8&nbsp;(938)&nbsp;870-72-20</a>
+      </div>
+    </div>
+
+    <div class="stage" id="stage" aria-live="polite">
+      <div class="st-photo">
+        <img id="ph" src="img/buggy-8841.jpg" alt="Детский багги 8841, розово-белый">
+        <span class="ny"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.5"/><path d="M2.5 9h19M12 9v11M12 9c-1.5-3.5-5.5-4-5.5-1.5S10 9 12 9zm0 0c1.5-3.5 5.5-4 5.5-1.5S14 9 12 9z"/></svg></i><span id="ny-t">До Нового года 59&nbsp;дней</span></span>
+        <div class="arrows"><button type="button" id="prev" aria-label="Предыдущая модель">←</button><span id="m-n">1 / 5</span><button type="button" id="next" aria-label="Следующая модель">→</button></div>
+      </div>
+      <div class="st-body">
+        <div class="st-top"><small id="m-cat">Багги</small><h2 id="m-name">Багги 8841</h2></div>
+        <ul class="chips" id="m-spec"></ul>
+        <div class="stock" id="stock">
+          <div class="stock-h"><span>Наличие в&nbsp;магазинах</span><small>для примера</small></div>
+        </div>
+        <label class="gift"><input type="checkbox" id="gift"><span>Спрятать до&nbsp;праздника, заберу 30&nbsp;декабря</span></label>
+        <button type="button" class="btn red" id="book">Забронировать в&nbsp;Краснодаре</button>
+      </div>
+    </div>
+
+    <div class="h-more">
+      <p class="sub">Три магазина на&nbsp;юге с&nbsp;2014 года. Видно, что стоит в&nbsp;вашем магазине, а&nbsp;подарок к&nbsp;Новому году отложим до&nbsp;30&nbsp;декабря, чтобы ребёнок ничего не&nbsp;увидел.</p>
+      <div class="cta"><a class="btn red" href="#s-catalog">Выбрать подарок</a><a class="btn ghost" href="#s-magaziny">Адреса магазинов</a></div>
+    </div>
+    <div class="facts">
+      <div><b>с&nbsp;2014</b><span>дарим эмоции детям и&nbsp;взрослым</span></div>
+      <div><b>3 магазина</b><span>Краснодар, Анапа, Ставрополь</span></div>
+      <div><b>21,2 тыс.</b><span>подписчиков в&nbsp;Instagram</span></div>
+      <div><b>по&nbsp;России</b><span>доставка и&nbsp;рассрочка</span></div>
+    </div>
+  </section>
+
+  <section class="wrap cats" aria-label="Разделы каталога">
+    <div class="cats-h"><h2>Разделы каталога</h2><a href="#s-catalog">Как устроен каталог →</a></div>
+    <div class="cat-row" id="cats"></div>
+  </section>
+
+  <section class="s-head">
+    <div class="wrap">
+      <div class="eyebrow">Структура сайта</div>
+      <h2>Что будет на&nbsp;сайте AutoKids</h2>
+      <p class="lead">13 блоков, и&nbsp;каждый отвечает на&nbsp;вопрос, который сейчас задают в&nbsp;директе или по&nbsp;телефону одного из&nbsp;трёх магазинов</p>
+      <div class="flow">
+        <div><b>Видит пост в&nbsp;Instagram</b><span>как сейчас</span></div>
+        <div><b>Переходит на&nbsp;сайт</b><span>по&nbsp;ссылке в&nbsp;шапке профиля</span></div>
+        <div><b>Выбирает модель и&nbsp;свой магазин</b><span>и&nbsp;сразу видит, есть&nbsp;ли она там</span></div>
+        <div><b>Вам приходит бронь</b><span>модель, магазин, дата и&nbsp;телефон в&nbsp;одном сообщении</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap blocks">
+    <article class="blk" id="s-glavnyi">
+      <div class="wf" style="grid-template-columns:1fr 1.2fr">
+        <div style="display:grid;gap:7px;align-content:center">
+          <div style="display:flex;gap:3px;background:var(--surface);border-radius:999px;padding:3px"><span class="pl r" style="flex:1;height:12px"></span><span class="pl" style="flex:1;height:12px"></span><span class="pl" style="flex:1;height:12px"></span></div>
+          <span class="ln" style="width:90%;height:10px;background:var(--ink)"></span><span class="ln" style="width:70%;height:10px;background:var(--ink)"></span><span class="ln r" style="width:45%;height:10px"></span>
+          <div class="wrow" style="margin-top:4px"><span class="dt" style="background:var(--red)"></span><span class="ln"></span></div>
+        </div>
+        <div class="wcard" style="padding:6px;gap:5px">
+          <div class="ph" style="aspect-ratio:16/9;background-image:url(img/buggy-8841.jpg)"></div>
+          <div class="wrow" style="background:var(--tint)"><span class="dt"></span><span class="ln"></span></div>
+          <div class="wrow" style="background:var(--bg)"><span class="dt"></span><span class="ln"></span></div>
+          <div class="wrow" style="background:var(--bg)"><span class="dt o"></span><span class="ln"></span></div>
+          <span class="pl r" style="height:12px"></span>
+        </div>
+      </div>
+      <div class="txt"><span class="no">01</span><h3>Главный экран</h3><p class="why">Родитель выбирает свой город и&nbsp;за&nbsp;пару секунд видит, где стоит модель</p><ul><li>Краснодар, Анапа, Ставрополь</li><li>Адрес, часы и&nbsp;телефон своего магазина</li><li>Наличие по&nbsp;трём магазинам</li><li>Кнопка брони</li><li>Отсчёт до&nbsp;Нового года</li></ul></div>
+    </article>
+
+    <article class="blk" id="s-catalog">
+      <div class="wf" style="grid-template-rows:auto 1fr">
+        <div style="display:flex;gap:5px;flex-wrap:wrap"><span class="pl r" style="width:20%"></span><span class="pl" style="width:15%"></span><span class="pl" style="width:18%"></span><span class="pl" style="width:14%"></span><span class="pl" style="width:16%"></span></div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:5px;align-content:start">
+          <div class="wcard"><div class="ph" style="background-image:url(img/cla45.jpg)"></div><span style="display:flex;gap:4px;align-items:center"><span class="dt"></span><span class="ln" style="flex:1"></span></span></div>
+          <div class="wcard"><div class="ph" style="background-image:url(img/buggy-24v.jpg)"></div><span style="display:flex;gap:4px;align-items:center"><span class="dt"></span><span class="ln" style="flex:1"></span></span></div>
+          <div class="wcard"><div class="ph" style="background-image:url(img/quad.jpg)"></div><span style="display:flex;gap:4px;align-items:center"><span class="dt o"></span><span class="ln" style="flex:1"></span></span></div>
+          <div class="wcard"><div class="ph" style="background-image:url(img/k808am.jpg)"></div><span style="display:flex;gap:4px;align-items:center"><span class="dt"></span><span class="ln" style="flex:1"></span></span></div>
+        </div>
+      </div>
+      <div class="txt"><span class="no">02</span><h3>Каталог по&nbsp;разделам</h3><p class="why">9&nbsp;599 публикаций превращаются в&nbsp;каталог, где модель находится за&nbsp;пару нажатий</p><ul><li>Электромобили</li><li>Багги</li><li>Квадроциклы</li><li>Детские мотоциклы</li><li>Скутеры и&nbsp;эндуро</li><li>Велосипеды</li><li>Фильтр «есть в&nbsp;моём магазине»</li><li>Возраст, 12V или 24V, полный привод</li></ul></div>
+    </article>
+
+    <article class="blk" id="s-kartochka">
+      <div class="wf" style="grid-template-columns:1.15fr 1fr">
+        <div class="ph" style="background-image:url(img/r1250gs.jpg)"></div>
+        <div style="display:grid;gap:6px;align-content:center">
+          <span class="ln" style="width:85%;height:10px;background:var(--ink)"></span>
+          <div style="display:flex;gap:4px;flex-wrap:wrap"><span class="pl s" style="width:40%;height:12px"></span><span class="pl s" style="width:34%;height:12px"></span><span class="pl s" style="width:28%;height:12px"></span></div>
+          <div class="wrow"><span class="dt"></span><span class="ln"></span></div>
+          <div class="wrow"><span class="dt"></span><span class="ln"></span></div>
+          <div class="wrow"><span class="dt o"></span><span class="ln"></span></div>
+          <span class="pl r" style="height:13px"></span>
+        </div>
+      </div>
+      <div class="txt"><span class="no">03</span><h3>Карточка модели</h3><p class="why">Всё, что сейчас спрятано в&nbsp;подписи за&nbsp;«ещё», видно сразу</p><ul><li>Фото и&nbsp;видео из&nbsp;ваших рилс</li><li>Возраст и&nbsp;вес ребёнка</li><li>Скорость и&nbsp;аккумулятор</li><li>Наличие в&nbsp;каждом магазине</li><li>Цена и&nbsp;платёж в&nbsp;рассрочку</li></ul></div>
+    </article>
+
+    <article class="blk" id="s-bron">
+      <div class="wf" style="grid-template-columns:1.1fr .9fr;align-items:center">
+        <div class="wcard" style="padding:9px;gap:6px">
+          <span class="ln" style="width:55%;height:9px;background:var(--ink)"></span>
+          <div style="display:flex;gap:4px"><span class="pl" style="width:26%;height:13px"></span><span class="pl" style="width:26%;height:13px"></span><span class="pl r" style="width:42%;height:13px"></span></div>
+          <span class="pl" style="height:13px;background:var(--bg);border:1px solid var(--line)"></span>
+          <span class="pl" style="height:13px;background:var(--bg);border:1px solid var(--line)"></span>
+          <span style="display:flex;gap:5px;align-items:center"><span style="width:10px;height:10px;border-radius:3px;background:var(--red)"></span><span class="ln" style="flex:1"></span></span>
+          <span class="pl r" style="height:14px"></span>
+        </div>
+        <div style="background:#E3F1FA;border-radius:12px 12px 12px 4px;padding:8px;display:grid;gap:5px">
+          <span class="ln" style="width:60%;background:#2A9BD8"></span><span class="ln" style="background:#B9D7EA"></span><span class="ln" style="width:80%;background:#B9D7EA"></span><span class="ln" style="width:70%;background:#B9D7EA"></span><span class="ln" style="width:50%;background:#B9D7EA"></span>
+        </div>
+      </div>
+      <div class="txt"><span class="no">04</span><h3>Бронь в&nbsp;своём магазине</h3><p class="why">Вам приходит готовая заявка: модель, магазин, дата и&nbsp;телефон</p><ul><li>Выбор магазина и&nbsp;даты</li><li>«Спрячем до&nbsp;праздника»</li><li>Заявка в&nbsp;Telegram или WhatsApp</li><li>Согласие на&nbsp;обработку данных</li></ul></div>
+    </article>
+
+    <article class="blk" id="s-novyi-god">
+      <div class="wf" style="grid-template-rows:auto 1fr">
+        <div style="background:var(--red);border-radius:8px;padding:6px 8px;display:flex;align-items:center;gap:6px"><span class="ln w" style="width:45%"></span><span style="margin-left:auto;background:#FFFFFF;color:#A8231A;border-radius:999px;padding:2px 8px;font-size:9.5px;font-weight:800;white-space:nowrap">59 дней</span></div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:5px;align-content:start">
+          <div class="wcard"><div class="ph" style="background-image:url(img/k808am.jpg)"></div><b>2–7 лет</b></div>
+          <div class="wcard"><div class="ph" style="background-image:url(img/cla45.jpg)"></div><b>одноместные</b></div>
+          <div class="wcard"><div class="ph" style="background-image:url(img/buggy-white.jpg)"></div><b>для двоих</b></div>
+        </div>
+      </div>
+      <div class="txt"><span class="no">05</span><h3>Подарок к&nbsp;Новому году</h3><p class="why">Родитель ищет подарок по&nbsp;возрасту ребёнка, а&nbsp;не&nbsp;«багги 12В/7Ач»</p><ul><li>Подборки по&nbsp;возрасту и&nbsp;бюджету</li><li>Последний день брони</li><li>Отложим до&nbsp;30&nbsp;декабря</li><li>Соберём и&nbsp;зарядим к&nbsp;выдаче</li><li>После праздников: подарок на&nbsp;день рождения</li></ul></div>
+    </article>
+
+    <article class="blk" id="s-moto">
+      <div class="wf" style="grid-template-columns:1fr 1fr">
+        <div style="border-radius:10px;background:var(--ink);display:grid;place-items:center;color:var(--bg)"><svg viewBox="0 0 64 40" width="72" height="45" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="30" r="7"/><circle cx="52" cy="30" r="7"/><path d="M12 30h14l8-12h10l8 12M30 18l-4-8h-6M44 18l-6-8h6"/></svg></div>
+        <div style="display:grid;gap:6px;align-content:center">
+          <div class="wcard" style="grid-template-columns:1fr auto;align-items:center;padding:7px"><span class="ln" style="width:80%"></span><b style="color:var(--red)">?</b></div>
+          <div class="wcard" style="grid-template-columns:1fr auto;align-items:center;padding:7px"><span class="ln" style="width:65%"></span><b style="color:var(--red)">?</b></div>
+          <div class="wcard" style="grid-template-columns:1fr auto;align-items:center;padding:7px"><span class="ln" style="width:72%"></span><b style="color:var(--red)">?</b></div>
+          <span class="pl r" style="height:13px"></span>
+        </div>
+      </div>
+      <div class="txt"><span class="no">06</span><h3>Скутеры, эндуро, квадроциклы</h3><p class="why">Отдельный вход для&nbsp;подростков и&nbsp;взрослых, со&nbsp;своими вопросами</p><ul><li>Скутеры, эндуро, взрослые квадроциклы</li><li>Нужны&nbsp;ли права</li><li>Где можно кататься</li><li>Посмотреть вживую в&nbsp;магазине</li></ul></div>
+    </article>
+
+    <article class="blk" id="s-rassrochka">
+      <div class="wf" style="align-content:center;padding:14px">
+        <span class="ln" style="width:40%"></span>
+        <div style="display:flex;gap:5px;margin-top:4px"><span class="pl s" style="flex:1"></span><span class="pl r" style="flex:1"></span><span class="pl s" style="flex:1"></span><span class="pl s" style="flex:1"></span></div>
+        <div class="wcard" style="padding:10px;margin-top:6px;gap:6px"><span class="ln" style="width:35%"></span><span class="ln r" style="width:60%;height:14px"></span></div>
+        <span class="pl" style="height:13px;width:55%;background:var(--ink)"></span>
+      </div>
+      <div class="txt"><span class="no">07</span><h3>Рассрочка</h3><p class="why">Платёж в&nbsp;месяц виден до&nbsp;звонка в&nbsp;магазин</p><ul><li>Калькулятор платежа</li><li>Как оформить за&nbsp;3&nbsp;шага</li><li>Условия банка</li></ul></div>
+    </article>
+
+    <article class="blk" id="s-dostavka">
+      <div class="wf" style="grid-template-columns:1.4fr 1fr;align-items:center">
+        <svg viewBox="0 0 160 90" style="width:100%;height:auto" aria-hidden="true"><path d="M24 60C52 58 64 22 100 24s38 30 48 26" fill="none" stroke="var(--muted)" stroke-width="2" stroke-dasharray="4 5"/><path d="M40 72C70 72 96 60 148 50" fill="none" stroke="var(--muted)" stroke-width="2" stroke-dasharray="4 5"/><circle cx="24" cy="60" r="6" fill="var(--red)"/><circle cx="40" cy="72" r="6" fill="var(--red)"/><circle cx="70" cy="40" r="6" fill="var(--red)"/><circle cx="148" cy="50" r="7" fill="var(--ink)"/></svg>
+        <div class="wcard" style="padding:9px;gap:6px"><span class="ln" style="width:70%"></span><span class="ln r" style="width:50%;height:10px"></span><span class="ln" style="width:85%"></span></div>
+      </div>
+      <div class="txt"><span class="no">08</span><h3>Доставка по&nbsp;России</h3><p class="why">Ответ на&nbsp;«а&nbsp;в&nbsp;Ростов привезёте?» без переписки</p><ul><li>Город, срок и&nbsp;стоимость</li><li>Как упаковываете</li><li>Самовывоз из&nbsp;трёх магазинов</li></ul></div>
+    </article>
+
+    <article class="blk" id="s-servis">
+      <div class="wf" style="grid-template-columns:repeat(3,1fr);align-items:center;padding:16px">
+        <div class="wcard" style="padding:12px;justify-items:center;gap:8px"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6.5a4 4 0 0 0 5 5l-8 8a2.1 2.1 0 0 1-3-3l8-8a4 4 0 0 0-2-2z"/></svg><span class="ln" style="width:80%"></span></div>
+        <div class="wcard" style="padding:12px;justify-items:center;gap:8px"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--red)" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="16" height="11" rx="2"/><path d="M21 11v3M7 12.5h4M9 10.5v4"/></svg><span class="ln" style="width:80%"></span></div>
+        <div class="wcard" style="padding:12px;justify-items:center;gap:8px"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--red)" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4.5 6v5.5c0 4.5 3.2 8 7.5 9.5 4.3-1.5 7.5-5 7.5-9.5V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><span class="ln" style="width:80%"></span></div>
+      </div>
+      <div class="txt"><span class="no">09</span><h3>Сервисный центр</h3><p class="why">Снимает страх «а&nbsp;если сломается через месяц»</p><ul><li>Ремонт и&nbsp;аккумуляторы</li><li>Гарантия</li><li>Запись в&nbsp;сервис онлайн</li></ul></div>
+    </article>
+
+    <article class="blk" id="s-rozygrysh">
+      <div class="wf" style="grid-template-columns:.9fr 1.1fr;align-items:center">
+        <div style="border-radius:12px;background:var(--red);height:100%;display:grid;place-items:center;color:#FFFFFF"><svg viewBox="0 0 24 24" width="46" height="46" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11" rx="1.5"/><path d="M2.5 9h19M12 9v11M12 9c-1.5-3.5-5.5-4-5.5-1.5S10 9 12 9zm0 0c1.5-3.5 5.5-4 5.5-1.5S14 9 12 9z"/></svg></div>
+        <div style="display:grid;gap:7px">
+          <div style="display:flex;gap:4px"><span class="wcard" style="padding:6px 8px;font-size:11px;font-weight:800">12</span><span class="wcard" style="padding:6px 8px;font-size:11px;font-weight:800">08</span><span class="wcard" style="padding:6px 8px;font-size:11px;font-weight:800">45</span></div>
+          <span class="ln" style="width:85%"></span><span class="ln" style="width:65%"></span>
+          <div style="display:flex;gap:4px"><span style="width:18px;height:18px;border-radius:50%;background:var(--line)"></span><span style="width:18px;height:18px;border-radius:50%;background:var(--muted);opacity:.5"></span><span style="width:18px;height:18px;border-radius:50%;background:var(--line)"></span></div>
+        </div>
+      </div>
+      <div class="txt"><span class="no">10</span><h3>Розыгрыш</h3><p class="why">Условия и&nbsp;победители на&nbsp;одной странице, а&nbsp;не&nbsp;только в&nbsp;хайлайтс</p><ul><li>Текущий розыгрыш и&nbsp;таймер</li><li>Как участвовать</li><li>Прошлые победители</li></ul></div>
+    </article>
+
+    <article class="blk" id="s-otzyvy">
+      <div class="wf" style="grid-template-rows:auto 1fr">
+        <div style="display:flex;gap:4px"><span class="pl r" style="width:28%;height:13px"></span><span class="pl s" style="width:22%;height:13px"></span><span class="pl s" style="width:28%;height:13px"></span></div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:5px">
+          <div class="wcard" style="padding:8px;gap:5px"><span style="font-size:10px;letter-spacing:1px;color:#E0A100">★★★★★</span><span class="ln"></span><span class="ln" style="width:70%"></span><span class="ln" style="width:85%"></span></div>
+          <div class="wcard" style="padding:8px;gap:5px"><span style="font-size:10px;letter-spacing:1px;color:#E0A100">★★★★★</span><span class="ln"></span><span class="ln" style="width:60%"></span></div>
+          <div class="wcard" style="padding:0;background:#E8E5E1 url(img/store-buggy.jpg) center/cover no-repeat" role="img" aria-label="Багги у магазина на Алма-Атинской"></div>
+        </div>
+      </div>
+      <div class="txt"><span class="no">11</span><h3>Отзывы</h3><p class="why">Отзывы по&nbsp;каждому магазину рядом с&nbsp;его адресом</p><ul><li>С&nbsp;Яндекс Карт и&nbsp;2ГИС</li><li>Фото покупателей</li><li>Видео первых поездок</li></ul></div>
+    </article>
+
+    <article class="blk" id="s-faq">
+      <div class="wf" style="align-content:center">
+        <div class="wcard" style="grid-template-columns:1fr auto;align-items:center;padding:8px"><span class="ln" style="width:70%"></span><b style="color:var(--red)">+</b></div>
+        <div class="wcard" style="grid-template-columns:1fr auto;align-items:center;padding:8px"><span class="ln" style="width:55%"></span><b style="color:var(--red)">+</b></div>
+        <div class="wcard" style="grid-template-columns:1fr auto;align-items:center;padding:8px"><span class="ln" style="width:80%"></span><b style="color:var(--red)">+</b></div>
+        <div class="wcard" style="grid-template-columns:1fr auto;align-items:center;padding:8px"><span class="ln" style="width:45%"></span><b style="color:var(--red)">+</b></div>
+      </div>
+      <div class="txt"><span class="no">12</span><h3>Вопросы и&nbsp;ответы</h3><p class="why">Ответы до&nbsp;того, как вопрос зададут продавцу</p><ul><li>С&nbsp;какого возраста и&nbsp;до&nbsp;какого веса</li><li>Сколько держит заряд</li><li>Пульт для&nbsp;родителей</li><li>Сборка и&nbsp;доставка</li><li>Права на&nbsp;скутер</li></ul></div>
+    </article>
+
+    <article class="blk" id="s-magaziny">
+      <div class="wf" style="grid-template-columns:1fr 1fr;align-items:stretch">
+        <div style="position:relative;border-radius:10px;background:linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/22px 22px,linear-gradient(var(--line) 1px,transparent 1px) 0 0/22px 22px,var(--surface)">
+          <span style="position:absolute;left:30%;top:30%;width:14px;height:14px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--red)"></span>
+          <span style="position:absolute;left:14%;top:62%;width:14px;height:14px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--red)"></span>
+          <span style="position:absolute;left:72%;top:46%;width:14px;height:14px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--red)"></span>
+        </div>
+        <div style="display:grid;gap:5px;align-content:center">
+          <div class="wrow" style="background:var(--tint)"><span class="dt" style="background:var(--red)"></span><span class="ln"></span></div>
+          <div class="wrow"><span class="dt" style="background:var(--red)"></span><span class="ln"></span></div>
+          <div class="wrow"><span class="dt" style="background:var(--red)"></span><span class="ln"></span></div>
+          <div style="display:flex;gap:5px;margin-top:4px"><span style="width:20px;height:20px;border-radius:50%;background:var(--ink)"></span><span style="width:20px;height:20px;border-radius:50%;background:var(--tg)"></span><span class="pl r" style="flex:1;height:20px"></span></div>
+        </div>
+      </div>
+      <div class="txt"><span class="no">13</span><h3>Три магазина и&nbsp;контакты</h3><p class="why">Адрес, часы и&nbsp;телефон своего магазина в&nbsp;одно касание</p><ul><li>Краснодар, ул. Алма-Атинская, 164</li><li>Анапа, ул. Красноармейская, 23</li><li>Ставрополь, Михайловское шоссе, 7/1</li><li>Карта и&nbsp;маршрут</li><li>Telegram и&nbsp;Instagram</li></ul></div>
+    </article>
+  </div>
+
+  <section class="wrap next">
+    <div class="next-in">
+      <div><div class="eyebrow">Что дальше</div><h2>Три шага до&nbsp;сайта</h2></div>
+      <div class="steps">
+        <div><b>Утверждаем структуру</b><span>Вы смотрите и&nbsp;говорите, какие блоки убрать или добавить</span></div>
+        <div><b>Собираем материалы</b><span>Прайс, наличие по&nbsp;магазинам, условия рассрочки и&nbsp;доставки</span></div>
+        <div><b>Сайт готов за&nbsp;7–10&nbsp;дней</b><span>Ссылка встаёт в&nbsp;шапку Instagram, к&nbsp;декабрю бронь уже работает</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div class="soc">
+        <a class="rnd" href="https://instagram.com/avtokids_rf" target="_blank" rel="noopener" aria-label="Instagram AutoKids" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ig"/></svg></a>
+        <a class="rnd" href="https://t.me/avtokids" target="_blank" rel="noopener" aria-label="Telegram AutoKids" title="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tg"/></svg></a>
+        <a class="rnd" href="https://www.threads.net/@avtokids_rf" target="_blank" rel="noopener" aria-label="Threads AutoKids" title="Threads"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-th"/></svg></a>
+      </div>
+      <div class="f-docs"><button type="button" data-doc="policy">Политика конфиденциальности</button><button type="button" data-doc="consent">Согласие на&nbsp;обработку персональных данных</button></div>
+    </div>
+    <div class="f-bot">
+      <span>Подготовила Анастасия Абдуллаева</span>
+      <span class="sign"><span><b>FOR.MI</b> designed &amp; developed by ABN</span><a class="rnd" href="https://t.me/abanev_dev" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tg"/></svg></a></span>
+    </div>
+  </div>
+</footer>
+
+<dialog id="dlg" aria-labelledby="dlg-t">
+  <form class="dl" id="bf" novalidate>
+    <div class="dl-h"><h2 id="dlg-t">Бронь в&nbsp;магазине</h2><button type="button" class="x" data-close aria-label="Закрыть">×</button></div>
+    <div class="sum"><img id="b-img" src="img/buggy-8841.jpg" alt=""><div><b id="b-name">Багги 8841</b><span id="b-store">Краснодар, ул. Алма-Атинская, 164</span></div></div>
+    <fieldset><legend>Когда заберёте</legend>
+      <div class="when">
+        <label><input type="radio" name="when" value="Сегодня" checked><span>Сегодня</span></label>
+        <label><input type="radio" name="when" value="Завтра"><span>Завтра</span></label>
+        <label><input type="radio" name="when" value="30 декабря, спрятать до праздника" id="w-gift"><span>30&nbsp;декабря, до&nbsp;праздника</span></label>
+      </div>
+    </fieldset>
+    <div class="two">
+      <label class="inp">Имя<input id="b-n" type="text" autocomplete="given-name" placeholder="Ирина"></label>
+      <label class="inp">Телефон<input id="b-p" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7 918 000-00-00"></label>
+    </div>
+    <label class="agree"><input type="checkbox" id="b-ok"><span>Даю <button type="button" data-doc="consent">согласие на&nbsp;обработку персональных данных</button> и&nbsp;принимаю <button type="button" data-doc="policy">политику конфиденциальности</button></span></label>
+    <button type="submit" class="btn red" id="b-go" disabled>Забронировать</button>
+    <p class="note">Это набросок: заявка никуда не&nbsp;отправится</p>
+  </form>
+  <div class="dl" id="done" hidden>
+    <div class="dl-h"><h2>Так бронь придёт вам</h2><button type="button" class="x" data-close aria-label="Закрыть">×</button></div>
+    <div class="tgmsg" id="msg"></div>
+    <p class="note">Продавцу остаётся подтвердить бронь звонком или сообщением</p>
+    <button type="button" class="btn red" data-close>Понятно</button>
+  </div>
+</dialog>
+
+<dialog id="docs" aria-labelledby="doc-t">
+  <div class="dl">
+    <div class="dl-h"><h2 id="doc-t">Политика конфиденциальности</h2><button type="button" class="x" data-close aria-label="Закрыть">×</button></div>
+    <div class="doc" id="doc-b"></div>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" hidden></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-tg" viewBox="0 0 24 24"><path fill="currentColor" d="M21.4 4.3 2.9 11.5c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.5c.2.6.4.8.9.8s.6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8L22.8 5.8c.3-1.3-.4-1.9-1.4-1.5zM8.6 14.1l9.6-6c.5-.3.9-.1.5.2l-7.8 7.1-.3 3.3-2-4.6z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/></g><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></symbol>
+  <symbol id="i-th" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M16.6 11.2c-.4-2.6-2.1-3.9-4.5-3.9-2.6 0-4.3 1.8-4.3 4.7 0 3 1.8 4.9 4.5 4.9 2.3 0 3.7-1.3 3.7-3.1 0-1.7-1.3-2.6-3.1-2.6-1.6 0-2.7.8-2.7 2 0 1.1.9 1.8 2.1 1.8 2.5 0 3.4-2.5 3.4-4.9M19.5 8.6C18.4 5.3 15.7 3.5 12 3.5 7 3.5 4 6.9 4 12s3 8.5 8 8.5c3.4 0 5.9-1.5 7.1-4.3"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5a7 7 0 0 0-7 7c0 5 7 12 7 12s7-7 7-12a7 7 0 0 0-7-7zm0 9.6a2.6 2.6 0 1 1 0-5.2 2.6 2.6 0 0 1 0 5.2z"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+</svg>
+
+<script>
+/* Магазины: адреса, часы и телефоны из закрепа @avtokids_rf (ноябрь 2026) */
+const STORES={
+  krd:{city:"Краснодар",in:"Краснодаре",addr:"ул. Алма-Атинская, 164",phone:"8 (938) 870-72-20",tel:"+79388707220"},
+  anp:{city:"Анапа",in:"Анапе",addr:"ул. Красноармейская, 23",phone:"8 (928) 881-72-20",tel:"+79288817220"},
+  stv:{city:"Ставрополь",in:"Ставрополе",addr:"Михайловское шоссе, 7/1",phone:"8 (995) 229-72-42",tel:"+79952297242"}
+};
+const HOURS="без выходных, 10:00–20:00";
+/* Модели и характеристики из постов @avtokids_rf (18–28 октября 2026). Наличие ok/order — для примера */
+const MODELS=[
+  {img:"img/buggy-8841.jpg",cat:"Багги",name:"Багги 8841",spec:["Полный привод","до 80 кг","до 9 км/ч","12В / 7 Ач"],stock:{krd:"ok",anp:"ok",stv:"order"},alt:"Детский багги 8841, розово-белый"},
+  {img:"img/cla45.jpg",cat:"Электромобили",name:"Mercedes-Benz AMG CLA45",spec:["1 место"],stock:{krd:"ok",anp:"order",stv:"ok"},alt:"Детский электромобиль Mercedes-Benz AMG CLA45, чёрный"},
+  {img:"img/r1250gs.jpg",cat:"Детские мотоциклы",name:"BMW R1250GS",spec:["Аккумулятор 12V","Страховочные колёса"],stock:{krd:"ok",anp:"ok",stv:"ok"},alt:"Детский электромотоцикл BMW R1250GS, красный"},
+  {img:"img/k808am.jpg",cat:"Детские мотоциклы",name:"Мотоцикл K808AM",spec:["Возраст 2–7 лет","Страховочные колёса"],stock:{krd:"ok",anp:"order",stv:"order"},alt:"Детский электромотоцикл K808AM, бело-сине-красный"},
+  {img:"img/buggy-24v.jpg",cat:"Багги",name:"Багги, сине-белый",spec:["Аккумулятор 24V"],stock:{krd:"order",anp:"ok",stv:"ok"},alt:"Детский багги сине-белый с аккумулятором 24V"}
+];
+const CATS=[
+  {name:"Электромобили",img:"img/cla45.jpg"},
+  {name:"Багги",img:"img/buggy-24v.jpg"},
+  {name:"Квадроциклы",img:"img/quad.jpg"},
+  {name:"Детские мотоциклы",img:"img/k808am.jpg"},
+  {name:"Скутеры",ph:"Фото скутера у&nbsp;магазина"},
+  {name:"Эндуро",ph:"Фото эндуро в&nbsp;зале"},
+  {name:"Велосипеды",ph:"Фото витрины с&nbsp;велосипедами"}
+];
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const nb=s=>s.replace(/ /g," ");
+let city="krd",cur=0;
+
+$("#cats").innerHTML=CATS.map(c=>`<a class="cat" href="#s-catalog">${c.img?`<span class="im" style="background-image:url(${c.img})"></span>`:`<span class="im ph">${c.ph}</span>`}<b>${c.name}</b></a>`).join("");
+MODELS.forEach(m=>{const i=new Image();i.src=m.img});
+
+function renderStock(){
+  const m=MODELS[cur];
+  const rows=Object.entries(STORES).map(([k,s])=>{
+    const st=m.stock[k],t=st==="ok"?"в наличии":"под заказ";
+    return `<button type="button" class="srow" data-city="${k}" aria-pressed="${k===city}"><i class="dot ${st}"></i><span><b>${s.city}</b><small>${s.addr}</small></span><em class="${st}">${t}</em></button>`;
+  }).join("");
+  $("#stock").innerHTML=`<div class="stock-h"><span>Наличие в магазинах</span><small>для примера</small></div>`+rows;
+}
+function setCity(k){
+  city=k;const s=STORES[k];
+  $$(".seg button").forEach(b=>b.setAttribute("aria-selected",b.dataset.city===k));
+  $("#h1-city").textContent=s.in;
+  $("#st-addr").textContent=s.addr;
+  $("#st-tel").textContent=nb(s.phone);$("#st-tel").href="tel:"+s.tel;
+  $("#h-num").textContent=nb(s.phone);$("#h-phone").href="tel:"+s.tel;$("#h-call").href="tel:"+s.tel;
+  $("#h-city").textContent="магазин в "+s.in;
+  $("#book").textContent="Забронировать в "+s.in;
+  renderStock();
+}
+function show(k){
+  cur=(k+MODELS.length)%MODELS.length;const m=MODELS[cur],ph=$("#ph");
+  ph.classList.add("fade");
+  setTimeout(()=>{ph.src=m.img;ph.alt=m.alt;ph.classList.remove("fade")},160);
+  $("#m-cat").textContent=m.cat;$("#m-name").textContent=m.name;
+  $("#m-spec").innerHTML=m.spec.map(x=>`<li>${x}</li>`).join("");
+  $("#m-n").textContent=`${cur+1} / ${MODELS.length}`;
+  renderStock();
+}
+$$(".seg button").forEach(b=>b.onclick=()=>setCity(b.dataset.city));
+$("#stock").addEventListener("click",e=>{const b=e.target.closest(".srow");if(b)setCity(b.dataset.city)});
+$("#prev").onclick=()=>show(cur-1);$("#next").onclick=()=>show(cur+1);
+let x0=null;const tp=$(".st-photo");
+tp.addEventListener("touchstart",e=>{x0=e.touches[0].clientX},{passive:true});
+tp.addEventListener("touchend",e=>{if(x0===null)return;const d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>40)show(cur+(d<0?1:-1));x0=null},{passive:true});
+show(0);setCity("krd");
+
+(function(){const n=new Date(),d=Math.round((new Date(n.getFullYear(),11,31)-new Date(n.getFullYear(),n.getMonth(),n.getDate()))/864e5);if(d<1)return;const a=d%10,b=d%100,w=a===1&&b!==11?"день":a>=2&&a<=4&&(b<12||b>14)?"дня":"дней";$("#ny-t").textContent=`До Нового года ${d} ${w}`})();
+
+function toast(t){const el=$("#toast");el.textContent=t;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>el.hidden=true,2600)}
+$$("[data-toast]").forEach(b=>b.onclick=()=>toast(b.dataset.toast));
+
+/* бронь */
+const dlg=$("#dlg"),bf=$("#bf"),done=$("#done");
+function openDlg(d){if(typeof d.showModal==="function")d.showModal();else d.setAttribute("open","")}
+function closeDlg(d){if(typeof d.close==="function")d.close();else d.removeAttribute("open")}
+$("#book").onclick=()=>{
+  const m=MODELS[cur],s=STORES[city];
+  $("#b-img").src=m.img;$("#b-name").textContent=m.name;
+  $("#b-store").textContent=`${s.city}, ${s.addr}`+(m.stock[city]==="order"?" · под заказ":"");
+  bf.hidden=false;done.hidden=true;
+  (($("#gift").checked)?$("#w-gift"):bf.querySelector('input[name="when"][value="Сегодня"]')).checked=true;
+  openDlg(dlg);
+};
+$("#b-ok").onchange=e=>{$("#b-go").disabled=!e.target.checked};
+bf.onsubmit=e=>{
+  e.preventDefault();if(!$("#b-ok").checked)return;
+  const m=MODELS[cur],s=STORES[city],w=bf.querySelector('input[name="when"]:checked').value;
+  const name=$("#b-n").value.trim()||"Ирина",tel=$("#b-p").value.trim()||"+7 918 …";
+  $("#msg").innerHTML=`<b>Бронь с сайта AutoKids</b>• ${m.name}\n• Магазин: ${s.city}, ${s.addr}\n• Заберут: ${w}\n• ${name.replace(/[<>&]/g,"")}, ${tel.replace(/[<>&]/g,"")}`;
+  bf.hidden=true;done.hidden=false;
+};
+$$("[data-close]").forEach(b=>b.onclick=()=>closeDlg(b.closest("dialog")));
+[dlg,$("#docs")].forEach(d=>d.addEventListener("click",e=>{if(e.target===d)closeDlg(d)}));
+
+/* документы: реквизиты появятся на готовом сайте */
+const OWNER="[ИП / название, уточнить]";
+const DOCS={
+  policy:["Политика конфиденциальности",`<p>${OWNER} обрабатывает имя и телефон, которые вы оставляете в форме брони, только чтобы подтвердить бронь и связаться с вами.</p><p>Данные не передаются третьим лицам и хранятся до выдачи товара или отказа от брони. Отозвать согласие можно по телефону любого магазина AutoKids.</p><p>Полный текст с реквизитами появится на готовом сайте.</p>`],
+  consent:["Согласие на обработку персональных данных",`<p>Отмечая галочку, вы соглашаетесь, что ${OWNER} обработает ваше имя и телефон для брони товара и связи с вами по ней.</p><p>Согласие действует до его отзыва. Отозвать его можно по телефону любого магазина AutoKids.</p>`]
+};
+$$("[data-doc]").forEach(b=>b.addEventListener("click",()=>{const [t,h]=DOCS[b.dataset.doc];$("#doc-t").textContent=t;$("#doc-b").innerHTML=h;openDlg($("#docs"))}));
+</script>
+
+</body>
+</html>

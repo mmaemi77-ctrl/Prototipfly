@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Разбор для AutoKids: сильные стороны, где теряются заявки, конкуренты в Краснодаре, Анапе и Ставрополе, задачи сайта и вопросы">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Сайт для AutoKids: рынок, конкуренты и набросок">
+<meta property="og:description" content="Сильные стороны, где теряются заявки, конкуренты в трёх городах и что должен делать сайт">
+<meta property="og:image" content="https://mmaemi77-ctrl.github.io/avtokids/og-analiz.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<title>AutoKids · разбор</title>
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: разбор-документ в одну колонку в цветах AutoKids. Красная шапка как вывеска магазина, карточки только у отдельных объектов: конкуренты, переписка, идеи */
+:root{
+  --bg:#F4F1ED;--surface:#FFFFFF;--ink:#1C1A19;--muted:#655E59;--line:#E1DBD4;--soft:#EDE8E2;
+  --red:#A8231A;--on-red:#FFFFFF;--tint:#F8E6E3;--ok:#1D8248;--wait:#B86E00;
+  --chat:#E9E4DD;--bubble:#FFFFFF;--bubble-out:#DDEFFA;
+  --font:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141211;--surface:#1E1B1A;--ink:#F3EEEA;--muted:#ADA59F;--line:#332E2B;--soft:#2A2624;--red:#D9392E;--on-red:#FFFFFF;--tint:#3A1D1A;--ok:#43BE77;--wait:#E5A43C;--chat:#1A1817;--bubble:#2A2624;--bubble-out:#1B3446;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141211;--surface:#1E1B1A;--ink:#F3EEEA;--muted:#ADA59F;--line:#332E2B;--soft:#2A2624;--red:#D9392E;--on-red:#FFFFFF;--tint:#3A1D1A;--ok:#43BE77;--wait:#E5A43C;--chat:#1A1817;--bubble:#2A2624;--bubble-out:#1B3446;color-scheme:dark}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16.5px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+.wrap{max-width:900px;margin:0 auto;padding-left:max(clamp(16px,4vw,32px),env(safe-area-inset-left,0px));padding-right:max(clamp(16px,4vw,32px),env(safe-area-inset-right,0px))}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:16px;padding:15px 24px;font-weight:700;font-size:15.5px;text-decoration:none;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+
+/* шапка-вывеска */
+.top{background:#A8231A;color:#FFFFFF;position:relative;overflow:hidden}
+.top::after{content:"";position:absolute;right:-90px;top:-90px;width:340px;height:340px;border-radius:50%;border:1.5px solid rgb(255 255 255 / .18);box-shadow:0 0 0 46px rgb(255 255 255 / .04)}
+.top .wrap{position:relative;z-index:1;padding-block:clamp(30px,6vw,60px) clamp(34px,6vw,56px);display:grid;gap:20px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:58px;height:58px;border-radius:50%;box-shadow:0 0 0 3px #FFFFFF}
+.brand b{font-weight:800;font-size:20px;line-height:1.1;display:block}
+.brand small{font-size:13px;opacity:.85}
+.top .eyebrow{color:rgb(255 255 255 / .8)}
+.top h1{font-weight:800;font-size:clamp(34px,5.6vw,60px);line-height:1.02;letter-spacing:-.035em}
+.top p{max-width:58ch;font-size:clamp(17px,1.8vw,19px);color:rgb(255 255 255 / .9)}
+.cities{display:flex;flex-wrap:wrap;gap:8px}
+.cities span{display:inline-flex;align-items:center;gap:8px;background:rgb(255 255 255 / .14);border-radius:999px;padding:6px 14px;font-weight:600;font-size:14px}
+.cities span::before{content:"";width:8px;height:8px;border-radius:50%;background:#FFFFFF}
+
+/* разделы */
+section{padding-block:clamp(34px,5vw,54px);border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+h2{font-weight:800;font-size:clamp(26px,3.6vw,38px);line-height:1.08;letter-spacing:-.025em;margin:8px 0 20px}
+h3{font-size:17px;font-weight:700;line-height:1.3}
+.lead{color:var(--muted);max-width:62ch;margin:-6px 0 22px}
+.list{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.list li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;align-items:start}
+.list li::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--red);margin:9px 0 0 9px}
+.list.plus li::before{content:"✓";width:24px;height:24px;border-radius:50%;background:var(--tint);color:var(--red);font-weight:800;font-size:13px;display:grid;place-items:center;margin:2px 0 0}
+.list b{font-weight:700}
+
+.key{display:grid;counter-reset:k;background:var(--surface);border-radius:22px;border:1px solid var(--line);overflow:hidden}
+.key div{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;padding:18px 20px;border-bottom:1px solid var(--line)}
+.key div:last-child{border-bottom:0}
+.key div::before{counter-increment:k;content:counter(k);font-weight:800;font-size:28px;line-height:1;color:var(--red)}
+@media (max-width:600px){.key div{grid-template-columns:26px minmax(0,1fr);padding:16px}.key div::before{font-size:24px}}
+
+.aud{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:680px){.aud{grid-template-columns:1fr}}
+.aud>div{display:grid;gap:8px;align-content:start}
+.aud h3{margin-bottom:4px}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:16px 16px 16px 4px;padding:10px 14px;font-weight:500;font-size:15px}
+.season{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:2px solid var(--ink);margin-top:26px}
+.season div{padding:14px 14px 0 0;display:grid;gap:4px;align-content:start}
+.season b{font-weight:800;font-size:19px}
+.season span{font-size:14px;color:var(--muted)}
+@media (max-width:600px){.season{grid-template-columns:1fr;gap:10px}}
+
+.comp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:680px){.comp{grid-template-columns:1fr}}
+.cc{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:18px 20px;display:grid;gap:8px;align-content:start;min-width:0}
+.cc .where{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.cc a{font-size:14px;font-weight:600;color:var(--red);text-underline-offset:3px;word-break:break-all}
+.cc p{font-size:15px;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.tags span{font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--bg);border:1px solid var(--line)}
+.small{font-size:13.5px;color:var(--muted);margin-top:14px}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px}
+@media (max-width:680px){.two{grid-template-columns:1fr}}
+.box{border-radius:20px;padding:20px;display:grid;gap:12px;align-content:start}
+.box.norm{background:var(--surface);border:1px solid var(--line)}
+.box.gap{background:var(--tint)}
+.box h3{font-weight:800;font-size:19px}
+.box ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:15px}
+
+.tasks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 14px}
+@media (max-width:680px){.tasks{grid-template-columns:1fr}}
+.tasks div{border-top:2px solid var(--ink);padding-top:12px;display:grid;gap:4px}
+.tasks p{font-size:15px;color:var(--muted)}
+
+.ba{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:680px){.ba{grid-template-columns:1fr}}
+.chat{background:var(--chat);border-radius:20px;padding:16px;display:grid;gap:8px;align-content:start}
+.chat .lbl{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.b{max-width:88%;padding:8px 12px;border-radius:14px;font-size:14.5px;line-height:1.45;white-space:pre-line}
+.b.in{justify-self:start;background:var(--bubble);border-bottom-left-radius:4px}
+.b.out{justify-self:end;background:var(--bubble-out);border-bottom-right-radius:4px}
+.b.tg{justify-self:stretch;max-width:none;background:var(--bubble-out);border-bottom-left-radius:4px}
+.b.tg b{display:block;font-size:12.5px;color:#2A7FB8}
+.chat .foot{font-size:13px;color:var(--muted);margin-top:6px}
+
+.draft{background:#A8231A;color:#FFFFFF;border-radius:26px;padding:clamp(22px,3.4vw,34px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(18px,3vw,34px)}
+.draft .eyebrow{color:rgb(255 255 255 / .8)}
+.draft h2{color:#FFFFFF;margin-bottom:0}
+.draft p{opacity:.9;margin-top:12px}
+.draft ol{margin:0;padding:0;list-style:none;display:grid;gap:7px;counter-reset:d}
+.draft li{display:grid;grid-template-columns:28px minmax(0,1fr);column-gap:8px;align-items:baseline;font-size:15px;font-weight:600}
+.draft li::before{counter-increment:d;content:counter(d,decimal-leading-zero);font-weight:800;font-size:14px;opacity:.7}
+.draft li span{grid-column:2;font-size:13.5px;font-weight:400;opacity:.8}
+.draft .btn{background:#FFFFFF;color:#A8231A;margin-top:20px}
+@media (max-width:760px){.draft{grid-template-columns:1fr}}
+
+.ideas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:680px){.ideas{grid-template-columns:1fr}}
+.ideas div{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px 18px;display:grid;gap:4px;align-content:start}
+.ideas p{font-size:15px;color:var(--muted)}
+
+.qlist{margin:0;padding-left:24px;display:grid;gap:10px}
+.qlist li{padding-left:4px}
+.qlist li::marker{font-weight:800;color:var(--red)}
+
+footer{background:var(--ink);color:var(--bg)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding-block:22px;font-size:13.5px}
+footer b{font-weight:800;letter-spacing:.06em}
+.sign{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap}
+.rnd{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:color-mix(in srgb,var(--bg) 14%,transparent);color:var(--bg)}
+.rnd:hover{background:var(--bg);color:var(--ink)}
+.rnd svg{width:16px;height:16px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap">
+    <div class="brand"><img src="img/logo.png" alt="" width="58" height="58"><span><b>AutoKids</b><small>Дарим эмоции с&nbsp;2014 года</small></span></div>
+    <div class="eyebrow">Разбор для AutoKids · 2&nbsp;ноября 2026</div>
+    <h1>Сайт для AutoKids: рынок, конкуренты и&nbsp;набросок</h1>
+    <p>Посмотрела ваш Instagram и&nbsp;магазины электромобилей и&nbsp;мототехники в&nbsp;Краснодаре, Анапе и&nbsp;Ставрополе. Ниже: что у&nbsp;вас уже работает, где теряются заявки и&nbsp;что должен делать сайт.</p>
+    <div class="cities"><span>Краснодар</span><span>Анапа</span><span>Ставрополь</span></div>
+  </div>
+</div>
+
+<main class="wrap">
+  <section>
+    <div class="eyebrow">Коротко</div>
+    <h2>Главное в&nbsp;пяти пунктах</h2>
+    <div class="key">
+      <div><p><b>12 лет, три магазина и&nbsp;21,2&nbsp;тыс. подписчиков.</b> Доверие уже есть. Не&nbsp;хватает одного места, где видно все модели и&nbsp;в&nbsp;каком магазине стоит каждая.</p></div>
+      <div><p>Вопрос «а&nbsp;в&nbsp;Анапе он есть?» сейчас решается перепиской или звонком в&nbsp;один из&nbsp;трёх магазинов. У&nbsp;каждого свой номер, и&nbsp;наличие продавец сверяет вручную.</p></div>
+      <div><p>Сайт с&nbsp;бронью сводит это к&nbsp;одной заявке: модель, магазин, дата и&nbsp;телефон приходят вам в&nbsp;Telegram готовым сообщением.</p></div>
+      <div><p>У&nbsp;магазинов, которые я посмотрела, есть каталоги с&nbsp;ценами. Наличия по&nbsp;конкретному магазину в&nbsp;трёх городах и&nbsp;брони с&nbsp;датой получения я у&nbsp;них не&nbsp;встретила.</p></div>
+      <div><p>До&nbsp;Нового года 59&nbsp;дней. Сайт делается за&nbsp;7–10&nbsp;дней, поэтому бронь успеет поработать весь декабрь.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Ваши сильные стороны</div>
+    <h2>Что у&nbsp;вас уже сильное</h2>
+    <ul class="list plus">
+      <li><span><b>С&nbsp;2014 года.</b> «Дарим эмоции с&nbsp;2014 года» в&nbsp;шапке звучит как обещание, и&nbsp;12 лет работы его подтверждают.</span></li>
+      <li><span><b>Три магазина без выходных.</b> Краснодар, Анапа и&nbsp;Ставрополь работают каждый день с&nbsp;10:00 до&nbsp;20:00. Для покупателя это значит простую вещь: забрать можно рядом с&nbsp;домом.</span></li>
+      <li><span><b>Всё под одной вывеской.</b> На&nbsp;фасаде на&nbsp;Алма-Атинской написано: скутеры, эндуро, квадроциклы, детские электромобили, велосипеды. Ребёнку багги, папе эндуро, и&nbsp;за&nbsp;обоими можно приехать в&nbsp;один магазин.</span></li>
+      <li><span><b>Характеристики в&nbsp;постах.</b> У&nbsp;Багги 8841 сразу видно: полный привод, до&nbsp;80&nbsp;кг, до&nbsp;9&nbsp;км/ч, аккумулятор 12В/7Ач. Эти данные готовы для&nbsp;карточек каталога.</span></li>
+      <li><span><b>Чистые фото моделей.</b> Mercedes-Benz AMG CLA45, BMW R1250GS, мотоцикл K808AM и&nbsp;багги сняты крупно на&nbsp;светлом фоне. Их можно сразу ставить в&nbsp;каталог.</span></li>
+      <li><span><b>Сервис, доставка по&nbsp;России и&nbsp;рассрочка.</b> Всё это уже есть в&nbsp;шапке и&nbsp;хайлайтс, осталось подробно рассказать условия.</span></li>
+      <li><span><b>Розыгрыш.</b> Подписчики следят за&nbsp;ним в&nbsp;хайлайтс, а&nbsp;значит, возвращаются в&nbsp;профиль снова.</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="eyebrow">Где теряются заявки</div>
+    <h2>Что сейчас мешает</h2>
+    <ul class="list">
+      <li><span>Ссылка в&nbsp;шапке ведёт в&nbsp;Telegram-канал. Посмотреть модели с&nbsp;наличием до&nbsp;разговора с&nbsp;продавцом негде.</span></li>
+      <li><span>Характеристики спрятаны в&nbsp;подписи за&nbsp;кнопкой «ещё»: «Характеристики…», «Возраст: 2–7 лет…», «аккумулятор 12v…». Цены на&nbsp;обложках постов не&nbsp;видно.</span></li>
+      <li><span>Чтобы узнать, есть&nbsp;ли модель в&nbsp;Ставрополе, нужно открыть закреп, выбрать один из&nbsp;трёх номеров и&nbsp;позвонить.</span></li>
+      <li><span>В&nbsp;профиле 9&nbsp;599 публикаций. Найти листанием, например, все багги для&nbsp;двоих детей почти невозможно.</span></li>
+      <li><span>Под постами с&nbsp;моделями 2–9 лайков при 21,2&nbsp;тыс. подписчиков. Лента доходит до&nbsp;немногих, а&nbsp;каталог на&nbsp;сайте даёт второй путь к&nbsp;вам: из&nbsp;поиска Яндекса и&nbsp;с&nbsp;карт.</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="eyebrow">Покупатели</div>
+    <h2>Что спрашивают перед покупкой</h2>
+    <p class="lead">У&nbsp;вас две аудитории, и&nbsp;вопросы у&nbsp;них разные. Сайт отвечает обеим, каждой в&nbsp;своём разделе.</p>
+    <div class="aud">
+      <div><h3>Родитель выбирает подарок</h3>
+        <div class="q">С&nbsp;какого возраста и&nbsp;до&nbsp;какого веса подойдёт?</div>
+        <div class="q">Одноместный или для&nbsp;двоих, есть&nbsp;ли пульт для&nbsp;родителей?</div>
+        <div class="q">Есть&nbsp;ли розовый в&nbsp;моём магазине?</div>
+        <div class="q">Сколько стоит и&nbsp;сколько выйдет в&nbsp;месяц в&nbsp;рассрочку?</div>
+        <div class="q">Можно забрать перед праздником, чтобы ребёнок не&nbsp;увидел?</div>
+        <div class="q">Что делать, если сломается?</div>
+      </div>
+      <div><h3>Подросток или взрослый выбирает технику</h3>
+        <div class="q">Нужны&nbsp;ли права на&nbsp;скутер?</div>
+        <div class="q">Где можно кататься на&nbsp;эндуро и&nbsp;питбайке?</div>
+        <div class="q">Сколько стоит обслуживание и&nbsp;где его делать?</div>
+        <div class="q">Можно посмотреть вживую и&nbsp;посидеть?</div>
+      </div>
+    </div>
+    <div class="season">
+      <div><b>Декабрь</b><span>Новый год, главный сезон подарков</span></div>
+      <div><b>Март–май</b><span>открытие сезона, спрос на&nbsp;скутеры и&nbsp;эндуро</span></div>
+      <div><b>Весь год</b><span>дни рождения и&nbsp;семейные праздники</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Рынок</div>
+    <h2>Кто ещё работает в&nbsp;нише</h2>
+    <div class="comp">
+      <div class="cc">
+        <span class="where">Краснодар и&nbsp;Анапа · интернет-магазин</span>
+        <h3>Cars-Kids</h3>
+        <a href="https://krasnodar.cars-kids.com/" target="_blank" rel="noopener">krasnodar.cars-kids.com</a>
+        <p>Отдельные страницы для&nbsp;Краснодара и&nbsp;Анапы. Электромобили от&nbsp;9&nbsp;250&nbsp;₽, разделы «двухместные», «грузовые», «на&nbsp;резиновых колёсах». Пункт выдачи, оплата при получении, гарантия на&nbsp;модели.</p>
+        <div class="tags"><span>Цены на&nbsp;сайте</span><span>Страница под&nbsp;город</span><span>Оплата при получении</span></div>
+      </div>
+      <div class="cc">
+        <span class="where">Краснодар · электротранспорт</span>
+        <h3>ElectroStreet</h3>
+        <a href="https://krasnodar.electrostreet.ru/" target="_blank" rel="noopener">krasnodar.electrostreet.ru</a>
+        <p>Детские электромобили от&nbsp;10&nbsp;550&nbsp;₽, отдельный раздел «до&nbsp;6 лет». Магазин на&nbsp;Таманской, тест-драйв, рассрочка и&nbsp;кредит.</p>
+        <div class="tags"><span>Раздел по&nbsp;возрасту</span><span>Тест-драйв</span><span>Рассрочка</span></div>
+      </div>
+      <div class="cc">
+        <span class="where">Краснодар · выставочный зал</span>
+        <h3>RiverToys</h3>
+        <a href="http://elektromobili-krasnodar.ru/" target="_blank" rel="noopener">elektromobili-krasnodar.ru</a>
+        <p>Выставочный зал, больше 100 моделей на&nbsp;витрине. Бесплатная доставка по&nbsp;Краснодару.</p>
+        <div class="tags"><span>Зал с&nbsp;моделями</span><span>Доставка по&nbsp;городу</span></div>
+      </div>
+      <div class="cc">
+        <span class="where">Краснодар · эндуро и&nbsp;питбайки</span>
+        <h3>GURUENDURO</h3>
+        <a href="https://guruenduro.ru/" target="_blank" rel="noopener">guruenduro.ru</a>
+        <p>Эндуро и&nbsp;питбайки от&nbsp;производителя, мотосалон на&nbsp;Ягодина. Рассрочка до&nbsp;36&nbsp;месяцев через карту «Халва».</p>
+        <div class="tags"><span>Условия рассрочки на&nbsp;сайте</span><span>Мотосалон</span></div>
+      </div>
+      <div class="cc">
+        <span class="where">Анапа · мототехника</span>
+        <h3>МОТО-ЮГ</h3>
+        <a href="https://moto-ug.ru/" target="_blank" rel="noopener">moto-ug.ru</a>
+        <p>Мопеды, квадроциклы, скутеры и&nbsp;мотоциклы в&nbsp;Анапе с&nbsp;2000 года, отдельно мотозапчасти.</p>
+        <div class="tags"><span>С&nbsp;2000 года</span><span>Запчасти</span></div>
+      </div>
+      <div class="cc">
+        <span class="where">Ставрополь · федеральная сеть</span>
+        <h3>Мопеды.РФ</h3>
+        <a href="https://ставрополь.мопеды.рф/" target="_blank" rel="noopener">ставрополь.мопеды.рф</a>
+        <p>Сеть салонов мототехники. На&nbsp;сайте пишут, что в&nbsp;наличии всегда есть кроссовые и&nbsp;эндуро мотоциклы, квадроциклы и&nbsp;детские ATV.</p>
+        <div class="tags"><span>Федеральная сеть</span><span>Детские ATV</span></div>
+      </div>
+    </div>
+    <p class="small">Описания собраны по&nbsp;открытым данным и&nbsp;поисковой выдаче на&nbsp;2&nbsp;ноября 2026. Цены и&nbsp;условия у&nbsp;магазинов могли измениться.</p>
+    <div class="two">
+      <div class="box norm"><h3>Что стало нормой</h3><ul><li>Каталог с&nbsp;ценами на&nbsp;сайте</li><li>Разделы по&nbsp;типу и&nbsp;возрасту</li><li>Отдельная страница под&nbsp;город</li><li>Рассрочка и&nbsp;доставка</li></ul></div>
+      <div class="box gap"><h3>Чего я у&nbsp;них не&nbsp;встретила</h3><ul><li>Наличие по&nbsp;конкретному магазину в&nbsp;трёх городах</li><li>Бронь с&nbsp;датой получения и&nbsp;«спрячем до&nbsp;праздника»</li><li>Адрес, часы и&nbsp;телефон выбранного магазина на&nbsp;первом экране</li></ul></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Задачи</div>
+    <h2>Что должен делать ваш сайт</h2>
+    <div class="tasks">
+      <div><h3>Показывать наличие по&nbsp;магазинам</h3><p>На&nbsp;каждой карточке: Краснодар, Анапа, Ставрополь, где модель есть, а&nbsp;где под заказ.</p></div>
+      <div><h3>Принимать бронь</h3><p>Модель, магазин, дата и&nbsp;телефон приходят одной заявкой в&nbsp;Telegram.</p></div>
+      <div><h3>Собрать каталог из&nbsp;ленты</h3><p>9&nbsp;599 публикаций превращаются в&nbsp;разделы и&nbsp;фильтры по&nbsp;возрасту, аккумулятору и&nbsp;приводу.</p></div>
+      <div><h3>Отвечать на&nbsp;частые вопросы</h3><p>Возраст, вес, заряд, права на&nbsp;скутер, доставка и&nbsp;рассрочка без звонка продавцу.</p></div>
+      <div><h3>Работать на&nbsp;Новый год</h3><p>Подборки по&nbsp;возрасту, последний день брони и&nbsp;«отложим до&nbsp;30&nbsp;декабря».</p></div>
+      <div><h3>Вести в&nbsp;свой магазин</h3><p>Адрес, часы, маршрут и&nbsp;телефон выбранного города в&nbsp;одно касание.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Пример</div>
+    <h2>Было и&nbsp;стало</h2>
+    <p class="lead">Так обычно выглядит путь от&nbsp;первого вопроса до&nbsp;брони, и&nbsp;так он выглядит с&nbsp;сайтом.</p>
+    <div class="ba">
+      <div class="chat">
+        <span class="lbl">Сейчас</span>
+        <div class="b in">Здравствуйте! Багги 8841 розовый есть?</div>
+        <div class="b out">Здравствуйте! В&nbsp;каком городе?</div>
+        <div class="b in">Анапа</div>
+        <div class="b out">Уточню в&nbsp;магазине и&nbsp;напишу</div>
+        <div class="b in">А&nbsp;можно забрать 30-го, чтобы сын не&nbsp;увидел?</div>
+        <p class="foot">Пять сообщений, а&nbsp;продавец ещё звонит в&nbsp;Анапу.</p>
+      </div>
+      <div class="chat">
+        <span class="lbl">С&nbsp;сайтом</span>
+        <div class="b tg"><b>Бронь с&nbsp;сайта AutoKids</b>• Багги 8841, розовый
+• Магазин: Анапа, ул. Красноармейская, 23
+• Заберут: 30 декабря, спрятать до&nbsp;праздника
+• Ирина, +7&nbsp;918&nbsp;…</div>
+        <p class="foot">Одна заявка. Продавцу остаётся подтвердить бронь.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="draft">
+      <div>
+        <div class="eyebrow">Набросок</div>
+        <h2 style="margin-top:8px">Что уже есть в&nbsp;наброске</h2>
+        <p>Главный экран можно потрогать: переключите город, полистайте модели и&nbsp;попробуйте забронировать. Ниже на&nbsp;той&nbsp;же странице все 13 блоков сайта.</p>
+        <a class="btn" href="index.html">Открыть главный экран →</a>
+      </div>
+      <ol>
+        <li>Главный экран<span>свой город, наличие и&nbsp;бронь</span></li>
+        <li>Каталог по&nbsp;разделам<span>от&nbsp;электромобилей до&nbsp;велосипедов</span></li>
+        <li>Карточка модели<span>характеристики без «ещё»</span></li>
+        <li>Бронь в&nbsp;своём магазине<span>готовая заявка в&nbsp;Telegram</span></li>
+        <li>Подарок к&nbsp;Новому году<span>подборки по&nbsp;возрасту</span></li>
+        <li>Скутеры, эндуро, квадроциклы<span>отдельный вход для&nbsp;взрослых</span></li>
+        <li>Рассрочка<span>платёж в&nbsp;месяц сразу</span></li>
+        <li>Доставка по&nbsp;России</li>
+        <li>Сервисный центр</li>
+        <li>Розыгрыш</li>
+        <li>Отзывы</li>
+        <li>Вопросы и&nbsp;ответы</li>
+        <li>Три магазина и&nbsp;контакты</li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Идеи</div>
+    <h2>Что можно предложить покупателям</h2>
+    <p class="lead">Это варианты на&nbsp;обсуждение, берите то, что подходит.</p>
+    <div class="ideas">
+      <div><h3>«Спрячем до&nbsp;праздника»</h3><p>Родитель бронирует сейчас, а&nbsp;забирает 30&nbsp;декабря. Подарок ждёт в&nbsp;магазине, и&nbsp;ребёнок его не&nbsp;находит раньше времени.</p></div>
+      <div><h3>Соберём и&nbsp;зарядим к&nbsp;выдаче</h3><p>Машина уже собрана и&nbsp;заряжена, папе не&nbsp;нужно возиться с&nbsp;отвёрткой вечером 31-го.</p></div>
+      <div><h3>Примерка в&nbsp;магазине</h3><p>Выбрал модель на&nbsp;сайте, пришёл в&nbsp;свой магазин и&nbsp;посадил ребёнка за&nbsp;руль до&nbsp;покупки.</p></div>
+      <div><h3>Сертификат AutoKids</h3><p>Бабушка дарит сертификат, а&nbsp;внук сам выбирает в&nbsp;магазине багги или мотоцикл.</p></div>
+      <div><h3>Розыгрыш за&nbsp;бронь с&nbsp;сайта</h3><p>Каждый, кто забронировал модель через сайт, участвует в&nbsp;следующем розыгрыше.</p></div>
+      <div><h3>Первое обслуживание в&nbsp;подарок</h3><p>К&nbsp;скутеру или эндуро талон в&nbsp;ваш сервисный центр.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Вопросы</div>
+    <h2>Что нужно уточнить</h2>
+    <ol class="qlist">
+      <li>В&nbsp;поиске нашла ваш сайт avto-kids.ru. Он сейчас работает и&nbsp;обновляется? Если там уже есть каталог, перенесём модели и&nbsp;статьи, чтобы ничего не&nbsp;потерялось.</li>
+      <li>Где вы ведёте наличие по&nbsp;трём магазинам: 1С, МойСклад, таблица? От&nbsp;этого зависит, как наличие будет попадать на&nbsp;сайт.</li>
+      <li>Можно&nbsp;ли показывать цены на&nbsp;сайте? Есть&nbsp;ли прайс, который можно взять за&nbsp;основу?</li>
+      <li>Бронь: сколько дней держите модель и&nbsp;нужна&nbsp;ли предоплата?</li>
+      <li>Куда удобнее получать брони: в&nbsp;Telegram, WhatsApp или сразу в&nbsp;нужный магазин?</li>
+      <li>Рассрочка и&nbsp;доставка по&nbsp;России: через какой банк, на&nbsp;какой срок, сколько стоит доставка?</li>
+      <li>Сервисный центр: где он находится и&nbsp;что в&nbsp;нём делаете?</li>
+      <li>На&nbsp;вывеске рядом с&nbsp;AVTOKIDS написано «АКМОТОРС». Это ваше направление для&nbsp;взрослой техники? Показывать его на&nbsp;сайте отдельно?</li>
+      <li>Отзывы можно взять с&nbsp;2ГИС и&nbsp;Яндекс Карт по&nbsp;каждому магазину?</li>
+      <li>Название ИП или компании для&nbsp;политики конфиденциальности.</li>
+    </ol>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Подготовила Анастасия Абдуллаева</span>
+    <span class="sign"><span><b>FOR.MI</b> designed &amp; developed by ABN</span><a class="rnd" href="https://t.me/abanev_dev" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.4 4.3 2.9 11.5c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.5c.2.6.4.8.9.8s.6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8L22.8 5.8c.3-1.3-.4-1.9-1.4-1.5zM8.6 14.1l9.6-6c.5-.3.9-.1.5.2l-7.8 7.1-.3 3.3-2-4.6z"/></svg></a></span>
+  </div>
+</footer>
+
+</body>
+</html>
