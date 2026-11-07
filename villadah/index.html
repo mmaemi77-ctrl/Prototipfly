@@ -521,10 +521,10 @@ const CONFIG={
   prepay:0               // доля предоплаты, например 0.3; 0 = не показывать
 };
 const VILLAS=[
-  {id:1,name:"Вилла 1",type:"v1"},
-  {id:2,name:"Вилла 2",type:"v24"},
-  {id:3,name:"Вилла 3",type:"v24"},
-  {id:4,name:"Вилла 4",type:"v24"}
+  {id:1,name:"Вилла\u00a01",type:"v1"},
+  {id:2,name:"Вилла\u00a02",type:"v24"},
+  {id:3,name:"Вилла\u00a03",type:"v24"},
+  {id:4,name:"Вилла\u00a04",type:"v24"}
 ];
 /* ТЕСТОВЫЕ ЦЕНЫ за ночь: заменить на прайс. wd: вс–чт, we: пт и сб, hol: праздники */
 const PRICES={v1:{wd:15000,we:18000,hol:25000},v24:{wd:12000,we:15000,hol:20000}};
@@ -553,7 +553,7 @@ const DAYS=Array.from({length:CONFIG.daysAhead},(_,i)=>addD(today,i));
 const KEYS=DAYS.map(iso);
 const plural=(n,a,b,c)=>{const m10=n%10,m100=n%100;return m10===1&&m100!==11?a:m10>=2&&m10<=4&&(m100<12||m100>14)?b:c};
 const nTxt=n=>n+" "+plural(n,"ночь","ночи","ночей");
-const dTxt=d=>d.getDate()+" "+MONg[d.getMonth()];
+const dTxt=d=>d.getDate()+"\u00a0"+MONg[d.getMonth()];
 const rangeTxt=(a,b)=>a.getMonth()===b.getMonth()?a.getDate()+"–"+dTxt(b):dTxt(a)+" – "+dTxt(b);
 const ageTxt=a=>a===0?"до 1 года":a+" "+plural(a,"год","года","лет");
 
@@ -698,7 +698,7 @@ $("#fGo").addEventListener("click",async()=>{
     try{const r=await fetch(CONFIG.apiUrl,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(d)});if(!r.ok)throw 0}
     catch(_){err.innerHTML='Не получилось отправить. <a href="https://wa.me/'+CONFIG.whatsapp+'?text='+encodeURIComponent(message(d))+'">Отправить в WhatsApp</a>';return}
   }
-  $("#doneTxt").innerHTML=`${esc(name)}, заявка на&nbsp;<b>${d.villa.replace("Вилла","Виллу")}</b>, ${d.dates}, уже у&nbsp;хозяина. Он проверит даты и&nbsp;свяжется с&nbsp;вами по&nbsp;номеру ${esc(d.phone)}.`;
+  $("#doneTxt").innerHTML=`${esc(name)}, заявка на&nbsp;<b>${d.villa.replace("Вилла","Виллу")}</b>, ${d.dates}, уже у&nbsp;хозяина. Он проверит даты и&nbsp;свяжется с&nbsp;вами по&nbsp;номеру <span style="white-space:nowrap">${esc(d.phone)}</span>.`;
   $("#tgDemo").hidden=!CONFIG.draft;
   $("#tgMsg").innerHTML=esc(message(d)).replace(/\n/g,"<br>").replace("Новая заявка с сайта","<b>Новая заявка с сайта</b>");
   $("#tgRes").hidden=true;document.querySelectorAll("#tgDemo .kb button").forEach(b=>b.disabled=false);
