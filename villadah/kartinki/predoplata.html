@@ -61,6 +61,24 @@ h1 em{font-style:normal;color:var(--acc)}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .mini{background:#fff;border:2px solid var(--line);border-radius:30px;padding:22px 26px;font-size:27px;line-height:1.4}
 .mini b{display:block;font-size:30px;font-weight:800;margin-bottom:8px}
+/* сравнение и два способа */
+.steps{list-style:none;display:flex;flex-direction:column;gap:12px;counter-reset:s}
+.steps li{display:flex;align-items:center;gap:16px;font-size:27px;line-height:1.3;counter-increment:s}
+.steps li::before{content:counter(s);flex:none;width:42px;height:42px;border-radius:50%;background:#E4DED3;color:#5E5850;font-size:22px;font-weight:800;display:grid;place-items:center}
+.card.now{background:#F8F6F2}
+.card.now h2{color:#5E5850}
+.card.site{border-color:var(--acc);box-shadow:inset 0 0 0 1px var(--acc)}
+.card.site .steps li::before{background:var(--acc);color:#fff}
+.card.site .steps li.me{font-weight:700;color:var(--acc)}
+.tagline{font-size:24px;font-weight:700;color:var(--soft);margin-top:-6px}
+.card.site .tagline{color:var(--acc)}
+.req{background:#F6F4EF;border-radius:22px;padding:18px 24px;display:flex;flex-direction:column;gap:6px;font-size:26px}
+.req .sum{font-size:40px;font-weight:800}
+.req span{color:var(--soft)}
+.pros{list-style:none;display:flex;flex-direction:column;gap:8px;font-size:25px;line-height:1.35;color:#3D4246}
+.pros li{display:flex;gap:12px}
+.pros li::before{content:"";flex:none;width:12px;height:12px;border-radius:50%;background:var(--wood);margin-top:12px}
+.btn.sm{font-size:28px;padding:16px}
 .ex{display:inline-block;background:var(--wood-l);color:#8A5426;border-radius:12px;padding:4px 14px;font-size:22px;font-weight:700;margin-left:10px;vertical-align:middle}
 </style>
 </head>
@@ -148,6 +166,57 @@ h1 em{font-style:normal;color:var(--acc)}
   </div>
   <div class="mini"><b>Цены так же</b>«Цены» → Вилла 1 → выходные → 28 000. Через секунду новая цена на сайте. Так же праздники, будни и «бронь от 2 ночей»</div>
   <div class="band">Бронь пришла по телефону или с Яндекса? <b>Закрываете даты в боте</b>, и сайт их уже не продаст.</div>
+</section>
+
+<!-- 5. Как сейчас и как будет -->
+<section class="slide" id="s5">
+  <div class="lab">Вилла Дах · предоплата</div>
+  <h1>Как сейчас и <em>как будет</em></h1>
+  <div class="card now">
+    <div class="ch"><h2>Сейчас, в WhatsApp</h2></div>
+    <p class="tagline">6 шагов, почти всё руками</p>
+    <ol class="steps">
+      <li>Гость пишет и ждёт ответа</li>
+      <li>Вы отправляете фото и цены</li>
+      <li>Сверяете даты по двум номерам</li>
+      <li>Считаете сумму, шлёте реквизиты</li>
+      <li>Гость переводит предоплату</li>
+      <li>Вы проверяете банк и пишете «бронь ваша»</li>
+    </ol>
+  </div>
+  <div class="card site">
+    <div class="ch"><h2>На сайте</h2></div>
+    <p class="tagline">Вы делаете только последний шаг</p>
+    <ol class="steps">
+      <li>Гость сам видит фото, цены и свободные даты</li>
+      <li>Сайт считает сумму и предоплату</li>
+      <li>Гость платит с телефона</li>
+      <li class="me">Вам приходит «Предоплата получена», вы жмёте «Подтвердить»</li>
+    </ol>
+  </div>
+  <div class="band">Деньги приходят <b>вам, как и сейчас</b>. Реквизиты, сумму и сверку дат сайт берёт на себя.</div>
+</section>
+
+<!-- 6. Два способа -->
+<section class="slide" id="s6">
+  <div class="lab">Вилла Дах · предоплата</div>
+  <h1>Два способа <em>принять предоплату</em></h1>
+  <div class="card">
+    <div class="ch"><div class="num w">1</div><h2>Как сейчас, только без переписки</h2></div>
+    <div class="req">
+      <span>Предоплата за Виллу 1, 30 дек – 2 янв</span>
+      <div class="sum">27 000 ₽</div>
+      <span>Перевод по СБП на ваш номер · ваш банк</span>
+    </div>
+    <div class="btn sm">Я оплатил(а)</div>
+    <ul class="pros"><li>Сайт сам показывает гостю сумму и ваши реквизиты</li><li>Даты держатся за гостем, пока вы не проверите перевод</li><li>Вы видите перевод в банке и жмёте «Подтвердить»</li><li>Подключать ничего не нужно</li></ul>
+  </div>
+  <div class="card">
+    <div class="ch"><div class="num">2</div><h2>Полностью автоматически</h2></div>
+    <div class="btn acc sm">Оплатить 27 000 ₽ · СБП или карта</div>
+    <ul class="pros"><li>Сайт сам видит оплату, проверять банк не нужно</li><li>Нужен договор с платёжным сервисом, он берёт свой процент</li></ul>
+  </div>
+  <div class="band">Можно начать с первого и перейти на второй, <b>когда будет удобно</b>.</div>
 </section>
 
 </body>
