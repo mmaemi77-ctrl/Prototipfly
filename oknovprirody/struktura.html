@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Окно в природу · структура</title>
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Onest:wght@400;500;600;700;800&display=swap">
+<style>
+/* Две картинки 4:5 (540×675, снимаются в 2x = 1080×1350) для директа: лес и тёплое дерево, зелёный и медный */
+:root{
+  --forest:#12241A;--forest2:#1A3324;--moss:#2E5A3C;--leaf:#3E7B50;--leaf-tint:#E4EFE5;
+  --copper:#B8693A;--copper-hi:#D58A52;--copper-tint:#F6E4D3;
+  --paper:#FBF7F0;--cream:#F3EBDD;--wood:#E6D7C1;--ink:#17221A;--muted:#5D6A60;--dim:#8C968D;--line:#E2D6C3;--busy:#EDE6DA;
+  --on-dark:#F4EEE3;--on-dark-muted:#C9D3C6;
+  --font:"Onest",system-ui,sans-serif;--display:"Lora",Georgia,serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#2A2A2A;font-family:var(--font);color:var(--ink);-webkit-font-smoothing:antialiased;display:grid;gap:24px;justify-content:center;padding:24px 0}
+h1,h2,h3,p{margin:0}
+.slide{width:540px;height:675px;overflow:hidden;background:var(--paper);display:flex;flex-direction:column;position:relative}
+.band{flex:none;background:var(--forest);color:var(--on-dark);padding:20px 24px 18px;position:relative;isolation:isolate;overflow:hidden}
+.band::before{content:"";position:absolute;inset:0;z-index:-1;background:url(img/territoriya.jpg) center 40%/cover;opacity:.22}
+.band::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--forest) 30%,rgb(18 36 26 / .55))}
+.brand{display:flex;align-items:center;gap:9px}
+.brand img{width:32px;height:32px;border-radius:50%;background:#FFFFFF}
+.brand b{font-family:var(--display);font-size:15px;font-weight:700;line-height:1.1}
+.brand small{display:block;font-size:10.5px;color:var(--on-dark-muted);font-weight:600}
+.brand .pg{margin-left:auto;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#E9C9A8}
+.band h1{font-family:var(--display);font-weight:700;font-size:24px;line-height:1.15;margin-top:14px;letter-spacing:-.01em}
+.band h1 em{font-style:italic;color:#F0B482}
+.flow{display:flex;align-items:center;gap:6px;margin-top:12px;font-size:11.5px;font-weight:700}
+.flow span{background:rgb(255 255 255 / .1);border:1px solid rgb(255 255 255 / .18);border-radius:999px;padding:5px 10px;white-space:nowrap}
+.flow span.end{background:var(--copper);border-color:var(--copper)}
+.flow i{font-style:normal;color:#E9C9A8;font-weight:800}
+
+.body{flex:1;min-height:0;padding:12px 18px 12px;display:flex;flex-direction:column;gap:8px}
+.blk{background:#FFFFFF;border:1px solid var(--line);border-radius:18px;padding:10px 12px;display:grid;grid-template-columns:104px minmax(0,1fr);gap:12px;align-items:center}
+.no{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--copper);color:#FFFFFF;font-size:11px;font-weight:800;flex:none}
+.tt{display:flex;align-items:center;gap:8px}
+.tt h3{font-family:var(--display);font-weight:700;font-size:16.5px;line-height:1.15}
+.why{font-size:12.5px;line-height:1.38;color:var(--muted);margin-top:4px}
+.why b{color:var(--ink);font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.chips span{font-size:10.5px;font-weight:700;background:var(--cream);border-radius:999px;padding:3px 8px;white-space:nowrap}
+.chips span.c{background:var(--copper-tint);color:#8A4A22}
+
+/* мини-схемы */
+.wf{height:74px;border-radius:11px;overflow:hidden;position:relative}
+.wf.hero{background:linear-gradient(90deg,rgb(18 36 26 / .92) 45%,rgb(18 36 26 / .4)),url(img/territoriya.jpg) center/cover;padding:9px 8px;display:grid;grid-template-columns:1fr 38px;gap:6px}
+.ln{display:block;height:4px;border-radius:2px;background:rgb(255 255 255 / .55)}
+.ln.k{background:#F0B482}
+.pl{display:block;height:9px;border-radius:5px;width:34px;background:var(--copper)}
+.pl.g{background:none;box-shadow:inset 0 0 0 1px rgb(255 255 255 / .6)}
+.mini-card{background:var(--paper);border-radius:6px;padding:4px;display:grid;grid-template-columns:repeat(4,1fr);gap:2px;align-content:start}
+.mini-card i{height:6px;border-radius:2px;background:var(--busy)}
+.mini-card i.s{background:var(--copper)}
+.mini-card i.f{background:#FFFFFF;box-shadow:inset 0 0 0 1px var(--line)}
+.wf.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:none}
+.wf.trio div{background:center/cover;position:relative;border-radius:7px}
+.wf.trio div span{position:absolute;left:3px;right:3px;bottom:3px;background:rgb(18 36 26 / .82);color:#FFFFFF;font-size:8.5px;font-weight:800;border-radius:4px;text-align:center;padding:1px 0}
+
+/* главный блок: календарь */
+.main{background:var(--forest2);color:var(--on-dark);border-radius:20px;padding:13px 14px 14px;display:grid;gap:9px;flex:1;align-content:start}
+.main .tt h3{font-size:18px}
+.main .why{color:var(--on-dark-muted);font-size:12.5px;margin-top:0}
+.main .why b{color:#FFFFFF}
+.tag{margin-left:auto;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:var(--copper);color:#FFFFFF;border-radius:999px;padding:4px 9px}
+.cal{background:var(--paper);color:var(--ink);border-radius:14px;padding:10px 10px 9px;display:grid;gap:7px}
+.cal-g{display:grid;grid-template-columns:46px repeat(10,minmax(0,1fr));gap:3px;align-items:center}
+.hd{display:grid;justify-items:center;font-size:8.5px;color:var(--dim);font-weight:600;line-height:1.15}
+.hd b{font-size:11.5px;color:var(--ink)}
+.hd.we b{color:var(--copper)}
+.nm{font-size:11px;font-weight:800;line-height:1.1}
+.nm small{display:block;font-size:8.5px;color:var(--muted);font-weight:600}
+.d{height:24px;border-radius:6px;border:1px solid var(--line);background:#FFFFFF;display:grid;place-items:center;position:relative}
+.d::after{content:"";width:4px;height:4px;border-radius:50%;background:var(--leaf)}
+.d.b{background:var(--busy);border-color:transparent}
+.d.b::after{width:66%;height:1px;border-radius:0;background:#B0A592;transform:rotate(-38deg)}
+.d.s{background:var(--copper);border-color:var(--copper)}
+.d.s::after{background:#FFFFFF}
+.bath{border-top:1px dashed var(--line);padding-top:7px;display:grid;gap:5px}
+.bath p{font-size:10.5px;font-weight:700;display:flex;justify-content:space-between}
+.bath p span{color:var(--muted);font-weight:600}
+.sl{display:grid;grid-template-columns:repeat(6,1fr);gap:3px}
+.sl span{font-size:10.5px;font-weight:800;text-align:center;border:1px solid var(--line);border-radius:6px;padding:3px 0;background:#FFFFFF}
+.sl span.b{background:var(--busy);border-color:transparent;color:#A89E8E;text-decoration:line-through}
+.sl span.s{background:var(--forest2);border-color:var(--forest2);color:#FFFFFF}
+.cap{display:flex;gap:6px;flex-wrap:wrap}
+.cap span{font-size:10.5px;font-weight:700;background:rgb(255 255 255 / .1);border:1px solid rgb(255 255 255 / .16);border-radius:999px;padding:3px 9px}
+
+/* слайд 2 */
+.band.sm{padding:16px 24px 14px}
+.band.sm h1{font-size:19px;margin-top:10px}
+.calc{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:6px 7px;display:grid;gap:3px;font-size:9px;font-weight:700}
+.calc div{display:flex;justify-content:space-between;gap:4px}
+.calc div span:last-child{color:var(--muted)}
+.calc .t{border-top:1px solid var(--line);padding-top:3px;font-size:10px}
+.calc .t span:last-child{color:var(--ink)}
+.calc .bt{background:var(--copper);color:#FFFFFF;border-radius:5px;text-align:center;padding:3px 0;font-size:9px;display:block}
+.offers{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:6px}
+.offers div{background:var(--cream);border-radius:11px;padding:8px 9px;display:grid;gap:2px;align-content:start}
+.offers b{font-size:12px;line-height:1.2}
+.offers span{font-size:10.5px;color:var(--muted);line-height:1.3}
+.offers div.c{background:var(--copper-tint)}
+.blk.wide{grid-template-columns:1fr}
+.msg{background:var(--leaf-tint);border-radius:12px 12px 12px 4px;padding:7px 9px;font-size:9.5px;line-height:1.4;font-weight:600}
+.msg b{display:block;font-size:8.5px;color:var(--moss);font-weight:800;margin-bottom:2px}
+.sumbox{background:var(--copper);color:#FFFFFF;border-radius:18px;padding:12px 16px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:center}
+.sumbox svg{width:30px;height:30px}
+.sumbox p{font-size:13.5px;line-height:1.4;font-weight:600}
+.sumbox p b{font-weight:800}
+.foot{display:flex;justify-content:space-between;font-size:10px;color:var(--dim);font-weight:600;margin-top:auto;padding-top:2px}
+.foot b{color:var(--ink);letter-spacing:.06em}
+</style>
+</head>
+<body>
+
+<section class="slide" id="s1">
+  <div class="band">
+    <div class="brand"><img src="img/logo.png" alt=""><span><b>Окно в&nbsp;природу</b><small>структура сайта</small></span><span class="pg">1 / 2</span></div>
+    <h1>Гость сам видит <em>свободный дом</em>, время бани и&nbsp;цену</h1>
+    <div class="flow"><span>Ссылка в&nbsp;шапке Instagram</span><i>→</i><span>Даты, баня, цена</span><i>→</i><span class="end">Готовая заявка вам</span></div>
+  </div>
+  <div class="body">
+    <div class="blk">
+      <div class="wf hero">
+        <div style="display:grid;gap:4px;align-content:center"><span class="ln" style="width:60%"></span><span class="ln" style="width:92%;height:6px"></span><span class="ln k" style="width:70%;height:6px"></span><span class="ln" style="width:80%;margin-top:2px"></span><div style="display:flex;gap:3px;margin-top:3px"><span class="pl"></span><span class="pl g"></span></div></div>
+        <div class="mini-card"><i></i><i class="s"></i><i class="s"></i><i></i><i></i><i></i><i class="f"></i><i class="f"></i><i class="f" style="grid-column:1/-1;height:5px;background:var(--forest2);box-shadow:none"></i></div>
+      </div>
+      <div><div class="tt"><span class="no">1</span><h3>Первый экран</h3></div><p class="why">Два дома в&nbsp;природе, чан у&nbsp;каждого, панорамная баня, 15&nbsp;минут от&nbsp;Челябинска</p><div class="chips"><span class="c">Свободные даты</span><span class="c">Что входит</span></div></div>
+    </div>
+    <div class="blk">
+      <div class="wf trio"><div style="background-image:url(img/gazon.jpg)"><span>Дом</span></div><div style="background-image:url(img/chan.jpg)"><span>Чан</span></div><div style="background-image:url(img/banya.jpg)"><span>Баня</span></div></div>
+      <div><div class="tt"><span class="no">2</span><h3>Два дома, два чана и&nbsp;баня</h3></div><p class="why">Фото, на&nbsp;сколько гостей (…), что внутри. Сразу видно: <b>баня одна на&nbsp;два дома</b></p></div>
+    </div>
+    <div class="main">
+      <div class="tt"><span class="no">3</span><h3>Календарь свободных дат</h3><span class="tag">главный блок</span></div>
+      <p class="why">Строка на&nbsp;каждый дом, занятые дни зачёркнуты. Ниже <b>время бани</b> на&nbsp;выбранный день, чтобы у&nbsp;двух домов она не&nbsp;пересеклась</p>
+      <div class="cal">
+        <div class="cal-g">
+          <span></span>
+          <span class="hd">пт<b>1</b></span><span class="hd we">сб<b>2</b></span><span class="hd we">вс<b>3</b></span><span class="hd">пн<b>4</b></span><span class="hd">вт<b>5</b></span><span class="hd">ср<b>6</b></span><span class="hd">чт<b>7</b></span><span class="hd">пт<b>8</b></span><span class="hd we">сб<b>9</b></span><span class="hd we">вс<b>10</b></span>
+          <span class="nm">Дом 1<small>свой чан</small></span>
+          <i class="d b"></i><i class="d b"></i><i class="d s"></i><i class="d s"></i><i class="d b"></i><i class="d b"></i><i class="d b"></i><i class="d b"></i><i class="d"></i><i class="d"></i>
+          <span class="nm">Дом 2<small>свой чан</small></span>
+          <i class="d b"></i><i class="d b"></i><i class="d b"></i><i class="d b"></i><i class="d b"></i><i class="d b"></i><i class="d b"></i><i class="d"></i><i class="d"></i><i class="d"></i>
+        </div>
+        <div class="bath">
+          <p>Баня на&nbsp;3&nbsp;января<span>одна на&nbsp;два дома</span></p>
+          <div class="sl"><span>12:00</span><span class="b">14:00</span><span class="b">16:00</span><span class="s">18:00</span><span>20:00</span><span>22:00</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s2">
+  <div class="band sm">
+    <div class="brand"><img src="img/logo.png" alt=""><span><b>Окно в&nbsp;природу</b><small>структура сайта</small></span><span class="pg">2 / 2</span></div>
+    <h1>Цена на&nbsp;своих гостей и&nbsp;<em>заявка без&nbsp;звонка</em></h1>
+  </div>
+  <div class="body">
+    <div class="blk">
+      <div class="calc">
+        <div><span>Дом 1</span><span>2 ночи</span></div>
+        <div><span>Гостей</span><span>4</span></div>
+        <div><span>Баня</span><span>18:00</span></div>
+        <div><span>Чан, запарка</span><span>✓</span></div>
+        <div class="t"><span>Итого</span><span>…&nbsp;₽</span></div>
+        <span class="bt">Забронировать</span>
+      </div>
+      <div><div class="tt"><span class="no">4</span><h3>Цена на&nbsp;своих гостей</h3></div><p class="why">Дом, число ночей и&nbsp;гостей, баня по&nbsp;времени, чан, запарка, веники. Внизу <b>сумма и&nbsp;«Забронировать»</b></p><div class="chips"><span>Цены для&nbsp;примера</span><span>Прайс меняете сами</span></div></div>
+    </div>
+    <div class="blk wide">
+      <div class="tt"><span class="no">5</span><h3>Спецпредложения</h3></div>
+      <div class="offers">
+        <div class="c"><b>Новогодние выходные</b><span>1–10 января</span></div>
+        <div><b>Будни дешевле</b><span>для тех, кто может среди недели</span></div>
+        <div><b>Сертификат</b><span>в&nbsp;подарок к&nbsp;Новому году</span></div>
+      </div>
+    </div>
+    <div class="blk" style="grid-template-columns:150px minmax(0,1fr)">
+      <div class="msg"><b>Новая бронь с&nbsp;сайта</b>Дом 1, 3–5 января<br>Баня 3 января, 18:00<br>4 гостя, запарка, веники<br>Сумма … ₽<br>Анна, +7 9…</div>
+      <div><div class="tt"><span class="no">6</span><h3>Заявка приходит готовой</h3></div><p class="why">Дом, даты, баня и&nbsp;время, гости, допы, сумма, имя и&nbsp;телефон. <b>Вам остаётся подтвердить</b></p></div>
+    </div>
+    <div class="blk wide" style="padding-block:10px">
+      <div class="tt"><span class="no">7</span><h3>Частые вопросы</h3></div>
+      <div class="chips" style="margin-top:2px"><span>Чем отличаются дома</span><span>Что взять с&nbsp;собой</span><span>С&nbsp;детьми и&nbsp;собакой?</span><span>Как доехать</span></div>
+    </div>
+    <div class="sumbox">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/><path d="M3 3l18 18"/></svg>
+      <p>Гость сам видит, какой дом свободен, время бани и&nbsp;цену, а&nbsp;вам приходит заявка <b>вместо звонка «а&nbsp;на&nbsp;третье есть?»</b></p>
+    </div>
+    <div class="foot"><span>Подготовила Анастасия Абдуллаева</span><span><b>FOR.MI</b></span></div>
+  </div>
+</section>
+
+</body>
+</html>

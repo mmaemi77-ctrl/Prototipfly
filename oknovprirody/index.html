@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Главный экран и структура сайта «Окно в природу»: два дома с горячими чанами и панорамная баня в 15 минутах от Челябинска, свободные даты по каждому дому и время бани">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Окно в природу · главный экран и структура сайта">
+<meta property="og:description" content="Свой дом и горячий чан в 15 минутах от Челябинска: свободные даты по каждому дому, время бани и заявка без звонка">
+<meta property="og:image" content="https://mmaemi77-ctrl.github.io/oknovprirody/og-glavnyi.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#12241A">
+<title>Окно в природу · главный экран</title>
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Onest:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: фото территории во весь экран под зелёной вуалью. Слева обещание и факты, справа светлая карточка «Свободные даты» на январские праздники: строка на каждый дом и время бани. Ниже «что входит» и структура картинками */
+:root{
+  --forest:#12241A;
+  --forest2:#1A3324;
+  --moss:#2E5A3C;
+  --leaf:#3E7B50;
+  --leaf-tint:#E4EFE5;
+  --copper:#B8693A;
+  --copper-hi:#D58A52;
+  --copper-tint:#F6E4D3;
+  --paper:#FBF7F0;
+  --cream:#F3EBDD;
+  --wood:#E6D7C1;
+  --ink:#17221A;
+  --muted:#5D6A60;
+  --dim:#8C968D;
+  --line:#E2D6C3;
+  --busy:#EDE6DA;
+  --on-dark:#F4EEE3;
+  --on-dark-muted:#C9D3C6;
+  --font:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --display:"Lora",Georgia,"Times New Roman",serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-padding-top:80px;scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+.wrap{max-width:1280px;margin:0 auto;padding-left:max(clamp(16px,2.6vw,32px),env(safe-area-inset-left,0px));padding-right:max(clamp(16px,2.6vw,32px),env(safe-area-inset-right,0px))}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+button{font-family:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--copper-hi);outline-offset:3px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:14px;padding:15px 24px;font-weight:700;font-size:16px;line-height:1.2;cursor:pointer;text-decoration:none;transition:transform .15s,background-color .15s,box-shadow .15s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px)}
+.btn svg{width:19px;height:19px;flex:none}
+.btn.copper{background:var(--copper);color:#FFFFFF;box-shadow:0 12px 28px -12px rgb(184 105 58 / .9)}
+.btn.copper:hover{background:#A95E31}
+.btn.glass{background:rgb(255 255 255 / .1);color:var(--on-dark);box-shadow:inset 0 0 0 1.5px rgb(255 255 255 / .35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.btn.glass:hover{background:rgb(255 255 255 / .18)}
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+
+/* метка наброска и шапка */
+.draft{background:var(--copper-tint);color:#6B3A1A;font-size:12.5px;line-height:1.35;padding:7px 16px;text-align:center;border-bottom:1px solid #EBCDB2}
+.draft .sm{display:none}
+@media (max-width:640px){.draft .lg{display:none}.draft .sm{display:inline}}
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--forest) 92%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgb(255 255 255 / .08);color:var(--on-dark)}
+header .wrap{display:flex;align-items:center;gap:28px;padding-block:10px}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;flex:none}
+.logo img{width:46px;height:46px;border-radius:50%;background:#FFFFFF}
+.logo b{display:block;font-family:var(--display);font-weight:700;font-size:18px;line-height:1.15}
+.logo small{display:block;font-size:12px;font-weight:600;color:var(--on-dark-muted)}
+nav{display:flex;gap:24px;font-size:15px;font-weight:600;margin-left:auto}
+nav a{text-decoration:none;color:var(--on-dark-muted)}
+nav a:hover{color:#FFFFFF}
+.h-right{display:flex;align-items:center;gap:8px}
+.call{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;white-space:nowrap;border:1.5px solid rgb(255 255 255 / .22);border-radius:12px;padding:10px 14px;background:none;cursor:pointer;color:var(--on-dark)}
+.call svg{width:17px;height:17px}
+.ic{width:44px;height:44px;border-radius:13px;border:1.5px solid rgb(255 255 255 / .22);background:none;display:grid;place-items:center;cursor:pointer;text-decoration:none;flex:none;color:var(--on-dark)}
+.ic:hover,.call:hover{border-color:rgb(255 255 255 / .55)}
+.ic svg{width:20px;height:20px}
+.ic.menu{display:none}
+@media (max-width:1100px){nav{display:none}.h-right{margin-left:auto}}
+@media (max-width:640px){.call span{display:none}.call{padding:0;width:42px;height:42px;justify-content:center}.ic.menu{display:grid}.ic.vk,.ic.ig{display:none}.logo img{width:40px;height:40px}.logo b{font-size:16.5px}header .wrap{gap:12px;padding-block:9px}.ic{width:42px;height:42px;border-radius:12px}.call{border-radius:12px}}
+
+/* первый экран */
+.hero-bg{position:relative;isolation:isolate;color:var(--on-dark);background:var(--forest)}
+.hero-bg::before{content:"";position:absolute;inset:0;z-index:-2;background:url(img/territoriya.jpg) center 48%/cover no-repeat}
+.hero-bg::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgb(14 30 21 / .9) 0%,rgb(14 30 21 / .74) 36%,rgb(14 30 21 / .28) 66%,rgb(14 30 21 / .38) 100%),linear-gradient(0deg,rgb(14 30 21 / .85),transparent 32%)}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.98fr);grid-template-areas:"l s" "f s";column-gap:clamp(24px,4.5vw,64px);padding-block:clamp(28px,4vw,52px) clamp(28px,3.4vw,44px);align-items:start;min-height:calc(100svh - 100px)}
+.h-left{grid-area:l;display:grid;gap:20px;padding-top:clamp(4px,2vw,26px)}
+.h-left .eyebrow{color:#E9C9A8;display:flex;align-items:center;gap:10px}
+.h-left .eyebrow::before{content:"";width:26px;height:2px;background:var(--copper-hi)}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(34px,4.3vw,62px);line-height:1.06;letter-spacing:-.02em}
+h1 em{font-style:italic;color:#F0B482}
+.sub{font-size:clamp(16.5px,1.35vw,19px);line-height:1.5;color:var(--on-dark-muted);max-width:44ch}
+.sub b{color:#FFFFFF;font-weight:700}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.facts{grid-area:f;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:30px;align-self:end}
+.facts div{display:grid;gap:3px;align-content:start;background:rgb(255 255 255 / .08);border:1px solid rgb(255 255 255 / .16);border-radius:18px;padding:14px 15px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.facts b{font-family:var(--display);font-weight:700;font-size:clamp(18px,1.6vw,23px);line-height:1.15;white-space:nowrap}
+.facts span{font-size:13.5px;line-height:1.35;color:var(--on-dark-muted)}
+
+/* карточка свободных дат */
+.stage{grid-area:s;background:var(--paper);color:var(--ink);border-radius:28px;padding:22px;box-shadow:0 50px 90px -40px rgb(0 0 0 / .75);display:grid;gap:16px;scroll-margin-top:90px;transition:box-shadow .3s}
+.stage.hl{box-shadow:0 0 0 4px var(--copper-hi),0 50px 90px -40px rgb(0 0 0 / .75)}
+.st-h{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.st-h h2{font-family:var(--display);font-weight:700;font-size:clamp(21px,1.8vw,26px);line-height:1.15}
+.st-h p{font-size:14px;color:var(--muted);margin-top:3px}
+.badge{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:700;color:var(--moss);background:var(--leaf-tint);border-radius:999px;padding:6px 11px;white-space:nowrap}
+.badge i{width:7px;height:7px;border-radius:50%;background:var(--leaf);box-shadow:0 0 0 3px rgb(62 123 80 / .2)}
+.cal{display:grid;grid-template-columns:76px repeat(10,minmax(0,1fr));gap:5px;align-items:stretch}
+.cal .hd{display:grid;justify-items:center;gap:0;font-size:11.5px;font-weight:600;color:var(--dim);line-height:1.25;padding-bottom:2px}
+.cal .hd b{font-size:15px;color:var(--ink);font-weight:700}
+.cal .hd.we b{color:var(--copper)}
+.cal .nm{display:grid;align-content:center;gap:1px;font-weight:700;font-size:14.5px;line-height:1.15}
+.cal .nm small{font-size:11.5px;font-weight:600;color:var(--muted)}
+.d{position:relative;height:42px;border-radius:10px;border:1.5px solid var(--line);background:#FFFFFF;cursor:pointer;padding:0;display:grid;place-items:center;transition:background-color .12s,border-color .12s}
+.d::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--leaf)}
+.d:hover{border-color:var(--leaf)}
+.d.busy{background:var(--busy);border-color:transparent;cursor:not-allowed}
+.d.busy::after{width:70%;height:1.5px;border-radius:0;background:#B9AE9C;transform:rotate(-38deg)}
+.d.sel{background:var(--copper);border-color:var(--copper)}
+.d.sel::after{background:#FFFFFF}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--muted);margin-top:-4px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:16px;height:12px;border-radius:4px;border:1.5px solid var(--line);background:#FFFFFF;position:relative}
+.legend i.b{background:var(--busy);border-color:transparent}
+.legend i.b::after{content:"";position:absolute;left:2px;right:2px;top:50%;height:1.5px;background:#B9AE9C;transform:rotate(-30deg)}
+.legend i.s{background:var(--copper);border-color:var(--copper)}
+.bath{border-top:1px dashed var(--line);padding-top:14px;display:grid;gap:9px}
+.bath-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.bath-h b{font-size:15px}
+.bath-h span{font-size:12.5px;color:var(--muted)}
+.slots{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+.sl{border:1.5px solid var(--line);background:#FFFFFF;border-radius:11px;padding:9px 0;font-size:14px;font-weight:700;cursor:pointer;font-variant-numeric:tabular-nums}
+.sl:hover{border-color:var(--leaf)}
+.sl.busy{background:var(--busy);border-color:transparent;color:#A89E8E;text-decoration:line-through;text-decoration-thickness:1.5px;cursor:not-allowed}
+.sl.sel{background:var(--forest2);border-color:var(--forest2);color:#FFFFFF}
+.sum{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;align-items:center;background:var(--cream);border-radius:18px;padding:14px 16px}
+.sum .what{font-size:14px;line-height:1.4;color:var(--muted)}
+.sum .what b{color:var(--ink);font-weight:700}
+.sum .tot{font-size:12.5px;color:var(--muted);text-align:right;line-height:1.2}
+.sum .tot b{display:block;font-family:var(--display);font-size:22px;color:var(--ink)}
+.sum .btn{grid-column:1/-1;width:100%;padding-block:15px}
+.note{font-size:12.5px;color:var(--dim);text-align:center;margin-top:-6px}
+
+@media (max-width:1180px) and (min-width:981px){.cal{grid-template-columns:64px repeat(10,minmax(0,1fr));gap:4px}.facts{grid-template-columns:1fr 1fr}}
+@media (max-width:980px){
+  .hero{grid-template-columns:1fr;grid-template-areas:"l" "s" "f";min-height:0;padding-top:20px}
+  .stage{margin-top:24px}
+}
+@media (max-width:640px){
+  .draft{font-size:11.5px;padding-block:6px}
+  .hero-bg::before{background-position:62% 0;background-size:auto 520px}
+  .hero-bg::after{background:linear-gradient(180deg,rgb(14 30 21 / .55) 0,rgb(14 30 21 / .82) 300px,var(--forest) 520px)}
+  .hero{padding-block:22px 22px}
+  .h-left{gap:14px}
+  .h-left .eyebrow{font-size:11.5px;letter-spacing:.1em}
+  h1{font-size:31px}
+  .sub{font-size:16px}
+  .cta{display:none}
+  .stage{margin-top:20px;border-radius:24px;padding:16px 14px;gap:14px}
+  .st-h p{display:none}
+  .st-h h2{font-size:21px}
+  .badge{font-size:11.5px;padding:5px 9px}
+  .cal{grid-template-columns:50px repeat(10,minmax(0,1fr));gap:3px}
+  .cal .hd{font-size:10px}
+  .cal .hd b{font-size:13px}
+  .cal .nm{font-size:13px}
+  .cal .nm small{font-size:10.5px}
+  .d{height:36px;border-radius:8px}
+  .d::after{width:5px;height:5px}
+  .slots{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .sum{padding:12px 14px}
+  .facts{grid-template-columns:1fr 1fr;gap:8px;margin-top:18px}
+  .facts div{padding:12px 13px;border-radius:16px}
+  .facts b{font-size:18px}
+  .facts span{font-size:12.5px}
+}
+
+/* что входит */
+.inc{padding-block:clamp(40px,5vw,64px) clamp(36px,5vw,56px)}
+.inc-h{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:18px;flex-wrap:wrap}
+.inc-h .eyebrow{color:var(--copper)}
+.inc-h h2{font-family:var(--display);font-weight:700;font-size:clamp(26px,3vw,38px);line-height:1.12;margin-top:6px}
+.inc-h p{color:var(--muted);max-width:46ch}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.card{background:#FFFFFF;border:1px solid var(--line);border-radius:22px;overflow:hidden;display:grid;grid-template-rows:auto 1fr}
+.card .ph{aspect-ratio:4/3;background:var(--cream) center/cover no-repeat}
+.card .t{padding:14px 16px 16px;display:grid;gap:5px;align-content:start}
+.card b{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.2}
+.card span{font-size:14px;color:var(--muted)}
+.card ul{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:5px}
+.card li{font-size:12.5px;font-weight:600;background:var(--cream);border-radius:999px;padding:4px 10px}
+@media (max-width:980px){.cards{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.cards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-16px;padding-inline:16px;scrollbar-width:none}.cards::-webkit-scrollbar{display:none}.card{flex:0 0 78%;scroll-snap-align:start}}
+
+/* структура */
+.s-head{background:var(--forest);color:var(--on-dark);padding-block:clamp(44px,6vw,72px)}
+.s-head .eyebrow{color:#E9C9A8}
+.s-head h2{font-family:var(--display);font-weight:700;font-size:clamp(28px,3.6vw,44px);line-height:1.1;margin-top:10px}
+.s-head .lead{font-size:clamp(16px,1.6vw,19px);color:var(--on-dark-muted);max-width:58ch;margin-top:14px}
+.s-img{display:grid;grid-template-columns:repeat(2,minmax(0,540px));gap:18px;margin-top:30px;justify-content:start}
+.s-img img{width:100%;border-radius:22px;box-shadow:0 30px 60px -30px rgb(0 0 0 / .7)}
+@media (max-width:760px){.s-img{grid-template-columns:1fr}}
+
+footer{background:#0C1912;color:var(--on-dark-muted)}
+footer .wrap{display:grid;gap:16px;padding-block:24px;font-size:13.5px}
+.f-top,.f-bot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
+.f-bot{border-top:1px solid rgb(255 255 255 / .1);padding-top:16px}
+.soc{display:flex;gap:8px}
+.f-docs{display:flex;flex-wrap:wrap;gap:6px 18px}
+.f-docs button{border:0;background:none;padding:0;cursor:pointer;color:var(--on-dark-muted);text-decoration:underline;text-underline-offset:3px;font-size:13.5px}
+.sign{display:inline-flex;align-items:center;flex-wrap:wrap;gap:10px}
+.sign b{font-weight:800;letter-spacing:.06em;color:#FFFFFF}
+.rnd{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:rgb(255 255 255 / .1);color:#FFFFFF;text-decoration:none}
+.rnd:hover{background:#FFFFFF;color:var(--forest)}
+.rnd svg{width:16px;height:16px}
+
+/* окна */
+dialog{border:0;padding:0;border-radius:26px;background:var(--paper);color:var(--ink);width:min(440px,calc(100% - 24px));max-height:calc(100dvh - 24px);box-shadow:0 40px 80px -20px rgb(0 0 0 / .5)}
+dialog::backdrop{background:rgb(8 18 12 / .62);backdrop-filter:blur(3px)}
+.dl{padding:22px;display:grid;gap:16px}
+.dl-h{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.dl-h h2{font-family:var(--display);font-size:22px;font-weight:700}
+.x{width:38px;height:38px;border-radius:50%;border:0;background:var(--cream);cursor:pointer;font-size:20px;line-height:1;display:grid;place-items:center;flex:none}
+.dl .btn{width:100%}
+.msg{background:#FFFFFF;border:1px solid var(--line);border-radius:18px 18px 18px 6px;padding:13px 15px;font-size:14.5px;line-height:1.55;display:grid;gap:6px}
+.msg b.h{display:block;font-size:12.5px;color:var(--copper);letter-spacing:.02em}
+.msg p{white-space:pre-line}
+.dl .small{font-size:13px;color:var(--muted);text-align:center}
+.doc{font-size:14px;line-height:1.55;color:var(--muted);display:grid;gap:10px}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--forest);color:#FFFFFF;padding:12px 20px;border-radius:999px;font-weight:700;font-size:14px;z-index:60;width:max-content;max-width:calc(100% - 32px);text-align:center}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="draft"><span class="lg">Набросок для&nbsp;«Окна в&nbsp;природу»: фото из&nbsp;вашего Instagram, занятые даты для&nbsp;примера, цены подставите свои</span><span class="sm">Набросок: фото из&nbsp;вашего Instagram, даты для&nbsp;примера</span></div>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top"><img src="img/logo.png" alt="" width="46" height="46"><span><b>Окно в&nbsp;природу</b><small>глэмпинг · 15&nbsp;минут от&nbsp;Челябинска</small></span></a>
+    <nav><a href="#chto">Дома и&nbsp;баня</a><a href="#daty">Свободные даты</a><a href="#struktura">Цены</a><a href="#struktura">Спецпредложения</a><a href="#struktura">Как доехать</a></nav>
+    <div class="h-right">
+      <button type="button" class="call" data-toast="Здесь будет ваш номер, звонок в одно касание"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span>Позвонить</span></button>
+      <a class="ic ig" href="https://instagram.com/oknov_prirody" target="_blank" rel="noopener" aria-label="Instagram «Окно в природу»" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ig"/></svg></a>
+      <a class="ic vk" href="https://vk.com/oknovprirody" target="_blank" rel="noopener" aria-label="ВКонтакте «Окно в природу»" title="ВКонтакте"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-vk"/></svg></a>
+      <button type="button" class="ic menu" aria-label="Меню" data-toast="Здесь откроется меню разделов"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero-bg">
+    <section class="wrap hero">
+      <div class="h-left">
+        <p class="eyebrow">Глэмпинг · Минеральная, 67</p>
+        <h1>Свой дом и&nbsp;горячий чан <em>в&nbsp;15&nbsp;минутах</em> от&nbsp;Челябинска</h1>
+        <p class="sub">Два дома, у&nbsp;каждого свой чан, и&nbsp;панорамная баня по&nbsp;времени. <b>Выберите даты и&nbsp;сразу увидите,</b> какой дом свободен на&nbsp;январские праздники.</p>
+        <div class="cta"><a class="btn copper" href="#daty" data-hl>Свободные даты</a><a class="btn glass" href="#chto">Что входит</a></div>
+      </div>
+
+      <div class="stage" id="daty" aria-labelledby="cal-t">
+        <div class="st-h">
+          <div><h2 id="cal-t">Свободные даты</h2><p>Январь 2027, новогодние выходные</p></div>
+          <span class="badge"><i></i>без звонка</span>
+        </div>
+        <div class="cal" id="cal" role="grid" aria-label="Свободные ночи по домам"></div>
+        <div class="legend"><span><i></i>свободно</span><span><i class="b"></i>занято</span><span><i class="s"></i>ваши даты</span></div>
+        <div class="bath">
+          <div class="bath-h"><b id="bath-t">Баня на&nbsp;3&nbsp;января</b><span>одна на&nbsp;два дома, занятые часы зачёркнуты</span></div>
+          <div class="slots" id="slots"></div>
+        </div>
+        <div class="sum">
+          <p class="what" id="what"></p>
+          <p class="tot">итого<b>…&nbsp;₽</b></p>
+          <button type="button" class="btn copper" id="book">Забронировать</button>
+        </div>
+        <p class="note">Занятость для&nbsp;примера: на&nbsp;сайте её отмечаете вы</p>
+      </div>
+
+      <div class="facts">
+        <div><b>2&nbsp;дома</b><span>у&nbsp;каждого свой горячий чан</span></div>
+        <div><b>1&nbsp;баня</b><span>панорамная, по&nbsp;времени</span></div>
+        <div><b>15&nbsp;минут</b><span>от&nbsp;Челябинска</span></div>
+        <div><b>Запарка</b><span>алтайская, для&nbsp;чана</span></div>
+      </div>
+    </section>
+  </div>
+
+  <section class="wrap inc" id="chto">
+    <div class="inc-h">
+      <div><div class="eyebrow">Что входит</div><h2>Дом, чан, баня и&nbsp;территория</h2></div>
+      <p>Сколько гостей в&nbsp;каждом доме и&nbsp;что внутри, допишем с&nbsp;ваших слов</p>
+    </div>
+    <div class="cards">
+      <article class="card"><div class="ph" style="background-image:url(img/gazon.jpg)" role="img" aria-label="Дома с террасами и газон между ними"></div><div class="t"><b>Два дома</b><span>Терраса, гирлянды, газон между домами</span><ul><li>до&nbsp;…&nbsp;гостей</li><li>что внутри: …</li></ul></div></article>
+      <article class="card"><div class="ph" style="background-image:url(img/chan.jpg)" role="img" aria-label="Горячий чан с апельсинами и хвоей"></div><div class="t"><b>Свой чан у&nbsp;дома</b><span>Горячий, под&nbsp;открытым небом</span><ul><li>алтайская запарка</li><li>в&nbsp;цене или отдельно: …</li></ul></div></article>
+      <article class="card"><div class="ph" style="background-image:url(img/banya.jpg)" role="img" aria-label="Панорамное окно в бане с видом на лес"></div><div class="t"><b>Панорамная баня</b><span>Одна на&nbsp;два дома, бронируется по&nbsp;времени</span><ul><li>веники</li><li>алтайская запарка</li></ul></div></article>
+      <article class="card"><div class="ph" style="background-image:url(img/ploshadka.jpg)" role="img" aria-label="Песчаная площадка с воротами и соснами"></div><div class="t"><b>Территория</b><span>Сосны и&nbsp;берёзы вокруг</span><ul><li>костровая чаша</li><li>песчаная площадка</li><li>лежаки</li></ul></div></article>
+    </div>
+  </section>
+
+  <section class="s-head" id="struktura">
+    <div class="wrap">
+      <div class="eyebrow">Структура сайта</div>
+      <h2>Что будет на&nbsp;сайте «Окна в&nbsp;природу»</h2>
+      <p class="lead">7 блоков на&nbsp;одной странице. Гость сам видит, какой дом свободен, время бани и&nbsp;цену, а&nbsp;вам приходит готовая заявка вместо звонка «а&nbsp;на&nbsp;третье есть?».</p>
+      <div class="s-img"><img src="struktura-1.png" alt="Структура сайта, часть 1: первый экран, дома и баня, календарь свободных дат" loading="lazy"><img src="struktura-2.png" alt="Структура сайта, часть 2: цена, спецпредложения, готовая заявка и частые вопросы" loading="lazy"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div class="soc">
+        <a class="rnd" href="https://instagram.com/oknov_prirody" target="_blank" rel="noopener" aria-label="Instagram «Окно в природу»" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ig"/></svg></a>
+        <a class="rnd" href="https://vk.com/oknovprirody" target="_blank" rel="noopener" aria-label="ВКонтакте «Окно в природу»" title="ВКонтакте"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-vk"/></svg></a>
+      </div>
+      <div class="f-docs"><button type="button" data-doc="policy">Политика конфиденциальности</button><button type="button" data-doc="consent">Согласие на&nbsp;обработку персональных данных</button></div>
+    </div>
+    <div class="f-bot">
+      <span>Подготовила Анастасия Абдуллаева</span>
+      <span class="sign"><span><b>FOR.MI</b> designed &amp; developed by ABN</span><a class="rnd" href="https://t.me/abanev_dev" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tg"/></svg></a></span>
+    </div>
+  </div>
+</footer>
+
+<dialog id="dlg" aria-labelledby="dlg-t">
+  <div class="dl">
+    <div class="dl-h"><h2 id="dlg-t">Так заявка придёт вам</h2><button type="button" class="x" data-close aria-label="Закрыть">×</button></div>
+    <div class="msg"><b class="h">Новая бронь с&nbsp;сайта «Окно в&nbsp;природу»</b><p id="m-t"></p></div>
+    <p class="small">Остаётся позвонить гостю и&nbsp;подтвердить бронь. На&nbsp;сайте перед этим шагом будут имя, телефон и&nbsp;согласие на&nbsp;обработку данных</p>
+    <button type="button" class="btn copper" data-close>Понятно</button>
+  </div>
+</dialog>
+
+<dialog id="docs" aria-labelledby="doc-t">
+  <div class="dl">
+    <div class="dl-h"><h2 id="doc-t">Политика конфиденциальности</h2><button type="button" class="x" data-close aria-label="Закрыть">×</button></div>
+    <div class="doc" id="doc-b"></div>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" hidden></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-tg" viewBox="0 0 24 24"><path fill="currentColor" d="M21.4 4.3 2.9 11.5c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.5c.2.6.4.8.9.8s.6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8L22.8 5.8c.3-1.3-.4-1.9-1.4-1.5zM8.6 14.1l9.6-6c.5-.3.9-.1.5.2l-7.8 7.1-.3 3.3-2-4.6z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/></g><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></symbol>
+  <symbol id="i-vk" viewBox="0 0 24 24"><path fill="currentColor" d="M12.8 17.5C6.7 17.5 3.2 13.3 3 6.5h3.1c.1 5 2.3 7.1 4.1 7.5V6.5h2.9v4.3c1.8-.2 3.6-2.2 4.3-4.3h2.9c-.5 2.6-2.4 4.6-3.8 5.4 1.4.7 3.6 2.4 4.4 5.6h-3.2c-.7-2.1-2.4-3.8-4.6-4v4z"/></symbol>
+</svg>
+
+<script>
+/* Факты: Instagram @oknov_prirody (шапка, хайлайтс, посты), переписка 9 ноября 2026. Занятость дат и бани ниже для примера */
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const W=["вс","пн","вт","ср","чт","пт","сб"];
+const DAYS=10,Y=2027,M=0;
+const HOUSES=[{id:1,name:"Дом 1",busy:[1,2,5,6,7,8]},{id:2,name:"Дом 2",busy:[1,2,3,4,5,6,7]}];
+const SLOTS=["12:00","14:00","16:00","18:00","20:00","22:00"];
+const BATH_BUSY={1:["14:00","16:00","20:00"],2:["12:00","18:00","20:00"],3:["14:00","16:00"],4:["16:00","20:00"],5:["18:00"],6:["14:00","20:00"],7:["12:00","16:00"],8:["18:00","20:00"],9:["14:00"],10:["16:00"]};
+const MON=["января","января"];
+let st={h:1,from:3,to:4,slot:"18:00"};
+
+function nights(n){const m=n%10,c=n%100;return n+" "+(m===1&&c!==11?"ночь":m>=2&&m<=4&&(c<12||c>14)?"ночи":"ночей")}
+function render(){
+  let h='<span></span>';
+  for(let d=1;d<=DAYS;d++){const wd=new Date(Y,M,d).getDay();h+=`<span class="hd${wd===0||wd===6?" we":""}">${W[wd]}<b>${d}</b></span>`}
+  HOUSES.forEach(ho=>{
+    h+=`<span class="nm">${ho.name}<small>свой чан</small></span>`;
+    for(let d=1;d<=DAYS;d++){
+      const busy=ho.busy.includes(d),sel=st.h===ho.id&&d>=st.from&&d<=st.to;
+      h+=`<button type="button" class="d${busy?" busy":""}${sel?" sel":""}" data-h="${ho.id}" data-d="${d}" aria-label="${ho.name}, ночь на ${d} января: ${busy?"занято":sel?"выбрано":"свободно"}"${busy?' aria-disabled="true"':""}></button>`;
+    }
+  });
+  $("#cal").innerHTML=h;
+  const bb=BATH_BUSY[st.from]||[];
+  if(bb.includes(st.slot))st.slot=SLOTS.find(s=>!bb.includes(s))||"";
+  $("#slots").innerHTML=SLOTS.map(s=>`<button type="button" class="sl${bb.includes(s)?" busy":""}${s===st.slot?" sel":""}" data-s="${s}"${bb.includes(s)?' aria-disabled="true"':""}>${s}</button>`).join("");
+  $("#bath-t").textContent=`Баня на ${st.from} января`;
+  const n=st.to-st.from+1,out=st.to+1;
+  $("#what").innerHTML=`<b>Дом ${st.h}</b>, ${st.from}–${out} января, ${nights(n)}<br>Баня ${st.from} января в&nbsp;${st.slot||"—"}, свой чан`;
+}
+$("#cal").addEventListener("click",e=>{
+  const b=e.target.closest(".d");if(!b)return;
+  const h=+b.dataset.h,d=+b.dataset.d,ho=HOUSES.find(x=>x.id===h);
+  if(ho.busy.includes(d)){toast(`${ho.name} на ${d} января уже занят`);return}
+  if(st.h===h&&d>st.to&&st.to-st.from<6){
+    let ok=true;for(let k=st.to+1;k<=d;k++)if(ho.busy.includes(k))ok=false;
+    if(ok){st.to=d;render();return}
+  }
+  st={h,from:d,to:d,slot:st.slot};render();
+});
+$("#slots").addEventListener("click",e=>{
+  const b=e.target.closest(".sl");if(!b)return;
+  if(b.classList.contains("busy")){toast("Это время бани уже занято");return}
+  st.slot=b.dataset.s;render();
+});
+function openDlg(d){if(typeof d.showModal==="function")d.showModal();else d.setAttribute("open","")}
+function closeDlg(d){if(typeof d.close==="function")d.close();else d.removeAttribute("open")}
+$("#book").onclick=()=>{
+  const n=st.to-st.from+1;
+  $("#m-t").textContent=`• Дом ${st.h}, ${st.from}–${st.to+1} января, ${nights(n)}\n• Баня: ${st.from} января, ${st.slot}\n• Гостей: 4\n• Допы: алтайская запарка, веники\n• Сумма: … ₽\n• Анна, +7 9…`;
+  openDlg($("#dlg"));
+};
+$$("[data-close]").forEach(b=>b.onclick=()=>closeDlg(b.closest("dialog")));
+$$("dialog").forEach(d=>d.addEventListener("click",e=>{if(e.target===d)closeDlg(d)}));
+function toast(t){const el=$("#toast");el.textContent=t;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>el.hidden=true,2600)}
+$$("[data-toast]").forEach(b=>b.onclick=()=>toast(b.dataset.toast));
+$$("[data-hl]").forEach(a=>a.addEventListener("click",()=>{const s=$("#daty");s.classList.add("hl");setTimeout(()=>s.classList.remove("hl"),1600)}));
+
+const OWNER="[ИП / название, уточнить]";
+const DOCS={
+  policy:["Политика конфиденциальности",`<p>${OWNER} обрабатывает имя и телефон, которые вы оставляете при бронировании, только чтобы подтвердить бронь и связаться с вами.</p><p>Данные не передаются третьим лицам. Отозвать согласие можно, написав в директ «Окна в природу».</p><p>Полный текст с реквизитами появится на готовом сайте.</p>`],
+  consent:["Согласие на обработку персональных данных",`<p>Отмечая галочку, вы соглашаетесь, что ${OWNER} обработает ваше имя и телефон для бронирования дома и бани.</p><p>Согласие действует до его отзыва.</p>`]
+};
+$$("[data-doc]").forEach(b=>b.addEventListener("click",()=>{const [t,h]=DOCS[b.dataset.doc];$("#doc-t").textContent=t;$("#doc-b").innerHTML=h;openDlg($("#docs"))}));
+render();
+</script>
+
+</body>
+</html>

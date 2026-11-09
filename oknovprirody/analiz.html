@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Разбор для «Окна в природу»: сильные стороны, где теряются брони, глэмпинги вокруг Челябинска, задачи сайта и вопросы">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Сайт для «Окна в природу»: рынок и конкуренты">
+<meta property="og:description" content="Что у вас уже сильное, где теряются брони, глэмпинги вокруг Челябинска и что должен делать сайт">
+<meta property="og:image" content="https://mmaemi77-ctrl.github.io/oknovprirody/og-analiz.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#12241A">
+<title>Окно в природу · разбор</title>
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Onest:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: разбор-документ в одну колонку. Шапка на фото территории под зелёной вуалью, дальше светлая бумага, карточки только у отдельных объектов: конкуренты, переписка, идеи */
+:root{
+  --forest:#12241A;--forest2:#1A3324;--moss:#2E5A3C;--leaf:#3E7B50;--leaf-tint:#E4EFE5;
+  --copper:#B8693A;--copper-hi:#D58A52;--copper-tint:#F6E4D3;
+  --paper:#FBF7F0;--cream:#F3EBDD;--ink:#17221A;--muted:#5D6A60;--dim:#8C968D;--line:#E2D6C3;
+  --on-dark:#F4EEE3;--on-dark-muted:#C9D3C6;
+  --font:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --display:"Lora",Georgia,"Times New Roman",serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:16.5px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+.wrap{max-width:900px;margin:0 auto;padding-left:max(clamp(16px,4vw,32px),env(safe-area-inset-left,0px));padding-right:max(clamp(16px,4vw,32px),env(safe-area-inset-right,0px))}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--copper);outline-offset:3px}
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--copper)}
+
+/* шапка */
+.top{position:relative;isolation:isolate;color:var(--on-dark);background:var(--forest)}
+.top::before{content:"";position:absolute;inset:0;z-index:-2;background:url(img/territoriya.jpg) center 45%/cover}
+.top::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgb(14 30 21 / .93),rgb(14 30 21 / .72))}
+.top .wrap{padding-block:clamp(30px,6vw,60px) clamp(34px,6vw,56px);display:grid;gap:18px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:58px;height:58px;border-radius:50%;background:#FFFFFF}
+.brand b{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.15;display:block}
+.brand small{font-size:13px;color:var(--on-dark-muted)}
+.top .eyebrow{color:#E9C9A8}
+.top h1{font-family:var(--display);font-weight:700;font-size:clamp(31px,5vw,52px);line-height:1.08;letter-spacing:-.01em}
+.top h1 em{font-style:italic;color:#F0B482}
+.top p{max-width:60ch;font-size:clamp(17px,1.8vw,19px);color:var(--on-dark-muted)}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pills span{display:inline-flex;align-items:center;gap:8px;background:rgb(255 255 255 / .08);border:1px solid rgb(255 255 255 / .16);border-radius:999px;padding:6px 14px;font-weight:600;font-size:14px}
+.pills span::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--copper-hi)}
+
+/* разделы */
+section{padding-block:clamp(34px,5vw,54px);border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(25px,3.4vw,36px);line-height:1.15;margin:8px 0 20px}
+h3{font-size:17px;font-weight:700;line-height:1.3}
+.lead{color:var(--muted);max-width:62ch;margin:-6px 0 22px}
+.list{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.list li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;align-items:start}
+.list li::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--copper);margin:9px 0 0 9px}
+.list.plus li::before{content:"✓";width:24px;height:24px;border-radius:50%;background:var(--leaf-tint);color:var(--leaf);font-weight:800;font-size:13px;display:grid;place-items:center;margin:2px 0 0}
+.list b{font-weight:700}
+.list span{color:#2E3A31}
+
+.key{display:grid;counter-reset:k;background:#FFFFFF;border-radius:22px;border:1px solid var(--line);overflow:hidden}
+.key div{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;padding:18px 20px;border-bottom:1px solid var(--line)}
+.key div:last-child{border-bottom:0}
+.key div::before{counter-increment:k;content:counter(k);font-family:var(--display);font-weight:700;font-size:28px;line-height:1;color:var(--copper)}
+.key b{font-weight:700}
+@media (max-width:600px){.key div{grid-template-columns:26px minmax(0,1fr);padding:16px}.key div::before{font-size:23px}}
+
+.gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:24px}
+.gal figure{margin:0;background:#FFFFFF;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.gal img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.gal figcaption{font-size:13.5px;color:var(--muted);padding:9px 12px 11px}
+.cap{font-size:13.5px;color:var(--dim);margin-top:8px}
+@media (max-width:640px){.gal{grid-template-columns:1fr 1fr}}
+
+.aud{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:680px){.aud{grid-template-columns:1fr}}
+.aud>div{display:grid;gap:8px;align-content:start}
+.aud h3{margin-bottom:4px}
+.q{background:#FFFFFF;border:1px solid var(--line);border-radius:16px 16px 16px 4px;padding:10px 14px;font-weight:500;font-size:15px}
+.season{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:2px solid var(--ink);margin-top:26px}
+.season div{padding:14px 14px 0 0;display:grid;gap:4px;align-content:start}
+.season b{font-family:var(--display);font-weight:700;font-size:18px}
+.season span{font-size:14px;color:var(--muted)}
+@media (max-width:600px){.season{grid-template-columns:1fr;gap:10px}}
+
+.comp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:680px){.comp{grid-template-columns:1fr}}
+.cc{background:#FFFFFF;border:1px solid var(--line);border-radius:20px;padding:18px 20px;display:grid;gap:8px;align-content:start;min-width:0}
+.cc .where{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.cc h3{font-family:var(--display);font-size:19px}
+.cc a{font-size:14px;font-weight:600;color:var(--copper);text-underline-offset:3px;word-break:break-all}
+.cc p{font-size:15px;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.tags span{font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--cream)}
+.small{font-size:13.5px;color:var(--dim);margin-top:14px}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px}
+@media (max-width:680px){.two{grid-template-columns:1fr}}
+.box{border-radius:20px;padding:20px;display:grid;gap:12px;align-content:start}
+.box.norm{background:#FFFFFF;border:1px solid var(--line)}
+.box.gap{background:var(--forest2);color:var(--on-dark)}
+.box h3{font-family:var(--display);font-weight:700;font-size:18px}
+.box ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:15px}
+.box.gap li::marker{color:var(--copper-hi)}
+
+.tasks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 14px}
+@media (max-width:680px){.tasks{grid-template-columns:1fr}}
+.tasks div{border-top:2px solid var(--copper);padding-top:12px;display:grid;gap:4px}
+.tasks p{font-size:15px;color:var(--muted)}
+
+.ba{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:680px){.ba{grid-template-columns:1fr}}
+.chat{background:var(--cream);border-radius:20px;padding:16px;display:grid;gap:8px;align-content:start}
+.chat .lbl{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.b{max-width:88%;padding:8px 12px;border-radius:14px;font-size:14.5px;line-height:1.45;white-space:pre-line}
+.b.in{justify-self:start;background:#FFFFFF;border-bottom-left-radius:4px}
+.b.out{justify-self:end;background:var(--forest2);color:var(--on-dark);border-bottom-right-radius:4px}
+.b.bk{justify-self:stretch;max-width:none;background:#FFFFFF;border:1px solid var(--line);border-bottom-left-radius:4px;display:grid;gap:4px}
+.b.bk b{display:block;font-size:12.5px;color:var(--copper)}
+.chat .foot{font-size:13px;color:var(--muted);margin-top:6px}
+
+.ideas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:680px){.ideas{grid-template-columns:1fr}}
+.ideas div{background:#FFFFFF;border:1px solid var(--line);border-radius:18px;padding:16px 18px;display:grid;gap:4px;align-content:start}
+.ideas h3{font-family:var(--display);font-size:18px}
+.ideas p{font-size:15px;color:var(--muted)}
+
+.qlist{margin:0;padding-left:24px;display:grid;gap:10px}
+.qlist li{padding-left:4px;color:#2E3A31}
+.qlist li::marker{font-weight:800;color:var(--copper)}
+
+footer{background:#0C1912;color:var(--on-dark-muted)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding-block:22px;font-size:13.5px}
+footer b{font-weight:800;letter-spacing:.06em;color:#FFFFFF}
+.sign{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap}
+.rnd{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:rgb(255 255 255 / .1);color:#FFFFFF}
+.rnd:hover{background:#FFFFFF;color:var(--forest)}
+.rnd svg{width:16px;height:16px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap">
+    <div class="brand"><img src="img/logo.png" alt="" width="58" height="58"><span><b>Окно в&nbsp;природу</b><small>глэмпинг в&nbsp;15&nbsp;минутах от&nbsp;Челябинска</small></span></div>
+    <div class="eyebrow">Разбор для «Окна в&nbsp;природу» · 9&nbsp;ноября 2026</div>
+    <h1>Сайт для «Окна в&nbsp;природу»: рынок и&nbsp;<em>конкуренты</em></h1>
+    <p>Посмотрела ваш Instagram и&nbsp;глэмпинги с&nbsp;чаном вокруг Челябинска. Ниже: что у&nbsp;вас уже работает, где теряются брони и&nbsp;что должен делать сайт.</p>
+    <div class="pills"><span>Челябинск, Минеральная, 67</span><span>Два дома и&nbsp;два чана</span><span>Панорамная баня</span></div>
+  </div>
+</div>
+
+<main class="wrap">
+  <section>
+    <div class="eyebrow">Коротко</div>
+    <h2>Главное в&nbsp;пяти пунктах</h2>
+    <div class="key">
+      <div><p><b>15&nbsp;минут от&nbsp;города, и&nbsp;это ваш главный довод.</b> Глэмпинги с&nbsp;чаном на&nbsp;Тургояке и&nbsp;Лесном озере стоят в&nbsp;100–130&nbsp;км, это полтора-два часа дороги. К&nbsp;вам можно уехать в&nbsp;пятницу после работы.</p></div>
+      <div><p><b>У&nbsp;каждого дома свой чан.</b> Гостям не&nbsp;нужно делить его с&nbsp;соседями. На&nbsp;сайте это видно сразу, в&nbsp;первом экране.</p></div>
+      <div><p>Сейчас бронь идёт по&nbsp;звонку, и&nbsp;почти каждый разговор начинается одинаково: свободны&nbsp;ли 3 и&nbsp;4&nbsp;января, сколько с&nbsp;чаном, на&nbsp;сколько гостей дом. На&nbsp;эти три вопроса сайт отвечает без вас.</p></div>
+      <div><p>Баня одна на&nbsp;два дома. Время приходится сверять вручную, чтобы гости не&nbsp;пересеклись. Календарь бани на&nbsp;сайте зачёркивает занятые часы сам.</p></div>
+      <div><p>Даты с&nbsp;1 по&nbsp;10&nbsp;января обычно разбирают в&nbsp;первой половине декабря. Сайт делается за&nbsp;7–10 дней, поэтому к&nbsp;пику новогодних броней он уже будет стоять в&nbsp;шапке Instagram.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Ваши сильные стороны</div>
+    <h2>Что у&nbsp;вас уже сильное</h2>
+    <ul class="list plus">
+      <li><span><b>Близко к&nbsp;городу.</b> «Уютный глэмпинг в&nbsp;15&nbsp;мин от&nbsp;Челябинска» прямо в&nbsp;шапке. Для компании, которая решает в&nbsp;четверг, куда поехать на&nbsp;выходные, это часто решает всё.</span></li>
+      <li><span><b>Два дома, два чана и&nbsp;панорамная баня.</b> Набор, ради которого едут за&nbsp;город зимой: попариться, выйти в&nbsp;горячий чан под&nbsp;снегом и&nbsp;вернуться в&nbsp;свой дом.</span></li>
+      <li><span><b>Алтайская запарка для&nbsp;чана.</b> Зверобой, тысячелистник, ромашка, мелисса, пихта, можжевельник, чёрная смородина и&nbsp;другие травы. На&nbsp;сайте это готовая галочка в&nbsp;расчёте цены.</span></li>
+      <li><span><b>Живая территория.</b> Костровая чаша с&nbsp;деревянными креслами, песчаная площадка с&nbsp;воротами, лежаки, гирлянды между домами, подвесное кресло. В&nbsp;постах ещё и&nbsp;прогулки на&nbsp;лошадях.</span></li>
+      <li><span><b>Забота о&nbsp;мелочах.</b> Пост «Для уютных вечеров» уже отвечает на&nbsp;вопрос «что взять с&nbsp;собой»: любимые напитки, что-нибудь вкусное к&nbsp;чаю и&nbsp;настольные игры, если хочется свои. Остальное найдётся на&nbsp;месте.</span></li>
+      <li><span><b>Ведёте Instagram регулярно.</b> 309 публикаций, 1&nbsp;668 подписчиков, хайлайтс «спецпредложения», «гости», «активности», «территория» и&nbsp;«баня». Материала на&nbsp;сайт хватит уже сейчас.</span></li>
+    </ul>
+    <div class="gal">
+      <figure><img src="img/territoriya.jpg" alt="Дома, костровая чаша и деревянные кресла"><figcaption>Костровая чаша между домами</figcaption></figure>
+      <figure><img src="img/gazon.jpg" alt="Газон и дорожки между домами, гирлянды"><figcaption>Газон и&nbsp;гирлянды</figcaption></figure>
+      <figure><img src="img/ploshadka.jpg" alt="Песчаная площадка с воротами среди сосен"><figcaption>Площадка среди сосен</figcaption></figure>
+      <figure><img src="img/chan.jpg" alt="Горячий чан с апельсинами и хвоей"><figcaption>Горячий чан</figcaption></figure>
+      <figure><img src="img/banya.jpg" alt="Окно бани с видом на лес"><figcaption>Окно бани с&nbsp;видом на&nbsp;лес</figcaption></figure>
+      <figure><img src="img/lezhaki.jpg" alt="Лежаки на газоне у забора и леса"><figcaption>Лежаки у&nbsp;леса</figcaption></figure>
+    </div>
+    <p class="cap">Фото из&nbsp;вашего Instagram</p>
+  </section>
+
+  <section>
+    <div class="eyebrow">Где теряются брони</div>
+    <h2>Что сейчас мешает</h2>
+    <ul class="list">
+      <li><span>Чтобы узнать, свободен&nbsp;ли дом, нужно позвонить. Люди выбирают, куда поехать, вечером и&nbsp;в&nbsp;выходные, когда звонить неловко. Часть из&nbsp;них просто открывает агрегатор, где даты видно сразу.</span></li>
+      <li><span>Цены разбросаны по&nbsp;постам: баня в&nbsp;одном рилс, запарка в&nbsp;другом, акции осени в&nbsp;закрепе. У&nbsp;запарки в&nbsp;одном посте 790&nbsp;₽, в&nbsp;закреплённом 890&nbsp;₽, и&nbsp;гость не&nbsp;знает, какая цена сейчас. Сложить сумму на&nbsp;компанию он не&nbsp;может, поэтому снова звонит.</span></li>
+      <li><span>Сколько гостей вмещает каждый дом и&nbsp;чем дома отличаются, я&nbsp;не&nbsp;нашла ни&nbsp;в&nbsp;шапке, ни&nbsp;в&nbsp;закрепах. А&nbsp;это первый вопрос любой компании.</span></li>
+      <li><span>У&nbsp;поста про новые лежаки стоит геометка «ОЛИМП Фитнес Клуб Челябинск». Кто нажмёт на&nbsp;неё, чтобы построить маршрут, попадёт в&nbsp;фитнес-клуб, а&nbsp;не&nbsp;к&nbsp;вам. Это исправляется за&nbsp;минуту, и&nbsp;на&nbsp;сайте будет точка на&nbsp;Яндекс Картах.</span></li>
+      <li><span>По&nbsp;запросу «глэмпинг с&nbsp;чаном Челябинск» в&nbsp;поиске стоят агрегаторы с&nbsp;карточками и&nbsp;ценами «от». «Окно в&nbsp;природу» я&nbsp;там не&nbsp;встретила.</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="eyebrow">Гости</div>
+    <h2>Что спрашивают перед бронью</h2>
+    <p class="lead">Две группы вопросов, и&nbsp;на&nbsp;обе сайт отвечает до&nbsp;того, как гость наберёт ваш номер.</p>
+    <div class="aud">
+      <div><h3>Даты и&nbsp;цена</h3>
+        <div class="q">А&nbsp;на&nbsp;3 и&nbsp;4&nbsp;января что-нибудь свободно?</div>
+        <div class="q">Сколько стоит с&nbsp;чаном?</div>
+        <div class="q">Чан входит в&nbsp;цену дома или отдельно?</div>
+        <div class="q">Баню можно на&nbsp;вечер, часов в&nbsp;шесть?</div>
+      </div>
+      <div><h3>Дом и&nbsp;условия</h3>
+        <div class="q">На&nbsp;сколько гостей дом? Нас шестеро</div>
+        <div class="q">Чем отличаются дома?</div>
+        <div class="q">Можно с&nbsp;детьми? А&nbsp;с&nbsp;собакой?</div>
+        <div class="q">Что взять с&nbsp;собой и&nbsp;как доехать?</div>
+      </div>
+    </div>
+    <div class="season">
+      <div><b>Новый год</b><span>1–10 января, даты разбирают в&nbsp;первой половине декабря</span></div>
+      <div><b>Зима</b><span>баня и&nbsp;горячий чан в&nbsp;мороз, сертификаты в&nbsp;подарок</span></div>
+      <div><b>Лето</b><span>газон, лежаки, площадка, костёр и&nbsp;лошади</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Рынок</div>
+    <h2>Кто ещё работает в&nbsp;нише</h2>
+    <div class="comp">
+      <div class="cc">
+        <span class="where">Сосновский район · около 23&nbsp;км</span>
+        <h3>Нашале174</h3>
+        <a href="https://mirturbaz.ru/russia/chelyabinskaya/glemping-nashale174" target="_blank" rel="noopener">карточка на&nbsp;mirturbaz.ru</a>
+        <p>A-frame и&nbsp;коттеджи у&nbsp;озера, тёплый чан под&nbsp;открытым небом и&nbsp;баня. Есть дом на&nbsp;10&nbsp;гостей, за&nbsp;дом берут залог.</p>
+        <div class="tags"><span>A-frame и&nbsp;коттеджи</span><span>Чан и&nbsp;баня</span><span>Залог</span></div>
+      </div>
+      <div class="cc">
+        <span class="where">Кайгородово · около 21&nbsp;км</span>
+        <h3>Атмосфера</h3>
+        <a href="https://mirturbaz.ru/russia/chelyabinskaya/atmosfera_glamping" target="_blank" rel="noopener">карточка на&nbsp;mirturbaz.ru</a>
+        <p>Дома с&nbsp;панорамными окнами на&nbsp;2 и&nbsp;4&nbsp;гостя рядом с&nbsp;рекой Миасс. Чан и&nbsp;баня в&nbsp;описании не&nbsp;указаны.</p>
+        <div class="tags"><span>Панорамные окна</span><span>Дома на&nbsp;2 и&nbsp;4</span></div>
+      </div>
+      <div class="cc">
+        <span class="where">Миасский округ · около 126&nbsp;км</span>
+        <h3>Ural Glamp</h3>
+        <a href="https://mirturbaz.ru/russia/chelyabinskaya/ural-glamp" target="_blank" rel="noopener">карточка на&nbsp;mirturbaz.ru</a>
+        <p>Мини-дома у&nbsp;Лесного озера, у&nbsp;домов банный чан. Цена от&nbsp;6&nbsp;500&nbsp;₽ за&nbsp;ночь.</p>
+        <div class="tags"><span>Чан у&nbsp;дома</span><span>Цена «от»</span><span>Озеро</span></div>
+      </div>
+      <div class="cc">
+        <span class="where">Озеро Тургояк · Миасс</span>
+        <h3>Мысли</h3>
+        <a href="https://glampinginfo.ru/glempingi-chelyabinskoy-oblasti-s-kupelyu/" target="_blank" rel="noopener">подборка на&nbsp;glampinginfo.ru</a>
+        <p>Перед каждым домом зона отдыха с&nbsp;баней и&nbsp;сибирским чаном. Ближе всего к&nbsp;вам по&nbsp;набору, но&nbsp;ехать почти два часа.</p>
+        <div class="tags"><span>Баня и&nbsp;чан у&nbsp;дома</span><span>Озеро</span></div>
+      </div>
+    </div>
+    <p class="small">Описания собраны по&nbsp;карточкам на&nbsp;агрегаторах и&nbsp;поисковой выдаче на&nbsp;9&nbsp;ноября 2026. Цены и&nbsp;условия у&nbsp;глэмпингов могли измениться.</p>
+    <div class="two">
+      <div class="box norm"><h3>Что стало нормой</h3><ul><li>Карточка дома с&nbsp;вместимостью и&nbsp;фото</li><li>Цена «от» за&nbsp;ночь</li><li>Чан и&nbsp;баня как часть отдыха</li><li>Бронь через агрегаторы</li></ul></div>
+      <div class="box gap"><h3>Чего я&nbsp;у&nbsp;них не&nbsp;встретила</h3><ul><li>Свободные даты по&nbsp;каждому дому на&nbsp;своём сайте</li><li>Выбор времени общей бани без пересечений</li><li>Расчёт суммы с&nbsp;чаном, запаркой и&nbsp;вениками</li><li>Свой чан у&nbsp;дома в&nbsp;15&nbsp;минутах от&nbsp;города</li></ul></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Задачи</div>
+    <h2>Что должен делать ваш сайт</h2>
+    <div class="tasks">
+      <div><h3>Показывать свободные даты</h3><p>Строка на&nbsp;каждый дом, занятые ночи зачёркнуты. Отмечаете их вы, в&nbsp;пару касаний.</p></div>
+      <div><h3>Бронировать время бани</h3><p>Баня одна на&nbsp;два дома, поэтому занятые часы зачёркиваются сами.</p></div>
+      <div><h3>Считать цену на&nbsp;компанию</h3><p>Дом, ночи, гости, баня, чан, запарка, веники. Свой прайс меняете сами.</p></div>
+      <div><h3>Присылать готовую заявку</h3><p>Всё выбранное плюс имя и&nbsp;телефон одним сообщением туда, где вам удобно.</p></div>
+      <div><h3>Продавать Новый год и&nbsp;сертификаты</h3><p>Новогодние даты, будни дешевле и&nbsp;сертификат в&nbsp;подарок одним блоком.</p></div>
+      <div><h3>Отвечать на&nbsp;вопросы и&nbsp;вести к&nbsp;вам</h3><p>Дети, собаки, что взять с&nbsp;собой, маршрут на&nbsp;Яндекс Картах. Ссылка в&nbsp;шапке Instagram.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Пример</div>
+    <h2>Было и&nbsp;стало</h2>
+    <p class="lead">Так обычно выглядит путь от&nbsp;первого вопроса до&nbsp;брони, и&nbsp;так он выглядит с&nbsp;сайтом.</p>
+    <div class="ba">
+      <div class="chat">
+        <span class="lbl">Сейчас, по&nbsp;телефону</span>
+        <div class="b in">Здравствуйте, а&nbsp;на&nbsp;3 и&nbsp;4&nbsp;января есть что-нибудь?</div>
+        <div class="b out">Второй дом занят, первый свободен</div>
+        <div class="b in">А&nbsp;сколько с&nbsp;чаном? Мы вшестером влезем?</div>
+        <div class="b out">Смотря на&nbsp;сколько ночей и&nbsp;сколько вас</div>
+        <div class="b in">А&nbsp;баню на&nbsp;вечер можно? Я&nbsp;посоветуюсь и&nbsp;перезвоню</div>
+        <p class="foot">Пять минут разговора, а&nbsp;брони пока нет.</p>
+      </div>
+      <div class="chat">
+        <span class="lbl">С&nbsp;сайтом</span>
+        <div class="b bk"><b>Новая бронь с&nbsp;сайта «Окно в&nbsp;природу»</b>• Дом 1, 3–5 января, 2 ночи
+• Баня: 3 января, 18:00
+• Гостей: 4
+• Допы: алтайская запарка, веники
+• Сумма: …&nbsp;₽
+• Анна, +7&nbsp;9…</div>
+        <p class="foot">Одно сообщение. Остаётся перезвонить и&nbsp;подтвердить бронь.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Идеи</div>
+    <h2>Что можно предложить вашим гостям</h2>
+    <p class="lead">Это варианты на&nbsp;обсуждение, берите то, что подходит.</p>
+    <div class="ideas">
+      <div><h3>Сертификат к&nbsp;Новому году</h3><p>На&nbsp;баню с&nbsp;чаном или на&nbsp;ночь в&nbsp;доме. Покупают в&nbsp;декабре, приезжают в&nbsp;январе и&nbsp;феврале, когда даты свободнее.</p></div>
+      <div><h3>Будни дешевле</h3><p>Отдельная цена с&nbsp;понедельника по&nbsp;четверг. Из&nbsp;города 15&nbsp;минут, так что можно приехать даже после работы.</p></div>
+      <div><h3>Банный вечер одной кнопкой</h3><p>Баня, чан, алтайская запарка и&nbsp;веники уже собраны в&nbsp;набор. Гость выбирает время, а&nbsp;не&nbsp;пять отдельных пунктов.</p></div>
+      <div><h3>Праздник за&nbsp;городом</h3><p>День рождения или девичник: дом, баня, костровая чаша вечером. Особенно удобно, что ехать недалеко.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Вопросы</div>
+    <h2>Что нужно уточнить</h2>
+    <ol class="qlist">
+      <li>Сколько гостей вмещает каждый дом и&nbsp;чем дома отличаются?</li>
+      <li>Цены: дом в&nbsp;будни и&nbsp;выходные, новогодние даты, баня, чан, запарка, веники.</li>
+      <li>Чан входит в&nbsp;стоимость дома или идёт отдельно?</li>
+      <li>Баню бронируют на&nbsp;сколько часов и&nbsp;в&nbsp;какое время её можно взять?</li>
+      <li>Можно&nbsp;ли с&nbsp;детьми и&nbsp;с&nbsp;животными? Что есть в&nbsp;доме?</li>
+      <li>Куда удобнее получать заявки: WhatsApp, Telegram или директ?</li>
+      <li>Как берёте предоплату и&nbsp;какие условия отмены?</li>
+      <li>Что сейчас в&nbsp;хайлайте «спецпредложения» и&nbsp;есть&nbsp;ли сертификаты?</li>
+      <li>Название ИП для&nbsp;политики конфиденциальности.</li>
+    </ol>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Подготовила Анастасия Абдуллаева</span>
+    <span class="sign"><span><b>FOR.MI</b> designed &amp; developed by ABN</span><a class="rnd" href="https://t.me/abanev_dev" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.4 4.3 2.9 11.5c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.5c.2.6.4.8.9.8s.6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8L22.8 5.8c.3-1.3-.4-1.9-1.4-1.5zM8.6 14.1l9.6-6c.5-.3.9-.1.5.2l-7.8 7.1-.3 3.3-2-4.6z"/></svg></a></span>
+  </div>
+</footer>
+
+</body>
+</html>
