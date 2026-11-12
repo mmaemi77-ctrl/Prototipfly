@@ -218,13 +218,13 @@ h1 em{font-style:normal;color:var(--gold)}
         <div style="display:grid;gap:8px;align-content:center">
           <span class="ln d" style="width:80%;height:12px"></span>
           <span class="ln" style="width:95%"></span>
-          <div class="row"><span class="chipw on">210 см</span><span class="chipw">230 см</span></div>
+          <div class="row"><span class="chipw on">210 см</span><span class="chipw">230</span><span class="chipw">250</span></div>
           <span class="price" style="font-size:19px">25&nbsp;000&nbsp;₽</span>
           <div class="row"><span style="width:16px;height:16px;border-radius:5px;background:var(--pine);display:grid;place-items:center;color:#fff;font-size:11px;font-weight:800">✓</span><span class="mini">+ гирлянда</span></div>
           <span class="pl d" style="height:22px"></span>
         </div>
       </div>
-      <div class="txt"><span class="no">03</span><h3>Страница ёлки</h3><p class="why">Ваш видеообзор и&nbsp;цена под&nbsp;каждую высоту</p><div class="chips"><span class="g">210&nbsp;см · 25&nbsp;000&nbsp;₽</span><span class="g">230&nbsp;см · 27&nbsp;000&nbsp;₽</span><span>Фото и&nbsp;видео</span></div></div>
+      <div class="txt"><span class="no">03</span><h3>Страница ёлки</h3><p class="why">Ваш видеообзор и&nbsp;цена под&nbsp;каждую высоту</p><div class="chips"><span class="g">210&nbsp;см · 25&nbsp;000&nbsp;₽</span><span class="g">230&nbsp;см · 27&nbsp;000&nbsp;₽</span><span class="g">250&nbsp;см · 31&nbsp;000&nbsp;₽</span><span>Зонтичная сборка</span></div></div>
     </article>
 
     <!-- 04 гирлянды -->
@@ -325,10 +325,17 @@ h1 em{font-style:normal;color:var(--gold)}
 
 <script>
 /* Фото Зулфии: положить файл в img/<имя>.jpg — он встанет вместо рисованной ёлки */
-const PHOTOS={hero:"img/hero.jpg",carskaya:"img/carskaya.jpg",snow:"img/snow.jpg",korolevskaya:"img/korolevskaya.jpg",unbox:"img/unbox.jpg"};
+const PHOTOS={
+  hero:["img/carskaya-1.jpg","70% 45%"],
+  carskaya:["img/carskaya-tree.jpg","50% 40%"],
+  snow:["img/snow.jpg","50% 50%"],
+  korolevskaya:["img/korolevskaya.jpg","50% 50%"],
+  unbox:["img/unbox.jpg","50% 50%"]
+};
 document.querySelectorAll("[data-photo]").forEach(el=>{
-  const src=PHOTOS[el.dataset.photo];if(!src)return;
-  const im=new Image();im.alt="";im.onload=()=>{el.appendChild(im);const p=el.querySelector(".play");if(p)el.appendChild(p)};im.src=src;
+  const ph=PHOTOS[el.dataset.photo];if(!ph)return;
+  const im=new Image();im.alt="";im.style.objectPosition=ph[1];
+  im.onload=()=>{el.appendChild(im);const p=el.querySelector(".play");if(p)el.appendChild(p)};im.src=ph[0];
 });
 </script>
 </body>
