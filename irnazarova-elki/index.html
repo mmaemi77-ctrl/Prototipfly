@@ -99,9 +99,11 @@ h1 em{font-style:normal;color:var(--gold-hi);white-space:nowrap}
 .stage{background:linear-gradient(180deg,var(--surface2),var(--surface));border:1px solid #33594A;border-radius:30px;padding:12px;box-shadow:0 50px 90px -40px rgb(0 0 0 / .85),0 0 0 1px rgb(255 255 255 / .02) inset;display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:18px}
 .pic{position:relative;border-radius:22px;overflow:hidden;min-height:560px;background:#2A2016}
 .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:30% 40%;transition:opacity .25s}
-.tabs{position:absolute;left:12px;top:12px;display:flex;gap:4px;background:rgb(11 28 22 / .66);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:999px;padding:4px}
-.tabs button{border:0;background:transparent;border-radius:999px;padding:8px 14px;font-size:14px;font-weight:700;cursor:pointer;color:#E8E2D2}
+.tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3px;background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:3px}
+.tabs button{border:0;background:transparent;border-radius:11px;padding:9px 2px;font-size:13.5px;font-weight:700;cursor:pointer;color:#C9D2C6;white-space:nowrap}
+.tabs button:hover{color:var(--ink)}
 .tabs button[aria-selected="true"]{background:var(--cream);color:#132B22}
+.hit.sale{background:#C2412D;color:#FFF5EE}
 .hit{position:absolute;left:12px;bottom:12px;background:var(--gold);color:#1A1406;font-size:12.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:7px 12px}
 .panel{display:grid;gap:16px;padding:14px 8px 6px 0;align-content:center}
 .p-h{display:grid;gap:4px}
@@ -116,6 +118,7 @@ h1 em{font-style:normal;color:var(--gold-hi);white-space:nowrap}
 .sizes button[aria-pressed="true"]{background:var(--cream);border-color:var(--cream);color:#132B22}
 .buy{display:grid;gap:14px;border-top:1px solid var(--line);padding-top:16px}
 .price{font-family:var(--serif);font-weight:700;font-size:38px;line-height:1;white-space:nowrap}
+.price s{font-family:var(--font);font-size:16px;font-weight:600;color:var(--dim);margin-left:8px;vertical-align:middle}
 .price small{display:block;font-family:var(--font);font-size:12.5px;font-weight:600;color:var(--dim);margin-top:6px}
 .buy .btn{width:100%}
 .gar{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted);cursor:pointer}
@@ -141,7 +144,7 @@ h1 em{font-style:normal;color:var(--gold-hi);white-space:nowrap}
   .facts div{padding-right:10px;margin-right:10px}
   .facts b{font-size:18px;white-space:normal}
   .facts span{font-size:12px}
-  .pic{border-radius:18px;min-height:0;aspect-ratio:1/.76}
+  .pic{border-radius:18px;min-height:0;aspect-ratio:1/.7}
   .specs{gap:5px}
   .specs span{font-size:12px;padding:4px 9px}
   .lbl{margin-bottom:6px}
@@ -152,7 +155,7 @@ h1 em{font-style:normal;color:var(--gold-hi);white-space:nowrap}
   .p-h h2{font-size:22px}
   .price{font-size:28px}
   .sizes button{padding:8px 0;width:auto;flex:1;font-size:14px}
-  .tabs button{padding:7px 11px;font-size:13px}
+  .tabs button{padding:8px 2px;font-size:13px}
 }
 
 footer{background:var(--bg2);border-top:1px solid var(--line)}
@@ -215,14 +218,14 @@ dialog::backdrop{background:rgb(5 10 8 / .7);backdrop-filter:blur(3px)}
       <div class="h-left">
         <span class="where"><i></i>Уфа · отправка по&nbsp;всей России</span>
         <h1>Полностью литые ёлки <em>от&nbsp;11&nbsp;700&nbsp;₽</em></h1>
-        <p class="sub">Царская и&nbsp;Королевская высотой от&nbsp;150 до&nbsp;270&nbsp;см. Сборка зонтичная: ветки на&nbsp;шарнирах раскрываются, как зонт. <b>Выберите высоту, добавьте гирлянду</b>, и&nbsp;заказ уйдёт в&nbsp;WhatsApp одним сообщением.</p>
+        <p class="sub">Царская, Королевская и&nbsp;Сказочная высотой от&nbsp;150 до&nbsp;270&nbsp;см. <b>Выберите высоту, добавьте гирлянду</b>, и&nbsp;заказ уйдёт в&nbsp;WhatsApp одним сообщением. На&nbsp;Сказочную сейчас распродажа.</p>
         <div class="cta">
           <button type="button" class="btn gold" data-toast="На сайте здесь откроется каталог всех ёлок">Выбрать ёлку</button>
           <a class="btn ghost" href="https://wa.me/79874936467" target="_blank" rel="noopener"><svg aria-hidden="true" style="color:#3DD07C"><use href="#i-wa"/></svg>Спросить в&nbsp;WhatsApp</a>
         </div>
         <div class="facts">
-          <div><b>150–270&nbsp;см</b><span>8 высот на&nbsp;выбор</span></div>
-          <div><b>100% литая</b><span>хвоя у&nbsp;обеих моделей</span></div>
+          <div><b>150–270&nbsp;см</b><span>11 высот на&nbsp;выбор</span></div>
+          <div><b>100% литая</b><span>хвоя у&nbsp;всех моделей</span></div>
           <div><b>Вся Россия</b><span>отправка из&nbsp;Уфы</span></div>
         </div>
       </div>
@@ -230,17 +233,18 @@ dialog::backdrop{background:rgb(5 10 8 / .7);backdrop-filter:blur(3px)}
       <div class="stage" aria-label="Выбор ёлки">
         <div class="pic">
           <img id="pic" src="img/korolevskaya-full.jpg" alt="Королевская ель в гостиной у камина" width="900" height="1600">
+          <span class="hit" id="hit">Хит продаж</span>
+        </div>
+        <div class="panel">
           <div class="tabs" role="tablist" aria-label="Модель">
             <button type="button" role="tab" aria-selected="true" data-m="kor">Королевская</button>
             <button type="button" role="tab" aria-selected="false" data-m="car">Царская</button>
+            <button type="button" role="tab" aria-selected="false" data-m="skaz">Сказочная</button>
           </div>
-          <span class="hit">Хит продаж</span>
-        </div>
-        <div class="panel">
           <div class="p-h"><h2 id="mName">Королевская ель</h2><span id="mMade">производство Китай</span></div>
-          <div class="specs"><span>Полностью литая</span><span>Зонтичная сборка</span><span id="mRange">5 высот</span></div>
+          <div class="specs"><span>Полностью литая</span><span id="mAsm">Зонтичная сборка</span><span id="mRange">5 высот</span></div>
           <div><span class="lbl">Высота</span><div class="sizes" id="sizes"></div></div>
-          <label class="gar"><input type="checkbox" id="gar"><span>Подобрать гирлянду под&nbsp;<b id="garH">210&nbsp;см</b></span></label>
+          <label class="gar"><input type="checkbox" id="gar"><span>Гирлянда «Хвойная лапа», 100&nbsp;м <b>+2&nbsp;550&nbsp;₽</b></span></label>
           <div class="buy">
             <div class="price" id="price">24&nbsp;500&nbsp;₽<small id="priceNote">за&nbsp;ёлку 210&nbsp;см</small></div>
             <button type="button" class="btn gold" id="add"><svg aria-hidden="true"><use href="#i-bag"/></svg>В&nbsp;корзину</button>
@@ -280,8 +284,10 @@ const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const rub=n=>n.toLocaleString("ru-RU").replace(/\s/g," ")+" ₽";
 const MODELS={
   kor:{name:"Королевская ель",made:"производство Китай",photo:"img/korolevskaya-full.jpg",pos:"30% 40%",alt:"Королевская ель в гостиной у камина",sizes:[[150,11700],[180,18500],[210,24500],[240,31000],[270,34000]],def:210},
-  car:{name:"Царская ель",made:"производство Краснодар",photo:"img/carskaya-1.jpg",pos:"66% 50%",alt:"Царская ель в светлой гостиной",sizes:[[210,25000],[230,27000],[250,31000]],def:210}
+  car:{name:"Царская ель",made:"производство Краснодар",photo:"img/carskaya-1.jpg",pos:"66% 50%",alt:"Царская ель в светлой гостиной",sizes:[[210,25000],[230,27000],[250,31000]],def:210},
+  skaz:{name:"Сказочная ель",made:"производство Краснодар",asm:"Отгибная сборка",badge:["Чёрная пятница",true],photo:"img/skazochnaya.jpg",pos:"50% 45%",alt:"Сказочная ель у кирпичной стены",sizes:[[185,14000],[200,15000],[215,16000]],old:{215:18000},def:215}
 };
+const GAR=2550;
 let cur="kor",h=210,cart=0;
 function toast(t){const el=document.createElement("div");el.className="toast";el.textContent=t;document.body.appendChild(el);setTimeout(()=>el.remove(),2600)}
 function renderSizes(){
@@ -292,9 +298,11 @@ function renderSizes(){
 function update(){
   const m=MODELS[cur],p=m.sizes.find(s=>s[0]===h)[1];
   $("#mName").textContent=m.name;$("#mMade").textContent=m.made;
-  $("#mRange").textContent=m.sizes.length+" высоты".replace("высоты",m.sizes.length>4?"высот":"высоты");
-  $("#price").innerHTML=`${rub(p)}<small>за ёлку ${h} см</small>`;
-  $("#garH").textContent=h+" см";
+  $("#mRange").textContent=m.sizes.length+(m.sizes.length>4?" высот":" высоты");
+  $("#mAsm").textContent=m.asm||"Зонтичная сборка";
+  const b=m.badge||["Хит продаж",false];$("#hit").textContent=b[0];$("#hit").classList.toggle("sale",b[1]);
+  const g=$("#gar").checked,old=m.old&&m.old[h];
+  $("#price").innerHTML=`${rub(p+(g?GAR:0))}${old&&!g?`<s>${rub(old)}</s>`:""}<small>${g?`ёлка ${h} см и гирлянда`:`за ёлку ${h} см`}</small>`;
   $$("#sizes button").forEach(b=>b.setAttribute("aria-pressed",+b.dataset.h===h));
 }
 function setModel(k){
@@ -305,6 +313,7 @@ function setModel(k){
   renderSizes();update();
 }
 $$(".tabs button").forEach(b=>b.addEventListener("click",()=>setModel(b.dataset.m)));
+$("#gar").addEventListener("change",update);
 $("#add").addEventListener("click",()=>{cart++;$("#cartN").textContent=cart;toast(`${MODELS[cur].name.split(" ")[0]} ${h} см${$("#gar").checked?" и гирлянда":""} в корзине`)});
 $("#cartBtn").addEventListener("click",()=>toast(cart?"На сайте здесь корзина с доставкой и кнопкой «Заказать в WhatsApp»":"Корзина пока пустая"));
 $$("[data-toast]").forEach(b=>b.addEventListener("click",()=>toast(b.dataset.toast)));

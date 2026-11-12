@@ -39,17 +39,17 @@ body{background:#999;font-family:var(--font);color:var(--ink);-webkit-font-smoot
 .who i svg{width:30px;height:30px}
 .who small{display:block;font-size:19px;font-weight:500;color:var(--muted);margin-top:1px}
 .tag{font-size:19px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);border:2px solid var(--gold-l);border-radius:999px;padding:9px 18px;background:var(--paper)}
-h1{font-family:var(--serif);font-weight:700;font-size:70px;line-height:1.04;letter-spacing:-.01em;margin-top:36px;color:var(--pine)}
+h1{font-family:var(--serif);font-weight:700;font-size:66px;line-height:1.03;letter-spacing:-.01em;margin-top:30px;color:var(--pine)}
 h1 em{font-style:normal;color:var(--gold)}
-.lead{font-size:30px;line-height:1.42;color:var(--muted);margin-top:22px}
+.lead{font-size:28px;line-height:1.4;color:var(--muted);margin-top:18px}
 .lead b{color:var(--ink);font-weight:700}
 .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;border-top:2px solid var(--line);padding:22px 0 30px;font-size:20px;color:var(--muted)}
 .foot b{color:var(--ink);letter-spacing:.06em}
 .foot .pg{font-weight:700;color:var(--pine)}
 
 /* слайд 1: путь */
-.steps{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px;counter-reset:s}
-.step{background:var(--paper);border:2px solid var(--line);border-radius:28px;padding:22px 24px 24px;display:grid;grid-template-columns:auto 1fr;gap:4px 16px;align-items:start}
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px;counter-reset:s}
+.step{background:var(--paper);border:2px solid var(--line);border-radius:28px;padding:18px 22px 20px;display:grid;grid-template-columns:auto 1fr;gap:4px 16px;align-items:start}
 .step::before{counter-increment:s;content:counter(s);grid-row:span 2;width:48px;height:48px;border-radius:50%;background:var(--gold-t);color:var(--gold);font-weight:800;font-size:25px;display:grid;place-items:center}
 .step b{font-size:29px;line-height:1.2;font-weight:700}
 .step span{font-size:23px;line-height:1.35;color:var(--muted)}
@@ -57,7 +57,7 @@ h1 em{font-style:normal;color:var(--gold)}
 .step.last::before{background:rgb(255 255 255 / .16);color:#fff}
 .step.last span{color:#CFE0D6}
 
-.wa{margin-top:26px;background:var(--chat);border-radius:32px;padding:20px 24px 24px;display:grid;grid-template-columns:1.25fr 1fr;gap:14px 18px;border:2px solid #E2D7C4}
+.wa{margin-top:22px;background:var(--chat);border-radius:32px;padding:20px 24px 24px;display:grid;grid-template-columns:1.25fr 1fr;gap:14px 18px;border:2px solid #E2D7C4}
 .wa-h{grid-column:1/-1}
 .was{display:grid;gap:9px;align-content:start}
 .was b{font-size:21px;font-weight:700;color:var(--muted)}
@@ -108,6 +108,11 @@ h1 em{font-style:normal;color:var(--gold)}
 .play{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);width:34px;height:34px;border-radius:50%;background:rgb(23 56 45 / .82);display:grid;place-items:center}
 .play svg{width:14px;height:14px;fill:#fff}
 .row{display:flex;align-items:center;gap:6px}
+.sale{position:absolute;left:5px;top:5px;z-index:2;background:#B8432F;color:#fff;font-size:10px;font-weight:800;letter-spacing:.02em;border-radius:999px;padding:3px 7px;line-height:1.1}
+.old{font-size:10.5px;color:#9A9F98;text-decoration:line-through;font-weight:600;line-height:1}
+.tgl{position:absolute;left:6px;top:6px;z-index:2;display:flex;gap:3px;background:rgb(15 36 29 / .72);border-radius:999px;padding:3px}
+.tgl span{font-size:10.5px;font-weight:800;color:#E8E2D2;border-radius:999px;padding:3px 7px;line-height:1}
+.tgl span.on{background:#FFFDF8;color:var(--pine)}
 </style>
 </head>
 <body>
@@ -154,8 +159,9 @@ h1 em{font-style:normal;color:var(--gold)}
     <div class="bub">
       Здравствуйте! Хочу заказать:<br>
       <div class="row"><span>Царская ель, 230&nbsp;см</span><b>27&nbsp;000&nbsp;₽</b></div>
-      <div class="row"><span>Гирлянда под&nbsp;230&nbsp;см</span><b class="hl">по&nbsp;прайсу</b></div>
+      <div class="row"><span>Гирлянда «Хвойная лапа»</span><b>2&nbsp;550&nbsp;₽</b></div>
       <div class="row"><span>Доставка</span><b>Казань</b></div>
+      <div class="row"><span class="hl">Итого за&nbsp;ёлку и&nbsp;свет</span><b class="hl">29&nbsp;550&nbsp;₽</b></div>
       Алина, +7&nbsp;9••&nbsp;•••-••-••
       <span class="t">14:32 ✓✓</span>
     </div>
@@ -184,61 +190,67 @@ h1 em{font-style:normal;color:var(--gold)}
     <article class="blk">
       <div class="wf" style="grid-template-columns:1fr 1fr;grid-template-rows:1fr auto">
         <div style="display:grid;gap:7px;align-content:center">
-          <span class="ln d" style="width:92%;height:13px"></span><span class="ln d" style="width:70%;height:13px"></span>
-          <span class="ln" style="width:85%;margin-top:3px"></span><span class="ln" style="width:60%"></span>
+          <span class="ln d" style="width:92%;height:13px"></span><span class="ln d" style="width:70%;height:13px"></span><span class="ln g" style="width:62%;height:13px"></span>
+          <span class="ln" style="width:85%;margin-top:3px"></span>
           <div class="row" style="margin-top:5px"><span class="pl d" style="width:56%"></span><span class="pl w" style="width:30%"></span></div>
         </div>
         <div class="ph" data-photo="hero"><svg aria-hidden="true"><use href="#tree-lights"/></svg></div>
         <div style="grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:6px">
           <div class="card" style="gap:4px;padding:6px 8px"><span class="mini">Царская 210</span><span class="price">25&nbsp;000&nbsp;₽</span></div>
-          <div class="card" style="gap:4px;padding:6px 8px"><span class="mini">Сказочная 215</span><span class="price">18&nbsp;000&nbsp;₽</span></div>
+          <div class="card" style="gap:4px;padding:6px 8px;border-color:#E2B4A8"><span class="mini">Сказочная 215</span><div class="row" style="gap:5px"><span class="price" style="color:#B8432F">16&nbsp;000&nbsp;₽</span><span class="old">18&nbsp;000</span></div></div>
           <div class="card" style="gap:4px;padding:6px 8px"><span class="mini">Королевская 210</span><span class="price">24&nbsp;500&nbsp;₽</span></div>
         </div>
       </div>
-      <div class="txt"><span class="no">01</span><h3>Главный экран</h3><p class="why">Хиты с&nbsp;ценами сразу, как в&nbsp;шапке Instagram</p><div class="chips"><span class="g">Отправка по&nbsp;всей России</span><span>WhatsApp в&nbsp;одно касание</span></div></div>
+      <div class="txt"><span class="no">01</span><h3>Главный экран</h3><p class="why">Цена «от&nbsp;11&nbsp;700&nbsp;₽» и&nbsp;выбор ёлки сразу</p><div class="chips"><span class="g">Отправка по&nbsp;всей России</span><span>WhatsApp в&nbsp;одно касание</span></div></div>
     </article>
 
     <!-- 02 каталог -->
     <article class="blk">
       <div class="wf" style="grid-template-rows:auto 1fr">
-        <div class="row" style="flex-wrap:nowrap"><span class="chipw on">210 см</span><span class="chipw">230 см</span><span class="chipw">270 см</span><span class="chipw">Заснеж.</span></div>
+        <div class="row" style="flex-wrap:nowrap"><span class="chipw on">Все</span><span class="chipw">До&nbsp;200&nbsp;см</span><span class="chipw">210–270</span><span class="chipw" style="color:#B8432F;border-color:#E2B4A8">Распродажа</span></div>
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;min-height:0">
-          <div class="card"><div class="ph" style="height:100px" data-photo="carskaya"><svg aria-hidden="true"><use href="#tree"/></svg></div><span class="ln" style="width:80%;height:7px"></span><div class="row" style="justify-content:space-between"><span class="price">25&nbsp;000&nbsp;₽</span><span class="dot"></span></div></div>
-          <div class="card"><div class="ph snow" style="height:100px" data-photo="snow"><svg aria-hidden="true"><use href="#tree-snow"/></svg></div><span class="ln" style="width:65%;height:7px"></span><div class="row" style="justify-content:space-between"><span class="price">прайс</span><span class="dot"></span></div></div>
-          <div class="card"><div class="ph" style="height:100px" data-photo="korolevskaya"><svg aria-hidden="true"><use href="#tree"/></svg></div><span class="ln" style="width:75%;height:7px"></span><div class="row" style="justify-content:space-between"><span class="price">24&nbsp;500&nbsp;₽</span><span class="dot" style="background:var(--gold)"></span></div></div>
+          <div class="card"><div class="ph" style="height:100px" data-photo="carskaya"><svg aria-hidden="true"><use href="#tree"/></svg></div><span class="mini">Царская</span><div class="row" style="justify-content:space-between"><span class="price" style="font-size:12.5px">от&nbsp;25&nbsp;000&nbsp;₽</span><span class="dot"></span></div></div>
+          <div class="card"><div class="ph" style="height:100px" data-photo="skaz"><span class="sale">Распродажа</span><svg aria-hidden="true"><use href="#tree"/></svg></div><span class="mini">Сказочная</span><div class="row" style="justify-content:space-between"><span class="price" style="color:#B8432F;font-size:12.5px">от&nbsp;14&nbsp;000&nbsp;₽</span><span class="dot"></span></div></div>
+          <div class="card"><div class="ph" style="height:100px" data-photo="korolevskaya"><svg aria-hidden="true"><use href="#tree"/></svg></div><span class="mini">Королевская</span><div class="row" style="justify-content:space-between"><span class="price" style="font-size:12.5px">от&nbsp;11&nbsp;700&nbsp;₽</span><span class="dot"></span></div></div>
         </div>
       </div>
-      <div class="txt"><span class="no">02</span><h3>Каталог ёлок</h3><p class="why">Все модели и&nbsp;цены на&nbsp;одной странице</p><div class="chips"><span>Высота</span><span>Зелёная или заснеженная</span><span class="g">Подбор по&nbsp;потолку</span><span>Наличие</span></div></div>
+      <div class="txt"><span class="no">02</span><h3>Каталог ёлок</h3><p class="why">Все модели и&nbsp;цены на&nbsp;одной странице</p><div class="chips"><span>Высота</span><span>Зелёная или заснеженная</span><span class="g">Распродажа</span><span class="g">Подбор по&nbsp;потолку</span></div></div>
     </article>
 
     <!-- 03 страница ёлки -->
     <article class="blk">
       <div class="wf" style="grid-template-columns:1fr 1.05fr;align-items:stretch">
-        <div class="ph" data-photo="carskaya" style="place-items:end center"><svg aria-hidden="true"><use href="#tree"/></svg><span class="play"><svg viewBox="0 0 10 10"><path d="M2 1l7 4-7 4z"/></svg></span></div>
+        <div style="display:grid;grid-template-rows:1fr 46px;gap:5px;min-height:0">
+          <div class="ph" data-photo="car1"><svg aria-hidden="true"><use href="#tree"/></svg></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px">
+            <div class="ph" data-photo="car2"><svg aria-hidden="true"><use href="#tree"/></svg></div>
+            <div class="ph" data-photo="carskaya"><svg aria-hidden="true"><use href="#tree"/></svg></div>
+            <div class="ph" style="background:#17382D"><span class="play" style="width:24px;height:24px;top:50%"><svg viewBox="0 0 10 10"><path d="M2 1l7 4-7 4z"/></svg></span></div>
+          </div>
+        </div>
         <div style="display:grid;gap:8px;align-content:center">
           <span class="ln d" style="width:80%;height:12px"></span>
           <span class="ln" style="width:95%"></span>
           <div class="row"><span class="chipw on">210 см</span><span class="chipw">230</span><span class="chipw">250</span></div>
           <span class="price" style="font-size:19px">25&nbsp;000&nbsp;₽</span>
-          <div class="row"><span style="width:16px;height:16px;border-radius:5px;background:var(--pine);display:grid;place-items:center;color:#fff;font-size:11px;font-weight:800">✓</span><span class="mini">+ гирлянда</span></div>
+          <div class="row"><span style="width:16px;height:16px;border-radius:5px;background:var(--pine);display:grid;place-items:center;color:#fff;font-size:11px;font-weight:800">✓</span><span class="mini">+ гирлянда 2&nbsp;550&nbsp;₽</span></div>
           <span class="pl d" style="height:22px"></span>
         </div>
       </div>
-      <div class="txt"><span class="no">03</span><h3>Страница ёлки</h3><p class="why">Ваш видеообзор и&nbsp;цена под&nbsp;каждую высоту</p><div class="chips"><span class="g">210&nbsp;см · 25&nbsp;000&nbsp;₽</span><span class="g">230&nbsp;см · 27&nbsp;000&nbsp;₽</span><span class="g">250&nbsp;см · 31&nbsp;000&nbsp;₽</span><span>Зонтичная сборка</span></div></div>
+      <div class="txt"><span class="no">03</span><h3>Страница ёлки</h3><p class="why">Фото, видеообзор и&nbsp;цена под&nbsp;каждую высоту</p><div class="chips"><span class="g">210&nbsp;см · 25&nbsp;000&nbsp;₽</span><span class="g">230&nbsp;см · 27&nbsp;000&nbsp;₽</span><span class="g">250&nbsp;см · 31&nbsp;000&nbsp;₽</span><span>Зонтичная сборка</span></div></div>
     </article>
 
-    <!-- 04 гирлянды -->
+    <!-- 04 гирлянды и декор -->
     <article class="blk">
-      <div class="wf" style="grid-template-columns:.8fr 1.2fr;align-items:stretch">
-        <div class="ph" style="background:linear-gradient(180deg,#22392F,#17382D)" data-photo="garland"><svg aria-hidden="true"><use href="#tree-lights"/></svg></div>
-        <div style="display:grid;gap:7px;align-content:center">
-          <div class="row"><span class="chipw on">Тёплый</span><span class="chipw">Холодный</span></div>
-          <div class="card" style="grid-template-columns:1fr auto;align-items:center;padding:7px 9px"><span class="mini">Для 180–210&nbsp;см</span><span class="dot" style="background:#F5C95A"></span></div>
-          <div class="card" style="grid-template-columns:1fr auto;align-items:center;padding:7px 9px;border-color:var(--pine)"><span class="mini" style="color:var(--pine)">Для 230–270&nbsp;см</span><span class="dot" style="background:#F5C95A"></span></div>
-          <div class="card" style="grid-template-columns:1fr auto;align-items:center;padding:7px 9px;background:var(--gold-t);border-color:var(--gold-l)"><span class="mini" style="color:#7A5A1C">Ёлка + гирлянда</span><span class="price" style="font-size:12px;color:#7A5A1C">комплект</span></div>
+      <div class="wf" style="grid-template-columns:.82fr 1.18fr;align-items:stretch">
+        <div class="ph" style="background:linear-gradient(180deg,#22392F,#17382D)" data-photo="whitelights"><span class="tgl"><span>Жёлтый</span><span class="on">Белый</span></span><svg aria-hidden="true"><use href="#tree-lights"/></svg></div>
+        <div style="display:grid;gap:6px;align-content:center">
+          <div class="card" style="grid-template-columns:38px 1fr;align-items:center;gap:8px;padding:5px 7px;border-color:var(--pine)"><div class="ph" style="height:38px" data-photo="reel"></div><div style="display:grid;gap:4px"><span class="mini" style="color:var(--pine)">Хвойная лапа, 100&nbsp;м</span><span class="price" style="font-size:13px">2&nbsp;550&nbsp;₽</span></div></div>
+          <div class="card" style="grid-template-columns:38px 1fr;align-items:center;gap:8px;padding:5px 7px"><div class="ph" style="height:38px" data-photo="curtain"></div><div style="display:grid;gap:4px"><span class="mini">Штора 3×3&nbsp;м</span><span class="price" style="font-size:13px">1&nbsp;400&nbsp;₽</span></div></div>
+          <div class="card" style="grid-template-columns:38px 1fr;align-items:center;gap:8px;padding:5px 7px"><div class="ph" style="height:38px" data-photo="boxes"></div><div style="display:grid;gap:4px"><span class="mini">Светящиеся коробки</span><span class="price" style="font-size:13px">2&nbsp;600&nbsp;₽</span></div></div>
         </div>
       </div>
-      <div class="txt"><span class="no">04</span><h3>Гирлянды</h3><p class="why">Длина под&nbsp;высоту ёлки, чтобы не&nbsp;спрашивали «какая подойдёт»</p><div class="chips"><span>Тёплый или холодный свет</span><span class="g">Ёлка + гирлянда</span></div></div>
+      <div class="txt"><span class="no">04</span><h3>Гирлянды и&nbsp;декор</h3><p class="why">Гирлянда к&nbsp;ёлке одной галочкой</p><div class="chips"><span class="g">Хвойная лапа 100&nbsp;м · 2&nbsp;550&nbsp;₽</span><span>Жёлтый или белый свет</span><span>Штора и&nbsp;коробки</span></div></div>
     </article>
   </div>
 
@@ -258,14 +270,14 @@ h1 em{font-style:normal;color:var(--gold)}
     <article class="blk">
       <div class="wf" style="grid-template-columns:1.1fr .9fr;align-items:stretch">
         <div style="display:grid;gap:6px;align-content:center">
-          <div class="card" style="grid-template-columns:30px 1fr auto;align-items:center;padding:6px 8px"><div class="ph" style="height:34px" data-photo="carskaya"><svg aria-hidden="true"><use href="#tree"/></svg></div><span class="ln" style="width:85%;height:7px"></span><span class="price" style="font-size:12px">27&nbsp;000&nbsp;₽</span></div>
-          <div class="card" style="grid-template-columns:30px 1fr auto;align-items:center;padding:6px 8px"><div class="ph" style="height:34px;background:linear-gradient(180deg,#22392F,#17382D)" data-photo="garland"><svg aria-hidden="true"><use href="#tree-lights"/></svg></div><span class="ln" style="width:70%;height:7px"></span><span class="price" style="font-size:12px">прайс</span></div>
+          <div class="card" style="grid-template-columns:30px 1fr auto;align-items:center;padding:6px 8px"><div class="ph" style="height:34px" data-photo="carskaya"></div><span class="mini">Царская 230</span><span class="price" style="font-size:12px">27&nbsp;000&nbsp;₽</span></div>
+          <div class="card" style="grid-template-columns:30px 1fr auto;align-items:center;padding:6px 8px"><div class="ph" style="height:34px" data-photo="reel"></div><span class="mini">Хвойная лапа</span><span class="price" style="font-size:12px">2&nbsp;550&nbsp;₽</span></div>
           <div class="card" style="padding:7px 9px"><span class="mini" style="color:var(--pine)">Город: Казань</span></div>
         </div>
         <div style="display:grid;gap:7px;align-content:center">
-          <div class="row"><span style="width:14px;height:14px;border-radius:50%;border:4px solid var(--pine);flex:none"></span><span class="mini">Уфа</span></div>
-          <div class="row"><span style="width:14px;height:14px;border-radius:50%;border:2px solid #B9AE98;flex:none"></span><span class="mini">По&nbsp;России</span></div>
-          <span class="ln" style="width:70%;margin-top:4px"></span>
+          <div class="row"><span style="width:14px;height:14px;border-radius:50%;border:2px solid #B9AE98;flex:none"></span><span class="mini">Уфа</span></div>
+          <div class="row"><span style="width:14px;height:14px;border-radius:50%;border:4px solid var(--pine);flex:none"></span><span class="mini">По&nbsp;России</span></div>
+          <div class="row" style="justify-content:space-between;margin-top:2px"><span class="mini">Итого</span><span class="price" style="font-size:14px">29&nbsp;550&nbsp;₽</span></div>
           <div class="row" style="background:var(--wa);border-radius:999px;padding:6px 8px;gap:6px;justify-content:center"><svg width="16" height="16" aria-hidden="true"><use href="#wa"/></svg><span style="color:#fff;font-size:12px;font-weight:800;white-space:nowrap">Заказать</span></div>
         </div>
       </div>
@@ -275,11 +287,11 @@ h1 em{font-style:normal;color:var(--gold)}
     <!-- 06 распаковка -->
     <article class="blk">
       <div class="wf" style="grid-template-columns:repeat(3,1fr);align-items:stretch">
-        <div class="ph" style="background:linear-gradient(180deg,#E9E1D2,#D9CDB6)" data-photo="unbox"><svg aria-hidden="true" style="width:60%"><use href="#tree"/></svg><span class="play"><svg viewBox="0 0 10 10"><path d="M2 1l7 4-7 4z"/></svg></span></div>
+        <div class="ph" data-photo="car2"><svg aria-hidden="true"><use href="#tree"/></svg><span class="play"><svg viewBox="0 0 10 10"><path d="M2 1l7 4-7 4z"/></svg></span></div>
         <div class="ph" data-photo="obzor"><svg aria-hidden="true"><use href="#tree"/></svg><span class="play"><svg viewBox="0 0 10 10"><path d="M2 1l7 4-7 4z"/></svg></span></div>
         <div class="ph" style="background:linear-gradient(180deg,#22392F,#17382D)" data-photo="decor"><svg aria-hidden="true"><use href="#tree-lights"/></svg><span class="play"><svg viewBox="0 0 10 10"><path d="M2 1l7 4-7 4z"/></svg></span></div>
       </div>
-      <div class="txt"><span class="no">06</span><h3>Распаковка и&nbsp;сборка</h3><p class="why">Ваши рилс показывают, как приходит коробка и&nbsp;собирается ёлка</p><div class="chips"><span>Распаковка Царской</span><span>Обзор Королевской 270</span></div></div>
+      <div class="txt"><span class="no">06</span><h3>Распаковка и&nbsp;сборка</h3><p class="why">Рилс: распаковка, сборка и&nbsp;обзоры</p><div class="chips"><span>Зонтичная и&nbsp;отгибная сборка</span><span>Обзор Королевской 270</span></div></div>
     </article>
 
     <!-- 07 отзывы и города -->
@@ -326,19 +338,23 @@ h1 em{font-style:normal;color:var(--gold)}
 <script>
 /* Фото Зулфии: положить файл в img/<имя>.jpg — он встанет вместо рисованной ёлки */
 const PHOTOS={
-  hero:["img/carskaya-1.jpg","70% 45%"],
+  hero:["img/korolevskaya-full.jpg","30% 30%"],
   carskaya:["img/carskaya-tree.jpg","50% 40%"],
-  snow:["img/snow.jpg","50% 50%"],
+  car1:["img/carskaya-1.jpg","68% 45%"],
+  car2:["img/carskaya-2.jpg","50% 40%"],
+  skaz:["img/skazochnaya.jpg","50% 45%"],
   korolevskaya:["img/korolevskaya.jpg","50% 30%"],
-  garland:["img/garland.jpg","50% 40%"],
+  whitelights:["img/garland.jpg","50% 40%"],
+  reel:["img/garland-reel.jpg","50% 40%"],
+  curtain:["img/curtain.jpg","50% 40%"],
+  boxes:["img/boxes.jpg","50% 55%"],
   decor:["img/decor.jpg","45% 50%"],
-  obzor:["img/obzor.jpg","62% 40%"],
-  unbox:["img/unbox.jpg","50% 50%"]
+  obzor:["img/obzor.jpg","62% 40%"]
 };
 document.querySelectorAll("[data-photo]").forEach(el=>{
   const ph=PHOTOS[el.dataset.photo];if(!ph)return;
   const im=new Image();im.alt="";im.style.objectPosition=ph[1];
-  im.onload=()=>{el.appendChild(im);const p=el.querySelector(".play");if(p)el.appendChild(p)};im.src=ph[0];
+  im.onload=()=>{el.appendChild(im);el.querySelectorAll(".play,.sale,.tgl").forEach(x=>el.appendChild(x))};im.src=ph[0];
 });
 </script>
 </body>
