@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080">
+<title>Cosy Home · структура</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: четыре карточки 1080×1350 для директа и WhatsApp. Первая: путь покупателя от рилс до заказа; дальше по три блока каталога с мини-схемой слева и крупным текстом справа */
+:root{
+  --bg:#F7F4EF;--surface:#FFFFFF;--ink:#2A2420;--muted:#76695F;--line:#E7DFD5;--soft:#EFE8DF;
+  --acc:#76563F;--tint:#F1E5D8;--ok:#3D8656;--wait:#A8711F;--wa:#1FA855;
+  --display:"Cormorant Garamond","Times New Roman",serif;--font:"Manrope",system-ui,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#D9D2C9;font-family:var(--font);color:var(--ink);-webkit-font-smoothing:antialiased;font-variant-numeric:lining-nums}
+p,h1,h2,h3{margin:0}
+.slide{width:1080px;height:1350px;background:var(--bg);margin:0 auto 40px;padding:64px 64px 56px;display:flex;flex-direction:column;overflow:hidden;position:relative}
+.top{display:flex;align-items:center;gap:16px}
+.top img{width:64px;height:64px;border-radius:50%}
+.top b{font-family:var(--display);font-weight:600;font-size:30px;letter-spacing:.16em;line-height:1}
+.top small{display:block;font-size:17px;font-weight:600;color:var(--muted);margin-top:4px;letter-spacing:0}
+.top .pg{margin-left:auto;font-size:20px;font-weight:800;color:var(--muted);background:var(--surface);border:1.5px solid var(--line);border-radius:999px;padding:8px 18px}
+.eyebrow{font-size:19px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+h1{font-family:var(--display);font-weight:600;font-size:84px;line-height:.96;letter-spacing:-.01em}
+h1 em{font-style:italic;font-weight:500;color:var(--acc)}
+.lead{font-size:28px;line-height:1.4;color:var(--muted)}
+
+/* путь покупателя */
+.path{display:grid;gap:12px;margin-top:28px}
+.st{display:grid;grid-template-columns:64px minmax(0,1fr) 150px;gap:24px;align-items:center;background:var(--surface);border:1.5px solid var(--line);border-radius:30px;padding:14px 22px}
+.st.last{grid-template-columns:64px minmax(0,1fr);align-items:start;padding-block:18px}
+.st i{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-family:var(--display);font-weight:600;font-size:34px;box-shadow:inset 0 0 0 2px var(--acc);color:var(--acc)}
+.st b{display:block;font-size:31px;line-height:1.2;font-weight:800}
+.st span{display:block;font-size:23px;color:var(--muted);margin-top:4px}
+.st .im{width:150px;height:96px;border-radius:18px;background:#E9E4DD center/cover no-repeat}
+.st.last{background:var(--tint);border-color:var(--tint)}
+.st.last i{background:var(--acc);color:#FFFFFF;box-shadow:none}
+.wa{background:#DCF5D9;color:#15241A;border-radius:22px 22px 22px 8px;padding:14px 20px;font-size:22px;line-height:1.4;margin-top:14px;white-space:pre-line;max-width:640px}
+.wa b{display:block;font-size:19px;color:#13803F;margin-bottom:2px}
+
+/* блоки */
+.blocks{display:grid;gap:20px;margin-top:30px;flex:1;align-content:center}
+.blk{display:grid;grid-template-columns:372px minmax(0,1fr);gap:32px;align-items:center;background:var(--surface);border:1.5px solid var(--line);border-radius:34px;padding:22px}
+.txt{display:grid;gap:10px;min-width:0}
+.no{font-weight:800;font-size:21px;color:var(--acc);letter-spacing:.06em}
+.txt h3{font-family:var(--display);font-weight:600;font-size:50px;line-height:1}
+.why{font-size:25px;line-height:1.35;font-weight:600}
+.txt ul{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.txt li{font-size:20px;font-weight:600;background:var(--bg);border-radius:999px;padding:7px 15px;color:var(--muted)}
+
+/* мини-схемы, как на главном экране */
+.wf{aspect-ratio:16/11;border-radius:22px;background:var(--bg);border:1.5px solid var(--line);padding:12px;display:grid;gap:8px;overflow:hidden}
+.ln{display:block;height:8px;border-radius:4px;background:var(--line)}
+.ln.a{background:var(--acc)}.ln.k{background:var(--ink)}
+.pl{display:block;height:18px;border-radius:999px;background:var(--line)}
+.pl.a{background:var(--acc)}.pl.s{background:var(--surface)}.pl.w{background:var(--wa)}
+.ph{border-radius:12px;background:#E9E4DD center/cover no-repeat}
+.wcard{background:var(--surface);border-radius:12px;padding:6px;display:grid;gap:5px;align-content:start}
+.wcard .ph{aspect-ratio:1/1}
+.wcard b{font-size:12px;font-weight:800;line-height:1.1}
+.dt{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none}
+.dt.o{background:var(--wait)}
+.wrow{display:flex;align-items:center;gap:7px;background:var(--surface);border-radius:9px;padding:6px 8px}
+.wrow .ln{flex:1}
+.bub{background:#DCF5D9;border-radius:14px 14px 14px 5px;padding:10px;display:grid;gap:6px}
+.bub .ln{background:#A9D8A6}.bub .ln.h{background:#1FA855;width:55%}
+
+.foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:24px;font-size:18px;color:var(--muted);font-weight:600}
+.foot b{letter-spacing:.06em;color:var(--ink)}
+.next{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:20px}
+.next div{background:var(--tint);border-radius:24px;padding:16px 18px;display:grid;gap:2px}
+.next small{font-family:var(--display);font-weight:600;font-size:30px;line-height:1;color:var(--acc)}
+.next b{font-size:22px;line-height:1.25}
+</style>
+</head>
+<body>
+
+<!-- 1. путь покупателя -->
+<section class="slide" id="s1">
+  <div class="top"><img src="img/logo.jpg" alt=""><div><b>COSY HOME</b><small>новогодний декор · Москва</small></div><span class="pg">1 / 4</span></div>
+  <div style="margin-top:34px;display:grid;gap:16px">
+    <p class="eyebrow">Структура каталога</p>
+    <h1>Как покупатель закажет у&nbsp;вас <em>без&nbsp;переписки</em></h1>
+    <p class="lead">Около 50 товаров на&nbsp;одной странице, с&nbsp;фото, ценой и&nbsp;наличием. Ссылка стоит в&nbsp;шапке Instagram.</p>
+  </div>
+  <div class="path">
+    <div class="st"><i>1</i><div><b>Видит рилс с&nbsp;медведями</b><span>как сейчас</span></div><span class="im" style="background-image:url(img/medvedi-divan.jpg)"></span></div>
+    <div class="st"><i>2</i><div><b>Открывает каталог по&nbsp;ссылке</b><span>Санты, медведи, феи, ёлки по&nbsp;разделам</span></div><span class="im" style="background-image:url(img/santa-belyi.jpg);background-position:50% 25%"></span></div>
+    <div class="st"><i>3</i><div><b>Видит цену и&nbsp;наличие</b><span>и&nbsp;нажимает «Заказать»</span></div><span class="im" style="background-image:url(img/ovechki.jpg)"></span></div>
+    <div class="st last"><i>4</i><div><b>Вам приходит готовый заказ</b><span>в&nbsp;ваш WhatsApp, одним сообщением</span>
+      <div class="wa"><b>Заказ с сайта Cosy Home</b>Здравствуйте! Хочу заказать:
+• Белые медведи × 2
+• Фея с золотыми крыльями × 1
+Город доставки: Казань</div></div></div>
+  </div>
+  <div class="foot"><span>Дальше: 9 блоков каталога</span><span><b>FOR.MI</b> · Анастасия Абдуллаева</span></div>
+</section>
+
+<!-- 2. блоки 01–03 -->
+<section class="slide" id="s2">
+  <div class="top"><img src="img/logo.jpg" alt=""><div><b>COSY HOME</b><small>структура каталога</small></div><span class="pg">2 / 4</span></div>
+  <div class="blocks">
+    <article class="blk">
+      <div class="wf" style="grid-template-columns:1fr 1.25fr">
+        <div style="display:grid;gap:8px;align-content:center">
+          <span class="ln" style="width:40%;height:6px"></span>
+          <span class="ln k" style="width:92%;height:12px"></span><span class="ln k" style="width:74%;height:12px"></span><span class="ln a" style="width:52%;height:12px"></span>
+          <div style="display:flex;gap:5px;margin-top:6px"><span class="pl a" style="width:52%;height:16px"></span><span class="pl s" style="width:40%;height:16px"></span></div>
+        </div>
+        <div class="wcard" style="grid-template-columns:1.1fr 1fr;padding:7px;gap:7px">
+          <div class="ph" style="background-image:url(img/santa-elka.jpg)"></div>
+          <div style="display:grid;gap:6px;align-content:center"><span class="ln k" style="width:80%"></span><span class="ln" style="width:60%"></span><span style="display:flex;gap:4px;align-items:center"><span class="dt"></span><span class="ln" style="flex:1"></span></span><span class="pl a" style="height:14px"></span></div>
+        </div>
+      </div>
+      <div class="txt"><span class="no">01</span><h3>Главный экран</h3><p class="why">Хиты сезона с&nbsp;ценой и&nbsp;кнопкой заказа</p><ul><li>Хиты листаются</li><li>Цена и&nbsp;наличие</li><li>Доставка в&nbsp;любой город</li></ul></div>
+    </article>
+    <article class="blk">
+      <div class="wf" style="grid-template-rows:auto 1fr">
+        <div style="display:flex;gap:5px;flex-wrap:wrap"><span class="pl a" style="width:16%"></span><span class="pl" style="width:20%"></span><span class="pl" style="width:12%"></span><span class="pl" style="width:16%"></span><span class="pl" style="width:14%"></span></div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;align-content:start">
+          <div class="wcard"><div class="ph" style="background-image:url(img/santa-belyi.jpg)"></div><span style="display:flex;gap:4px;align-items:center"><span class="dt"></span><span class="ln" style="flex:1"></span></span></div>
+          <div class="wcard"><div class="ph" style="background-image:url(img/medvedi.jpg)"></div><span style="display:flex;gap:4px;align-items:center"><span class="dt"></span><span class="ln" style="flex:1"></span></span></div>
+          <div class="wcard"><div class="ph" style="background-image:url(img/feya.jpg)"></div><span style="display:flex;gap:4px;align-items:center"><span class="dt o"></span><span class="ln" style="flex:1"></span></span></div>
+          <div class="wcard"><div class="ph" style="background-image:url(img/olen.jpg)"></div><span style="display:flex;gap:4px;align-items:center"><span class="dt"></span><span class="ln" style="flex:1"></span></span></div>
+        </div>
+      </div>
+      <div class="txt"><span class="no">02</span><h3>Каталог по&nbsp;разделам</h3><p class="why">Всё, что сейчас разбросано по&nbsp;постам и&nbsp;хайлайтам, в&nbsp;одном месте</p><ul><li>Санты</li><li>Медведи и&nbsp;олени</li><li>Феи</li><li>Ёлки</li><li>Гирлянды</li></ul></div>
+    </article>
+    <article class="blk">
+      <div class="wf" style="grid-template-columns:1fr 1fr">
+        <div class="ph" style="background-image:url(img/medvedi-divan.jpg)"></div>
+        <div style="display:grid;gap:7px;align-content:center">
+          <span class="ln k" style="width:85%;height:11px"></span>
+          <div style="display:flex;gap:4px;flex-wrap:wrap"><span class="pl s" style="width:40%;height:14px"></span><span class="pl s" style="width:34%;height:14px"></span></div>
+          <div class="wrow"><span class="dt"></span><span class="ln"></span></div>
+          <span class="ln a" style="width:45%;height:13px"></span>
+          <div style="display:flex;gap:4px;align-items:center"><span class="pl s" style="width:40%;height:16px"></span><span class="pl a" style="flex:1;height:16px"></span></div>
+        </div>
+      </div>
+      <div class="txt"><span class="no">03</span><h3>Карточка товара</h3><p class="why">Ответы на&nbsp;вопросы из&nbsp;директа видны до&nbsp;вопроса</p><ul><li>Фото и&nbsp;видео из&nbsp;рилс</li><li>Высота</li><li>Цена</li><li>Есть или под&nbsp;заказ</li></ul></div>
+    </article>
+  </div>
+  <div class="foot"><span>Cosy Home · набросок, фото из&nbsp;вашего Instagram</span><span><b>FOR.MI</b></span></div>
+</section>
+
+<!-- 3. блоки 04–06 -->
+<section class="slide" id="s3">
+  <div class="top"><img src="img/logo.jpg" alt=""><div><b>COSY HOME</b><small>структура каталога</small></div><span class="pg">3 / 4</span></div>
+  <div class="blocks">
+    <article class="blk">
+      <div class="wf" style="grid-template-columns:1.3fr 1fr">
+        <div class="ph" style="background-image:url(img/skazka.jpg)"></div>
+        <div style="display:grid;gap:6px;align-content:center">
+          <div class="wrow"><span class="ph" style="width:22px;height:22px;border-radius:6px;background-image:url(img/santa-belyi.jpg)"></span><span class="ln"></span></div>
+          <div class="wrow"><span class="ph" style="width:22px;height:22px;border-radius:6px;background-image:url(img/medvedi.jpg)"></span><span class="ln"></span></div>
+          <div class="wrow"><span class="ph" style="width:22px;height:22px;border-radius:6px;background-image:url(img/ovechki.jpg)"></span><span class="ln"></span></div>
+          <span class="pl a" style="height:15px;margin-top:3px"></span>
+        </div>
+      </div>
+      <div class="txt"><span class="no">04</span><h3>Готовые композиции</h3><p class="why">Сцену из&nbsp;рилс можно заказать целиком, одной кнопкой</p><ul><li>«Новогодняя сказка»</li><li>Что входит</li><li>Заказ набора</li></ul></div>
+    </article>
+    <article class="blk">
+      <div class="wf" style="grid-template-columns:1fr 1fr;align-items:center">
+        <div class="ph" style="height:100%;background-image:url(img/ovechki.jpg)"></div>
+        <div style="display:grid;gap:8px;align-content:center;padding:6px">
+          <span style="font-family:var(--display);font-style:italic;font-weight:600;font-size:28px;line-height:1;color:var(--acc)">2027</span>
+          <span class="ln k" style="width:80%;height:10px"></span><span class="ln" style="width:65%"></span><span class="ln" style="width:72%"></span>
+          <span class="pl a" style="height:15px;width:70%"></span>
+        </div>
+      </div>
+      <div class="txt"><span class="no">05</span><h3>Символ года 2027</h3><p class="why">Отдельный раздел к&nbsp;самому частому новогоднему подарку</p><ul><li>Овечки</li><li>Подарок коллегам</li><li>Сколько в&nbsp;наличии</li></ul></div>
+    </article>
+    <article class="blk">
+      <div class="wf" style="grid-template-columns:1fr 1fr 1fr;align-items:end">
+        <div class="wcard"><div class="ph" style="aspect-ratio:3/4;background-image:url(img/elka-snezh.jpg)"></div><b>заснеженная</b></div>
+        <div class="wcard"><div class="ph" style="aspect-ratio:3/4.6;background-image:url(img/elka-zel.jpg)"></div><b>зелёная</b></div>
+        <div class="wcard"><div class="ph" style="aspect-ratio:3/3.2;background-image:url(img/vetki.jpg)"></div><b>ветки</b></div>
+      </div>
+      <div class="txt"><span class="no">06</span><h3>Ёлки</h3><p class="why">Ёлку выбирают по&nbsp;высоте и&nbsp;виду, поэтому у&nbsp;неё свой раздел</p><ul><li>Заснеженные и&nbsp;зелёные</li><li>Высота</li><li>Гирлянда к&nbsp;ёлке</li></ul></div>
+    </article>
+  </div>
+  <div class="foot"><span>Cosy Home · набросок, фото из&nbsp;вашего Instagram</span><span><b>FOR.MI</b></span></div>
+</section>
+
+<!-- 4. блоки 07–09 и что дальше -->
+<section class="slide" id="s4">
+  <div class="top"><img src="img/logo.jpg" alt=""><div><b>COSY HOME</b><small>структура каталога</small></div><span class="pg">4 / 4</span></div>
+  <div class="blocks" style="gap:16px;margin-top:26px">
+    <article class="blk">
+      <div class="wf" style="grid-template-columns:1.05fr .95fr;align-items:center">
+        <div class="wcard" style="padding:10px;gap:7px">
+          <div class="wrow" style="background:var(--bg)"><span class="ph" style="width:22px;height:22px;border-radius:6px;background-image:url(img/medvedi.jpg)"></span><span class="ln"></span><b style="font-size:12px">×2</b></div>
+          <div class="wrow" style="background:var(--bg)"><span class="ph" style="width:22px;height:22px;border-radius:6px;background-image:url(img/feya.jpg)"></span><span class="ln"></span><b style="font-size:12px">×1</b></div>
+          <span class="pl" style="height:15px;background:var(--bg);border:1px solid var(--line)"></span>
+          <span class="pl w" style="height:16px"></span>
+        </div>
+        <div class="bub"><span class="ln h"></span><span class="ln"></span><span class="ln" style="width:80%"></span><span class="ln" style="width:70%"></span><span class="ln" style="width:50%"></span></div>
+      </div>
+      <div class="txt"><span class="no">07</span><h3>Заказ в&nbsp;WhatsApp</h3><p class="why">Вам приходит готовый заказ, а&nbsp;не&nbsp;«сколько стоит медведь?»</p><ul><li>Список и&nbsp;количество</li><li>Город доставки</li></ul></div>
+    </article>
+    <article class="blk">
+      <div class="wf" style="grid-template-columns:1.4fr 1fr;align-items:center">
+        <svg viewBox="0 0 160 90" style="width:100%;height:auto" aria-hidden="true"><path d="M30 52C52 50 64 22 100 24s38 30 48 26" fill="none" stroke="#76695F" stroke-width="2" stroke-dasharray="4 5"/><path d="M30 52C60 70 96 66 136 70" fill="none" stroke="#76695F" stroke-width="2" stroke-dasharray="4 5"/><path d="M30 52C40 36 52 18 74 14" fill="none" stroke="#76695F" stroke-width="2" stroke-dasharray="4 5"/><circle cx="30" cy="52" r="8" fill="#76563F"/><circle cx="148" cy="50" r="5" fill="#2A2420"/><circle cx="136" cy="70" r="5" fill="#2A2420"/><circle cx="74" cy="14" r="5" fill="#2A2420"/></svg>
+        <div class="wcard" style="padding:10px;gap:7px"><span class="ln" style="width:70%"></span><span class="ln a" style="width:50%;height:11px"></span><span class="ln" style="width:85%"></span></div>
+      </div>
+      <div class="txt"><span class="no">08</span><h3>Доставка по&nbsp;России</h3><p class="why">Ответ на&nbsp;«а&nbsp;в&nbsp;Казань привезёте?» без переписки</p><ul><li>Срок и&nbsp;стоимость</li><li>Упаковка хрупкого</li></ul></div>
+    </article>
+    <article class="blk">
+      <div class="wf" style="grid-template-rows:auto 1fr">
+        <div style="display:flex;gap:4px"><span class="pl a" style="width:28%;height:15px"></span><span class="pl s" style="width:22%;height:15px"></span><span class="pl s" style="width:28%;height:15px"></span></div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px">
+          <div class="wcard" style="padding:9px;gap:6px"><span style="font-size:12px;letter-spacing:1px;color:#C9A227">★★★★★</span><span class="ln"></span><span class="ln" style="width:70%"></span><span class="ln" style="width:85%"></span></div>
+          <div class="wcard" style="padding:9px;gap:6px"><span style="font-size:12px;letter-spacing:1px;color:#C9A227">★★★★★</span><span class="ln"></span><span class="ln" style="width:60%"></span></div>
+          <div class="wcard" style="padding:9px;gap:6px;align-content:center"><b style="color:var(--acc);font-size:17px">+</b><span class="ln"></span><b style="color:var(--acc);font-size:17px">+</b><span class="ln" style="width:70%"></span></div>
+        </div>
+      </div>
+      <div class="txt"><span class="no">09</span><h3>Отзывы и&nbsp;вопросы</h3><p class="why">Хайлайт «Отзывы» и&nbsp;частые вопросы на&nbsp;одной странице</p><ul><li>Отзывы из&nbsp;сторис</li><li>Оплата и&nbsp;возврат</li></ul></div>
+    </article>
+  </div>
+  <div class="next">
+    <div><small>1</small><b>Утверждаем структуру</b></div>
+    <div><small>2</small><b>Собираем прайс в&nbsp;таблицу</b></div>
+    <div><small>3</small><b>Каталог готов за&nbsp;<span style="white-space:nowrap">7–10&nbsp;дней</span></b></div>
+  </div>
+  <div class="foot" style="padding-top:18px"><span>Cosy Home · набросок, фото из&nbsp;вашего Instagram</span><span><b>FOR.MI</b></span></div>
+</section>
+
+</body>
+</html>
