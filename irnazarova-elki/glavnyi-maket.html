@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080">
+<title>Главный экран · макет</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap">
+<style>
+/* Картинка 1080×1350 для WhatsApp: ноутбук и телефон с главным экраном, три подписи */
+:root{--bg:#F6F1E6;--paper:#FFFDF8;--ink:#16231D;--muted:#56645B;--line:#E3D9C5;--pine:#17382D;--gold:#B5862F;--gold-l:#EBD7A8;--gold-t:#F6ECD3;--font:"Onest",system-ui,sans-serif;--serif:"Playfair Display",Georgia,serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#999;font-family:var(--font);color:var(--ink);-webkit-font-smoothing:antialiased}
+.slide{width:1080px;height:1350px;background:var(--bg);position:relative;overflow:hidden;display:flex;flex-direction:column;padding:64px 64px 0}
+.slide::before{content:"";position:absolute;inset:0 0 auto 0;height:10px;background:linear-gradient(90deg,var(--pine),#2F6650 60%,var(--gold))}
+.top{display:flex;justify-content:space-between;align-items:center}
+.who{display:flex;align-items:center;gap:14px;font-size:24px;font-weight:700}
+.who i{width:52px;height:52px;border-radius:50%;background:var(--pine);display:grid;place-items:center}
+.who i svg{width:26px;height:32px}
+.who small{display:block;font-size:19px;font-weight:500;color:var(--muted);margin-top:1px}
+.tag{font-size:19px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);border:2px solid var(--gold-l);border-radius:999px;padding:9px 18px;background:var(--paper)}
+h1{font-family:var(--serif);font-weight:700;font-size:62px;line-height:1.05;color:var(--pine);margin-top:38px}
+h1 em{font-style:normal;color:var(--gold)}
+.stage{position:relative;flex:1;margin-top:34px}
+.laptop{position:absolute;left:-4px;top:0;width:840px}
+.lid{background:#1B1D1F;border-radius:22px 22px 6px 6px;padding:14px 14px 18px;box-shadow:0 30px 60px -30px rgb(0 0 0 / .45)}
+.lid img{width:100%;display:block;border-radius:6px}
+.base{height:22px;margin:0 -34px;background:linear-gradient(180deg,#D9D6D0,#B9B5AE);border-radius:0 0 18px 18px;position:relative}
+.base::before{content:"";position:absolute;left:50%;top:0;transform:translateX(-50%);width:130px;height:8px;background:#A9A49C;border-radius:0 0 8px 8px}
+.phone{position:absolute;right:-6px;top:268px;width:292px;background:#121314;border-radius:46px;padding:11px;box-shadow:0 40px 70px -30px rgb(0 0 0 / .55),0 0 0 2px #2A2C2E inset}
+.phone img{width:100%;display:block;border-radius:36px}
+.notes{position:absolute;left:0;top:640px;width:610px;display:grid;gap:14px;counter-reset:n}
+.notes div{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start}
+.notes div::before{counter-increment:n;content:counter(n);width:44px;height:44px;border-radius:50%;background:var(--gold-t);color:var(--gold);font-weight:800;font-size:22px;display:grid;place-items:center}
+.notes b{display:block;font-size:26px;line-height:1.2}
+.notes span{font-size:21px;color:var(--muted);line-height:1.3}
+.foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;border-top:2px solid var(--line);padding:22px 0 30px;font-size:20px;color:var(--muted)}
+.foot b{color:var(--ink);letter-spacing:.06em}
+</style>
+</head>
+<body>
+<section class="slide" id="m">
+  <div class="top">
+    <div class="who"><i><svg viewBox="0 0 100 124" aria-hidden="true"><path d="M50 4 72 38H62l20 30H68l22 36H10l22-36H18l20-30H28z" fill="#D3A548"/><rect x="45" y="104" width="10" height="16" rx="2" fill="#D3A548"/></svg></i><div>irnazarova_elki<small>литые премиум ёлки</small></div></div>
+    <div class="tag">Главный экран</div>
+  </div>
+  <h1>Первое, что видит покупатель: <em>ёлка, высота и&nbsp;цена</em></h1>
+  <div class="stage">
+    <div class="laptop"><div class="lid"><img src="glavnyi-noutbuk.png" alt=""></div><div class="base"></div></div>
+    <div class="notes">
+      <div><p><b>Цена «от 11&nbsp;700&nbsp;₽» сразу</b><span>без Telegram-канала и&nbsp;вопроса «сколько стоит»</span></p></div>
+      <div><p><b>Модель и&nbsp;высота в&nbsp;одно касание</b><span>Царская или Королевская, цена меняется на&nbsp;глазах</span></p></div>
+      <div><p><b>«В&nbsp;корзину», и&nbsp;заказ у&nbsp;вас</b><span>с&nbsp;гирляндой и&nbsp;доставкой, одним сообщением в&nbsp;WhatsApp</span></p></div>
+    </div>
+    <div class="phone"><img src="glavnyi-telefon.png" alt=""></div>
+  </div>
+  <div class="foot"><span><b>FOR.MI</b> · набросок для&nbsp;Зулфии</span><span>ноутбук и&nbsp;телефон</span></div>
+</section>
+</body>
+</html>
