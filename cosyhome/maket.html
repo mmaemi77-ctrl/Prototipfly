@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080">
+<title>Cosy Home · главный экран</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Manrope:wght@500;600;700;800&display=swap">
+<style>
+/* Layout: один макет 1080×1350 для директа и WhatsApp. Сверху ноутбук во всю ширину, снизу слева телефон поверх ноутбука, справа от телефона три коротких пункта */
+:root{--bg:#F7F4EF;--ink:#2A2420;--muted:#76695F;--acc:#76563F;--tint:#EFE4D7;--display:"Cormorant Garamond","Times New Roman",serif;--font:"Manrope",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:#D9D2C9;font-family:var(--font);color:var(--ink);-webkit-font-smoothing:antialiased;font-variant-numeric:lining-nums}
+p,h1{margin:0}
+.slide{width:1080px;height:1350px;margin:0 auto;position:relative;overflow:hidden;background:radial-gradient(120% 70% at 50% 0%,#FFFFFF 0%,var(--bg) 55%,var(--tint) 100%)}
+.top{position:absolute;left:60px;right:60px;top:56px;display:flex;align-items:center;gap:16px}
+.top img{width:62px;height:62px;border-radius:50%}
+.top b{font-family:var(--display);font-weight:600;font-size:30px;letter-spacing:.16em;line-height:1}
+.top small{display:block;font-size:17px;font-weight:600;color:var(--muted);margin-top:5px}
+.top .tag{margin-left:auto;font-size:17px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--acc)}
+
+/* ноутбук */
+.laptop{position:absolute;left:50px;top:170px;width:980px}
+.lid{background:#1E1B19;border-radius:26px 26px 6px 6px;padding:18px 18px 22px;box-shadow:0 40px 80px -40px rgb(50 35 25 / .55)}
+.lid::before{content:"";display:block;width:8px;height:8px;border-radius:50%;background:#3A3532;margin:-10px auto 4px}
+.screen{aspect-ratio:16/10;border-radius:6px;overflow:hidden;background:#FFFFFF center top/cover no-repeat}
+.base{height:26px;margin:0 -40px;background:linear-gradient(#D8D2CB,#B9B1A8);border-radius:0 0 22px 22px;position:relative}
+.base::before{content:"";position:absolute;left:50%;top:0;width:150px;height:9px;transform:translateX(-50%);background:#A39A90;border-radius:0 0 10px 10px}
+
+/* телефон */
+.phone{position:absolute;left:66px;top:596px;width:340px;background:#1E1B19;border-radius:56px;padding:13px;box-shadow:0 40px 70px -24px rgb(40 28 20 / .6),0 0 0 2px #3A3532 inset}
+.phone .scr{aspect-ratio:780/1688;border-radius:44px;overflow:hidden;background:#2A2420 center 42px/100% auto no-repeat;position:relative}
+.phone .scr::before{content:"";position:absolute;left:50%;top:10px;width:96px;height:28px;transform:translateX(-50%);background:#1E1B19;border-radius:999px}
+
+/* пункты справа от телефона */
+.side{position:absolute;left:472px;right:60px;top:900px;display:grid;gap:22px}
+.side h1{font-family:var(--display);font-weight:600;font-size:56px;line-height:1}
+.side h1 em{font-style:italic;font-weight:500;color:var(--acc)}
+.pts{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.pts li{display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:center;font-size:25px;font-weight:700;line-height:1.25}
+.pts i{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-family:var(--display);font-weight:600;font-size:24px;background:var(--acc);color:#FFFFFF}
+.note{font-size:18px;font-weight:600;color:var(--muted)}
+</style>
+</head>
+<body>
+<section class="slide" id="m">
+  <div class="top"><img src="img/logo.jpg" alt=""><div><b>COSY HOME</b><small>главный экран каталога</small></div><span class="tag">Набросок</span></div>
+  <div class="laptop"><div class="lid"><div class="screen" style="background-image:url(img/ekran-noutbuk.jpg)"></div></div><div class="base"></div></div>
+  <div class="phone"><div class="scr" style="background-image:url(img/ekran-telefon.jpg)"></div></div>
+  <div class="side">
+    <h1>На телефоне <em>и&nbsp;на&nbsp;компьютере</em></h1>
+    <ul class="pts">
+      <li><i>1</i>Первыми овечки, символ года</li>
+      <li><i>2</i>Цена и&nbsp;наличие сразу видно</li>
+      <li><i>3</i>Заказ одной кнопкой в&nbsp;WhatsApp</li>
+    </ul>
+    <p class="note">Фото из&nbsp;вашего Instagram, цены подставим из&nbsp;прайса</p>
+  </div>
+</section>
+</body>
+</html>
