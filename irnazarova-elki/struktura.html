@@ -230,7 +230,7 @@ h1 em{font-style:normal;color:var(--gold)}
     <!-- 04 гирлянды -->
     <article class="blk">
       <div class="wf" style="grid-template-columns:.8fr 1.2fr;align-items:stretch">
-        <div class="ph" style="background:linear-gradient(180deg,#22392F,#17382D)"><svg aria-hidden="true"><use href="#tree-lights"/></svg></div>
+        <div class="ph" style="background:linear-gradient(180deg,#22392F,#17382D)" data-photo="garland"><svg aria-hidden="true"><use href="#tree-lights"/></svg></div>
         <div style="display:grid;gap:7px;align-content:center">
           <div class="row"><span class="chipw on">Тёплый</span><span class="chipw">Холодный</span></div>
           <div class="card" style="grid-template-columns:1fr auto;align-items:center;padding:7px 9px"><span class="mini">Для 180–210&nbsp;см</span><span class="dot" style="background:#F5C95A"></span></div>
@@ -259,7 +259,7 @@ h1 em{font-style:normal;color:var(--gold)}
       <div class="wf" style="grid-template-columns:1.1fr .9fr;align-items:stretch">
         <div style="display:grid;gap:6px;align-content:center">
           <div class="card" style="grid-template-columns:30px 1fr auto;align-items:center;padding:6px 8px"><div class="ph" style="height:34px" data-photo="carskaya"><svg aria-hidden="true"><use href="#tree"/></svg></div><span class="ln" style="width:85%;height:7px"></span><span class="price" style="font-size:12px">27&nbsp;000&nbsp;₽</span></div>
-          <div class="card" style="grid-template-columns:30px 1fr auto;align-items:center;padding:6px 8px"><div class="ph" style="height:34px;background:linear-gradient(180deg,#22392F,#17382D)"><svg aria-hidden="true"><use href="#tree-lights"/></svg></div><span class="ln" style="width:70%;height:7px"></span><span class="price" style="font-size:12px">прайс</span></div>
+          <div class="card" style="grid-template-columns:30px 1fr auto;align-items:center;padding:6px 8px"><div class="ph" style="height:34px;background:linear-gradient(180deg,#22392F,#17382D)" data-photo="garland"><svg aria-hidden="true"><use href="#tree-lights"/></svg></div><span class="ln" style="width:70%;height:7px"></span><span class="price" style="font-size:12px">прайс</span></div>
           <div class="card" style="padding:7px 9px"><span class="mini" style="color:var(--pine)">Город: Казань</span></div>
         </div>
         <div style="display:grid;gap:7px;align-content:center">
@@ -276,8 +276,8 @@ h1 em{font-style:normal;color:var(--gold)}
     <article class="blk">
       <div class="wf" style="grid-template-columns:repeat(3,1fr);align-items:stretch">
         <div class="ph" style="background:linear-gradient(180deg,#E9E1D2,#D9CDB6)" data-photo="unbox"><svg aria-hidden="true" style="width:60%"><use href="#tree"/></svg><span class="play"><svg viewBox="0 0 10 10"><path d="M2 1l7 4-7 4z"/></svg></span></div>
-        <div class="ph" data-photo="korolevskaya"><svg aria-hidden="true"><use href="#tree"/></svg><span class="play"><svg viewBox="0 0 10 10"><path d="M2 1l7 4-7 4z"/></svg></span></div>
-        <div class="ph" style="background:linear-gradient(180deg,#22392F,#17382D)"><svg aria-hidden="true"><use href="#tree-lights"/></svg><span class="play"><svg viewBox="0 0 10 10"><path d="M2 1l7 4-7 4z"/></svg></span></div>
+        <div class="ph" data-photo="obzor"><svg aria-hidden="true"><use href="#tree"/></svg><span class="play"><svg viewBox="0 0 10 10"><path d="M2 1l7 4-7 4z"/></svg></span></div>
+        <div class="ph" style="background:linear-gradient(180deg,#22392F,#17382D)" data-photo="decor"><svg aria-hidden="true"><use href="#tree-lights"/></svg><span class="play"><svg viewBox="0 0 10 10"><path d="M2 1l7 4-7 4z"/></svg></span></div>
       </div>
       <div class="txt"><span class="no">06</span><h3>Распаковка и&nbsp;сборка</h3><p class="why">Ваши рилс показывают, как приходит коробка и&nbsp;собирается ёлка</p><div class="chips"><span>Распаковка Царской</span><span>Обзор Королевской 270</span></div></div>
     </article>
@@ -329,7 +329,10 @@ const PHOTOS={
   hero:["img/carskaya-1.jpg","70% 45%"],
   carskaya:["img/carskaya-tree.jpg","50% 40%"],
   snow:["img/snow.jpg","50% 50%"],
-  korolevskaya:["img/korolevskaya.jpg","50% 50%"],
+  korolevskaya:["img/korolevskaya.jpg","50% 30%"],
+  garland:["img/garland.jpg","50% 40%"],
+  decor:["img/decor.jpg","45% 50%"],
+  obzor:["img/obzor.jpg","62% 40%"],
   unbox:["img/unbox.jpg","50% 50%"]
 };
 document.querySelectorAll("[data-photo]").forEach(el=>{
