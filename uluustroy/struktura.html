@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>УлууСтрой · структура</title>
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&display=swap">
+<style>
+/* Две картинки 4:5 (540×675, снимаются в 2x = 1080×1350) для директа: графитово-оливковый, кремовый и золотистый, как логотип и аватар УлууСтрой */
+:root{
+  --olive:#2E2F28;--olive2:#3A3C33;--sage:#7F8469;--sage-hi:#B9BD9F;
+  --cream:#EEEFD2;--paper:#F6F5EC;--tint:#ECEBD9;--ink:#24251F;--muted:#62655A;--dim:#8C8F80;--line:#E0E0CC;
+  --gold:#C8923F;--gold-hi:#E0AE5E;--gold-ink:#241A0A;--gold-tint:#F6E9D2;
+  --font:"Onest",system-ui,sans-serif;--display:"Unbounded","Onest",sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#2A2A2A;font-family:var(--font);color:var(--ink);-webkit-font-smoothing:antialiased;display:grid;gap:24px;justify-content:center;padding:24px 0}
+h1,h2,h3,p{margin:0}
+.slide{width:540px;height:675px;overflow:hidden;background:var(--paper);display:flex;flex-direction:column;position:relative}
+.band{flex:none;background:var(--olive);color:var(--cream);padding:16px 24px 15px;position:relative;isolation:isolate;overflow:hidden}
+.band::before{content:"";position:absolute;inset:0;z-index:-1;background:url(img/karkas-zima.jpg) center 70%/cover;opacity:.35}
+.band::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--olive) 35%,rgb(46 47 40 / .55))}
+.brand{display:flex;align-items:center;gap:9px}
+.brand img{width:32px;height:32px;border-radius:50%}
+.brand b{font-family:var(--display);font-size:13.5px;font-weight:600;line-height:1.1}
+.brand small{display:block;font-size:10.5px;color:var(--sage-hi);font-weight:600}
+.brand .pg{margin-left:auto;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-hi)}
+.band h1{font-family:var(--display);font-weight:600;font-size:19px;line-height:1.22;margin-top:12px;letter-spacing:-.015em}
+.band h1 em{font-style:normal;color:var(--gold-hi)}
+.flow{display:flex;align-items:center;gap:6px;margin-top:12px;font-size:11.5px;font-weight:700}
+.flow span{background:rgb(238 239 210 / .1);border:1px solid rgb(238 239 210 / .2);border-radius:999px;padding:5px 10px;white-space:nowrap}
+.flow span.end{background:var(--gold);border-color:var(--gold);color:var(--gold-ink)}
+.flow i{font-style:normal;color:var(--gold-hi);font-weight:800}
+
+.body{flex:1;min-height:0;padding:12px 18px 12px;display:flex;flex-direction:column;gap:8px}
+.blk{background:#FFFFFF;border:1px solid var(--line);border-radius:18px;padding:8px 12px 8px 8px;display:grid;grid-template-columns:104px minmax(0,1fr);gap:12px;align-items:center}
+.no{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--gold);color:var(--gold-ink);font-size:11px;font-weight:800;flex:none}
+.tt{display:flex;align-items:center;gap:8px}
+.tt h3{font-family:var(--display);font-weight:600;font-size:14px;line-height:1.2;letter-spacing:-.01em}
+.why{font-size:12.5px;line-height:1.38;color:var(--muted);margin-top:4px}
+.why b{color:var(--ink);font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.chips span{font-size:10.5px;font-weight:700;background:var(--tint);border-radius:999px;padding:3px 8px;white-space:nowrap}
+.chips span.c{background:var(--gold-tint);color:#7A5520}
+
+.wf{height:66px;border-radius:11px;overflow:hidden;position:relative}
+.wf.hero{background:linear-gradient(90deg,rgb(46 47 40 / .95) 48%,rgb(46 47 40 / .35)),url(img/karkas-zima.jpg) center/cover;padding:9px 8px;display:grid;grid-template-columns:1fr 40px;gap:6px}
+.ln{display:block;height:4px;border-radius:2px;background:rgb(238 239 210 / .55)}
+.ln.k{background:var(--gold-hi)}
+.pl{display:block;height:9px;border-radius:5px;width:34px;background:var(--gold)}
+.mini-card{background:var(--paper);border-radius:6px;padding:4px;display:grid;gap:3px;align-content:start}
+.mini-card i{display:block;height:6px;border-radius:2px;background:var(--line)}
+.mini-card i.d{background:var(--olive)}
+.mini-card i.g{background:var(--gold)}
+.wf.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:none}
+.wf.trio div{background:center/cover;position:relative;border-radius:7px}
+.wf.trio div span{position:absolute;left:3px;right:3px;bottom:3px;background:rgb(46 47 40 / .85);color:#FFFFFF;font-size:8.5px;font-weight:800;border-radius:4px;text-align:center;padding:1px 0}
+
+/* главный блок: калькулятор */
+.main{background:var(--olive);color:var(--cream);border-radius:20px;padding:11px 12px 12px;display:grid;gap:8px;flex:1;align-content:start}
+.main .tt h3{font-size:15.5px}
+.main .why{color:#C9CBB0;font-size:12.5px;margin-top:0}
+.main .why b{color:#FFFFFF}
+.tag{margin-left:auto;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:var(--gold);color:var(--gold-ink);border-radius:999px;padding:4px 9px}
+.calc{display:grid;grid-template-columns:1.05fr 1fr;gap:8px}
+.cpane{background:var(--paper);color:var(--ink);border-radius:14px;padding:8px;display:grid;gap:5px;align-content:start}
+.cpane .h{font-size:9.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.mats{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.mats div{display:flex;align-items:center;gap:5px;background:#FFFFFF;border:1.5px solid var(--line);border-radius:8px;padding:3px;font-size:10.5px;font-weight:800}
+.mats div.on{border-color:var(--gold)}
+.mats img{width:24px;height:18px;border-radius:4px;object-fit:cover}
+.row{display:flex;gap:4px}
+.row span{flex:1;text-align:center;font-size:9.5px;font-weight:700;border:1.5px solid var(--line);background:#FFFFFF;border-radius:7px;padding:3px 0;white-space:nowrap}
+.row span.on{background:var(--olive);border-color:var(--olive);color:var(--cream)}
+.row span.opt{border-style:dashed}
+.row span.opt.on{background:var(--gold-tint);border:1.5px solid var(--gold);color:var(--ink)}
+.area{display:flex;justify-content:space-between;align-items:center;background:#FFFFFF;border:1.5px solid var(--line);border-radius:8px;padding:3px 9px;font-size:12px;font-weight:800}
+.area i{font-style:normal;color:var(--gold)}
+.sum{background:var(--olive);color:var(--cream);border-radius:9px;padding:6px 8px;display:grid;gap:1px}
+.sum small{font-size:8.5px;color:var(--sage-hi);font-weight:700}
+.sum b{font-family:var(--display);font-size:12.5px;font-weight:600;white-space:nowrap}
+.qs{display:grid;gap:5px}
+.q{display:grid;gap:3px}
+.q p{font-size:9.5px;font-weight:700;color:var(--muted)}
+.btn{background:var(--gold);color:var(--gold-ink);border-radius:8px;text-align:center;padding:5px 0;font-size:10px;font-weight:800}
+.cap{display:flex;gap:6px;flex-wrap:wrap}
+.cap span{font-size:10.5px;font-weight:700;background:rgb(238 239 210 / .1);border:1px solid rgb(238 239 210 / .18);border-radius:999px;padding:3px 9px}
+
+/* слайд 2 */
+.band.sm{padding:16px 24px 14px}
+.band.sm h1{font-size:17px;margin-top:10px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cell{background:#FFFFFF;border:1px solid var(--line);border-radius:16px;padding:9px 10px 10px;display:grid;gap:5px;align-content:start}
+.cell .ph{height:58px;border-radius:9px;background:center/cover}
+.cell .ph3{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;height:58px}
+.cell .ph3 div{border-radius:8px;background:center 8%/cover}
+.cell .ph2{display:grid;grid-template-columns:1fr 1fr;gap:3px;height:58px}
+.cell .ph2 div{border-radius:8px;background:center/cover;position:relative}
+.cell .ph2 div span{position:absolute;left:3px;bottom:3px;background:rgb(46 47 40 / .85);color:#FFFFFF;font-size:8.5px;font-weight:800;border-radius:4px;padding:1px 5px}
+.cell .tt h3{font-size:12.5px}
+.cell .why{font-size:11px;margin-top:0;line-height:1.35}
+.cell .chips{margin-top:0}
+.cell .chips span{font-size:9.5px;padding:2px 7px}
+.msg{background:#DCF5E3;border-radius:12px 12px 12px 4px;padding:7px 9px;font-size:9.5px;line-height:1.4;font-weight:600;color:#0B2A17}
+.msg b{display:block;font-size:8.5px;color:#137A3E;font-weight:800;margin-bottom:2px}
+.sumbox{background:var(--gold);color:var(--gold-ink);border-radius:18px;padding:11px 16px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:center}
+.sumbox svg{width:28px;height:28px}
+.sumbox p{font-size:12.5px;line-height:1.4;font-weight:600}
+.sumbox p b{font-weight:800}
+.foot{display:flex;justify-content:space-between;font-size:10px;color:var(--dim);font-weight:600;margin-top:auto;padding-top:2px}
+.foot b{color:var(--ink);letter-spacing:.06em}
+</style>
+</head>
+<body>
+
+<section class="slide" id="s1">
+  <div class="band">
+    <div class="brand"><img src="img/logo.png" alt=""><span><b>УлууСтрой</b><small>структура сайта</small></span><span class="pg">1 / 2</span></div>
+    <h1>Человек считает свой дом и&nbsp;приходит на&nbsp;консультацию <em>уже с&nbsp;цифрой</em></h1>
+    <div class="flow"><span>Ваш рилс</span><i>→</i><span>Ссылка в&nbsp;шапке</span><i>→</i><span>Расчёт дома</span><i>→</i><span class="end">Заявка в&nbsp;WhatsApp</span></div>
+  </div>
+  <div class="body">
+    <div class="blk">
+      <div class="wf hero">
+        <div style="display:grid;gap:4px;align-content:center"><span class="ln" style="width:55%"></span><span class="ln" style="width:92%;height:6px;background:var(--cream)"></span><span class="ln k" style="width:70%;height:6px"></span><span class="ln" style="width:80%;margin-top:2px"></span><div style="display:flex;gap:3px;margin-top:3px"><span class="pl"></span><span class="pl" style="background:none;box-shadow:inset 0 0 0 1px rgb(238 239 210 / .6)"></span></div></div>
+        <div class="mini-card"><i class="g" style="height:10px"></i><i></i><i class="d"></i><i></i><i class="d" style="height:9px"></i><i class="g"></i></div>
+      </div>
+      <div><div class="tt"><span class="no">1</span><h3>Главный экран</h3></div><p class="why">«Строим надёжные дома в&nbsp;Якутии» и&nbsp;сразу калькулятор. Брус и&nbsp;каркас, под&nbsp;ключ, строим и&nbsp;зимой</p></div>
+    </div>
+    <div class="main">
+      <div class="tt"><span class="no">2</span><h3>Калькулятор и&nbsp;запись</h3><span class="tag">главный блок</span></div>
+      <p class="why">Сначала <b>примерная сумма</b>, потом ваши вопросы из&nbsp;автоответа WhatsApp: <b>участок, проект, ипотека или наличные</b></p>
+      <div class="calc">
+        <div class="cpane">
+          <span class="h">Дом и&nbsp;цена</span>
+          <div class="mats"><div class="on"><img src="img/dom-brus-zima.jpg" alt="">Брус</div><div><img src="img/karkas-foto.jpg" alt="">Каркас</div></div>
+          <div class="area"><i>−</i>100&nbsp;м²<i>+</i></div>
+          <div class="row"><span class="on">1 этаж</span><span>2</span><span>Мансарда</span></div>
+          <div class="row"><span>Коробка</span><span>Контур</span><span class="on">Под&nbsp;ключ</span></div>
+          <div class="row"><span class="opt on">+ Газ и&nbsp;отопление</span></div>
+          <div class="sum"><small>Примерно, пример цен</small><b>6&nbsp;150&nbsp;000 – 6&nbsp;950&nbsp;000&nbsp;₽</b></div>
+        </div>
+        <div class="cpane">
+          <span class="h">Консультация</span>
+          <div class="qs">
+            <div class="q"><p>Есть&nbsp;ли участок?</p><div class="row"><span class="on">Есть</span><span>Ищу</span><span>Нет</span></div></div>
+            <div class="q"><p>Есть&nbsp;ли проект?</p><div class="row"><span>Свой</span><span class="on">Выберу</span><span>Новый</span></div></div>
+            <div class="q"><p>Оплата</p><div class="row"><span class="on">Ипотека</span><span>Наличные</span></div></div>
+          </div>
+          <div class="row"><span>Имя</span><span>Телефон</span></div>
+          <span class="btn">Записаться на&nbsp;консультацию</span>
+        </div>
+      </div>
+    </div>
+    <div class="blk" style="grid-template-columns:132px minmax(0,1fr)">
+      <div class="wf trio"><div style="background-image:url(img/dom-7x9.jpg)"><span>7×9</span></div><div style="background-image:url(img/karkas-foto.jpg)"><span>Каркас</span></div><div style="background-image:url(img/dom-brus-zima.jpg)"><span>Брус</span></div></div>
+      <div><div class="tt"><span class="no">3</span><h3>Готовые дома с&nbsp;ценой</h3></div><p class="why">Дом 7×9 в&nbsp;с.&nbsp;Майя и&nbsp;другие из&nbsp;ленты: площадь, планировка, <b>цена под&nbsp;ключ</b> и&nbsp;«Посчитать такой&nbsp;же»</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s2">
+  <div class="band sm">
+    <div class="brand"><img src="img/logo.png" alt=""><span><b>УлууСтрой</b><small>структура сайта</small></span><span class="pg">2 / 2</span></div>
+    <h1>Ответы, которые вы уже даёте в&nbsp;рилс, <em>собраны на&nbsp;одной странице</em></h1>
+  </div>
+  <div class="body">
+    <div class="grid2">
+      <div class="cell">
+        <div class="ph2"><div style="background-image:url(img/dom-brus-zima.jpg)"><span>Брус</span></div><div style="background-image:url(img/karkas-fasad.jpg)"><span>Каркас</span></div></div>
+        <div class="tt"><span class="no">4</span><h3>Брус или каркас</h3></div>
+        <p class="why">Почему брус двигается, чем тёплый каркас, какие бывают фасады</p>
+      </div>
+      <div class="cell">
+        <div class="ph3"><div style="background-image:url(img/r-smeta.jpg)"></div><div style="background-image:url(img/r-brus.jpg)"></div><div style="background-image:url(img/r-kuhnya.jpg)"></div></div>
+        <div class="tt"><span class="no">5</span><h3>Из&nbsp;чего цена</h3></div>
+        <p class="why">Коробка, тёплый контур, под&nbsp;ключ. Почему меняется смета, рядом ваши рилс</p>
+      </div>
+      <div class="cell">
+        <div class="tt"><span class="no">6</span><h3>Как строим и&nbsp;сроки</h3></div>
+        <div class="chips"><span>Консультация</span><span>Проект и&nbsp;смета</span><span>Договор</span><span>Стройка</span><span>Газ и&nbsp;сдача</span><span class="c">Зимнее строительство</span></div>
+      </div>
+      <div class="cell">
+        <div class="tt"><span class="no">7</span><h3>Ипотека и&nbsp;оплата</h3></div>
+        <div class="chips"><span>Одобренная ипотека</span><span>Наличные</span><span>Документы на&nbsp;участок</span><span>Оплата по&nbsp;этапам</span></div>
+      </div>
+      <div class="cell">
+        <div class="ph" style="background-image:url(img/karkas-foto.jpg)"></div>
+        <div class="tt"><span class="no">8</span><h3>Экскурсия и&nbsp;команда</h3></div>
+        <p class="why">Запись на&nbsp;экскурсию по&nbsp;дому, кто строит, отзывы из&nbsp;2ГИС</p>
+      </div>
+      <div class="cell">
+        <div class="msg"><b>Заявка с&nbsp;сайта</b>Брус, 100&nbsp;м², 1&nbsp;этаж, под&nbsp;ключ<br>Расчёт: 6,15–6,95&nbsp;млн&nbsp;₽<br>Участок есть, проект выберет у&nbsp;вас<br>Ипотека одобрена · Айталина, +7&nbsp;9…</div>
+        <div class="tt"><span class="no">9</span><h3>Вопросы и&nbsp;контакты</h3></div>
+        <p class="why">Офис на&nbsp;карте, WhatsApp, Instagram</p>
+      </div>
+    </div>
+    <div class="sumbox">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h2M12 11h2M16 11h0M8 15h2M12 15h2M8 18h8"/></svg>
+      <p>Человек сам видит примерную сумму и&nbsp;отвечает на&nbsp;ваши вопросы. Вам приходит заявка <b>вместо «сколько будет дом 100&nbsp;метров из&nbsp;бруса?»</b></p>
+    </div>
+    <div class="foot"><span>Подготовила Анастасия Абдуллаева</span><span><b>FOR.MI</b></span></div>
+  </div>
+</section>
+
+</body>
+</html>

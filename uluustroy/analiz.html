@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Разбор для УлууСтрой: сильные стороны, где теряются заявки, кто строит частные дома в Якутске и что видит человек в поиске, задачи сайта и вопросы">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Сайт для УлууСтрой: рынок и конкуренты">
+<meta property="og:description" content="Сильные стороны, где теряются заявки, шесть компаний и сайтов по строительству домов в Якутске и что должен делать сайт">
+<meta property="og:image" content="https://mmaemi77-ctrl.github.io/uluustroy/og-analiz.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2E2F28">
+<title>УлууСтрой · разбор</title>
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&display=swap">
+<style>
+/* Layout: разбор-документ в одну колонку в цветах УлууСтрой. Шапка графитово-оливковая с каркасным домом в снегу, дальше кремовая бумага; карточки только у отдельных объектов: конкуренты, переписка, идеи */
+:root{
+  --olive:#2E2F28;--olive2:#3A3C33;--olive-line:#4A4C41;--sage:#7F8469;--sage-hi:#B9BD9F;
+  --cream:#EEEFD2;--paper:#F6F5EC;--card:#FFFFFF;--tint:#ECEBD9;
+  --ink:#24251F;--muted:#5F6257;--dim:#86897B;--line:#E0E0CC;
+  --gold:#C8923F;--gold-hi:#E0AE5E;--gold-dk:#8A6224;--gold-ink:#241A0A;--gold-tint:#F6E9D2;
+  --font:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --display:"Unbounded","Onest",system-ui,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:16.5px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+.wrap{max-width:900px;margin:0 auto;padding-left:max(clamp(16px,4vw,32px),env(safe-area-inset-left,0px));padding-right:max(clamp(16px,4vw,32px),env(safe-area-inset-right,0px))}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+
+/* шапка */
+.top{position:relative;overflow:hidden;isolation:isolate;background:var(--olive);color:var(--cream)}
+.top::before{content:"";position:absolute;z-index:-2;inset:0 0 0 35%;background:url(img/karkas-zima.jpg) 30% 75%/cover no-repeat;opacity:.8}
+.top::after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,var(--olive) 38%,rgb(46 47 40 / .7) 62%,rgb(46 47 40 / .35))}
+.top .wrap{padding-block:clamp(30px,6vw,56px) clamp(36px,6vw,58px);display:grid;gap:20px}
+.top .eyebrow{color:var(--sage-hi)}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:56px;height:56px;border-radius:50%}
+.brand b{font-family:var(--display);font-weight:600;font-size:18px;line-height:1.1;display:block}
+.brand small{font-size:13px;color:var(--sage-hi)}
+.top h1{font-family:var(--display);font-weight:600;font-size:clamp(28px,4.6vw,48px);line-height:1.1;letter-spacing:-.02em}
+.top h1 em{font-style:normal;color:var(--gold-hi)}
+.top p{max-width:56ch;font-size:clamp(16.5px,1.8vw,19px);color:#D7D8BE}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pills span{display:inline-flex;align-items:center;gap:8px;background:rgb(34 35 30 / .6);border:1px solid rgb(238 239 210 / .18);border-radius:999px;padding:6px 14px;font-weight:600;font-size:14px}
+.pills span::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold-hi)}
+
+/* разделы */
+section{padding-block:clamp(34px,5vw,54px);border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+h2{font-family:var(--display);font-weight:600;font-size:clamp(22px,3vw,32px);line-height:1.18;margin:8px 0 20px;letter-spacing:-.015em}
+h3{font-size:17px;font-weight:700;line-height:1.3}
+.lead{color:var(--muted);max-width:62ch;margin:-6px 0 22px}
+.list{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.list li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;align-items:start}
+.list li::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--gold);margin:9px 0 0 9px}
+.list.plus li::before{content:"✓";width:24px;height:24px;border-radius:50%;background:var(--gold-tint);color:var(--gold-dk);font-weight:800;font-size:13px;display:grid;place-items:center;margin:2px 0 0}
+.list b{font-weight:700}
+.list span{color:#3B3D35}
+
+.key{display:grid;counter-reset:k;background:var(--card);border-radius:22px;border:1px solid var(--line);overflow:hidden}
+.key div{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;padding:18px 20px;border-bottom:1px solid var(--line)}
+.key div:last-child{border-bottom:0}
+.key div::before{counter-increment:k;content:counter(k);font-family:var(--display);font-weight:600;font-size:26px;line-height:1;color:var(--gold)}
+.key b{font-weight:700}
+@media (max-width:600px){.key div{grid-template-columns:26px minmax(0,1fr);padding:16px}.key div::before{font-size:22px}}
+
+.reels{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin-top:24px}
+.reels figure{margin:0;display:grid;gap:6px;align-content:start}
+.reels img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:12px;border:1px solid var(--line)}
+.reels figcaption{font-size:12.5px;line-height:1.3;color:var(--muted)}
+.cap{font-size:13.5px;color:var(--dim);margin-top:10px}
+@media (max-width:680px){.reels{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+.aud{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:680px){.aud{grid-template-columns:1fr}}
+.aud>div{display:grid;gap:8px;align-content:start}
+.aud h3{margin-bottom:4px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:16px 16px 16px 4px;padding:10px 14px;font-weight:500;font-size:15px}
+.q.own{border-color:#E7CFA5;background:var(--gold-tint)}
+.q.own small{display:block;font-size:12px;color:var(--gold-dk);font-weight:700}
+
+.comp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (min-width:861px){.comp{grid-template-columns:repeat(3,minmax(0,1fr))}.cc{padding:16px 17px}}
+@media (max-width:680px){.comp{grid-template-columns:1fr}}
+.cc{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px 20px;display:grid;gap:8px;align-content:start;min-width:0}
+.cc .where{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.cc h3{font-family:var(--display);font-weight:600;font-size:17px;letter-spacing:-.01em}
+.cc a{font-size:14px;font-weight:600;color:var(--gold-dk);text-underline-offset:3px;word-break:break-all}
+.cc p{font-size:15px;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.tags span{font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--tint)}
+.sub-h{font-size:14px;font-weight:700;color:var(--muted);margin:24px 0 12px}
+.sub-h:first-of-type{margin-top:0}
+.small{font-size:13.5px;color:var(--dim);margin-top:14px}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px}
+@media (max-width:680px){.two{grid-template-columns:1fr}}
+.box{border-radius:20px;padding:20px;display:grid;gap:12px;align-content:start}
+.box.norm{background:var(--card);border:1px solid var(--line)}
+.box.gap{background:var(--olive);color:var(--cream)}
+.box h3{font-family:var(--display);font-weight:600;font-size:17px}
+.box ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:15px}
+.box.gap li::marker{color:var(--gold-hi)}
+
+.tasks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 14px}
+@media (max-width:680px){.tasks{grid-template-columns:1fr}}
+.tasks div{border-top:2px solid var(--gold);padding-top:12px;display:grid;gap:4px}
+.tasks p{font-size:15px;color:var(--muted)}
+
+.ba{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:680px){.ba{grid-template-columns:1fr}}
+.chat{background:#EFEADF;border:1px solid var(--line);border-radius:20px;padding:16px;display:grid;gap:8px;align-content:start}
+.chat .lbl{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:4px}
+.b{max-width:88%;padding:8px 12px;border-radius:14px;font-size:14.5px;line-height:1.45;white-space:pre-line}
+.b.in{justify-self:start;background:#FFFFFF;border-bottom-left-radius:4px}
+.b.out{justify-self:end;background:#D9FDD3;border-bottom-right-radius:4px}
+.b.auto small{display:block;font-size:11.5px;font-weight:700;color:var(--dim);margin-bottom:2px}
+.b.wa{justify-self:stretch;max-width:none;background:#D9FDD3;color:#0B2A17;border-bottom-right-radius:4px;display:grid;gap:6px}
+.b.wa b{display:block;font-size:12.5px;color:#137A3E}
+.chat .foot{font-size:13px;color:var(--muted);margin-top:6px}
+
+.ideas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:680px){.ideas{grid-template-columns:1fr}}
+.ideas div{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 18px;display:grid;gap:4px;align-content:start}
+.ideas h3{font-family:var(--display);font-weight:600;font-size:16px;letter-spacing:-.01em}
+.ideas p{font-size:15px;color:var(--muted)}
+
+.qlist{margin:0;padding-left:24px;display:grid;gap:10px}
+.qlist li{padding-left:4px;color:#3B3D35}
+.qlist li::marker{font-weight:800;color:var(--gold)}
+
+footer{background:#22231E;color:#C3C5AA}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding-block:22px;font-size:13.5px}
+footer b{font-weight:800;letter-spacing:.06em;color:var(--cream)}
+.sign{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap}
+.rnd{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--olive2);color:var(--cream)}
+.rnd:hover{background:var(--cream);color:#22231E}
+.rnd svg{width:16px;height:16px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap">
+    <div class="brand"><img src="img/logo.png" alt="" width="56" height="56"><span><b>УлууСтрой</b><small>строительная компания</small></span></div>
+    <div class="eyebrow">Разбор для УлууСтрой · 17&nbsp;ноября 2026</div>
+    <h1>Сайт для УлууСтрой: рынок и&nbsp;<em>конкуренты</em></h1>
+    <p>Посмотрела ваш Instagram, автоответ в&nbsp;WhatsApp и&nbsp;шесть компаний и&nbsp;сайтов, которые первыми видит человек по&nbsp;запросу «строительство домов Якутск». Ниже: что у&nbsp;вас уже работает, где теряются заявки и&nbsp;что должен делать сайт.</p>
+    <div class="pills"><span>Якутск и&nbsp;сёла рядом</span><span>Брус и&nbsp;каркас</span><span>Дома под&nbsp;ключ</span></div>
+  </div>
+</div>
+
+<main class="wrap">
+  <section>
+    <div class="eyebrow">Коротко</div>
+    <h2>Главное в&nbsp;пяти пунктах</h2>
+    <div class="key">
+      <div><p><b>Вы честно рассказываете о&nbsp;стройке, и&nbsp;это редкость.</b> «Почему меняется стоимость сметы», «Брус двигается, честно говорим почему». Карусель про каркасный дом в&nbsp;Якутии собрала 428&nbsp;лайков и&nbsp;178&nbsp;пересылок.</p></div>
+      <div><p>Но после ролика человек всё равно пишет: «сколько будет дом 100&nbsp;метров из&nbsp;бруса и&nbsp;когда можно начать». В&nbsp;ответ автоответ присылает четыре вопроса, а&nbsp;цифры нет ни&nbsp;в&nbsp;шапке, ни&nbsp;в&nbsp;постах с&nbsp;проектами.</p></div>
+      <div><p>В&nbsp;поиске по&nbsp;Якутску первыми стоят сайты-каталоги с&nbsp;ценой за&nbsp;м², проектами и&nbsp;платежом по&nbsp;ипотеке под&nbsp;каждым домом. У&nbsp;части из&nbsp;них в&nbsp;выдаче московский телефон.</p></div>
+      <div><p>Сайта УлууСтрой я в&nbsp;выдаче не&nbsp;нашла. Есть карточка в&nbsp;2ГИС и&nbsp;страница на&nbsp;orgs.biz, но&nbsp;адрес и&nbsp;телефоны там разные.</p></div>
+      <div><p>Сайт делается за&nbsp;7–10 дней: калькулятор по&nbsp;площади и&nbsp;материалу, готовые дома с&nbsp;ценой и&nbsp;запись на&nbsp;консультацию с&nbsp;вашими четырьмя вопросами. Человек приходит с&nbsp;цифрой, а&nbsp;консультация уходит в&nbsp;детали.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Ваши сильные стороны</div>
+    <h2>Что у&nbsp;вас уже сильное</h2>
+    <ul class="list plus">
+      <li><span><b>«Строим надёжные дома. Рассказываем о&nbsp;строительстве».</b> Вы не&nbsp;прячете неудобные темы: смета может поменяться, брус двигается. Тому, кто боится доплат посреди стройки, это объясняет больше, чем любая гарантия.</span></li>
+      <li><span><b>22&nbsp;тыс. подписчиков и&nbsp;773&nbsp;публикации.</b> Каркасный дом с&nbsp;плоской крышей, гибкая керамика, клик-фальц и&nbsp;фиброцемент вызвали 30&nbsp;комментариев: людям интересно, что в&nbsp;Якутии можно строить не&nbsp;только «как у&nbsp;всех».</span></li>
+      <li><span><b>Два материала в&nbsp;одних руках.</b> Вы строите и&nbsp;из&nbsp;бруса, и&nbsp;каркасные дома, поэтому можете честно сравнить их для&nbsp;конкретного участка и&nbsp;бюджета.</span></li>
+      <li><span><b>Стройка зимой.</b> Пост «Строить сейчас или ждать?» отвечает на&nbsp;вопрос «когда можно начать» раньше, чем его зададут.</span></li>
+      <li><span><b>Автоответ в&nbsp;WhatsApp уже задаёт правильные вопросы.</b> Участок, что строить, проект, ипотека или наличные. Это готовая анкета, сайт просто поставит её после расчёта.</span></li>
+      <li><span><b>«Экскурсия» и&nbsp;«Наша команда» в&nbsp;сторис.</b> Дом можно показать вживую, а&nbsp;людей, которые его строят, по&nbsp;именам. В&nbsp;отзывах в&nbsp;2ГИС пишут: «у&nbsp;нас голова не&nbsp;болела ни&nbsp;о&nbsp;доставке стройматериалов, подключения благоустройства, газового отопления».</span></li>
+    </ul>
+    <div class="reels">
+      <figure><img src="img/r-smeta.jpg" alt="Обложка рилс «Почему меняется стоимость сметы?»"><figcaption>Почему меняется смета</figcaption></figure>
+      <figure><img src="img/r-brus.jpg" alt="Обложка рилс «Брус двигается, честно говорим почему»"><figcaption>Брус двигается</figcaption></figure>
+      <figure><img src="img/p-karkas.jpg" alt="Карусель «Каркасный дом в Якутии — мечта, которую можно построить»"><figcaption>Каркасный дом в&nbsp;Якутии</figcaption></figure>
+      <figure><img src="img/p-zima.jpg" alt="Пост «Строить сейчас или ждать? Зимнее строительство»"><figcaption>Зимнее строительство</figcaption></figure>
+      <figure><img src="img/p-7x9.jpg" alt="Пост «Боитесь, что в доме 7×9 семье будет тесно?», одноэтажный дом в селе Майя"><figcaption>Дом 7×9, с.&nbsp;Майя</figcaption></figure>
+      <figure><img src="img/r-kuhnya.jpg" alt="Обложка рилс: сотрудник сидит на полу у кухонного гарнитура"><figcaption>Рилс со&nbsp;стройки</figcaption></figure>
+    </div>
+    <p class="cap">Посты и&nbsp;обложки рилс из&nbsp;вашего Instagram @uluu_stroy</p>
+  </section>
+
+  <section>
+    <div class="eyebrow">Где теряются заявки</div>
+    <h2>Что сейчас мешает</h2>
+    <ul class="list">
+      <li><span>Цены нет нигде: ни&nbsp;«от», ни&nbsp;за&nbsp;м², ни&nbsp;у&nbsp;проекта 7×9 в&nbsp;Майе. Человек пишет за&nbsp;цифрой, а&nbsp;получает анкету из&nbsp;четырёх вопросов. Отвечать на&nbsp;анкету, не&nbsp;зная даже порядка суммы, готов не&nbsp;каждый.</span></li>
+      <li><span>Готовые дома лежат в&nbsp;хайлайтах и&nbsp;в&nbsp;ленте среди 773 публикаций. Через месяц найти «тот одноэтажный 7×9» почти невозможно, и&nbsp;человек снова пишет вам.</span></li>
+      <li><span>Контакты в&nbsp;разных местах не&nbsp;совпадают. В&nbsp;шапке WhatsApp +7&nbsp;924&nbsp;465‑99‑83, в&nbsp;поиске встречаются ещё +7&nbsp;914&nbsp;309‑99‑45 и&nbsp;+7&nbsp;914&nbsp;263‑83‑41, а&nbsp;адрес то&nbsp;Жорницкого,&nbsp;29/2, то&nbsp;33/1.</span></li>
+      <li><span>В&nbsp;2ГИС у&nbsp;карточки стоит пометка, что данные давно не&nbsp;обновлялись. Для&nbsp;стройки на&nbsp;несколько миллионов это лишний повод засомневаться.</span></li>
+      <li><span>Кто ищет «дом из&nbsp;бруса под&nbsp;ключ Якутск» в&nbsp;Яндексе, видит каталоги с&nbsp;ценами и&nbsp;калькуляторами. До&nbsp;ваших честных роликов он не&nbsp;доходит.</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="eyebrow">Клиенты</div>
+    <h2>Что спрашивают перед стройкой</h2>
+    <p class="lead">Две группы вопросов. Сайт отвечает на&nbsp;обе до&nbsp;того, как человек напишет вам, а&nbsp;часть ответов у&nbsp;вас уже снята.</p>
+    <div class="aud">
+      <div><h3>Цена и&nbsp;сроки</h3>
+        <div class="q">Сколько будет дом 100&nbsp;метров из&nbsp;бруса?</div>
+        <div class="q">Когда можно начать?</div>
+        <div class="q own"><small>уже есть ваш пост</small>Строить сейчас или ждать весны?</div>
+        <div class="q">Что входит в&nbsp;«под ключ»: газ, отопление, благоустройство?</div>
+      </div>
+      <div><h3>Материал и&nbsp;деньги</h3>
+        <div class="q">Что лучше для&nbsp;Якутии: брус или каркас?</div>
+        <div class="q own"><small>уже есть ваш рилс</small>Почему брус двигается и&nbsp;что с&nbsp;этим делать?</div>
+        <div class="q own"><small>уже есть ваш рилс</small>Почему смета может поменяться?</div>
+        <div class="q">Можно&nbsp;ли строить в&nbsp;ипотеку?</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Рынок</div>
+    <h2>Кто ещё работает в&nbsp;нише</h2>
+    <p class="sub-h">Местные компании</p>
+    <div class="comp">
+      <div class="cc">
+        <span class="where">Якутск · ул.&nbsp;Кирова, 12</span>
+        <h3>Шишкин Дом</h3>
+        <a href="https://shishkindom-ykt.ru/" target="_blank" rel="noopener">shishkindom-ykt.ru</a>
+        <p>Дома под&nbsp;ключ из&nbsp;бруса и&nbsp;камня, инженерные коммуникации, оформление ипотеки, в&nbsp;том числе Дальневосточной. На&nbsp;Строим.ДОМ.РФ средняя стоимость дома 75&nbsp;м² указана 3,9&nbsp;млн&nbsp;₽. В&nbsp;отзыве в&nbsp;2ГИС: дом под&nbsp;ключ построили за&nbsp;месяц.</p>
+        <div class="tags"><span>Ипотека и&nbsp;ДВИ</span><span>Строим.ДОМ.РФ</span><span>Коммуникации</span></div>
+      </div>
+      <div class="cc">
+        <span class="where">Якутск · ул.&nbsp;Стадухина, 63/1</span>
+        <h3>ИЖС Ипотека</h3>
+        <a href="https://2gis.ru/yakutsk/firm/70000001017837747" target="_blank" rel="noopener">карточка в&nbsp;2ГИС</a>
+        <p>Название уже говорит, с&nbsp;чем приходить. В&nbsp;рекламе в&nbsp;2ГИС: договор на&nbsp;2026&nbsp;год по&nbsp;Дальневосточной ипотеке и&nbsp;СИП-панели на&nbsp;гараж в&nbsp;подарок, скидки за&nbsp;наличный расчёт. Три филиала.</p>
+        <div class="tags"><span>ДВИ</span><span>Подарок к&nbsp;договору</span><span>Скидка за&nbsp;наличные</span></div>
+      </div>
+      <div class="cc">
+        <span class="where">Якутск · ул.&nbsp;Ойунского, 3</span>
+        <h3>Милдом</h3>
+        <a href="https://2gis.ru/yakutsk/search/%D0%9C%D0%B8%D0%BB%D0%B4%D0%BE%D0%BC" target="_blank" rel="noopener">карточка в&nbsp;2ГИС</a>
+        <p>Дома и&nbsp;гаражи из&nbsp;СИП-панелей, домокомплекты. До&nbsp;30&nbsp;сентября шла акция «дом и&nbsp;гараж за&nbsp;1&nbsp;500&nbsp;000&nbsp;₽». Оценка 5 по&nbsp;18 отзывам.</p>
+        <div class="tags"><span>Цена в&nbsp;рекламе</span><span>Комплект «дом + гараж»</span></div>
+      </div>
+    </div>
+    <p class="sub-h">Что видит человек в&nbsp;поиске «строительство домов Якутск»</p>
+    <div class="comp">
+      <div class="cc">
+        <span class="where">Сайт-каталог · телефон московский</span>
+        <h3>СтройДом</h3>
+        <a href="https://stroydom-yakutsk.ru/catalog/" target="_blank" rel="noopener">stroydom-yakutsk.ru</a>
+        <p>Каталог проектов с&nbsp;названиями: «Триумф», «Юнона», «Скала», 141–214&nbsp;м² за&nbsp;6,1–7,2&nbsp;млн&nbsp;₽. Под каждым проектом платёж по&nbsp;ипотеке, от&nbsp;25–30&nbsp;тыс.&nbsp;₽ в&nbsp;месяц. Онлайн-калькулятор, в&nbsp;выдаче номер +7&nbsp;499.</p>
+        <div class="tags"><span>Платёж в&nbsp;месяц</span><span>Калькулятор</span><span>Проекты с&nbsp;ценой</span></div>
+      </div>
+      <div class="cc">
+        <span class="where">Сайт-каталог по&nbsp;Якутску</span>
+        <h3>Строительство домов 14</h3>
+        <a href="https://stroitelstvo-domov14.ru/" target="_blank" rel="noopener">stroitelstvo-domov14.ru</a>
+        <p>Каталог загородных проектов с&nbsp;планировками, у&nbsp;части проектов метка «В&nbsp;ипотеку». Дома из&nbsp;бревна от&nbsp;19&nbsp;500&nbsp;₽ за&nbsp;м², домокомплекты от&nbsp;329&nbsp;940&nbsp;₽.</p>
+        <div class="tags"><span>Метка «В&nbsp;ипотеку»</span><span>Цена за&nbsp;м²</span><span>Домокомплекты</span></div>
+      </div>
+      <div class="cc">
+        <span class="where">Сайт-каталог по&nbsp;Якутску</span>
+        <h3>TGV-Строй</h3>
+        <a href="https://yakutsk.tgv-stroy.ru/stroitelstvo-domov/iz-brusa/" target="_blank" rel="noopener">yakutsk.tgv-stroy.ru</a>
+        <p>Отдельная страница «дома из&nbsp;бруса под&nbsp;ключ в&nbsp;Якутске»: от&nbsp;61&nbsp;000&nbsp;₽ за&nbsp;м², гарантия до&nbsp;5&nbsp;лет, срок от&nbsp;1&nbsp;месяца, готовые проекты.</p>
+        <div class="tags"><span>Цена за&nbsp;м²</span><span>Гарантия</span><span>Срок</span></div>
+      </div>
+    </div>
+    <p class="small">Описания собраны по&nbsp;открытым данным, карточкам 2ГИС и&nbsp;поисковой выдаче на&nbsp;17&nbsp;ноября 2026. Цены и&nbsp;условия у&nbsp;компаний могли измениться.</p>
+    <div class="two">
+      <div class="box norm"><h3>Что стало нормой</h3><ul><li>Цена «от», за&nbsp;м² или у&nbsp;каждого проекта</li><li>Ипотека и&nbsp;ДВИ прямо в&nbsp;рекламе и&nbsp;карточке проекта</li><li>Платёж в&nbsp;месяц вместо полной суммы</li><li>Подарок или скидка за&nbsp;договор</li><li>Каталог проектов с&nbsp;планировками</li></ul></div>
+      <div class="box gap"><h3>Чего я у&nbsp;них не&nbsp;встретила</h3><ul><li>Честного рассказа про минусы материала, как ваше «брус двигается»</li><li>Сравнения бруса и&nbsp;каркаса от&nbsp;компании, которая строит из&nbsp;обоих</li><li>Расчёта под&nbsp;ключ сразу с&nbsp;газом и&nbsp;отоплением</li><li>Записи на&nbsp;экскурсию по&nbsp;готовому дому</li><li>Видео людей, которые будут строить</li></ul></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Задачи</div>
+    <h2>Что должен делать ваш сайт</h2>
+    <div class="tasks">
+      <div><h3>Считать дом</h3><p>Брус или каркас, площадь, этажи, коробка, тёплый контур или под&nbsp;ключ. Вилка цены за&nbsp;минуту, по&nbsp;вашим ставкам.</p></div>
+      <div><h3>Задавать ваши четыре вопроса</h3><p>Участок, проект, ипотека или наличные. Ответы приходят вам в&nbsp;WhatsApp вместе с&nbsp;расчётом одним сообщением.</p></div>
+      <div><h3>Показывать готовые дома</h3><p>Дом 7×9 в&nbsp;Майе и&nbsp;другие: площадь, планировка, цена под&nbsp;ключ и&nbsp;кнопка «Посчитать такой&nbsp;же».</p></div>
+      <div><h3>Честно сравнивать материалы</h3><p>Почему брус двигается, чем тёплый каркас, какие бывают фасады. Рядом с&nbsp;ответом ваш рилс.</p></div>
+      <div><h3>Записывать на&nbsp;консультацию и&nbsp;экскурсию</h3><p>День и&nbsp;время, офис или выезд в&nbsp;готовый дом. Без&nbsp;звонков туда-сюда.</p></div>
+      <div><h3>Находиться в&nbsp;поиске</h3><p>По&nbsp;запросам «дом из&nbsp;бруса Якутск», «каркасный дом под&nbsp;ключ Якутск», плюс ссылка в&nbsp;шапке Instagram и&nbsp;в&nbsp;WhatsApp.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Пример</div>
+    <h2>Было и&nbsp;стало</h2>
+    <p class="lead">Так обычно выглядит путь от&nbsp;первого вопроса до&nbsp;консультации, и&nbsp;так он выглядит с&nbsp;сайтом.</p>
+    <div class="ba">
+      <div class="chat">
+        <span class="lbl">Сейчас</span>
+        <div class="b in">Здравствуйте! Сколько будет дом 100&nbsp;метров из&nbsp;бруса? И&nbsp;когда можно начать?</div>
+        <div class="b out auto"><small>автоответ</small>Спасибо за&nbsp;обращение в&nbsp;УлууСтрой! Пожалуйста, ответьте на&nbsp;эти вопросы: 1.&nbsp;Есть&nbsp;ли у&nbsp;Вас земельный участок? 2.&nbsp;Что хотите построить?…</div>
+        <div class="b in">Участок есть. А&nbsp;примерно сколько?</div>
+        <p class="foot">Человек хотел цифру, а&nbsp;получил анкету. Сумму он узнает, когда менеджер освободится, а&nbsp;пока может написать в&nbsp;другую компанию.</p>
+      </div>
+      <div class="chat">
+        <span class="lbl">С&nbsp;сайтом</span>
+        <div class="b wa"><b>Заявка с&nbsp;сайта УлууСтрой</b>• Брус, 100&nbsp;м², 1&nbsp;этаж, под&nbsp;ключ, газ и&nbsp;отопление
+• Расчёт на&nbsp;сайте: 6&nbsp;150&nbsp;000 – 6&nbsp;950&nbsp;000&nbsp;₽
+• Участок есть, проект выберет у&nbsp;вас
+• Оплата: ипотека одобрена
+• Айталина, +7&nbsp;9…</div>
+        <p class="foot">Одно сообщение, все ответы уже внутри. Консультация сразу уходит в&nbsp;детали. Цифры в&nbsp;примере условные, на&nbsp;сайте будут ваши.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Идеи</div>
+    <h2>Что можно предложить вашим клиентам</h2>
+    <p class="lead">Это варианты на&nbsp;обсуждение, берите то, что подходит.</p>
+    <div class="ideas">
+      <div><h3>Дом 7×9 с&nbsp;ценой «от»</h3><p>Один готовый проект с&nbsp;суммой под&nbsp;ключ прямо на&nbsp;главном. Вопрос «сколько примерно» закрывается до&nbsp;переписки, а&nbsp;пост «боитесь, что будет тесно?» ведёт на&nbsp;планировку.</p></div>
+      <div><h3>Место в&nbsp;графике на&nbsp;весну</h3><p>Кто считает дом зимой, бронирует начало стройки. Плашка на&nbsp;первом экране до&nbsp;марта и&nbsp;ответ на&nbsp;«когда можно начать».</p></div>
+      <div><h3>Экскурсия по&nbsp;субботам</h3><p>Запись на&nbsp;сайте в&nbsp;готовый дом из&nbsp;бруса или каркаса. Человек трогает стены и&nbsp;знакомится с&nbsp;командой до&nbsp;договора.</p></div>
+      <div><h3>Памятка «Что подготовить к&nbsp;стройке»</h3><p>Ваши четыре вопроса превращаются в&nbsp;короткий гид: участок, проект, ипотека. Человек оставляет телефон, чтобы её получить.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Вопросы</div>
+    <h2>Что нужно уточнить</h2>
+    <ol class="qlist">
+      <li>Можно&nbsp;ли показывать на&nbsp;сайте цены «от»? Вам удобнее за&nbsp;м² по&nbsp;брусу и&nbsp;каркасу или за&nbsp;готовые проекты? Что входит в&nbsp;коробку, тёплый контур и&nbsp;«под ключ»?</li>
+      <li>Газ, отопление и&nbsp;благоустройство входят в&nbsp;«под ключ» или считаются отдельно?</li>
+      <li>Какие проекты с&nbsp;планировками и&nbsp;ценами можно показать, кроме дома 7×9 в&nbsp;Майе? Какой брус используете (профилированный, клеёный), и&nbsp;что за&nbsp;«Super брус» в&nbsp;сторис?</li>
+      <li>Работаете&nbsp;ли с&nbsp;Дальневосточной ипотекой и&nbsp;маткапиталом, помогаете&nbsp;ли с&nbsp;оформлением? В&nbsp;2ГИС я видела такую пометку.</li>
+      <li>Где строите: Якутск, Хатассы, Майя, какие ещё сёла и&nbsp;улусы?</li>
+      <li>Какой адрес офиса и&nbsp;какой телефон ставить на&nbsp;сайт? Сейчас встречаются Жорницкого, 29/2 и&nbsp;33/1 и&nbsp;три разных номера.</li>
+      <li>Можно&nbsp;ли писать, сколько лет вы строите и&nbsp;сколько домов сдали? По&nbsp;реестру компания работает с&nbsp;2018&nbsp;года.</li>
+      <li>Как проходит экскурсия: в&nbsp;какой дом, по&nbsp;каким дням? Кого из&nbsp;команды показать на&nbsp;сайте?</li>
+      <li>Реквизиты ООО «УлууСтрой» для&nbsp;политики конфиденциальности.</li>
+    </ol>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Подготовила Анастасия Абдуллаева</span>
+    <span class="sign"><span><b>FOR.MI</b> designed &amp; developed by ABN</span><a class="rnd" href="https://t.me/abanev_dev" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.4 4.3 2.9 11.5c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.5c.2.6.4.8.9.8s.6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8L22.8 5.8c.3-1.3-.4-1.9-1.4-1.5zM8.6 14.1l9.6-6c.5-.3.9-.1.5.2l-7.8 7.1-.3 3.3-2-4.6z"/></svg></a></span>
+  </div>
+</footer>
+
+</body>
+</html>
