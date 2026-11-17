@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Разбор для Терморум: сильные стороны, где теряются заявки, кто делает парные под ключ в Москве и МО, задачи сайта и вопросы">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Сайт для Терморум: рынок и конкуренты">
+<meta property="og:description" content="Сильные стороны, где теряются заявки, шесть компаний с парными под ключ в Москве и что должен делать сайт">
+<meta property="og:image" content="https://mmaemi77-ctrl.github.io/termorum/og-analiz.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#120E0B">
+<title>Терморум · разбор</title>
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap">
+<style>
+/* Layout: разбор-документ в одну колонку в цветах Терморум. Шапка как стена из реек со светом и линией подсветки под полком; карточки только у отдельных объектов: конкуренты, переписка, идеи */
+:root{
+  --bg:#120E0B;--bg2:#17120E;--surface:#1E1712;--surface2:#281F18;--ink:#F6EDE1;--muted:#BFAE9A;--dim:#8C7A67;--line:#3A2D23;
+  --amber:#E2914A;--amber-hi:#F2B06C;--amber-ink:#1A1109;--tint:#33231A;--wa:#2BBF66;
+  --chat:#14100C;--bubble:#281F18;
+  --font:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --display:"Playfair Display",Georgia,"Times New Roman",serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16.5px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+.wrap{max-width:900px;margin:0 auto;padding-left:max(clamp(16px,4vw,32px),env(safe-area-inset-left,0px));padding-right:max(clamp(16px,4vw,32px),env(safe-area-inset-right,0px))}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--amber-hi);outline-offset:3px}
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* шапка */
+.top{position:relative;overflow:hidden;isolation:isolate;background:linear-gradient(180deg,#24170F,#120E0B);border-bottom:1px solid var(--line)}
+.top::before{content:"";position:absolute;z-index:-2;inset:0;background:repeating-linear-gradient(90deg,#1A130E 0 30px,#3B2416 30px 32px,#1A130E 32px 34px);opacity:.6;-webkit-mask-image:linear-gradient(180deg,#000,transparent 95%);mask-image:linear-gradient(180deg,#000,transparent 95%)}
+.top::after{content:"";position:absolute;z-index:-1;right:-140px;top:-80px;width:620px;height:460px;background:radial-gradient(closest-side,rgb(226 145 74 / .26),transparent 70%)}
+.led{position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,transparent,var(--amber-hi) 15%,var(--amber-hi) 85%,transparent);box-shadow:0 0 22px 4px rgb(242 176 108 / .45),0 0 70px 14px rgb(226 145 74 / .18)}
+.top .wrap{padding-block:clamp(30px,6vw,56px) clamp(36px,6vw,58px);display:grid;gap:20px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:58px;height:58px;border-radius:50%}
+.brand b{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:.08em;line-height:1.1;display:block}
+.brand small{font-size:13px;color:var(--muted)}
+.top h1{font-family:var(--display);font-weight:700;font-size:clamp(34px,5.4vw,58px);line-height:1.06;letter-spacing:-.01em}
+.top h1 em{font-style:italic;color:var(--amber-hi)}
+.top p{max-width:60ch;font-size:clamp(17px,1.8vw,19px);color:#E3CDB5}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pills span{display:inline-flex;align-items:center;gap:8px;background:rgb(255 255 255 / .06);border:1px solid rgb(255 255 255 / .1);border-radius:999px;padding:6px 14px;font-weight:600;font-size:14px}
+.pills span::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--amber-hi)}
+
+/* разделы */
+section{padding-block:clamp(34px,5vw,54px);border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(25px,3.4vw,36px);line-height:1.12;margin:8px 0 20px}
+h3{font-size:17px;font-weight:700;line-height:1.3}
+.lead{color:var(--muted);max-width:62ch;margin:-6px 0 22px}
+.list{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.list li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;align-items:start}
+.list li::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--amber-hi);margin:9px 0 0 9px}
+.list.plus li::before{content:"✓";width:24px;height:24px;border-radius:50%;background:var(--tint);color:var(--amber-hi);font-weight:800;font-size:13px;display:grid;place-items:center;margin:2px 0 0}
+.list b{font-weight:700}
+.list span{color:#E6D8C7}
+
+.key{display:grid;counter-reset:k;background:var(--surface);border-radius:22px;border:1px solid var(--line);overflow:hidden}
+.key div{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;padding:18px 20px;border-bottom:1px solid var(--line)}
+.key div:last-child{border-bottom:0}
+.key div::before{counter-increment:k;content:counter(k);font-family:var(--display);font-weight:700;font-size:30px;line-height:.95;color:var(--amber-hi)}
+.key b{font-weight:700}
+@media (max-width:600px){.key div{grid-template-columns:26px minmax(0,1fr);padding:16px}.key div::before{font-size:25px}}
+
+.reels{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin-top:24px}
+.reels figure{margin:0;display:grid;gap:6px}
+.reels img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:12px;border:1px solid var(--line)}
+.reels figcaption{font-size:12.5px;line-height:1.3;color:var(--muted)}
+.cap{font-size:13.5px;color:var(--dim);margin-top:10px}
+@media (max-width:680px){.reels{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+.aud{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:680px){.aud{grid-template-columns:1fr}}
+.aud>div{display:grid;gap:8px;align-content:start}
+.aud h3{margin-bottom:4px}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:16px 16px 16px 4px;padding:10px 14px;font-weight:500;font-size:15px}
+.q.own{border-color:#57392A;background:var(--tint)}
+.q.own small{display:block;font-size:12px;color:#E2B48A;font-weight:600}
+
+.comp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:680px){.comp{grid-template-columns:1fr}}
+.cc{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:18px 20px;display:grid;gap:8px;align-content:start;min-width:0}
+.cc .where{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.cc h3{font-family:var(--display);font-size:20px}
+.cc a{font-size:14px;font-weight:600;color:var(--amber-hi);text-underline-offset:3px;word-break:break-all}
+.cc p{font-size:15px;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.tags span{font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--bg2);border:1px solid var(--line)}
+.small{font-size:13.5px;color:var(--dim);margin-top:14px}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px}
+@media (max-width:680px){.two{grid-template-columns:1fr}}
+.box{border-radius:20px;padding:20px;display:grid;gap:12px;align-content:start}
+.box.norm{background:var(--surface);border:1px solid var(--line)}
+.box.gap{background:var(--tint);border:1px solid #57392A}
+.box h3{font-family:var(--display);font-weight:700;font-size:19px}
+.box ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:15px}
+.box.gap li::marker{color:var(--amber-hi)}
+
+.tasks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 14px}
+@media (max-width:680px){.tasks{grid-template-columns:1fr}}
+.tasks div{border-top:2px solid var(--amber);padding-top:12px;display:grid;gap:4px}
+.tasks p{font-size:15px;color:var(--muted)}
+
+.ba{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:680px){.ba{grid-template-columns:1fr}}
+.chat{background:var(--chat);border:1px solid var(--line);border-radius:20px;padding:16px;display:grid;gap:8px;align-content:start}
+.chat .lbl{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.b{max-width:88%;padding:8px 12px;border-radius:14px;font-size:14.5px;line-height:1.45;white-space:pre-line}
+.b.in{justify-self:start;background:var(--bubble);border-bottom-left-radius:4px}
+.b.out{justify-self:end;background:#174A33;border-bottom-right-radius:4px}
+.b.wa{justify-self:stretch;max-width:none;background:#0E3B2A;color:#E9FFF2;border-bottom-right-radius:4px;display:grid;gap:6px}
+.b.wa b{display:block;font-size:12.5px;color:#7EE2A8}
+.chat .foot{font-size:13px;color:var(--muted);margin-top:6px}
+
+.ideas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:680px){.ideas{grid-template-columns:1fr}}
+.ideas div{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px 18px;display:grid;gap:4px;align-content:start}
+.ideas h3{font-family:var(--display);font-size:19px}
+.ideas p{font-size:15px;color:var(--muted)}
+
+.qlist{margin:0;padding-left:24px;display:grid;gap:10px}
+.qlist li{padding-left:4px;color:#E6D8C7}
+.qlist li::marker{font-weight:800;color:var(--amber-hi)}
+
+footer{background:#0B0806;border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding-block:22px;font-size:13.5px;color:var(--muted)}
+footer b{font-weight:800;letter-spacing:.06em;color:var(--ink)}
+.sign{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap}
+.rnd{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--surface2);color:var(--ink)}
+.rnd:hover{background:var(--ink);color:var(--bg)}
+.rnd svg{width:16px;height:16px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap">
+    <div class="brand"><img src="img/logo.png" alt="" width="58" height="58"><span><b>ТЕРМОРУМ</b><small>авторские парные и&nbsp;SPA</small></span></div>
+    <div class="eyebrow">Разбор для Терморум · 17&nbsp;ноября 2026</div>
+    <h1>Сайт для Терморум: рынок и&nbsp;<em>конкуренты</em></h1>
+    <p>Посмотрела ваш Instagram и&nbsp;шесть компаний, которые делают парные под&nbsp;ключ в&nbsp;Москве и&nbsp;области. Ниже: что у&nbsp;вас уже работает, где теряются заявки и&nbsp;что должен делать сайт.</p>
+    <div class="pills"><span>Москва и&nbsp;МО</span><span>Авторские парные под&nbsp;ключ</span><span>SPA</span></div>
+  </div>
+  <span class="led" aria-hidden="true"></span>
+</div>
+
+<main class="wrap">
+  <section>
+    <div class="eyebrow">Коротко</div>
+    <h2>Главное в&nbsp;пяти пунктах</h2>
+    <div class="key">
+      <div><p><b>Ваши обзоры продают лучше любого текста.</b> «Парная 3,8×2,6 с&nbsp;печью ГРОМ&nbsp;40, полный обзор», «стиль леший как видим его мы». Подписчики сами просят: «можно фул обзор на&nbsp;эту баню».</p></div>
+      <div><p>Но первый вопрос в&nbsp;WhatsApp почти всегда про деньги: сколько стоит отделать мою парную 3&nbsp;на&nbsp;2. Цены нет ни&nbsp;в&nbsp;шапке, ни&nbsp;у&nbsp;готовых парных, поэтому каждую сумму приходится считать в&nbsp;переписке.</p></div>
+      <div><p>У&nbsp;других компаний цифру видно сразу. Готовые размеры с&nbsp;ценой от&nbsp;317&nbsp;700&nbsp;₽ за&nbsp;1,5×2&nbsp;м, калькулятор по&nbsp;длине и&nbsp;ширине, ставка <span style="white-space:nowrap">12–19,5&nbsp;тыс.&nbsp;₽</span> за&nbsp;м².</p></div>
+      <div><p>Сайта Терморум в&nbsp;поиске я не&nbsp;нашла. Кто ищет «отделка парной под ключ Москва», попадает на&nbsp;сайты из&nbsp;списка ниже, а&nbsp;до&nbsp;ваших обзоров не&nbsp;доходит.</p></div>
+      <div><p>Сайт делается за&nbsp;7–10 дней: калькулятор по&nbsp;размеру и&nbsp;стилю, готовые парные с&nbsp;обзором и&nbsp;запись в&nbsp;шоурум. Человек приезжает уже с&nbsp;примерной суммой, а&nbsp;вы обсуждаете детали.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Ваши сильные стороны</div>
+    <h2>Что у&nbsp;вас уже сильное</h2>
+    <ul class="list plus">
+      <li><span><b>«Создаём эстетику пара под ключ».</b> Вы продаёте не&nbsp;вагонку, а&nbsp;вид парной: спилы, камень на&nbsp;печи, свет под&nbsp;полками. Это видно с&nbsp;первого кадра ленты.</span></li>
+      <li><span><b>Полные обзоры сданных парных.</b> «Друзья, мы закончили» и&nbsp;проход по&nbsp;готовой парной 3,8×2,6 убеждают сильнее, чем фото со&nbsp;стройки.</span></li>
+      <li><span><b>Стиль со&nbsp;своим именем.</b> «Стиль леший как видим его мы» уже звучит как пункт меню. На&nbsp;сайте это готовый вариант в&nbsp;калькуляторе.</span></li>
+      <li><span><b>Вы показываете процесс.</b> Финальная шлифовка полков перед сдачей и&nbsp;сборка печи ГРОМ&nbsp;40 «Русский пар» отвечают на&nbsp;главный страх: не&nbsp;сделают&nbsp;ли кое-как.</span></li>
+      <li><span><b>Отвечаете подписчикам видео.</b> «Можно фул обзор на&nbsp;эту баню», «какую дверь выбрать?». Это готовые ответы для&nbsp;раздела вопросов.</span></li>
+      <li><span><b>Точная смета, чёткие сроки и&nbsp;работа с&nbsp;дизайнерами.</b> Всё это уже в&nbsp;шапке, плюс 3&nbsp;834 подписчика и&nbsp;168 публикаций.</span></li>
+    </ul>
+    <div class="reels">
+      <figure><img src="img/r-obzor38.jpg" alt="Обложка рилс «Парная 3,8х2,6 с печью ГРОМ 40, полный обзор»"><figcaption>Полный обзор 3,8×2,6</figcaption></figure>
+      <figure><img src="img/r-leshiy.jpg" alt="Обложка рилс «Стиль леший как видим его мы»"><figcaption>Стиль «Леший»</figcaption></figure>
+      <figure><img src="img/r-shlifovka.jpg" alt="Обложка рилс «Финальная шлифовка полков перед сдачей парной»"><figcaption>Шлифовка полков</figcaption></figure>
+      <figure><img src="img/r-grom.jpg" alt="Обложка рилс «Показываю как собрать печь ГРОМ 40 Русский пар»"><figcaption>Сборка печи ГРОМ&nbsp;40</figcaption></figure>
+      <figure><img src="img/r-fulobzor.jpg" alt="Обложка рилс с ответом подписчику «можно фул обзор на эту баню»"><figcaption>Ответ подписчику</figcaption></figure>
+      <figure><img src="img/r-dver.jpg" alt="Обложка рилс «Какую дверь выбрать?»"><figcaption>Какую дверь выбрать</figcaption></figure>
+    </div>
+    <p class="cap">Обложки рилс из&nbsp;вашего Instagram @termorum_off</p>
+  </section>
+
+  <section>
+    <div class="eyebrow">Где теряются заявки</div>
+    <h2>Что сейчас мешает</h2>
+    <ul class="list">
+      <li><span>Цены нет нигде: ни&nbsp;«от», ни&nbsp;за&nbsp;м², ни&nbsp;у&nbsp;готовых парных. Человек со&nbsp;своей парной 3&nbsp;на&nbsp;2 пишет в&nbsp;WhatsApp и&nbsp;ждёт, пока вы посчитаете.</span></li>
+      <li><span>Расчёт собирается по&nbsp;кусочкам: размер, высота, печь, стиль, нужна&nbsp;ли подсветка. До&nbsp;первой цифры уходит пять сообщений, а&nbsp;вы в&nbsp;это время на&nbsp;объекте.</span></li>
+      <li><span>Готовые парные живут в&nbsp;ленте среди 168 публикаций. Через месяц найти «ту, что со&nbsp;спилами и&nbsp;камнем» почти невозможно, и&nbsp;человек снова пишет вам.</span></li>
+      <li><span>В&nbsp;видимой части шапки нет адреса шоурума и&nbsp;часов. Кто хочет посмотреть парную вживую, сначала спрашивает, где вы.</span></li>
+      <li><span>Тот, кто ищет парную в&nbsp;Яндексе, видит сайты с&nbsp;ценами и&nbsp;калькуляторами. Ваш Instagram в&nbsp;этой выдаче я не&nbsp;увидела.</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="eyebrow">Клиенты</div>
+    <h2>Что спрашивают перед заказом</h2>
+    <p class="lead">Две группы вопросов. Сайт отвечает на&nbsp;обе до&nbsp;того, как человек напишет вам, а&nbsp;часть ответов у&nbsp;вас уже снята.</p>
+    <div class="aud">
+      <div><h3>Цена и&nbsp;сроки</h3>
+        <div class="q">Сколько стоит отделать парную 3&nbsp;на&nbsp;2?</div>
+        <div class="q">Что входит в&nbsp;«под ключ»: печь, дверь, свет?</div>
+        <div class="q">Сколько по&nbsp;времени от&nbsp;замера до&nbsp;сдачи?</div>
+        <div class="q">Где можно посмотреть вживую?</div>
+      </div>
+      <div><h3>Стиль и&nbsp;материалы</h3>
+        <div class="q">Сделаете как у&nbsp;вас в&nbsp;рилс, со&nbsp;спилами?</div>
+        <div class="q own"><small>уже есть ваш рилс</small>Какую дверь выбрать?</div>
+        <div class="q own"><small>уже есть ваш рилс</small>Какую печь ставить и&nbsp;как её собирают?</div>
+        <div class="q own"><small>подписчик просил в&nbsp;комментариях</small>Можно полный обзор этой бани?</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Рынок</div>
+    <h2>Кто ещё работает в&nbsp;нише</h2>
+    <div class="comp">
+      <div class="cc">
+        <span class="where">Москва и&nbsp;МО</span>
+        <h3>Sauna-Servis</h3>
+        <a href="https://sauna-servis.ru/parilki/otdelka-parnyh-pod-klyuch/" target="_blank" rel="noopener">sauna-servis.ru</a>
+        <p>Готовые парилки с&nbsp;ценой по&nbsp;размеру: от&nbsp;317&nbsp;700&nbsp;₽ за&nbsp;1,5×2&nbsp;м до&nbsp;688&nbsp;100&nbsp;₽ за&nbsp;3×4&nbsp;м. Реализованные проекты с&nbsp;ценой и&nbsp;сроком, например липа за&nbsp;264&nbsp;500&nbsp;₽ и&nbsp;6&nbsp;дней. Гарантия 5&nbsp;лет, замерщик приезжает в&nbsp;течение 4&nbsp;часов.</p>
+        <div class="tags"><span>Цена по&nbsp;размеру</span><span>Проекты с&nbsp;ценой и&nbsp;сроком</span><span>Гарантия 5&nbsp;лет</span></div>
+      </div>
+      <div class="cc">
+        <span class="where">Москва и&nbsp;МО</span>
+        <h3>Ebergard</h3>
+        <a href="https://ebergard-bani.ru/" target="_blank" rel="noopener">ebergard-bani.ru</a>
+        <p>Отделка от&nbsp;277&nbsp;тыс.&nbsp;₽. Онлайн-калькулятор: баня или сауна, ширина и&nbsp;длина, предварительная сумма сразу. Срок от&nbsp;15&nbsp;дней, гарантия на&nbsp;монтаж 2&nbsp;года и&nbsp;возврат 10% за&nbsp;срыв сроков.</p>
+        <div class="tags"><span>Калькулятор</span><span>Цена «от»</span><span>10% за&nbsp;срыв сроков</span></div>
+      </div>
+      <div class="cc">
+        <span class="where">Москва · шоурум и&nbsp;магазин</span>
+        <h3>3D-sauna</h3>
+        <a href="https://3d-sauna.ru/sauna-calculator" target="_blank" rel="noopener">3d-sauna.ru</a>
+        <p>Калькулятор парной с&nbsp;3D-картинкой: размеры, обшивка, направление вагонки, дверь и&nbsp;полки. Шоурум в&nbsp;Москве, бесплатный замер, фиксированная смета, гарантия на&nbsp;работы 2&nbsp;года.</p>
+        <div class="tags"><span>3D-калькулятор</span><span>Шоурум</span><span>Фиксированная смета</span></div>
+      </div>
+      <div class="cc">
+        <span class="where">Москва и&nbsp;МО</span>
+        <h3>Баня МСК</h3>
+        <a href="https://bania-msk.ru/services/vnutrennyaya-otdelka-ban-saun-i-spa-kompleksov/" target="_blank" rel="noopener">bania-msk.ru</a>
+        <p>Отделка парной под&nbsp;ключ от&nbsp;350&nbsp;000&nbsp;₽ по&nbsp;типовым проектам и&nbsp;от&nbsp;500&nbsp;000&nbsp;₽ с&nbsp;индивидуальным дизайном. 3D-дизайн парной бесплатно при&nbsp;договоре. Этапы: замер, 3D, смета, цена фиксируется в&nbsp;договоре.</p>
+        <div class="tags"><span>Цена «от»</span><span>3D-дизайн в&nbsp;подарок</span><span>Этапы работы</span></div>
+      </div>
+      <div class="cc">
+        <span class="where">Москва · Дмитровское шоссе</span>
+        <h3>Автор Бани</h3>
+        <a href="https://avtorbani.ru/" target="_blank" rel="noopener">avtorbani.ru</a>
+        <p>Пишут про 19&nbsp;лет и&nbsp;230+ парных по&nbsp;индивидуальным проектам, полки и&nbsp;панели делают на&nbsp;своём производстве. Портфолио с&nbsp;названиями проектов, например «Горбыль Липа» и&nbsp;«Ольха Soft&nbsp;120», и&nbsp;3D-тур.</p>
+        <div class="tags"><span>Проекты с&nbsp;названиями</span><span>Своё производство</span><span>3D-тур</span></div>
+      </div>
+      <div class="cc">
+        <span class="where">Москва и&nbsp;МО</span>
+        <h3>Артель и&nbsp;С</h3>
+        <a href="https://arteli-stroy.ru/service/parilka-pod-klyuch" target="_blank" rel="noopener">arteli-stroy.ru</a>
+        <p>Три пакета с&nbsp;ценой за&nbsp;м² вместе с&nbsp;материалами: «Стандарт» 12&nbsp;000&nbsp;₽, «Люкс» 17&nbsp;000&nbsp;₽, «Премиум» 19&nbsp;500&nbsp;₽. В&nbsp;цену входят отделка, полки и&nbsp;установка печи.</p>
+        <div class="tags"><span>Три пакета</span><span>Цена за&nbsp;м²</span></div>
+      </div>
+    </div>
+    <p class="small">Описания собраны по&nbsp;открытым данным и&nbsp;поисковой выдаче на&nbsp;17&nbsp;ноября 2026. Цены и&nbsp;условия у&nbsp;компаний могли измениться.</p>
+    <div class="two">
+      <div class="box norm"><h3>Что стало нормой</h3><ul><li>Цена «от», за&nbsp;м² или по&nbsp;размеру парной</li><li>Калькулятор или готовые размеры с&nbsp;суммой</li><li>Работы с&nbsp;ценой и&nbsp;сроком</li><li>Гарантия 2–5&nbsp;лет и&nbsp;фиксированная смета</li><li>Бесплатный замер</li></ul></div>
+      <div class="box gap"><h3>Чего я у&nbsp;них не&nbsp;встретила</h3><ul><li>Расчёт по&nbsp;стилю отделки, а&nbsp;не&nbsp;только по&nbsp;размеру</li><li>Видеообзор сданной парной рядом с&nbsp;её ценой</li><li>Стиль со&nbsp;своим именем, как ваш «Леший»</li><li>Запись в&nbsp;шоурум сразу с&nbsp;готовым расчётом</li></ul></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Задачи</div>
+    <h2>Что должен делать ваш сайт</h2>
+    <div class="tasks">
+      <div><h3>Считать парную</h3><p>Длина, ширина, высота, стиль, печь и&nbsp;подсветка. Вилка цены за&nbsp;минуту, по&nbsp;вашим ставкам.</p></div>
+      <div><h3>Записывать в&nbsp;шоурум</h3><p>День и&nbsp;время визита. Заявка с&nbsp;расчётом приходит вам в&nbsp;WhatsApp одним сообщением.</p></div>
+      <div><h3>Показывать готовые парные</h3><p>Размер, печь, стиль, цена под&nbsp;ключ и&nbsp;ваш полный видеообзор в&nbsp;одной карточке.</p></div>
+      <div><h3>Объяснять стили</h3><p>«Леший», светлая, тёмная с&nbsp;подсветкой, с&nbsp;камнем. Человек выбирает по&nbsp;фото, а&nbsp;не&nbsp;словами.</p></div>
+      <div><h3>Отвечать на&nbsp;частые вопросы</h3><p>Дверь, печь, спилы, сроки и&nbsp;что входит в&nbsp;«под ключ». Рядом с&nbsp;ответом ваш рилс.</p></div>
+      <div><h3>Находиться в&nbsp;поиске</h3><p>По&nbsp;запросу «отделка парной под ключ Москва», плюс ссылка в&nbsp;шапке Instagram и&nbsp;в&nbsp;WhatsApp Business.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Пример</div>
+    <h2>Было и&nbsp;стало</h2>
+    <p class="lead">Так обычно выглядит путь от&nbsp;первого вопроса до&nbsp;визита, и&nbsp;так он выглядит с&nbsp;сайтом.</p>
+    <div class="ba">
+      <div class="chat">
+        <span class="lbl">Сейчас</span>
+        <div class="b in">Здравствуйте! Сколько стоит отделать парную 3&nbsp;на&nbsp;2?</div>
+        <div class="b out">Добрый день! Какая высота? Печь дровяная или электрическая?</div>
+        <div class="b in">2,2. Дровяная. Хочу как у&nbsp;вас, со&nbsp;спилами</div>
+        <div class="b out">Подсветку под&nbsp;полками делаем?</div>
+        <div class="b in">Да. А&nbsp;посмотреть где-то можно?</div>
+        <p class="foot">Пять сообщений, а&nbsp;цифры ещё нет. Расчёт уходит на&nbsp;вечер, после объекта.</p>
+      </div>
+      <div class="chat">
+        <span class="lbl">С&nbsp;сайтом</span>
+        <div class="b wa"><b>Заявка с&nbsp;сайта Терморум</b>• Парная 3,0×2,0×2,2&nbsp;м, стиль «Леший»
+• Дровяная печь, подсветка полков
+• Расчёт на&nbsp;сайте: 435&nbsp;000 – 505&nbsp;000&nbsp;₽
+• Шоурум: суббота, днём
+• Ирина, +7&nbsp;9…</div>
+        <p class="foot">Одно сообщение. Человек приедет уже с&nbsp;суммой, а&nbsp;вы обсудите детали. Цифры в&nbsp;примере условные, на&nbsp;сайте будут ваши.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Идеи</div>
+    <h2>Что можно предложить вашим клиентам</h2>
+    <p class="lead">Это варианты на&nbsp;обсуждение, берите то, что подходит.</p>
+    <div class="ideas">
+      <div><h3>«Леший 3×2» готовым пакетом</h3><p>Одна-две парные самого частого размера с&nbsp;ценой «от» прямо на&nbsp;главном. Вопрос «сколько стоит 3&nbsp;на&nbsp;2» закрывается до&nbsp;переписки.</p></div>
+      <div><h3>Парная к&nbsp;Новому году</h3><p>Замер в&nbsp;ноябре и&nbsp;сдача до&nbsp;праздников, если успеваете по&nbsp;срокам. Отдельная плашка на&nbsp;первом экране до&nbsp;середины декабря.</p></div>
+      <div><h3>Видеообзор в&nbsp;подарок</h3><p>Вы уже снимаете «полный обзор» при&nbsp;сдаче. Клиент получает ролик о&nbsp;своей парной, а&nbsp;на&nbsp;сайте появляется новая карточка с&nbsp;ценой.</p></div>
+      <div><h3>Условия для&nbsp;дизайнеров</h3><p>Как передать проект, кто ведёт закупку, сколько занимает монтаж. Дизайнер сразу понимает, как с&nbsp;вами работать, и&nbsp;приводит следующего клиента.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Вопросы</div>
+    <h2>Что нужно уточнить</h2>
+    <ol class="qlist">
+      <li>Где шоурум и&nbsp;в&nbsp;какие дни можно приехать? Что там можно посмотреть: готовую парную, образцы отделки, печи?</li>
+      <li>Можно&nbsp;ли показывать на&nbsp;сайте цены «от»? Вам удобнее за&nbsp;м² по&nbsp;стилю или за&nbsp;готовые размеры, например 2×2, 3×2 и&nbsp;3×3?</li>
+      <li>Какие стили отделки вы выделяете кроме «Лешего» и&nbsp;как их называете?</li>
+      <li>Какие печи ставите чаще всего, кроме ГРОМ&nbsp;40? Входит&nbsp;ли печь в&nbsp;цену под&nbsp;ключ?</li>
+      <li>Сколько обычно занимает парная 3&nbsp;на&nbsp;2 от&nbsp;замера до&nbsp;сдачи? Даёте&nbsp;ли гарантию и&nbsp;на&nbsp;какой срок?</li>
+      <li>Что за&nbsp;две ссылки в&nbsp;шапке Instagram кроме Telegram? Если там уже есть сайт или Taplink, перенесём всё нужное.</li>
+      <li>Есть&nbsp;ли отзывы на&nbsp;Яндекс Картах, Авито или в&nbsp;переписке, которые можно показать на&nbsp;сайте?</li>
+      <li>Название ИП или компании для&nbsp;политики конфиденциальности.</li>
+    </ol>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Подготовила Анастасия Абдуллаева</span>
+    <span class="sign"><span><b>FOR.MI</b> designed &amp; developed by ABN</span><a class="rnd" href="https://t.me/abanev_dev" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.4 4.3 2.9 11.5c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.5c.2.6.4.8.9.8s.6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8L22.8 5.8c.3-1.3-.4-1.9-1.4-1.5zM8.6 14.1l9.6-6c.5-.3.9-.1.5.2l-7.8 7.1-.3 3.3-2-4.6z"/></svg></a></span>
+  </div>
+</footer>
+
+</body>
+</html>
