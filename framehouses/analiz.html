@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Разбор для «Каркасные дома КЧР»: сильные стороны, где теряются заявки, кто продаёт модульные дома в КЧР и рядом, задачи сайта и вопросы">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Сайт для «Каркасные дома КЧР»: рынок и конкуренты">
+<meta property="og:description" content="Сильные стороны, где теряются заявки, пять компаний с модульными домами рядом с КЧР и что должен делать сайт">
+<meta property="og:image" content="https://mmaemi77-ctrl.github.io/framehouses/og-analiz.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0C1F13">
+<title>Каркасные дома КЧР · разбор</title>
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Lora:ital,wght@0,600;0,700;1,600;1,700&display=swap">
+<style>
+/* Layout: разбор-документ в одну колонку в цветах FRAME HOUSES: лесной зелёный и золото. Шапка с модулем в горах, карточки только у отдельных объектов: конкуренты, переписка, идеи */
+:root{
+  --bg:#0C1F13;--bg2:#0F2617;--surface:#14301D;--surface2:#1A3A24;--ink:#F3EEDF;--muted:#B4BFAE;--dim:#7E8E80;--line:#244630;
+  --gold:#B8893A;--gold-hi:#DDAF58;--gold-tint:#2A2C17;
+  --chat:#0F2617;--bubble:#1A3A24;--wa-out:#1F4A2E;
+  --font:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --serif:"Lora",Georgia,"Times New Roman",serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16.5px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+.wrap{max-width:900px;margin:0 auto;padding-left:max(clamp(16px,4vw,32px),env(safe-area-inset-left,0px));padding-right:max(clamp(16px,4vw,32px),env(safe-area-inset-right,0px))}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px}
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* шапка */
+.top{position:relative;overflow:hidden;isolation:isolate;border-bottom:1px solid var(--line)}
+.top::before{content:"";position:absolute;inset:0;z-index:-2;background:url(img/modul-gory.jpg) center 72%/cover;opacity:.32}
+.top::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--bg) 30%,rgb(12 31 19 / .55)),linear-gradient(180deg,transparent 60%,var(--bg))}
+.top .wrap{padding-block:clamp(30px,6vw,56px) clamp(34px,6vw,54px);display:grid;gap:20px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:58px;height:58px;border-radius:50%;box-shadow:0 0 0 1px rgb(221 175 88 / .45)}
+.brand b{font-family:var(--serif);font-weight:700;font-size:19px;line-height:1.15;display:block}
+.brand small{font-size:13px;color:var(--muted)}
+.top h1{font-family:var(--serif);font-weight:700;font-size:clamp(32px,5vw,54px);line-height:1.08}
+.top h1 em{font-style:italic;color:var(--gold-hi)}
+.top p{max-width:60ch;font-size:clamp(17px,1.8vw,19px);color:#D3DACB}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pills span{display:inline-flex;align-items:center;gap:8px;background:rgb(255 255 255 / .07);border:1px solid rgb(255 255 255 / .12);border-radius:999px;padding:6px 14px;font-weight:600;font-size:14px}
+.pills span::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold-hi)}
+
+/* разделы */
+section{padding-block:clamp(34px,5vw,54px);border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+h2{font-family:var(--serif);font-weight:700;font-size:clamp(25px,3.2vw,36px);line-height:1.15;margin:8px 0 20px}
+h3{font-size:17px;font-weight:700;line-height:1.3}
+.lead{color:var(--muted);max-width:62ch;margin:-6px 0 22px}
+.list{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.list li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;align-items:start}
+.list li::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--gold-hi);margin:9px 0 0 9px}
+.list.plus li::before{content:"✓";width:24px;height:24px;border-radius:50%;background:var(--gold-tint);color:var(--gold-hi);font-weight:800;font-size:13px;display:grid;place-items:center;margin:2px 0 0}
+.list b{font-weight:700}
+.list span{color:#DCE1D5}
+
+.key{display:grid;counter-reset:k;background:var(--surface);border-radius:22px;border:1px solid var(--line);overflow:hidden}
+.key div{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;padding:18px 20px;border-bottom:1px solid var(--line)}
+.key div:last-child{border-bottom:0}
+.key div::before{counter-increment:k;content:counter(k);font-family:var(--serif);font-weight:700;font-size:28px;line-height:1;color:var(--gold-hi)}
+.key b{font-weight:700}
+@media (max-width:600px){.key div{grid-template-columns:26px minmax(0,1fr);padding:16px}.key div::before{font-size:23px}}
+
+.gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:22px}
+.gal figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.gal img{width:100%;aspect-ratio:4/3.6;object-fit:cover;object-position:center 72%}
+.gal figcaption{font-size:13.5px;color:var(--muted);padding:9px 12px 11px}
+.reels{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin-top:10px}
+.reels img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:12px;border:1px solid var(--line)}
+.cap{font-size:13.5px;color:var(--dim);margin-top:8px}
+@media (max-width:640px){.gal{grid-template-columns:1fr 1fr}.gal figure:last-child{display:none}.reels{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+.aud{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:680px){.aud{grid-template-columns:1fr}}
+.aud>div{display:grid;gap:8px;align-content:start}
+.aud h3{margin-bottom:4px}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:16px 16px 16px 4px;padding:10px 14px;font-weight:500;font-size:15px}
+.season{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:2px solid var(--ink);margin-top:26px}
+.season div{padding:14px 14px 0 0;display:grid;gap:4px;align-content:start}
+.season b{font-family:var(--serif);font-weight:700;font-size:18px}
+.season span{font-size:14px;color:var(--muted)}
+@media (max-width:600px){.season{grid-template-columns:1fr;gap:10px}}
+
+.comp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:680px){.comp{grid-template-columns:1fr}}
+.cc{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:18px 20px;display:grid;gap:8px;align-content:start;min-width:0}
+.cc .where{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.cc a{font-size:14px;font-weight:600;color:var(--gold-hi);text-underline-offset:3px;word-break:break-all}
+.cc p{font-size:15px;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.tags span{font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--bg2);border:1px solid var(--line)}
+.small{font-size:13.5px;color:var(--dim);margin-top:14px}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px}
+@media (max-width:680px){.two{grid-template-columns:1fr}}
+.box{border-radius:20px;padding:20px;display:grid;gap:12px;align-content:start}
+.box.norm{background:var(--surface);border:1px solid var(--line)}
+.box.gap{background:var(--gold-tint);border:1px solid #5A4A22}
+.box h3{font-family:var(--serif);font-weight:700;font-size:18px}
+.box ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:15px}
+
+.tasks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 14px}
+@media (max-width:680px){.tasks{grid-template-columns:1fr}}
+.tasks div{border-top:2px solid var(--gold-hi);padding-top:12px;display:grid;gap:4px}
+.tasks p{font-size:15px;color:var(--muted)}
+
+.ba{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:680px){.ba{grid-template-columns:1fr}}
+.chat{background:var(--chat);border:1px solid var(--line);border-radius:20px;padding:16px;display:grid;gap:8px;align-content:start}
+.chat .lbl{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.b{max-width:88%;padding:8px 12px;border-radius:14px;font-size:14.5px;line-height:1.45;white-space:pre-line}
+.b.in{justify-self:start;background:var(--bubble);border-bottom-left-radius:4px}
+.b.out{justify-self:end;background:#2C4A2F;border-bottom-right-radius:4px}
+.b.wa{justify-self:stretch;max-width:none;background:#DCF8C6;color:#0B1F10;border-bottom-right-radius:4px;display:grid;gap:4px}
+.b.wa b{display:block;font-size:12.5px;color:#128C4B}
+.chat .foot{font-size:13px;color:var(--muted);margin-top:6px}
+
+.ideas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:680px){.ideas{grid-template-columns:1fr}}
+.ideas div{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px 18px;display:grid;gap:4px;align-content:start}
+.ideas p{font-size:15px;color:var(--muted)}
+
+.qlist{margin:0;padding-left:24px;display:grid;gap:10px}
+.qlist li{padding-left:4px;color:#DCE1D5}
+.qlist li::marker{font-weight:800;color:var(--gold-hi)}
+
+footer{background:#081509;border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding-block:22px;font-size:13.5px;color:var(--muted)}
+footer b{font-weight:800;letter-spacing:.06em;color:var(--ink)}
+.sign{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap}
+.rnd{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--surface2);color:var(--ink)}
+.rnd:hover{background:var(--ink);color:var(--bg)}
+.rnd svg{width:16px;height:16px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap">
+    <div class="brand"><img src="img/logo.png" alt="" width="58" height="58"><span><b>Каркасные дома КЧР</b><small>модульные дома и&nbsp;беседки, ст.&nbsp;Зеленчукская</small></span></div>
+    <div class="eyebrow">Разбор для&nbsp;«Каркасные дома КЧР» · 19&nbsp;ноября 2026</div>
+    <h1>Сайт для&nbsp;«Каркасные дома КЧР»: рынок и&nbsp;<em>конкуренты</em></h1>
+    <p>Посмотрела ваш Instagram и&nbsp;тех, кто продаёт модульные дома в&nbsp;КЧР и&nbsp;по&nbsp;соседству: на&nbsp;Ставрополье и&nbsp;в&nbsp;Кабардино-Балкарии. Ниже: что у&nbsp;вас уже работает, где теряются заявки и&nbsp;что должен делать сайт.</p>
+    <div class="pills"><span>Карачаево-Черкесия</span><span>Модульные дома на&nbsp;металлокаркасе</span><span>Беседки</span></div>
+  </div>
+</div>
+
+<main class="wrap">
+  <section>
+    <div class="eyebrow">Коротко</div>
+    <h2>Главное в&nbsp;пяти пунктах</h2>
+    <div class="key">
+      <div><p><b>Доставка по&nbsp;КЧР и&nbsp;установка за&nbsp;1&nbsp;день.</b> Это ваш главный довод. Все пять компаний, которых я посмотрела, везут дома из&nbsp;Ставропольского края или Нальчика. Вы работаете прямо в&nbsp;КЧР, из&nbsp;Зеленчукской.</p></div>
+      <div><p>В&nbsp;ленте видно весь путь дома: каркас, утепление, трал и&nbsp;кран на&nbsp;участке. 3&nbsp;283 подписчика видят, что вы реально ставите дома. Но&nbsp;размеров, цен и&nbsp;названий моделей в&nbsp;профиле нет.</p></div>
+      <div><p>Поэтому каждый разговор начинается с&nbsp;нуля: «сколько стоит дом 6&nbsp;на&nbsp;8, что входит, сколько ехать к&nbsp;нам». А&nbsp;у&nbsp;соседей цена «от» стоит у&nbsp;модели: «Глэмп 30» от&nbsp;1&nbsp;285&nbsp;000&nbsp;₽, домик «Мона» 17&nbsp;м² за&nbsp;350&nbsp;000&nbsp;₽.</p></div>
+      <div><p>Когда я искала «модульные дома Черкесск», в&nbsp;выдаче были сайты из&nbsp;Ставрополя и&nbsp;Нальчика. Вашего сайта там нет, и&nbsp;человек уходит к&nbsp;тем, кого нашёл.</p></div>
+      <div><p>Сайт делается за&nbsp;7–10 дней. Рилс и&nbsp;ссылка в&nbsp;шапке будут вести в&nbsp;одно место, где человек сам выбирает дом и&nbsp;район, а&nbsp;вам приходит заявка с&nbsp;адресом участка.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Ваши сильные стороны</div>
+    <h2>Что у&nbsp;вас уже сильное</h2>
+    <ul class="list plus">
+      <li><span><b>Установка за&nbsp;1&nbsp;день.</b> Это написано в&nbsp;шапке, и&nbsp;ваши видео это показывают: модуль приезжает на&nbsp;трале, кран ставит его на&nbsp;место. Человеку не&nbsp;нужно жить на&nbsp;стройке месяцами.</span></li>
+      <li><span><b>Доставка по&nbsp;всей КЧР.</b> Черкесск, горы, турбазы. Вы рядом, и&nbsp;это короче, чем везти дом из&nbsp;Ставрополя.</span></li>
+      <li><span><b>Наличный и&nbsp;безналичный расчёт.</b> Для&nbsp;турбаз и&nbsp;тех, кто ставит модули под&nbsp;аренду, безнал часто решает, к&nbsp;кому идти.</span></li>
+      <li><span><b>Разные дома, а&nbsp;не&nbsp;одна модель.</b> Модули с&nbsp;панорамными окнами и&nbsp;фасадом под&nbsp;дерево, дом с&nbsp;террасой и&nbsp;двускатной крышей, двухэтажный дом в&nbsp;ельнике, модуль на&nbsp;сваях в&nbsp;лесу, мини-модули. Это готовый каталог.</span></li>
+      <li><span><b>Объекты в&nbsp;горах.</b> На&nbsp;ваших видео модули стоят у&nbsp;канатной дороги на&nbsp;фоне снежных вершин. Тому, кто строит гостевые домики, лучшего примера не&nbsp;нужно.</span></li>
+      <li><span><b>Честно показываете, что внутри стен.</b> Металлокаркас, утеплитель, отделка деревом, лестница на&nbsp;антресоль. Человек видит, за&nbsp;что платит.</span></li>
+    </ul>
+    <div class="gal">
+      <figure><img src="img/modul-gory.jpg" alt="Модульный дом с панорамными окнами и фасадом под дерево в горах"><figcaption>Модуль с&nbsp;панорамными окнами</figcaption></figure>
+      <figure><img src="img/terrasa.jpg" alt="Дом с двускатной крышей и террасой"><figcaption>Дом с&nbsp;террасой</figcaption></figure>
+      <figure><img src="img/les.jpg" alt="Модуль на сваях в сосновом лесу"><figcaption>Модуль на&nbsp;сваях в&nbsp;лесу</figcaption></figure>
+    </div>
+    <div class="reels">
+      <img src="img/karkas.jpg" alt="Металлокаркас на участке"><img src="img/uteplenie.jpg" alt="Утепление стен"><img src="img/interer.jpg" alt="Интерьер с антресолью и лестницей"><img src="img/tral.jpg" alt="Модуль на трале"><img src="img/kran.jpg" alt="Кран ставит модуль"><img src="img/kran-zakat.jpg" alt="Установка модуля на закате">
+    </div>
+    <p class="cap">Фото и&nbsp;кадры из&nbsp;ваших видео в&nbsp;Instagram</p>
+  </section>
+
+  <section>
+    <div class="eyebrow">Где теряются заявки</div>
+    <h2>Что сейчас мешает</h2>
+    <ul class="list">
+      <li><span>В&nbsp;шапке профиля нет ни&nbsp;одной цены и&nbsp;ни&nbsp;одного размера. Чтобы узнать хотя&nbsp;бы порядок суммы, человеку из&nbsp;Черкесска приходится писать и&nbsp;ждать ответа.</span></li>
+      <li><span>Каждый расчёт собирается по&nbsp;кусочкам: какой размер, для&nbsp;жизни или под&nbsp;гостей, куда везти, пройдёт&nbsp;ли трал, нужны&nbsp;ли сваи. Вы отвечаете между монтажами, и&nbsp;часть людей не&nbsp;дожидается.</span></li>
+      <li><span>Дома в&nbsp;ленте без подписей: не&nbsp;видно, какой это размер и&nbsp;сколько он стоит. Модуль с&nbsp;панорамой лежит рядом с&nbsp;закатами и&nbsp;видами на&nbsp;горы, и&nbsp;нужный дом приходится искать.</span></li>
+      <li><span>Беседки есть в&nbsp;шапке, но&nbsp;в&nbsp;той части ленты, что я посмотрела, их нет. Кто хочет беседку, не&nbsp;видит, как она выглядит.</span></li>
+      <li><span>Кто ищет «модульный дом Черкесск» в&nbsp;поиске, находит сайты из&nbsp;Ставрополя и&nbsp;Нальчика. Профиль в&nbsp;Instagram в&nbsp;такой выдаче почти не&nbsp;виден.</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="eyebrow">Клиенты</div>
+    <h2>Что спрашивают перед покупкой</h2>
+    <p class="lead">Две группы вопросов, и&nbsp;на&nbsp;обе сайт отвечает до&nbsp;того, как человек напишет вам.</p>
+    <div class="aud">
+      <div><h3>Дом</h3>
+        <div class="q">Сколько стоит дом 6&nbsp;на&nbsp;8?</div>
+        <div class="q">Что входит в&nbsp;цену, а&nbsp;что за&nbsp;доплату?</div>
+        <div class="q">Можно жить зимой? Чем утепляете?</div>
+        <div class="q">Можно свою планировку или&nbsp;только готовые?</div>
+      </div>
+      <div><h3>Доставка и&nbsp;участок</h3>
+        <div class="q">Сколько ехать до&nbsp;Черкесска, Архыза, Домбая?</div>
+        <div class="q">Доставка входит в&nbsp;цену?</div>
+        <div class="q">Нужен фундамент? Пройдёт&nbsp;ли трал к&nbsp;участку?</div>
+        <div class="q">Можно по&nbsp;безналу, у&nbsp;меня ИП?</div>
+      </div>
+    </div>
+    <div class="season">
+      <div><b>Зима</b><span>считают дом к&nbsp;весне и&nbsp;бронируют дату установки</span></div>
+      <div><b>Весна и&nbsp;лето</b><span>дачи, беседки, гостевые домики к&nbsp;сезону</span></div>
+      <div><b>Перед лыжным сезоном</b><span>модули для&nbsp;гостей и&nbsp;точек у&nbsp;курортов</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Рынок</div>
+    <h2>Кто ещё работает в&nbsp;нише</h2>
+    <p class="lead">В&nbsp;самой КЧР я не&nbsp;нашла сайтов с&nbsp;модульными домами, поэтому смотрела ближайших соседей, которые возят дома в&nbsp;регион.</p>
+    <div class="comp">
+      <div class="cc">
+        <span class="where">Пятигорск · производство в&nbsp;ст.&nbsp;Незлобной</span>
+        <h3>«Пока нет Дома»</h3>
+        <a href="https://pokanetdoma.ru/stavropol" target="_blank" rel="noopener">pokanetdoma.ru/stavropol</a>
+        <p>Модульные дома, барнхаусы, глэмпинг-домики и&nbsp;бани. Модель «Глэмп 30» в&nbsp;комплектации «Стандарт» от&nbsp;1&nbsp;285&nbsp;000&nbsp;₽. Пишут, что работают с&nbsp;2022 года и&nbsp;сделали больше 500 проектов. Каталог с&nbsp;комплектациями присылают по&nbsp;заявке, в&nbsp;Telegram-канале рассказывают про рассрочку.</p>
+        <div class="tags"><span>Цена у&nbsp;модели</span><span>Каталог по&nbsp;заявке</span><span>Рассрочка</span></div>
+      </div>
+      <div class="cc">
+        <span class="where">Ставрополь</span>
+        <h3>Woodnext</h3>
+        <a href="https://woodnext.ru/stavropol" target="_blank" rel="noopener">woodnext.ru/stavropol</a>
+        <p>Модульные дома и&nbsp;бани под&nbsp;ключ примерно за&nbsp;70 дней. Дом собирают на&nbsp;производстве и&nbsp;привозят на&nbsp;участок манипулятором. Гарантия 1&nbsp;год, больше 400 типовых планировок, PDF-каталог с&nbsp;ценами присылают по&nbsp;заявке.</p>
+        <div class="tags"><span>400+ планировок</span><span>Каталог по&nbsp;заявке</span><span>Гарантия 1&nbsp;год</span></div>
+      </div>
+      <div class="cc">
+        <span class="where">Ставрополь</span>
+        <h3>Юг-Бытовка24</h3>
+        <a href="https://stavropol.bitovka24.ru/product/blok-konteynery/modulnye/modulnye-doma-iz-blok-konteynerov/" target="_blank" rel="noopener">stavropol.bitovka24.ru</a>
+        <p>Модульные дома из&nbsp;блок-контейнеров. Цены на&nbsp;карточках примерно от&nbsp;260 до&nbsp;480 тысяч&nbsp;₽, часть позиций под&nbsp;заказ. Доставка краном-манипулятором со&nbsp;стрелой от&nbsp;8 до&nbsp;24&nbsp;м.</p>
+        <div class="tags"><span>Цены на&nbsp;карточках</span><span>Манипулятор</span><span>Блок-контейнеры</span></div>
+      </div>
+      <div class="cc">
+        <span class="where">Нальчик · пер.&nbsp;Монтажников, 11</span>
+        <h3>Машукстрой</h3>
+        <a href="https://mashukstroy07.ru/" target="_blank" rel="noopener">mashukstroy07.ru</a>
+        <p>Каркасные, SIP-панельные и&nbsp;модульные дома. Есть небольшие проекты с&nbsp;ценой, например домик «Мона» 17&nbsp;м² за&nbsp;350&nbsp;000&nbsp;₽.</p>
+        <div class="tags"><span>Цена у&nbsp;проекта</span><span>Мини-дома</span></div>
+      </div>
+      <div class="cc">
+        <span class="where">Нальчик · просп.&nbsp;Кулиева, 2Б</span>
+        <h3>Modiflex</h3>
+        <a href="https://modiflex.ru/nalchik/" target="_blank" rel="noopener">modiflex.ru/nalchik</a>
+        <p>Модульные дома для&nbsp;круглогодичного проживания, пишут про собственное производство. В&nbsp;каталоге есть мини-дом 3×6 для&nbsp;временного жилья или кабинета. У&nbsp;сайта есть отдельная страница для&nbsp;Черкесска.</p>
+        <div class="tags"><span>Страница для&nbsp;Черкесска</span><span>Мини-дом 3×6</span></div>
+      </div>
+    </div>
+    <p class="small">Описания собраны по&nbsp;открытым данным и&nbsp;поисковой выдаче на&nbsp;19&nbsp;ноября 2026. Цены и&nbsp;условия у&nbsp;компаний могли измениться.</p>
+    <div class="two">
+      <div class="box norm"><h3>Что стало нормой</h3><ul><li>Цена «от» у&nbsp;каждой модели</li><li>Каталог моделей с&nbsp;размерами и&nbsp;планировками</li><li>Доставка манипулятором</li><li>Гарантия 1&nbsp;год</li><li>Каталог или рассрочка в&nbsp;обмен на&nbsp;телефон</li></ul></div>
+      <div class="box gap"><h3>Чего я не&nbsp;встретила в&nbsp;их описаниях</h3><ul><li>Производства и&nbsp;монтажа в&nbsp;самой КЧР</li><li>Установки за&nbsp;1&nbsp;день как главного обещания</li><li>Подбора дома сразу с&nbsp;районом доставки и&nbsp;готовностью участка</li><li>Беседок рядом с&nbsp;домами</li></ul></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Задачи</div>
+    <h2>Что должен делать ваш сайт</h2>
+    <div class="tasks">
+      <div><h3>Подбирать дом</h3><p>Тип, площадь и&nbsp;для чего. Заявка приходит вам в&nbsp;WhatsApp вместе с&nbsp;районом и&nbsp;готовностью участка.</p></div>
+      <div><h3>Показывать модели с&nbsp;ценой «от»</h3><p>Размер, площадь, что входит, фото и&nbsp;видео из&nbsp;вашей ленты. Кнопка «Хочу такой» у&nbsp;каждой.</p></div>
+      <div><h3>Отвечать «сколько ехать»</h3><p>Районы КЧР, сроки доставки и&nbsp;что подготовить на&nbsp;участке: подъезд для&nbsp;трала, сваи.</p></div>
+      <div><h3>Объяснять, что внутри стен</h3><p>Металлокаркас, утепление, окна, отделка. Что в&nbsp;цене, а&nbsp;что за&nbsp;доплату.</p></div>
+      <div><h3>Показывать беседки</h3><p>Отдельным разделом, с&nbsp;размерами и&nbsp;ценой, чтобы их не&nbsp;искали среди домов.</p></div>
+      <div><h3>Находиться в&nbsp;поиске</h3><p>По&nbsp;запросам «модульные дома Черкесск», «модульный дом КЧР», «беседка под&nbsp;ключ Черкесск», плюс ссылка в&nbsp;шапке Instagram.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Пример</div>
+    <h2>Было и&nbsp;стало</h2>
+    <p class="lead">Так обычно выглядит путь от&nbsp;первого вопроса до&nbsp;расчёта, и&nbsp;так он выглядит с&nbsp;сайтом.</p>
+    <div class="ba">
+      <div class="chat">
+        <span class="lbl">Сейчас</span>
+        <div class="b in">Здравствуйте, сколько стоит дом 6&nbsp;на&nbsp;8?</div>
+        <div class="b out">Здравствуйте! Для&nbsp;жизни или под&nbsp;дачу?</div>
+        <div class="b in">Для&nbsp;жизни. А&nbsp;что входит, утепление есть?</div>
+        <div class="b out">Есть. Где участок?</div>
+        <div class="b in">В&nbsp;Черкесске. Доставка сколько? Фундамент нужен?</div>
+        <p class="foot">Пять сообщений, а&nbsp;вы в&nbsp;это время на&nbsp;монтаже с&nbsp;краном.</p>
+      </div>
+      <div class="chat">
+        <span class="lbl">С&nbsp;сайтом</span>
+        <div class="b wa"><b>Заявка с&nbsp;сайта · Каркасные дома КЧР</b>• Модульный дом, 40–60&nbsp;м²
+• Для чего: жить круглый год
+• Куда: Черкесск
+• Участок: нужен фундамент или сваи
+• Оплата: наличный расчёт
+• Мурат, +7&nbsp;928&nbsp;…</div>
+        <p class="foot">Одно сообщение. Остаётся ответить ценой с&nbsp;доставкой.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Идеи</div>
+    <h2>Что можно предложить вашим клиентам</h2>
+    <p class="lead">Это варианты на&nbsp;обсуждение, берите то, что подходит.</p>
+    <div class="ideas">
+      <div><h3>Дата установки на&nbsp;весну</h3><p>Кто выбирает дом зимой, сразу бронирует день установки. Плашка на&nbsp;первом экране до&nbsp;марта, и&nbsp;весенний график заполняется заранее.</p></div>
+      <div><h3>Модули для&nbsp;турбаз под&nbsp;ключ</h3><p>Несколько гостевых модулей одним заказом, безналичный расчёт, установка до&nbsp;сезона. Ваши объекты у&nbsp;канатной дороги покажут, как это выглядит.</p></div>
+      <div><h3>Дом и&nbsp;беседка одной доставкой</h3><p>Один трал и&nbsp;один день установки. Беседку не&nbsp;нужно заказывать отдельно и&nbsp;ждать второй машины.</p></div>
+      <div><h3>Памятка «Что подготовить на&nbsp;участке»</h3><p>Подъезд для&nbsp;трала, сваи, свет. Человек оставляет телефон, чтобы её получить, а&nbsp;вы заранее знаете, готов&nbsp;ли участок.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Вопросы</div>
+    <h2>Что нужно уточнить</h2>
+    <ol class="qlist">
+      <li>Какие модели вы делаете чаще всего? Нужны размер, площадь и&nbsp;цена «от» хотя&nbsp;бы для&nbsp;3–5 домов.</li>
+      <li>Что входит в&nbsp;«под ключ»: утепление, окна, отделка, электрика, сантехника? Что за&nbsp;доплату?</li>
+      <li>Доставка входит в&nbsp;цену или считается отдельно? Зависит&nbsp;ли от&nbsp;района: Черкесск, Карачаевск, Архыз, Домбай?</li>
+      <li>Сваи или фундамент делаете вы? Какой нужен подъезд для&nbsp;трала и&nbsp;крана?</li>
+      <li>Сколько дней от&nbsp;заявки до&nbsp;установки, пока дом делается?</li>
+      <li>Беседки: какие размеры и&nbsp;материалы? Есть фото готовых?</li>
+      <li>Модули у&nbsp;канатной дороги в&nbsp;ленте: можно подписать объект на&nbsp;сайте и&nbsp;назвать место?</li>
+      <li>Есть&nbsp;ли отзывы клиентов в&nbsp;директе или на&nbsp;Яндекс Картах и&nbsp;в&nbsp;2ГИС? Что за&nbsp;вторая ссылка в&nbsp;шапке Instagram?</li>
+      <li>Название ИП или компании для&nbsp;политики конфиденциальности.</li>
+    </ol>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Подготовила Анастасия Абдуллаева</span>
+    <span class="sign"><span><b>FOR.MI</b> designed &amp; developed by ABN</span><a class="rnd" href="https://t.me/abanev_dev" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.4 4.3 2.9 11.5c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.5c.2.6.4.8.9.8s.6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8L22.8 5.8c.3-1.3-.4-1.9-1.4-1.5zM8.6 14.1l9.6-6c.5-.3.9-.1.5.2l-7.8 7.1-.3 3.3-2-4.6z"/></svg></a></span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Каркасные дома КЧР · структура</title>
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Lora:ital,wght@0,600;0,700;1,600;1,700&display=swap">
+<style>
+/* Две картинки 4:5 (540×675, снимаются в 2x = 1080×1350) для директа: лесной зелёный, кремовый и золото, как логотип FRAME HOUSES */
+:root{
+  --green:#0C1F13;--green2:#14301D;--sage-hi:#B4BFAE;
+  --cream:#F3EEDF;--paper:#F7F2E5;--tint:#ECE6D4;--ink:#18241B;--muted:#5E675C;--dim:#8D958A;--line:#E2DAC4;
+  --gold:#B8893A;--gold-hi:#DDAF58;--gold-ink:#1E1606;--gold-tint:#F4E8CC;
+  --wa:#25D366;
+  --font:"Onest",system-ui,sans-serif;--serif:"Lora",Georgia,serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#2A2A2A;font-family:var(--font);color:var(--ink);-webkit-font-smoothing:antialiased;display:grid;gap:24px;justify-content:center;padding:24px 0}
+h1,h2,h3,p{margin:0}
+.slide{width:540px;height:675px;overflow:hidden;background:var(--paper);display:flex;flex-direction:column;position:relative}
+.band{flex:none;background:var(--green);color:var(--cream);padding:16px 24px 15px;position:relative;isolation:isolate;overflow:hidden}
+.band::before{content:"";position:absolute;inset:0;z-index:-1;background:url(img/modul-gory.jpg) center 75%/cover;opacity:.3}
+.band::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--green) 38%,rgb(12 31 19 / .6))}
+.brand{display:flex;align-items:center;gap:9px}
+.brand img{width:32px;height:32px;border-radius:50%;box-shadow:0 0 0 1px rgb(221 175 88 / .5)}
+.brand b{font-family:var(--serif);font-size:14.5px;font-weight:700;line-height:1.1}
+.brand small{display:block;font-size:10.5px;color:var(--sage-hi);font-weight:600}
+.brand .pg{margin-left:auto;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-hi)}
+.band h1{font-family:var(--serif);font-weight:700;font-size:21px;line-height:1.2;margin-top:11px}
+.band h1 em{font-style:italic;color:var(--gold-hi)}
+.flow{display:flex;align-items:center;gap:6px;margin-top:12px;font-size:11.5px;font-weight:700}
+.flow span{background:rgb(243 238 223 / .1);border:1px solid rgb(243 238 223 / .2);border-radius:999px;padding:5px 10px;white-space:nowrap}
+.flow span.end{background:var(--wa);border-color:var(--wa);color:#05230F}
+.flow i{font-style:normal;color:var(--gold-hi);font-weight:800}
+
+.body{flex:1;min-height:0;padding:12px 18px 12px;display:flex;flex-direction:column;gap:8px}
+.blk{background:#FFFFFF;border:1px solid var(--line);border-radius:18px;padding:8px 12px 8px 8px;display:grid;grid-template-columns:104px minmax(0,1fr);gap:12px;align-items:center}
+.no{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--gold);color:#FFFFFF;font-size:11px;font-weight:800;flex:none}
+.tt{display:flex;align-items:center;gap:8px}
+.tt h3{font-family:var(--serif);font-weight:700;font-size:15px;line-height:1.2}
+.why{font-size:12.5px;line-height:1.38;color:var(--muted);margin-top:4px}
+.why b{color:var(--ink);font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.chips span{font-size:10.5px;font-weight:700;background:var(--tint);border-radius:999px;padding:3px 8px;white-space:nowrap}
+.chips span.c{background:var(--gold-tint);color:#7A5520}
+
+.wf{height:66px;border-radius:11px;overflow:hidden;position:relative}
+.wf.hero{background:linear-gradient(90deg,rgb(12 31 19 / .95) 50%,rgb(12 31 19 / .35)),url(img/modul-gory.jpg) center 75%/cover;padding:9px 8px;display:grid;grid-template-columns:1fr 38px;gap:6px}
+.ln{display:block;height:4px;border-radius:2px;background:rgb(243 238 223 / .55)}
+.ln.k{background:var(--gold-hi)}
+.pl{display:block;height:9px;border-radius:5px;width:34px;background:var(--gold-hi)}
+.mini-card{background:var(--paper);border-radius:6px;padding:4px;display:grid;gap:3px;align-content:start}
+.mini-card i{display:block;height:6px;border-radius:2px;background:var(--line)}
+.mini-card i.d{background:var(--green)}
+.mini-card i.g{background:var(--gold)}
+.mini-card i.w{background:var(--wa)}
+.wf.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:none}
+.wf.trio div{background:center 75%/cover;position:relative;border-radius:7px}
+.wf.trio div span{position:absolute;left:3px;right:3px;bottom:3px;background:rgb(12 31 19 / .85);color:#FFFFFF;font-size:8px;font-weight:800;border-radius:4px;text-align:center;padding:1px 0}
+
+/* главный блок: подбор дома */
+.main{background:var(--green);color:var(--cream);border-radius:20px;padding:11px 12px 12px;display:grid;gap:8px;flex:1;align-content:start}
+.main .tt h3{font-size:16.5px}
+.main .why{color:#C8D0C2;font-size:12.5px;margin-top:0}
+.main .why b{color:#FFFFFF}
+.tag{margin-left:auto;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:var(--gold-hi);color:var(--gold-ink);border-radius:999px;padding:4px 9px}
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cpane{background:var(--paper);color:var(--ink);border-radius:14px;padding:8px;display:flex;flex-direction:column;gap:5px}
+.cpane .h{font-size:9.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.types{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.types div{background:#FFFFFF;border:1.5px solid var(--line);border-radius:8px;overflow:hidden;font-size:9px;font-weight:800;line-height:1.15}
+.types div.on{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
+.types img,.types .ph{width:100%;height:30px;object-fit:cover;object-position:center 75%;display:block}
+.types .ph{display:grid;place-items:center;background:#EDE4CC;color:#8A6A2A}
+.types .ph svg{width:16px;height:16px}
+.types b{display:block;padding:3px 4px 4px}
+.q{display:grid;gap:3px}
+.q p{font-size:9.5px;font-weight:700;color:var(--muted)}
+.row{display:flex;gap:4px;flex-wrap:wrap}
+.row span{flex:1 0 auto;text-align:center;font-size:9.5px;font-weight:700;border:1.5px solid var(--line);background:#FFFFFF;border-radius:7px;padding:3px 5px;white-space:nowrap}
+.row span.on{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+.btn{background:var(--wa);color:#05230F;border-radius:8px;text-align:center;padding:5px 0;font-size:10px;font-weight:800}
+.btn.dark{background:var(--ink);color:var(--cream);margin-top:auto}
+
+/* слайд 2 */
+.band.sm{padding:16px 24px 14px}
+.band.sm h1{font-size:19px;margin-top:10px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cell{background:#FFFFFF;border:1px solid var(--line);border-radius:16px;padding:9px 10px 10px;display:grid;gap:5px;align-content:start}
+.cell .ph{height:72px;border-radius:9px;background:center 75%/cover}
+.cell .ph3{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;height:72px}
+.cell .ph3 div{border-radius:8px;background:center/cover}
+.cell .ph2{display:grid;grid-template-columns:1fr 1fr;gap:3px;height:72px}
+.cell .ph2 div{border-radius:8px;background:center 70%/cover;position:relative}
+.cell .ph2 div span{position:absolute;left:3px;bottom:3px;background:rgb(12 31 19 / .85);color:#FFFFFF;font-size:8.5px;font-weight:800;border-radius:4px;padding:1px 5px}
+.cell .tt h3{font-size:13.5px}
+.cell .why{font-size:11px;margin-top:0;line-height:1.35}
+.cell .chips{margin-top:0}
+.cell .chips span{font-size:9.5px;padding:2px 7px}
+.msg{background:#DCF8C6;border-radius:12px 12px 4px 12px;padding:7px 9px;font-size:9.5px;line-height:1.4;font-weight:600;color:#0B1F10}
+.msg b{display:block;font-size:8.5px;color:#128C4B;font-weight:800;margin-bottom:2px}
+.sumbox{background:var(--gold);color:#FFFFFF;border-radius:18px;padding:11px 16px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:center}
+.sumbox svg{width:28px;height:28px}
+.sumbox p{font-size:12.5px;line-height:1.4;font-weight:600}
+.sumbox p b{font-weight:800}
+.foot{display:flex;justify-content:space-between;font-size:10px;color:var(--dim);font-weight:600;margin-top:auto;padding-top:2px}
+.foot b{color:var(--ink);letter-spacing:.06em}
+</style>
+</head>
+<body>
+
+<section class="slide" id="s1">
+  <div class="band">
+    <div class="brand"><img src="img/logo.png" alt=""><span><b>Каркасные дома КЧР</b><small>структура сайта</small></span><span class="pg">1 / 2</span></div>
+    <h1>Человек сам выбирает дом и&nbsp;место, а&nbsp;вам приходит <em>заявка с&nbsp;адресом участка</em></h1>
+    <div class="flow"><span>Ваш рилс</span><i>→</i><span>Ссылка в&nbsp;шапке</span><i>→</i><span>Подбор дома</span><i>→</i><span class="end">Заявка в&nbsp;WhatsApp</span></div>
+  </div>
+  <div class="body">
+    <div class="blk">
+      <div class="wf hero">
+        <div style="display:grid;gap:4px;align-content:center"><span class="ln" style="width:55%"></span><span class="ln" style="width:92%;height:6px;background:var(--cream)"></span><span class="ln k" style="width:66%;height:6px"></span><span class="ln" style="width:80%;margin-top:2px"></span><div style="display:flex;gap:3px;margin-top:3px"><span class="pl"></span><span class="pl" style="background:none;box-shadow:inset 0 0 0 1px rgb(243 238 223 / .6)"></span></div></div>
+        <div class="mini-card"><i class="d" style="height:10px"></i><i></i><i class="g"></i><i></i><i></i><i class="w" style="height:9px"></i></div>
+      </div>
+      <div><div class="tt"><span class="no">1</span><h3>Главный экран</h3></div><p class="why">«Модульный дом на&nbsp;вашем участке за&nbsp;один день» и&nbsp;сразу подбор. Доставка по&nbsp;КЧР, наличный и&nbsp;безналичный расчёт</p></div>
+    </div>
+    <div class="main">
+      <div class="tt"><span class="no">2</span><h3>Подбор дома и&nbsp;заявка</h3><span class="tag">главный блок</span></div>
+      <p class="why">Сначала <b>какой дом</b>, потом <b>куда везти</b>: район, готов&nbsp;ли участок и&nbsp;как удобно платить</p>
+      <div class="calc">
+        <div class="cpane">
+          <span class="h">Какой дом</span>
+          <div class="types">
+            <div class="on"><img src="img/modul-gory.jpg" alt=""><b>Модульный</b></div>
+            <div><img src="img/dvuhetazh.jpg" alt=""><b>Под&nbsp;ключ</b></div>
+            <div><span class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 10 12 4l9.5 6M5 10v9M19 10v9M5 14.5h14M3 19h18"/></svg></span><b>Беседка</b></div>
+          </div>
+          <div class="q"><p>Площадь</p><div class="row"><span>До&nbsp;20</span><span class="on">20–40&nbsp;м²</span><span>40–60</span><span>60+</span></div></div>
+          <div class="q"><p>Для чего</p><div class="row"><span>Жить</span><span>Дача</span><span class="on">Гостям</span><span>Бизнес</span></div></div>
+          <span class="btn dark">Дальше: куда везти</span>
+        </div>
+        <div class="cpane">
+          <span class="h">Куда везти</span>
+          <div class="q"><p>Район</p><div class="row"><span class="on">Черкесск</span><span>Архыз</span><span>Домбай</span><span>Другое</span></div></div>
+          <div class="q"><p>Участок</p><div class="row"><span class="on">Готов</span><span>Нужны сваи</span><span>Выбираю</span></div></div>
+          <div class="q"><p>Оплата</p><div class="row"><span class="on">Наличные</span><span>Безналичный</span></div></div>
+          <div class="row"><span>Имя</span><span>Телефон</span></div>
+          <span class="btn">Узнать цену в&nbsp;WhatsApp</span>
+        </div>
+      </div>
+    </div>
+    <div class="blk" style="grid-template-columns:156px minmax(0,1fr)">
+      <div class="wf trio"><div style="background-image:url(img/panorama.jpg)"><span>Панорама</span></div><div style="background-image:url(img/terrasa.jpg)"><span>Терраса</span></div><div style="background-image:url(img/mini.jpg)"><span>Мини</span></div></div>
+      <div><div class="tt"><span class="no">3</span><h3>Модели с&nbsp;размерами и&nbsp;ценой</h3></div><p class="why">Ваши дома из&nbsp;ленты: размер, площадь, <b>цена «от»</b> и&nbsp;кнопка «Хочу такой»</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s2">
+  <div class="band sm">
+    <div class="brand"><img src="img/logo.png" alt=""><span><b>Каркасные дома КЧР</b><small>структура сайта</small></span><span class="pg">2 / 2</span></div>
+    <h1>Ответы на&nbsp;«что входит» и&nbsp;«сколько ехать» <em>собраны на&nbsp;одной странице</em></h1>
+  </div>
+  <div class="body">
+    <div class="grid2">
+      <div class="cell">
+        <div class="ph3"><div style="background-image:url(img/karkas.jpg)"></div><div style="background-image:url(img/uteplenie.jpg)"></div><div style="background-image:url(img/interer.jpg)"></div></div>
+        <div class="tt"><span class="no">4</span><h3>Что входит в&nbsp;дом</h3></div>
+        <p class="why">Металлокаркас, утепление, окна и&nbsp;отделка. Что входит в&nbsp;цену, а&nbsp;что за&nbsp;доплату</p>
+      </div>
+      <div class="cell">
+        <div class="ph2"><div style="background-image:url(img/tral.jpg);background-position:center 25%"><span>Трал</span></div><div style="background-image:url(img/kran.jpg);background-position:center 30%"><span>Кран</span></div></div>
+        <div class="tt"><span class="no">5</span><h3>Доставка и&nbsp;установка</h3></div>
+        <p class="why">Районы КЧР и&nbsp;сроки, подъезд для&nbsp;трала, сваи. Ставим за&nbsp;1&nbsp;день</p>
+      </div>
+      <div class="cell">
+        <div class="tt"><span class="no">6</span><h3>Беседки</h3></div>
+        <div class="chips"><span>Размеры</span><span>Цена «от»</span><span>Установка</span><span class="c">Отдельный раздел</span></div>
+      </div>
+      <div class="cell">
+        <div class="tt"><span class="no">7</span><h3>Как мы строим</h3></div>
+        <div class="chips"><span>Каркас</span><span>Утепление</span><span>Отделка</span><span>Доставка</span><span>Установка</span><span class="c">Ваши рилс</span></div>
+      </div>
+      <div class="cell">
+        <div class="ph2"><div style="background-image:url(img/podemnik.jpg)"></div><div style="background-image:url(img/sinij.jpg)"></div></div>
+        <div class="tt"><span class="no">8</span><h3>Для турбаз и&nbsp;бизнеса</h3></div>
+        <p class="why">Несколько модулей для&nbsp;гостей, объекты в&nbsp;горах, безналичный расчёт</p>
+      </div>
+      <div class="cell">
+        <div class="msg"><b>Заявка с&nbsp;сайта</b>Модульный дом, 20–40&nbsp;м², сдавать гостям<br>Куда: Архыз · участок: нужны сваи<br>Безналичный · Мурат, +7&nbsp;928…</div>
+        <div class="tt"><span class="no">9</span><h3>Отзывы и&nbsp;контакты</h3></div>
+        <p class="why">Отзывы с&nbsp;фото дома, частые вопросы, WhatsApp и&nbsp;Instagram</p>
+      </div>
+    </div>
+    <div class="sumbox">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg>
+      <p>Человек сам выбирает дом, район и&nbsp;оплату. Вам приходит заявка <b>вместо «сколько стоит дом 6&nbsp;на&nbsp;8 и&nbsp;сколько ехать к&nbsp;нам?»</b></p>
+    </div>
+    <div class="foot"><span>Подготовила Анастасия Абдуллаева</span><span><b>FOR.MI</b></span></div>
+  </div>
+</section>
+
+</body>
+</html>
