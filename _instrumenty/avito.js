@@ -161,7 +161,7 @@ const xmark=t=>`<div style="display:flex;gap:14px;align-items:flex-start"><span 
 const vmark=t=>`<div style="display:flex;gap:14px;align-items:flex-start"><span style="flex:none;width:30px;height:30px;border-radius:50%;background:${C.blue};color:#fff;display:grid;place-items:center;font-size:17px;font-weight:800;margin-top:2px">✓</span><span>${t}</span></div>`;
 const kartyDoPosleHtml=()=>`<!doctype html><html lang="ru"><head>${head}
 <style>.row{position:absolute;left:72px;right:72px;top:236px;bottom:96px;display:grid;grid-template-columns:1fr 1fr;gap:36px}
-.cd{border-radius:26px;padding:34px 36px;display:grid;align-content:start;gap:30px;font-size:31px;line-height:1.25}
+.cd{border-radius:26px;padding:34px 36px;display:grid;align-content:start;gap:24px;font-size:29px;line-height:1.25}
 .cd h3{margin:0 0 4px;font-size:22px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}</style>
 </head><body><div class="c">
 <div style="position:absolute;left:72px;top:62px;display:grid;gap:10px">
