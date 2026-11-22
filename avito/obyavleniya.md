@@ -77,7 +77,7 @@
 
 **Название:** Оформление карточки в Яндекс Картах и 2ГИС
 **Цена:** 10 000 ₽
-**Фото по порядку:** karty-oblozhka, karty-chto-vhodit, karty-kak-rabotaem
+**Фото по порядку:** karty-oblozhka, karty-do-posle, karty-chto-vhodit, karty-kak-rabotaem, obo-mne
 **Адрес:** Симферополь, центральная улица (как у объявления про сайты)
 
 **Описание:**
