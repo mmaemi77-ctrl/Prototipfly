@@ -112,9 +112,9 @@ button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible{o
     <label class="chk"><input type="checkbox" id="p-vremya"><span>Время звонка подтверждено в директе</span></label>
     <label class="chk"><input type="checkbox" id="p-oplata"><span>Знаю, как приму оплату из Беларуси<small>Спросите в своём банке, можно ли принять перевод из Беларуси на счёт самозанятой. Не успели: на звонке спросите, каким банком им удобно платить.</small></span></label>
     <label class="chk"><input type="checkbox" id="p-ceny"><span>Цены решены: 25 000 / 35 000 / 40 000 ₽<small>Меньше 25 000 не соглашаемся. Просят дешевле: убираем блоки, а не снижаем цену.</small></span></label>
-    <label class="chk"><input type="checkbox" id="p-srok"><span>Решила срок<small>Через сколько дней покажу первую версию и когда сдам весь сайт.</small></span></label>
-    <label class="chk"><input type="checkbox" id="p-hosting"><span>Решила, где будет сайт и сколько это стоит клиенту в месяц</span></label>
-    <label class="chk"><input type="checkbox" id="p-pravki"><span>Решила, сколько стоят правки после сдачи<small>По навыку цен на старте обслуживание 3–5 тысяч в месяц.</small></span></label>
+    <label class="chk"><input type="checkbox" id="p-srok"><span>Срок решён<small>Первая версия через 5 дней, весь сайт за 14 дней.</small></span></label>
+    <label class="chk"><input type="checkbox" id="p-hosting"><span>Хостинг: тот, где оформляли сайт мужу<small>Название и цена в месяц: <span class="fill">название, цена</span></small></span></label>
+    <label class="chk"><input type="checkbox" id="p-pravki"><span>Правки после сдачи решены<small>3 000 ₽ в месяц при варианте за 25 000, 5 000 ₽ при 35 000 и 40 000.</small></span></label>
     <label class="chk"><input type="checkbox" id="p-obedinit"><span>Знаю, что объединю, если скажут «дорого»<small>Дома с условиями, беседки с «Затокой», прокат с вопросами: вместо 8 блоков 6, это вариант за 25 000.</small></span></label>
     <label class="chk"><input type="checkbox" id="p-kartinki"><span>Под рукой картинки структуры и разбора, ссылка на договор</span></label>
     <label class="chk"><input type="checkbox" id="p-tishina"><span>Тихое место, наушники, телефон заряжен</span></label>
@@ -176,7 +176,7 @@ button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible{o
     <div class="card q">
       <label class="chk"><input type="checkbox" id="q7"><span>Кто меняет даты и цены</span></label>
       <div class="say"><p>Занятые даты и цены вы хотели бы менять сами или удобнее, чтобы это делала я?</p></div>
-      <p class="why"><b>Зачем:</b> «сами» означает третий вариант с панелью. «Вы» означает обслуживание <span class="fill">сумма в месяц</span>.</p>
+      <p class="why"><b>Зачем:</b> «сами» означает третий вариант с панелью. «Вы» означает обслуживание: 3 000 ₽ в месяц при первом варианте, 5 000 ₽ при втором и третьем.</p>
       <textarea id="a-q7" rows="1" placeholder="Ответ"></textarea>
     </div>
     <div class="card q">
@@ -219,7 +219,7 @@ button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible{o
       <div class="var"><b>Второй: все 8 блоков</b><span class="price">35 000 ₽</span><p>Как в наброске, и расчёт суммы с предоплатой 30%. Гость сразу видит, сколько платить.</p></div>
       <div class="var"><b>Третий: с календарём</b><span class="price">40 000 ₽</span><p>Как второй, плюс календарь занятых дат и простая панель, где вы сами отмечаете даты и меняете цены.</p></div>
     </div>
-    <div class="say"><p>Домен оформим на вас, его оплата отдельно, около 150–700 рублей в год.</p></div>
+    <div class="say"><p>Домен и хостинг оформим на вас, их оплата отдельно: домен около 150–700 рублей в год, хостинг около <span class="fill">цена</span> в месяц.</p></div>
     <div class="pause"><b>Пауза 3–5 секунд.</b> Молчите. Не объясняйте и не оправдывайтесь, пусть подумают.</div>
     <div class="say"><p>Какой вариант вам ближе?</p></div>
     <p class="why"><b>Если молчат долго:</b> «Сайт окупается, если приносит несколько броней домиков. Сейчас каждую из них вы ведёте вручную в директе».</p>
@@ -247,7 +247,7 @@ button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible{o
         <button type="button" data-v="3" aria-pressed="false">Три части</button>
       </div>
     </div>
-    <div class="say"><p>Сегодня в течение часа пришлю договор и реквизиты в WhatsApp. Как придёт первая часть, начинаю, первую версию покажу через <span class="fill">срок</span>.</p></div>
+    <div class="say"><p>Сегодня в течение часа пришлю договор и реквизиты в WhatsApp. Как придёт первая часть, начинаю, первую версию покажу через 5 дней, весь сайт будет готов за 14 дней.</p></div>
     <div class="say"><p>От вас понадобится немного: лучшие фото домов и беседок без надписей, логотип, номер, на который принимать заявки, и название ИП для политики конфиденциальности. Остальное соберу сама из вашего Инстаграма.</p></div>
     <div class="card q">
       <div class="say"><p>И домен: как бы вы хотели, чтобы назывался сайт? Например, adamovo-ozero.</p></div>
@@ -271,25 +271,25 @@ button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible{o
       <div class="say"><p>Да, он помогает писать быстрее. Но что будет на сайте, как считается сумма, проверку и правки под вас делаю я сама.</p></div>
     </div></details>
     <details class="faq"><summary>«Сколько по времени?» и «Успеете к Новому году?»</summary><div class="in">
-      <div class="say"><p>Первую версию покажу через <span class="fill">срок</span>, весь сайт вместе с правками будет готов за <span class="fill">срок</span>.</p></div>
-      <p class="why">Про Новый год: успеем, если начнём на этой неделе. Обещайте только то, что точно успеете.</p>
+      <div class="say"><p>Первую версию покажу через 5 дней после первой оплаты, весь сайт вместе с правками будет готов за 14 дней. Если начнём на этой неделе, к середине декабря сайт уже будет работать, как раз к новогодним броням.</p></div>
+      <p class="why">Сроки считаются от первой оплаты и от того, как быстро клиент пришлёт фото и ответы.</p>
     </div></details>
     <details class="faq"><summary>«Как оплатить из Беларуси?» и «В какой валюте?»</summary><div class="in">
       <div class="say"><p>В российских рублях, по договору. Скажите, каким банком вам удобно платить, я уточню и сегодня пришлю реквизиты вместе с договором.</p></div>
       <p class="why">Если вы уже узнали в банке, сразу назовите способ.</p>
     </div></details>
     <details class="faq"><summary>«Что входит в цену?»</summary><div class="in">
-      <div class="say"><p>Блоки по выбранному варианту, тексты, ваши фото, заявки вам в WhatsApp, версия для телефона и подключение к поиску. Домен оформляем на вас, его оплата отдельно.</p></div>
+      <div class="say"><p>Блоки по выбранному варианту, тексты, ваши фото, заявки вам в WhatsApp, версия для телефона и подключение к поиску. Домен и хостинг оформляем на вас, их оплата отдельно.</p></div>
     </div></details>
     <details class="faq"><summary>«Сайт будет наш?»</summary><div class="in">
       <div class="say"><p>Да. Домен и доступы оформляю на вас, сайт ваш.</p></div>
     </div></details>
     <details class="faq"><summary>«Где он будет размещён и сколько платить в месяц?»</summary><div class="in">
-      <div class="say"><p><span class="fill">Ваш ответ из пункта «Перед звонком»</span></p></div>
-      <p class="why">Если ещё не решили, скажите честно: «Уточню и напишу вместе с договором».</p>
+      <div class="say"><p>Размещу на хостинге, где недавно оформляла другой сайт: <span class="fill">название</span>, около <span class="fill">цена</span> в месяц. Оформим его на вас, чтобы всё было ваше.</p></div>
+      <p class="why">Хостинг оплачивается отдельно от работы, как и домен.</p>
     </div></details>
     <details class="faq"><summary>«А если надо поменять цены или фото?»</summary><div class="in">
-      <div class="say"><p>В третьем варианте вы меняете цены и даты сами в простой панели. Если удобнее, чтобы это делала я, это обслуживание <span class="fill">сумма</span> в месяц.</p></div>
+      <div class="say"><p>В третьем варианте вы меняете цены и даты сами в простой панели. Если удобнее, чтобы это делала я, это обслуживание: 3 000 ₽ в месяц к первому варианту, 5 000 ₽ ко второму и третьему.</p></div>
     </div></details>
     <details class="faq"><summary>«Можно, чтобы гость платил прямо на сайте?»</summary><div class="in">
       <div class="say"><p>Можно, через белорусскую платёжную систему. Это отдельная доработка, посчитаю её, когда уточню, какой у вас банк.</p></div>
