@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Адамово озеро, база отдыха в 15 км от Гродно: домики с баней и беседки, цена на вашу дату и бронь с предоплатой 30%">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Адамово озеро · домики с баней и беседки у воды">
+<meta property="og:description" content="Выберите дом или беседку, дату и число гостей: сумма и предоплата посчитаются сами">
+<meta property="og:image" content="https://mmaemi77-ctrl.github.io/adamovo-ozero/og-glavnyi.jpg">
+<meta name="theme-color" content="#11130F">
+<title>Адамово озеро · главный экран</title>
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&family=Marck+Script&display=swap">
+<style>
+/* Layout: главный экран как вечер у озера: слева заголовок в духе их прайсов (узкий шрифт, золото, рукописная строка), справа карточка брони с расчётом суммы. Ниже блоки будущего сайта. */
+:root{
+  --bg:#11130F;--bg2:#161912;--surface:#1D2019;--surface2:#272A21;--surface3:#30342A;
+  --ink:#F1E8D6;--muted:#B5AC9A;--dim:#857E6F;--line:#33362C;
+  --gold:#D6AE6A;--gold-hi:#E9C789;--gold-deep:#B7843F;--gold-tint:#2A2517;--gold-line:#5B4A27;
+  --moss:#8E9C6A;--busy:#4A3B33;--ok:#7FBF7A;
+  --f-body:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-head:"Oswald","Arial Narrow",Impact,sans-serif;
+  --f-script:"Marck Script","Segoe Script",cursive;
+  --gut:max(18px,env(safe-area-inset-left));--gutr:max(18px,env(safe-area-inset-right));
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+.wrap{max-width:1240px;margin:0 auto;padding-left:var(--gut);padding-right:var(--gutr)}
+
+/* шапка */
+.nav{position:absolute;inset:0 0 auto;z-index:5}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:16px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo img{width:42px;height:42px;border-radius:50%;box-shadow:0 0 0 1.5px rgb(233 199 137 / .5)}
+.logo b{font-family:var(--f-head);font-weight:600;font-size:19px;letter-spacing:.06em;text-transform:uppercase;line-height:1}
+.logo small{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-hi);margin-top:3px}
+.links{display:flex;gap:22px;font-size:14.5px;font-weight:500}
+.links a{text-decoration:none;opacity:.88}
+.links a:hover{opacity:1;color:var(--gold-hi)}
+.tel{font-weight:700;font-size:15px;text-decoration:none;border:1px solid rgb(241 232 214 / .3);border-radius:999px;padding:8px 14px;white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* главный экран */
+.hero{position:relative;isolation:isolate;min-height:100vh;min-height:100svh;display:flex;align-items:center}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:url("img/ozero-den.jpg") center 45%/cover}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgb(14 16 12 / .9) 0%,rgb(14 16 12 / .62) 46%,rgb(14 16 12 / .3) 100%),linear-gradient(180deg,rgb(14 16 12 / .45),transparent 30%,rgb(14 16 12 / .6))}
+.hero .wrap{width:100%;display:grid;grid-template-columns:minmax(0,1fr) 440px;gap:48px;align-items:center;padding-block:100px 40px}
+.copy{display:grid;gap:18px;max-width:600px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-hi)}
+.eyebrow::before{content:"";width:28px;height:1.5px;background:var(--gold)}
+h1{margin:0;font-family:var(--f-head);font-weight:600;font-size:clamp(40px,5.4vw,72px);line-height:1;text-transform:uppercase;letter-spacing:.01em;text-wrap:balance}
+h1 .scr{display:block;font-family:var(--f-script);font-weight:400;text-transform:none;letter-spacing:0;color:var(--gold-hi);font-size:.62em;line-height:1.15;margin-top:8px}
+.sub{margin:0;font-size:18px;color:var(--ink);opacity:.92;max-width:52ch}
+.facts{display:flex;flex-wrap:wrap;gap:8px}
+.facts span{font-size:13.5px;font-weight:600;border:1px solid rgb(241 232 214 / .25);background:rgb(17 19 15 / .45);border-radius:999px;padding:6px 12px}
+
+/* карточка брони */
+.book{background:rgb(22 25 18 / .94);border:1px solid var(--line);border-radius:20px;padding:18px;display:grid;gap:14px;box-shadow:0 30px 70px -20px rgb(0 0 0 / .7);backdrop-filter:blur(8px)}
+.tabs{display:grid;grid-template-columns:1fr 1fr;background:var(--surface2);border-radius:12px;padding:4px;gap:4px}
+.tabs button{border:0;background:transparent;border-radius:9px;padding:9px 8px;font-weight:700;font-size:14.5px;color:var(--muted)}
+.tabs button[aria-selected="true"]{background:var(--gold);color:#1A160D}
+.objs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.objs.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.obj{border:1.5px solid var(--line);background:var(--surface);border-radius:12px;padding:0;overflow:hidden;text-align:left;display:grid}
+.obj img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.obj span{padding:6px 8px 7px;font-size:12.5px;font-weight:700;line-height:1.2;min-height:2.6em;display:grid;align-content:center}
+.obj small{display:block;font-weight:500;color:var(--muted);font-size:11.5px}
+.obj[aria-pressed="true"]{border-color:var(--gold-hi);box-shadow:0 0 0 1px var(--gold-hi)}
+.cal{display:grid;gap:6px}
+.cal-h{display:flex;justify-content:space-between;align-items:center}
+.cal-h b{font-weight:700;font-size:14.5px;text-transform:capitalize}
+.cal-h button{width:30px;height:30px;border-radius:8px;border:1px solid var(--line);background:var(--surface);display:grid;place-items:center}
+.cal-h button:disabled{opacity:.3;cursor:default}
+.days,.dn{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:3px;text-align:center}
+.dn span{font-size:11px;color:var(--dim);font-weight:600}
+.days button{border:0;background:var(--surface);border-radius:7px;height:30px;font-size:13px;font-weight:600;font-variant-numeric:tabular-nums;padding:0}
+.days button.we{color:var(--gold-hi)}
+.days button:disabled{background:transparent;color:var(--dim);cursor:default}
+.days button.busy{background:var(--busy);color:#9C8C80;cursor:not-allowed;opacity:.75}
+.days button.sel{background:var(--gold);color:#1A160D}
+.days button.rng{background:var(--gold-tint);color:var(--gold-hi)}
+.legend{display:flex;gap:12px;font-size:11.5px;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.step{background:var(--surface);border-radius:12px;padding:7px 8px 7px 12px;display:flex;align-items:center;justify-content:space-between;gap:6px}
+.step label{font-size:13px;color:var(--muted);font-weight:600}
+.step .ctl{display:flex;align-items:center;gap:6px}
+.step button{width:30px;height:30px;border-radius:8px;border:1px solid var(--line);background:var(--surface2);font-size:18px;line-height:1;display:grid;place-items:center}
+.step output{min-width:22px;text-align:center;font-weight:800;font-variant-numeric:tabular-nums}
+.step.off{opacity:.35;pointer-events:none}
+.sum{display:flex;justify-content:space-between;align-items:end;gap:10px;border-top:1px dashed var(--line);padding-top:12px}
+.sum .lbl{font-size:12.5px;color:var(--muted)}
+.sum .total{font-family:var(--f-head);font-weight:600;font-size:30px;line-height:1;color:var(--gold-hi);font-variant-numeric:tabular-nums}
+.sum .pre{text-align:right;font-size:13px;color:var(--muted)}
+.sum .pre b{display:block;color:var(--ink);font-size:16px}
+.how{font-size:12.5px;color:var(--dim);margin-top:-6px}
+.cta{border:0;background:var(--gold);color:#1A160D;font-weight:800;font-size:16px;border-radius:12px;padding:14px;width:100%}
+.cta:hover{background:var(--gold-hi)}
+.note{margin:-4px 0 0;text-align:center;font-size:12px;color:var(--dim)}
+
+/* блоки ниже */
+section.blk{padding-block:64px;border-top:1px solid var(--line)}
+.head{display:grid;gap:6px;margin-bottom:26px;max-width:720px}
+.kick{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-hi)}
+h2{margin:0;font-family:var(--f-head);font-weight:600;font-size:clamp(30px,3.6vw,44px);line-height:1.05;text-transform:uppercase;text-wrap:balance}
+.head p{margin:0;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.cards.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:var(--surface);border-radius:18px;overflow:hidden;display:grid;grid-template-rows:auto 1fr}
+.card img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.card .in{padding:16px;display:grid;gap:8px;align-content:start}
+.card h3{margin:0;font-family:var(--f-head);font-weight:600;font-size:22px;text-transform:uppercase;letter-spacing:.02em}
+.card .tg{font-family:var(--f-script);color:var(--gold-hi);font-size:20px;line-height:1.1}
+.card ul{margin:0;padding-left:18px;color:var(--muted);font-size:14.5px;display:grid;gap:2px}
+.prices{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.prices span{background:var(--surface2);border-radius:10px;padding:6px 10px;font-size:12.5px;color:var(--muted)}
+.prices b{display:block;color:var(--ink);font-size:16px;font-variant-numeric:tabular-nums}
+.pick{margin-top:6px;border:1px solid var(--gold-line);background:var(--gold-tint);color:var(--gold-hi);border-radius:10px;padding:10px;font-weight:700;font-size:14px}
+.band{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:center}
+.band img{border-radius:18px;width:100%;aspect-ratio:4/3;object-fit:cover}
+.band ul{margin:14px 0 18px;padding-left:18px;display:grid;gap:6px}
+.band .cta{width:auto;padding-inline:22px}
+.rent{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.rent img{border-radius:18px;width:100%;aspect-ratio:4/3;object-fit:cover}
+table{width:100%;border-collapse:collapse;font-size:15px}
+td{padding:10px 0;border-bottom:1px solid var(--line);vertical-align:top}
+td:last-child{text-align:right;white-space:nowrap;font-weight:700;font-variant-numeric:tabular-nums}
+td small{display:block;color:var(--dim);font-weight:500}
+.rules{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.rule{background:var(--surface);border-radius:14px;padding:14px}
+.rule b{display:block;font-family:var(--f-head);font-weight:600;font-size:24px;color:var(--gold-hi)}
+.rule span{font-size:13.5px;color:var(--muted)}
+.faq{display:grid;gap:8px;max-width:820px}
+.faq details{background:var(--surface);border-radius:12px;padding:0 16px}
+.faq summary{cursor:pointer;font-weight:700;padding-block:14px;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";float:right;color:var(--gold-hi)}
+.faq details[open] summary::after{content:"−"}
+.faq p{margin:0 0 14px;color:var(--muted)}
+.tbd{display:inline-block;font-size:11.5px;font-weight:700;color:#1A160D;background:var(--gold);border-radius:6px;padding:1px 6px;margin-left:6px;vertical-align:2px}
+.map{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}
+.map .ph{border:1.5px dashed var(--line);border-radius:18px;display:grid;place-items:center;text-align:center;color:var(--dim);padding:30px;min-height:240px;background:repeating-linear-gradient(45deg,var(--bg2) 0 14px,var(--bg) 14px 28px)}
+.map .box{background:var(--surface);border-radius:18px;padding:20px;display:grid;gap:10px;align-content:start}
+.next{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;counter-reset:n}
+.next div{counter-increment:n;background:var(--surface);border-radius:16px;padding:18px;display:grid;gap:6px}
+.next div::before{content:counter(n);width:30px;height:30px;border-radius:50%;background:var(--gold);color:#1A160D;font-weight:800;display:grid;place-items:center}
+.next b{font-size:16px}
+.next span{color:var(--muted);font-size:14.5px}
+footer{border-top:1px solid var(--line);padding-block:30px 44px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center}
+footer nav{display:flex;flex-wrap:wrap;gap:8px 18px}
+footer button{border:0;background:none;padding:0;text-decoration:underline;color:var(--muted);font-size:14px}
+
+/* окна */
+dialog{border:0;padding:0;border-radius:20px;background:var(--bg2);color:var(--ink);width:min(460px,calc(100vw - 28px));max-height:calc(100vh - 40px);box-shadow:0 30px 80px rgb(0 0 0 / .6)}
+dialog::backdrop{background:rgb(6 7 5 / .72)}
+.dlg{padding:20px;display:grid;gap:12px}
+.dlg h2{font-size:26px}
+.x{position:absolute;right:12px;top:12px;width:34px;height:34px;border-radius:50%;border:0;background:var(--surface2);font-size:18px}
+.recap{background:var(--surface);border-radius:12px;padding:12px;font-size:14.5px;display:grid;gap:2px}
+.recap b{color:var(--gold-hi)}
+.fld{display:grid;gap:4px}
+.fld label{font-size:13px;color:var(--muted);font-weight:600}
+.fld input,.fld textarea{font:inherit;color:var(--ink);background:var(--surface);border:1.5px solid var(--line);border-radius:10px;padding:11px 12px;width:100%}
+.fld input:focus,.fld textarea:focus{outline:none;border-color:var(--gold)}
+.fld input.bad{border-color:#D98C6A}
+.agree{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--muted)}
+.agree input{margin-top:3px;accent-color:var(--gold);width:18px;height:18px;flex:none}
+.agree button{border:0;background:none;padding:0;color:var(--gold-hi);text-decoration:underline;font-size:13.5px}
+.agree.bad{color:#E6A487}
+.tgmsg{background:#1F2A33;border-radius:14px 14px 14px 4px;padding:12px 14px;font-size:14.5px;display:grid;gap:3px;font-variant-numeric:tabular-nums}
+.tgmsg .who{font-size:12.5px;font-weight:700;color:#7FB3E0}
+.tgmsg i{font-style:normal;color:#93A3AF;font-size:11.5px;justify-self:end}
+.doc{font-size:14.5px;color:var(--muted);display:grid;gap:8px}
+.doc p{margin:0}
+button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid var(--gold-hi);outline-offset:2px}
+
+@media (max-width:1080px){
+  .hero .wrap{grid-template-columns:minmax(0,1fr) 400px;gap:28px}
+  .links{display:none}
+  .cards.four{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rules{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:820px){
+  .hero{min-height:0;display:block}
+  .hero::after{background:linear-gradient(180deg,rgb(14 16 12 / .7) 0%,rgb(14 16 12 / .86) 40%,var(--bg) 78%)}
+  .hero .wrap{grid-template-columns:minmax(0,1fr);padding-block:86px 28px;gap:22px}
+  .nav .wrap{padding-block:12px}
+  .logo img{width:36px;height:36px}
+  .logo b{font-size:16px}
+  .tel{padding:7px 11px;font-size:13.5px}
+  h1{font-size:40px}
+  .sub{font-size:16px}
+  .cards,.band,.rent,.map,.next{grid-template-columns:minmax(0,1fr)}
+  .rules{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rule:last-child{grid-column:1/-1}
+  section.blk{padding-block:44px}
+}
+@media (max-width:420px){
+  .objs.four{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cards.four{grid-template-columns:minmax(0,1fr)}
+  .facts span{font-size:12.5px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top"><img src="img/logo.png" alt=""><span><b>Адамово озеро</b><small>база отдыха</small></span></a>
+    <nav class="links" aria-label="Разделы">
+      <a href="#doma">Дома</a><a href="#besedki">Беседки</a><a href="#zatoka">Праздники</a><a href="#prokat">Прокат</a><a href="#kontakty">Как&nbsp;добраться</a>
+    </nav>
+    <a class="tel" href="tel:+375293324737">+375 29 332-47-37</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="copy">
+      <span class="eyebrow">15 км от&nbsp;Гродно · Жукевичи</span>
+      <h1>Домик с&nbsp;баней или&nbsp;беседка у&nbsp;воды<span class="scr">цена на&nbsp;вашу дату сразу</span></h1>
+      <p class="sub">Выберите дом или&nbsp;беседку, дату и&nbsp;число гостей. Сумма и&nbsp;предоплата 30% посчитаются сами, а&nbsp;заявка придёт администратору.</p>
+      <div class="facts"><span>Баня в&nbsp;цене дома</span><span>Беседки до&nbsp;50 человек</span><span>Сапборды и&nbsp;мангал на&nbsp;месте</span></div>
+    </div>
+
+    <form class="book" id="book" novalidate>
+      <div class="tabs" role="tablist" aria-label="Что бронируем">
+        <button type="button" role="tab" data-tab="dom" aria-selected="true">Домик на&nbsp;сутки</button>
+        <button type="button" role="tab" data-tab="bes" aria-selected="false">Беседка на&nbsp;день</button>
+      </div>
+      <div class="objs" id="objs"></div>
+      <div class="cal">
+        <div class="cal-h"><button type="button" id="prev" aria-label="Предыдущий месяц">‹</button><b id="month"></b><button type="button" id="next" aria-label="Следующий месяц">›</button></div>
+        <div class="dn"><span>пн</span><span>вт</span><span>ср</span><span>чт</span><span>пт</span><span>сб</span><span>вс</span></div>
+        <div class="days" id="days"></div>
+        <div class="legend"><span><i style="background:var(--gold)"></i>ваша дата</span><span><i style="background:var(--busy)"></i>занято</span><span style="color:var(--gold-hi)">пт–вс выходные</span></div>
+      </div>
+      <div class="steps">
+        <div class="step"><label for="g">Гостей</label><div class="ctl"><button type="button" data-d="g" data-v="-1" aria-label="Меньше гостей">−</button><output id="g">6</output><button type="button" data-d="g" data-v="1" aria-label="Больше гостей">+</button></div></div>
+        <div class="step" id="nstep"><label for="n">Суток</label><div class="ctl"><button type="button" data-d="n" data-v="-1" aria-label="Меньше суток">−</button><output id="n">1</output><button type="button" data-d="n" data-v="1" aria-label="Больше суток">+</button></div></div>
+      </div>
+      <div class="sum">
+        <div><div class="lbl" id="sumlbl">Итого</div><div class="total" id="total">370 BYN</div></div>
+        <div class="pre">предоплата 30%<b id="pre">111 BYN</b></div>
+      </div>
+      <div class="how" id="how"></div>
+      <button class="cta" type="submit">Забронировать</button>
+      <p class="note">Это набросок: бронь никуда не&nbsp;отправится</p>
+    </form>
+  </div>
+</section>
+
+<section class="blk" id="doma">
+  <div class="wrap">
+    <div class="head"><span class="kick">Дома посуточно</span><h2>Три дома, у&nbsp;каждого свой характер</h2><p>Заезд с&nbsp;14:00, выезд до&nbsp;12:00. До&nbsp;4 гостей в&nbsp;цене, баня включена.</p></div>
+    <div class="cards">
+      <article class="card"><img src="img/vedmin.jpg" alt="Ведьмин дом" loading="lazy"><div class="in"><h3>Ведьмин дом</h3><div class="tg">самый загадочный дом на&nbsp;озере</div><ul><li>Баня и&nbsp;мангальная зона</li><li>Дом в&nbsp;сосновом лесу</li><li>Спальных мест: уточним</li></ul><div class="prices"><span>пн–чт<b>300 BYN</b></span><span>пт–вс<b>350 BYN</b></span><span>гость сверх 4<b>+10 BYN</b></span></div><button class="pick" type="button" data-pick="vedmin">Выбрать даты</button></div></article>
+      <article class="card"><img src="img/bobrovaya.jpg" alt="Бобровая хатка" loading="lazy"><div class="in"><h3>Бобровая хатка</h3><div class="tg">не&nbsp;все домики у&nbsp;воды одинаковы</div><ul><li>Дом у&nbsp;воды после реконструкции</li><li>Кухня, санузел, баня, пирс</li><li>Беседка с&nbsp;водой и&nbsp;мангал</li></ul><div class="prices"><span>пн–чт<b>300 BYN</b></span><span>пт–вс<b>350 BYN</b></span><span>гость сверх 4<b>+10 BYN</b></span></div><button class="pick" type="button" data-pick="bobrovaya">Выбрать даты</button></div></article>
+      <article class="card"><img src="img/koshkin.jpg" alt="Кошкин дом" loading="lazy" style="object-position:center 30%"><div class="in"><h3>Кошкин дом</h3><div class="tg">не&nbsp;домик, а&nbsp;целый остров</div><ul><li>Баня внутри дома</li><li>Рядом дом на&nbsp;2 места, 100 BYN</li><li>Выходные: цену уточним</li></ul><div class="prices"><span>сутки<b>300 BYN</b></span><span>гость сверх 4<b>+10 BYN</b></span></div><button class="pick" type="button" data-pick="koshkin">Выбрать даты</button></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="besedki">
+  <div class="wrap">
+    <div class="head"><span class="kick">Беседки на&nbsp;день</span><h2>Беседка под&nbsp;любую компанию</h2><p>От&nbsp;дружеского шашлыка на&nbsp;10 человек до&nbsp;праздника на&nbsp;50.</p></div>
+    <div class="cards four">
+      <article class="card"><img src="img/besedka.jpg" alt="Беседка для небольшой компании" loading="lazy"><div class="in"><h3>До&nbsp;10 человек</h3><ul><li>Несколько беседок с&nbsp;мангалом</li><li>Цена зависит от&nbsp;дня и&nbsp;гостей</li></ul><div class="prices"><span>от<b>60 BYN</b></span></div><button class="pick" type="button" data-pick="malaya">Выбрать дату</button></div></article>
+      <article class="card"><img src="img/mulyavina.jpg" alt="Беседка имени Мулявина" loading="lazy"><div class="in"><h3>Им. В. Мулявина</h3><ul><li>От&nbsp;10 до&nbsp;20 человек</li><li>Сверх 10: 15 / 20 BYN за&nbsp;гостя</li></ul><div class="prices"><span>пн–чт<b>150 BYN</b></span><span>пт–вс<b>200 BYN</b></span></div><button class="pick" type="button" data-pick="mulyavina">Выбрать дату</button></div></article>
+      <article class="card"><img src="img/bungalo.jpg" alt="Беседка Бунгало" loading="lazy"><div class="in"><h3>Бунгало</h3><ul><li>До&nbsp;30 человек, после реставрации</li><li>Мангальная зона и&nbsp;место для&nbsp;костра</li></ul><div class="prices"><span>день<b>250 BYN</b></span></div><button class="pick" type="button" data-pick="bungalo">Выбрать дату</button></div></article>
+      <article class="card"><img src="img/zatoka.jpg" alt="Беседка Затока" loading="lazy"><div class="in"><h3>Затока</h3><ul><li>До&nbsp;50 человек</li><li>Свадьбы, корпоративы, юбилеи</li></ul><div class="prices"><span>от<b>500 BYN</b></span></div><button class="pick" type="button" data-pick="zatoka">Выбрать дату</button></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="zatoka">
+  <div class="wrap band">
+    <img src="img/mangal.jpg" alt="Мангальная зона у беседки" loading="lazy">
+    <div>
+      <span class="kick">Праздники</span>
+      <h2>Свадьба или&nbsp;корпоратив в&nbsp;«Затоке»</h2>
+      <ul>
+        <li>Самая большая беседка на&nbsp;озере, до&nbsp;50 гостей</li>
+        <li>Мангальная зона, домики для&nbsp;гостей с&nbsp;ночёвкой</li>
+        <li>Цена зависит от&nbsp;дня недели и&nbsp;количества гостей</li>
+      </ul>
+      <button class="cta" type="button" data-pick="zatoka">Рассчитать праздник</button>
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="prokat">
+  <div class="wrap rent">
+    <div>
+      <div class="head"><span class="kick">На&nbsp;месте</span><h2>Прокат: не&nbsp;везите из&nbsp;города</h2></div>
+      <table>
+        <tr><td>Сапборд<small>для&nbsp;взрослых и&nbsp;подростков, от&nbsp;2 часов</small></td><td>10 BYN / час</td></tr>
+        <tr><td>Казан<small>залог 15 BYN</small></td><td>10 BYN</td></tr>
+        <tr><td>Шампур<small>залог 2 BYN</small></td><td>1 BYN</td></tr>
+        <tr><td>Решётка для&nbsp;мангала<small>залог 15 BYN</small></td><td>5 BYN</td></tr>
+        <tr><td>Уголь<small>3,5 кг</small></td><td>13 BYN</td></tr>
+        <tr><td>Дрова<small>охапка</small></td><td>13 BYN</td></tr>
+      </table>
+    </div>
+    <img src="img/sap.jpg" alt="Сапборд на Адамовом озере" loading="lazy">
+  </div>
+</section>
+
+<section class="blk" id="usloviya">
+  <div class="wrap">
+    <div class="head"><span class="kick">Условия</span><h2>Коротко о&nbsp;брони</h2></div>
+    <div class="rules">
+      <div class="rule"><b>14:00</b><span>заезд в&nbsp;дом</span></div>
+      <div class="rule"><b>12:00</b><span>выезд</span></div>
+      <div class="rule"><b>4 гостя</b><span>уже в&nbsp;цене дома</span></div>
+      <div class="rule"><b>+10 BYN</b><span>за&nbsp;каждого следующего гостя</span></div>
+      <div class="rule"><b>30%</b><span>предоплата, и&nbsp;дата ваша</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="voprosy">
+  <div class="wrap">
+    <div class="head"><span class="kick">Вопросы</span><h2>Что&nbsp;спрашивают перед бронью</h2></div>
+    <div class="faq">
+      <details open><summary>Баня входит в&nbsp;цену?</summary><p>Да, во&nbsp;всех трёх домах. В&nbsp;Кошкином доме баня прямо внутри.</p></details>
+      <details><summary>Можно ли с&nbsp;собакой?<span class="tbd">уточним</span></summary><p>Ответ появится после разговора с&nbsp;администратором.</p></details>
+      <details><summary>Что&nbsp;есть в&nbsp;доме?</summary><p>В&nbsp;Бобровой хатке кухня, санузел и&nbsp;мебель, на&nbsp;территории баня, мангал, пирс и&nbsp;беседка с&nbsp;водой. Список по&nbsp;остальным домам уточним.</p></details>
+      <details><summary>Можно ли с&nbsp;палаткой и&nbsp;на&nbsp;рыбалку?<span class="tbd">уточним</span></summary><p>Места для&nbsp;палаток и&nbsp;рыбалка есть, цену и&nbsp;правила добавим.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="kontakty">
+  <div class="wrap map">
+    <div class="ph">Здесь будет карта с&nbsp;точкой базы<br>и&nbsp;кнопкой «Построить маршрут»</div>
+    <div class="box">
+      <span class="kick">Как&nbsp;добраться</span>
+      <h2>Адамово озеро, Жукевичи</h2>
+      <p style="margin:0;color:var(--muted)">15 км от&nbsp;Гродно, Гродненский район. Точный адрес для&nbsp;навигатора уточним.</p>
+      <a class="tel" href="tel:+375293324737" style="justify-self:start">+375 29 332-47-37</a>
+      <a href="https://instagram.com/adamovo.ozero" target="_blank" rel="noopener" style="color:var(--gold-hi)">Instagram @adamovo.ozero</a>
+    </div>
+  </div>
+</section>
+
+<section class="blk">
+  <div class="wrap">
+    <div class="head"><span class="kick">Для&nbsp;владельца</span><h2>Что&nbsp;дальше</h2></div>
+    <div class="next">
+      <div><b>Согласуем структуру</b><span>Что&nbsp;поставить первым, что&nbsp;убрать, какие вопросы гостей добавить.</span></div>
+      <div><b>Соберу сайт с&nbsp;вашими ценами</b><span>Ваши фото и&nbsp;тексты, расчёт суммы, календарь занятых дат.</span></div>
+      <div><b>Подключим заявки</b><span>Брони приходят администратору в&nbsp;Telegram или&nbsp;WhatsApp готовыми.</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Адамово озеро · база отдыха под&nbsp;Гродно</span>
+    <nav><button type="button" data-doc="policy">Политика конфиденциальности</button><button type="button" data-doc="consent">Согласие на&nbsp;обработку данных</button></nav>
+    <span>Набросок FOR.MI</span>
+  </div>
+</footer>
+
+<dialog id="dlg" aria-labelledby="dlg-t">
+  <form method="dialog" class="dlg" id="step1" novalidate>
+    <button class="x" value="close" aria-label="Закрыть">×</button>
+    <h2 id="dlg-t">Ваша бронь</h2>
+    <div class="recap" id="recap"></div>
+    <div class="fld"><label for="f-name">Имя</label><input id="f-name" autocomplete="name" placeholder="Как к вам обращаться"></div>
+    <div class="fld"><label for="f-tel">Телефон</label><input id="f-tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="+375 29 000-00-00"></div>
+    <div class="fld"><label for="f-com">Пожелания</label><textarea id="f-com" rows="2" placeholder="Например, нужен сапборд или казан"></textarea></div>
+    <label class="agree" id="agree"><input type="checkbox" id="f-ok"><span>Даю <button type="button" data-doc="consent">согласие на&nbsp;обработку персональных данных</button> и&nbsp;принимаю <button type="button" data-doc="policy">политику конфиденциальности</button></span></label>
+    <button class="cta" type="button" id="send">Отправить заявку</button>
+    <p class="note">Это набросок: заявка никуда не&nbsp;отправится</p>
+  </form>
+  <div class="dlg" id="step2" hidden>
+    <button class="x" type="button" id="close2" aria-label="Закрыть">×</button>
+    <h2>Так заявка придёт вам</h2>
+    <p style="margin:0;color:var(--muted);font-size:14.5px">Сообщение в&nbsp;Telegram или&nbsp;WhatsApp администратору, сразу со&nbsp;всеми деталями:</p>
+    <div class="tgmsg" id="tg"></div>
+    <p style="margin:0;color:var(--muted);font-size:14.5px">Остаётся подтвердить бронь и&nbsp;принять предоплату. Дата сразу отметится занятой в&nbsp;календаре.</p>
+  </div>
+</dialog>
+
+<dialog id="docs" aria-labelledby="doc-t">
+  <div class="dlg">
+    <button class="x" type="button" data-close aria-label="Закрыть">×</button>
+    <h2 id="doc-t"></h2>
+    <div class="doc" id="doc-b"></div>
+  </div>
+</dialog>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const OBJ={
+  vedmin:{t:"dom",name:"Ведьмин дом",img:"img/vedmin.jpg",wd:300,we:350,base:4,extra:10,max:8},
+  bobrovaya:{t:"dom",name:"Бобровая хатка",img:"img/bobrovaya.jpg",wd:300,we:350,base:4,extra:10,max:8},
+  koshkin:{t:"dom",name:"Кошкин дом",img:"img/koshkin.jpg",wd:300,we:300,base:4,extra:10,max:8},
+  malaya:{t:"bes",name:"Беседка до 10",short:"до 10 чел.",img:"img/besedka.jpg",from:60,max:10},
+  mulyavina:{t:"bes",name:"Беседка им. Мулявина",short:"10–20 чел.",img:"img/mulyavina.jpg",wd:150,we:200,base:10,exWd:15,exWe:20,max:20},
+  bungalo:{t:"bes",name:"Бунгало",short:"до 30 чел.",img:"img/bungalo.jpg",fix:250,max:30},
+  zatoka:{t:"bes",name:"Затока",short:"до 50 чел.",img:"img/zatoka.jpg",from:500,max:50}
+};
+const TODAY=new Date(2026,10,22);
+const MONTHS=["январь","февраль","март","апрель","май","июнь","июль","август","сентябрь","октябрь","ноябрь","декабрь"];
+const WD=["вс","пн","вт","ср","чт","пт","сб"];
+const MON_G=["января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"];
+let S={tab:"dom",obj:"bobrovaya",date:new Date(2026,11,12),view:new Date(2026,11,1),g:6,n:1};
+const last={dom:"bobrovaya",bes:"mulyavina"};
+
+const isWe=d=>[5,6,0].includes(d.getDay());
+const key=d=>d.getFullYear()*10000+(d.getMonth()+1)*100+d.getDate();
+const addD=(d,k)=>new Date(d.getFullYear(),d.getMonth(),d.getDate()+k);
+const fmt=n=>n.toLocaleString("ru-RU").replace(/ /g," ")+" BYN";
+const dstr=d=>`${WD[d.getDay()]}, ${d.getDate()} ${MON_G[d.getMonth()]}`;
+/* примерные занятые даты, чтобы было видно, как работает календарь */
+function busy(o,d){
+  if(key(d)===key(new Date(2026,11,12)))return false;
+  const h=(key(d)*31+o.length*7+o.charCodeAt(0))%9;
+  return h===1||h===4;
+}
+
+function renderObjs(){
+  const list=Object.entries(OBJ).filter(([,o])=>o.t===S.tab);
+  const box=$("#objs");box.className="objs"+(list.length===4?" four":"");
+  box.innerHTML=list.map(([k,o])=>`<button type="button" class="obj" data-obj="${k}" aria-pressed="${k===S.obj}"><img src="${o.img}" alt=""><span>${o.name}${o.short?`<small>${o.short}</small>`:""}</span></button>`).join("");
+}
+function renderCal(){
+  const v=S.view,y=v.getFullYear(),m=v.getMonth();
+  $("#month").textContent=`${MONTHS[m]} ${y}`;
+  $("#prev").disabled=y*12+m<=TODAY.getFullYear()*12+TODAY.getMonth();
+  const first=new Date(y,m,1),shift=(first.getDay()+6)%7,len=new Date(y,m+1,0).getDate();
+  const nights=S.tab==="dom"?S.n:1,sel=key(S.date),end=key(addD(S.date,nights-1));
+  let h="";
+  for(let i=0;i<shift;i++)h+=`<span></span>`;
+  for(let d=1;d<=len;d++){
+    const dt=new Date(y,m,d),k=key(dt),past=dt<TODAY,b=!past&&busy(S.obj,dt);
+    const cls=[isWe(dt)?"we":"",b?"busy":"",k===sel?"sel":"",k>sel&&k<=end?"rng":""].join(" ");
+    h+=`<button type="button" class="${cls}" data-day="${d}" ${past?"disabled":""} ${b?'aria-disabled="true"':""} aria-label="${d} ${MON_G[m]}${b?", занято":""}">${d}</button>`;
+  }
+  $("#days").innerHTML=h;
+}
+function calc(){
+  const o=OBJ[S.obj],g=S.g;
+  if(o.t==="dom"){
+    let t=0,we=0;
+    for(let i=0;i<S.n;i++){const d=addD(S.date,i);if(isWe(d)){t+=o.we;we++}else t+=o.wd}
+    const ex=Math.max(0,g-o.base);t+=ex*o.extra*S.n;
+    const parts=[];
+    if(S.n-we)parts.push(`${S.n-we} × ${o.wd}`);
+    if(we)parts.push(`${we} × ${o.we}`);
+    if(ex)parts.push(`${ex} гост${ex===1?"ь":"я"} × ${o.extra}${S.n>1?" × "+S.n:""}`);
+    return {t,how:`${o.name}, ${dstr(S.date)}: ${parts.join(" + ")}`};
+  }
+  if(o.from)return {from:o.from,how:o.t==="bes"&&S.obj==="zatoka"?"Сумму под ваш праздник администратор пришлёт в ответ":"Точную сумму администратор подтвердит в ответ"};
+  if(o.fix)return {t:o.fix,how:`${o.name}, ${dstr(S.date)}: ${o.fix} BYN за день`};
+  const w=isWe(S.date),ex=Math.max(0,g-o.base),t=(w?o.we:o.wd)+ex*(w?o.exWe:o.exWd);
+  return {t,how:`${o.name}, ${dstr(S.date)}: ${w?o.we:o.wd}${ex?` + ${ex} × ${w?o.exWe:o.exWd}`:""}`};
+}
+function renderSum(){
+  const r=calc();
+  if(r.from){$("#total").textContent="от "+fmt(r.from);$("#pre").textContent="после ответа"}
+  else{$("#total").textContent=fmt(r.t);$("#pre").textContent=fmt(Math.round(r.t*.3))}
+  $("#sumlbl").textContent=S.tab==="dom"?`Итого за ${S.n} ${S.n===1?"сутки":"суток"}`:"Итого за день";
+  $("#how").textContent=r.how;
+  $("#g").textContent=S.g;$("#n").textContent=S.n;
+  $("#nstep").classList.toggle("off",S.tab!=="dom");
+}
+function render(){
+  $$(".tabs button").forEach(b=>b.setAttribute("aria-selected",b.dataset.tab===S.tab));
+  renderObjs();renderCal();renderSum();
+}
+function setObj(k){
+  const o=OBJ[k];S.tab=o.t;S.obj=k;last[o.t]=k;
+  S.g=Math.min(Math.max(S.g,1),o.max);
+  if(o.t==="bes"&&o.base&&S.g<o.base)S.g=o.base;
+  if(busy(k,S.date)){let d=S.date;for(let i=0;i<40&&busy(k,d);i++)d=addD(d,1);S.date=d;S.view=new Date(d.getFullYear(),d.getMonth(),1)}
+  render();
+}
+
+$(".tabs").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;setObj(last[b.dataset.tab])});
+$("#objs").addEventListener("click",e=>{const b=e.target.closest("[data-obj]");if(b)setObj(b.dataset.obj)});
+$("#days").addEventListener("click",e=>{const b=e.target.closest("[data-day]");if(!b||b.disabled||b.classList.contains("busy"))return;S.date=new Date(S.view.getFullYear(),S.view.getMonth(),+b.dataset.day);render()});
+$("#prev").addEventListener("click",()=>{S.view=new Date(S.view.getFullYear(),S.view.getMonth()-1,1);renderCal()});
+$("#next").addEventListener("click",()=>{S.view=new Date(S.view.getFullYear(),S.view.getMonth()+1,1);renderCal()});
+$$(".step button").forEach(b=>b.addEventListener("click",()=>{
+  const o=OBJ[S.obj];
+  if(b.dataset.d==="g")S.g=Math.min(o.max,Math.max(1,S.g+ +b.dataset.v));
+  else S.n=Math.min(14,Math.max(1,S.n+ +b.dataset.v));
+  renderCal();renderSum();
+}));
+$$("[data-pick]").forEach(b=>b.addEventListener("click",()=>{setObj(b.dataset.pick);$("#top").scrollIntoView({behavior:"smooth"})}));
+
+/* окно брони */
+const dlg=$("#dlg");
+function openDlg(d){if(d.showModal)d.showModal();else d.setAttribute("open","")}
+function recapHTML(){
+  const o=OBJ[S.obj],r=calc();
+  const when=o.t==="dom"?`${dstr(S.date)}, ${S.n} ${S.n===1?"сутки":"суток"}`:dstr(S.date);
+  const sum=r.from?`от ${fmt(r.from)}, сумму подтвердим`:`${fmt(r.t)} · предоплата ${fmt(Math.round(r.t*.3))}`;
+  return {o,when,sum};
+}
+$("#book").addEventListener("submit",e=>{
+  e.preventDefault();
+  const {o,when,sum}=recapHTML();
+  $("#recap").innerHTML=`<b>${o.name}</b><span>${when}</span><span>${S.g} ${S.g%10===1&&S.g!==11?"гость":S.g%10>=2&&S.g%10<=4&&(S.g<12||S.g>14)?"гостя":"гостей"}</span><span>${sum}</span>`;
+  $("#step1").hidden=false;$("#step2").hidden=true;openDlg(dlg);
+});
+$("#send").addEventListener("click",()=>{
+  const nm=$("#f-name"),tl=$("#f-tel"),ok=$("#f-ok");
+  const bad1=!nm.value.trim(),bad2=tl.value.replace(/\D/g,"").length<9,bad3=!ok.checked;
+  nm.classList.toggle("bad",bad1);tl.classList.toggle("bad",bad2);$("#agree").classList.toggle("bad",bad3);
+  if(bad1||bad2||bad3)return;
+  const {o,when,sum}=recapHTML(),com=$("#f-com").value.trim();
+  const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  $("#tg").innerHTML=`<span class="who">Адамово озеро · бронь с сайта</span><span><b>${o.name}</b></span><span>${when}</span><span>Гостей: ${S.g}</span><span>${sum}</span><span>${esc(nm.value.trim())}, ${esc(tl.value.trim())}</span>${com?`<span>«${esc(com)}»</span>`:""}<i>сейчас</i>`;
+  $("#step1").hidden=true;$("#step2").hidden=false;
+});
+$("#close2").addEventListener("click",()=>dlg.close());
+
+/* документы: реквизиты появятся на готовом сайте */
+const OWNER="[ИП / название, уточнить]";
+const DOCS={
+  policy:["Политика конфиденциальности",`<p>${OWNER} обрабатывает имя и телефон, которые вы оставляете при брони, только чтобы подтвердить бронь, принять предоплату и связаться с вами.</p><p>Данные не передаются третьим лицам и хранятся до конца сезона, в котором была бронь, а потом удаляются.</p><p>Чтобы узнать, какие данные о вас есть, или удалить их, напишите в Instagram @adamovo.ozero или позвоните по номеру +375 29 332-47-37.</p>`],
+  consent:["Согласие на обработку персональных данных",`<p>Отмечая галочку, вы соглашаетесь, что ${OWNER} обработает ваше имя и телефон для брони дома или беседки, в соответствии с Законом Республики Беларусь «О защите персональных данных».</p><p>Согласие действует до его отзыва. Отозвать его можно сообщением в Instagram @adamovo.ozero или по телефону +375 29 332-47-37.</p>`]
+};
+$$("[data-doc]").forEach(b=>b.addEventListener("click",()=>{const [t,h]=DOCS[b.dataset.doc];$("#doc-t").textContent=t;$("#doc-b").innerHTML=h;openDlg($("#docs"))}));
+$("#docs [data-close]").addEventListener("click",()=>$("#docs").close());
+
+render();
+</script>
+
+</body>
+</html>
