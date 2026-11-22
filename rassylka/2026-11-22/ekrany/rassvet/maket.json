@@ -1,0 +1,13 @@
+{
+  "page": "index.html",
+  "eyebrow": "Glamping Rassvet · главный экран",
+  "title": "Ночь в&nbsp;сфере, <em>бронь напрямую</em>",
+  "chips": ["«Космос» и «Свобода»", "Свободные даты сразу", "45 км от Нижнего"],
+  "bg": "#13110E",
+  "ink": "#EFE6D6",
+  "label": "#D9BF94",
+  "accent": "#B39667",
+  "accentText": "#D9BF94",
+  "photo": "img/iglu-noch.jpg",
+  "logo": "img/logo.png"
+}
