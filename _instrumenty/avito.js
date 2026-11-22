@@ -129,6 +129,34 @@ const kartyHtml=()=>`<!doctype html><html lang="ru"><head>${head}</head><body><d
 <div class="brand" style="left:72px;bottom:48px">FOR.MI</div>
 </div></body></html>`;
 
+
+const kartyVhoditHtml=()=>`<!doctype html><html lang="ru"><head>${head}
+<style>.it{display:grid;grid-template-columns:64px 1fr;gap:24px;align-items:center;padding:30px 0;border-top:1px solid ${C.line}}
+.it b{width:58px;height:58px;border-radius:50%;background:${C.blue};color:#fff;display:grid;place-items:center;font-size:28px;font-weight:800}
+.it h3{margin:0 0 6px;font-size:38px;font-weight:800;letter-spacing:-.02em}.it p{margin:0;font-size:27px;color:${C.muted};line-height:1.3}</style>
+</head><body><div class="c" style="padding:64px 72px">
+<div class="eb">Яндекс Карты и 2ГИС</div>
+<h2 style="font-size:66px;line-height:1.05;margin:14px 0 26px">Что сделаю <span class="scr" style="font-size:80px;letter-spacing:0;word-spacing:-.25em">в карточке</span></h2>
+<div class="it"><b>✓</b><div><h3>Категории и описание</h3><p>Словами, которыми вас ищут: «маникюр рядом», «шиномонтаж 24 часа»</p></div></div>
+<div class="it"><b>✓</b><div><h3>Фото и обложка</h3><p>Отберу лучшие, уберу старые и тёмные</p></div></div>
+<div class="it"><b>✓</b><div><h3>Услуги и цены</h3><p>Чтобы человек видел цену до звонка</p></div></div>
+<div class="it"><b>✓</b><div><h3>Ответы на отзывы</h3><p>Шаблоны на хорошие и плохие отзывы</p></div></div>
+<div class="brand" style="right:72px;top:62px">FOR.MI</div>
+</div></body></html>`;
+
+const kartyKakHtml=()=>`<!doctype html><html lang="ru"><head>${head}
+<style>.st{display:grid;grid-template-columns:92px 1fr;gap:28px;align-items:center;padding:40px 0;border-top:1px solid ${C.line}}
+.st b{width:80px;height:80px;border-radius:50%;background:${C.blue};color:#fff;display:grid;place-items:center;font-size:36px;font-weight:800}
+.st h3{margin:0 0 8px;font-size:40px;font-weight:800;letter-spacing:-.02em}.st p{margin:0;font-size:28px;color:${C.muted};line-height:1.35}</style>
+</head><body><div class="c" style="padding:60px 72px">
+<div class="eb">Как работаем</div>
+<h2 style="font-size:64px;line-height:1.05;margin:14px 0 34px">Сначала покажу, <span class="scr" style="font-size:78px;letter-spacing:0;word-spacing:-.25em">что поправить</span></h2>
+<div class="st"><b>1</b><div><h3>Пишете «КАРТЫ» и название компании</h3><p>Нахожу вашу карточку в Яндекс Картах и 2ГИС</p></div></div>
+<div class="st"><b>2</b><div><h3>Присылаю, что в ней мешает</h3><p>Например: нет цен, фото трёхлетней давности, отзывы без ответов</p></div></div>
+<div class="st"><b>3</b><div><h3>Нравится: оформляю</h3><p>Карточка и все доступы остаются у вас</p></div></div>
+<div class="brand" style="right:72px;top:66px">FOR.MI</div>
+</div></body></html>`;
+
 (async()=>{
   const b=await chromium.launch();
   for(const w of works)await shoot(b,w);
@@ -142,6 +170,8 @@ const kartyHtml=()=>`<!doctype html><html lang="ru"><head>${head}</head><body><d
   };
   await render(kartyHtml(),'karty-oblozhka',1.25);
   await render(stepsHtml(),'kak-rabotaem');
+  await render(kartyVhoditHtml(),'karty-chto-vhodit');
+  await render(kartyKakHtml(),'karty-kak-rabotaem');
   for(const w of works)await render(exampleHtml(w),'primer-'+w.dir);
   await b.close();
   console.log('готово:',fs.readdirSync(out).join(', '));
