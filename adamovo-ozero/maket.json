@@ -1,0 +1,13 @@
+{
+  "page": "index.html",
+  "eyebrow": "Адамово озеро · главный экран",
+  "title": "Домик с&nbsp;баней у&nbsp;озера, <em>цена на&nbsp;дату сразу</em>",
+  "chips": ["Бронь без директа", "3 дома и 4 беседки", "Предоплата 30% в заявке"],
+  "bg": "#11130F",
+  "ink": "#F1E8D6",
+  "label": "#E9C789",
+  "accent": "#B7843F",
+  "accentText": "#E9C789",
+  "photo": "img/ozero-vecher.jpg",
+  "logo": "img/logo.png"
+}

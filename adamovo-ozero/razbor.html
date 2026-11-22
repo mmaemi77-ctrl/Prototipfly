@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Адамово озеро · разбор картинками</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Oswald:wght@500;600&family=Marck+Script&display=swap">
+<style>
+/* Разбор конкурентов слайдами 540×675 (4:5) для отправки в директ, в тех же цветах, что и структура */
+:root{
+  --bg:#11130F;--surface:#1D2019;--surface2:#272A21;--ink:#F1E8D6;--muted:#B5AC9A;--dim:#857E6F;--line:#33362C;
+  --gold:#D6AE6A;--gold-hi:#E9C789;--gold-tint:#2A2517;--gold-line:#5B4A27;--bad:#D98C6A;--moss:#8E9C6A;
+  --f-body:"Onest",system-ui,sans-serif;--f-head:"Oswald","Arial Narrow",sans-serif;--f-script:"Marck Script",cursive;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#000;display:grid;gap:20px;justify-content:center;padding:20px 0;font-family:var(--f-body);color:var(--ink)}
+.slide{width:540px;height:675px;position:relative;overflow:hidden;background:var(--bg);isolation:isolate;padding:26px 26px 22px;display:flex;flex-direction:column;gap:14px}
+.slide.photo::before{content:"";position:absolute;inset:0;z-index:-2;background:url("img/ozero-vecher.jpg") center/cover;opacity:.28}
+.slide.photo::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgb(17 19 15 / .7),rgb(17 19 15 / .96) 40%)}
+.brand{display:flex;align-items:center;gap:9px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-hi)}
+.brand img{width:28px;height:28px;border-radius:50%}
+.brand .pg{margin-left:auto;color:var(--dim);letter-spacing:.08em}
+.ttl{margin:0;font-family:var(--f-head);font-weight:600;font-size:32px;line-height:1.04;text-transform:uppercase}
+.ttl em{display:block;font-family:var(--f-script);font-style:normal;text-transform:none;font-weight:400;color:var(--gold-hi);font-size:24px;margin-top:4px}
+.pains{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.pains li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;align-items:start;background:rgb(29 32 25 / .92);border-radius:12px;padding:10px 12px 10px 10px;font-size:13.5px;line-height:1.36}
+.pains li b{display:block;font-size:14.5px;margin-bottom:1px}
+.pains .n{width:30px;height:30px;border-radius:50%;background:var(--gold-tint);border:1px solid var(--gold-line);color:var(--gold-hi);font-family:var(--f-head);font-weight:600;font-size:16px;display:grid;place-items:center}
+.comp{display:grid;gap:6px}
+.row{display:grid;grid-template-columns:minmax(0,1fr) 104px;gap:10px;align-items:center;background:var(--surface);border-radius:12px;padding:9px 12px}
+.row b{display:block;font-size:14.5px;line-height:1.2}
+.row span{display:block;font-size:12px;color:var(--muted);line-height:1.3;margin-top:2px}
+.row .pr{text-align:right;font-family:var(--f-head);font-weight:500;font-size:15px;color:var(--muted);line-height:1.15}
+.row .pr.y{color:var(--gold-hi)}
+.row.you{background:var(--gold-tint);border:1px solid var(--gold-line)}
+.row.you .pr{color:var(--gold-hi)}
+.box{background:var(--surface2);border-radius:12px;padding:11px 13px;font-size:13.5px;line-height:1.4}
+.box b{color:var(--gold-hi)}
+.src{font-size:10.5px;color:var(--dim);margin-top:auto}
+.chat{background:var(--surface);border-radius:14px;padding:12px;display:grid;gap:6px}
+.lbl{font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.msg{max-width:86%;padding:7px 10px;border-radius:13px;font-size:13px;line-height:1.35}
+.msg.in{background:var(--surface2);justify-self:start;border-bottom-left-radius:4px}
+.msg.out{background:#3A3320;justify-self:end;border-bottom-right-radius:4px}
+.msg i{display:block;font-style:normal;font-size:10.5px;color:var(--dim);margin-top:2px}
+.foot{font-size:12.5px;color:var(--muted);line-height:1.35}
+.req{background:#1F2A33;border-radius:13px 13px 13px 4px;padding:11px 13px;font-size:13.5px;display:grid;gap:2px}
+.req .who{font-size:11px;font-weight:700;color:#7FB3E0}
+.req i{font-style:normal;color:#93A3AF;font-size:10.5px;justify-self:end}
+</style>
+</head>
+<body>
+
+<div class="slide photo">
+  <div class="brand"><img src="img/logo.png" alt="">Адамово озеро · разбор<span class="pg">1 / 3</span></div>
+  <h2 class="ttl">Где сейчас теряется бронь домика<em>пять мест, где гость уходит к&nbsp;соседям</em></h2>
+  <ul class="pains">
+    <li><span class="n">1</span><span><b>Цены в&nbsp;девяти хайлайтс</b>Чтобы сравнить Ведьмин дом и&nbsp;Бобровую хатку, гость листает «Прайс домов», «Дом» и&nbsp;закрепы.</span></li>
+    <li><span class="n">2</span><span><b>Нет календаря</b>На&nbsp;«свободна&nbsp;ли суббота?» отвечает только администратор, а&nbsp;гость тем временем пишет соседям.</span></li>
+    <li><span class="n">3</span><span><b>В&nbsp;шапке нет ссылки</b>После рилс человеку некуда перейти, кроме директа.</span></li>
+    <li><span class="n">4</span><span><b>«Руб.» и&nbsp;BYN вперемешку</b>На&nbsp;слайдах домиков «300&nbsp;руб.», в&nbsp;прайсе BYN. Гость из&nbsp;России решит, что это российские рубли.</span></li>
+    <li><span class="n">5</span><span><b>Вас нет в&nbsp;поиске</b>По&nbsp;запросу «Адамово озеро база отдыха» выдача показывает соседнюю усадьбу «Домашний очаг».</span></li>
+  </ul>
+</div>
+
+<div class="slide">
+  <div class="brand"><img src="img/logo.png" alt="">Адамово озеро · разбор<span class="pg">2 / 3</span></div>
+  <h2 class="ttl">Кто ещё принимает гостей под&nbsp;Гродно</h2>
+  <div class="comp">
+    <div class="row"><div><b>Усадьба «Домашний очаг»</b><span>Жукевичи, 2&nbsp;км от&nbsp;вас. Дом и&nbsp;домик с&nbsp;баней на&nbsp;дровах, сплав по&nbsp;каналу</span></div><div class="pr">цена не&nbsp;указана</div></div>
+    <div class="row"><div><b>Усадьба «На&nbsp;озере»</b><span>Вильяново, 20&nbsp;км. Два дома, беседки на&nbsp;воде на&nbsp;6–30, зал до&nbsp;70&nbsp;человек</span></div><div class="pr">цена не&nbsp;указана</div></div>
+    <div class="row"><div><b>Озеро Белое</b><span>26&nbsp;км. Дом с&nbsp;русской баней на&nbsp;8&nbsp;человек</span></div><div class="pr y">от&nbsp;160 BYN</div></div>
+    <div class="row"><div><b>«Лесной Эдем»</b><span>Лихачи, 30&nbsp;км. До&nbsp;16&nbsp;гостей, бассейн, баня и&nbsp;сауна</span></div><div class="pr">договорная</div></div>
+    <div class="row you"><div><b>Адамово озеро</b><span>15&nbsp;км. Три дома с&nbsp;баней, беседки до&nbsp;50&nbsp;человек, сапборды</span></div><div class="pr">300–350 BYN, цены открыты</div></div>
+  </div>
+  <div class="box">У&nbsp;соседей не&nbsp;встретила <b>календаря свободных дат</b>, <b>брони с&nbsp;предоплатой</b> и&nbsp;открытых цен по&nbsp;дням. У&nbsp;вас цены уже расписаны, осталось показать их&nbsp;так, чтобы сумма считалась сама.</div>
+  <div class="src">По&nbsp;карточкам каталогов (mirturbaz, 101hotels, Яндекс Путешествия) и&nbsp;поисковой выдаче на&nbsp;22&nbsp;ноября 2026</div>
+</div>
+
+<div class="slide">
+  <div class="brand"><img src="img/logo.png" alt="">Адамово озеро · разбор<span class="pg">3 / 3</span></div>
+  <h2 class="ttl">Было и&nbsp;стало<em>одна и&nbsp;та&nbsp;же бронь домика</em></h2>
+  <div class="chat">
+    <span class="lbl">Сейчас, в&nbsp;директе</span>
+    <div class="msg in">Бобровая хатка на&nbsp;субботу 12&nbsp;декабря свободна?<i>10:14</i></div>
+    <div class="msg in">Нас шестеро, сколько выйдет с&nbsp;баней?<i>10:15</i></div>
+    <div class="msg out">Добрый день! Свободна. 350&nbsp;BYN и&nbsp;по&nbsp;10&nbsp;BYN за&nbsp;двоих сверх четырёх, итого 370<i>11:52</i></div>
+    <div class="msg in">А&nbsp;Ведьмин дом в&nbsp;эту субботу? С&nbsp;собакой можно?<i>12:30</i></div>
+    <p class="foot" style="margin:0">Два часа и&nbsp;четыре сообщения, а&nbsp;гость всё ещё выбирает.</p>
+  </div>
+  <div class="chat">
+    <span class="lbl">С&nbsp;сайтом, сообщение администратору</span>
+    <div class="req"><span class="who">Адамово озеро · бронь с&nbsp;сайта</span><b>Бобровая хатка</b><span>сб, 12&nbsp;декабря, 1&nbsp;сутки · 6&nbsp;гостей</span><span>370&nbsp;BYN · предоплата 111&nbsp;BYN</span><span>Ольга, +375&nbsp;29&nbsp;000-00-00</span><i>10:14</i></div>
+    <p class="foot" style="margin:0">Гость сам увидел свободную дату и&nbsp;сумму. Вам остаётся подтвердить и&nbsp;принять предоплату.</p>
+  </div>
+</div>
+
+</body>
+</html>
