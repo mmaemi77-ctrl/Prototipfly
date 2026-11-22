@@ -157,6 +157,42 @@ const kartyKakHtml=()=>`<!doctype html><html lang="ru"><head>${head}
 <div class="brand" style="right:72px;top:66px">FOR.MI</div>
 </div></body></html>`;
 
+const xmark=t=>`<div style="display:flex;gap:14px;align-items:flex-start"><span style="flex:none;width:30px;height:30px;border-radius:50%;background:#C9C6BE;color:#fff;display:grid;place-items:center;font-size:17px;font-weight:800;margin-top:2px">✕</span><span>${t}</span></div>`;
+const vmark=t=>`<div style="display:flex;gap:14px;align-items:flex-start"><span style="flex:none;width:30px;height:30px;border-radius:50%;background:${C.blue};color:#fff;display:grid;place-items:center;font-size:17px;font-weight:800;margin-top:2px">✓</span><span>${t}</span></div>`;
+const kartyDoPosleHtml=()=>`<!doctype html><html lang="ru"><head>${head}
+<style>.row{position:absolute;left:72px;right:72px;top:236px;bottom:96px;display:grid;grid-template-columns:1fr 1fr;gap:36px}
+.cd{border-radius:26px;padding:34px 36px;display:grid;align-content:start;gap:30px;font-size:31px;line-height:1.25}
+.cd h3{margin:0 0 4px;font-size:22px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}</style>
+</head><body><div class="c">
+<div style="position:absolute;left:72px;top:62px;display:grid;gap:10px">
+  <div class="eb">Пример: студия маникюра</div>
+  <h2 style="font-size:62px;line-height:1.02">Та же карточка, <span class="scr" style="font-size:76px;letter-spacing:0;word-spacing:-.25em">до и после</span></h2>
+</div>
+<div class="row"><div class="cd" style="background:#D6D3CC;color:#57544E">
+  <h3 style="color:#7C786F">Было</h3>
+  ${xmark('2 тёмных фото трёхлетней давности')}${xmark('Описание из одного слова')}${xmark('Цен нет')}${xmark('Часы работы не указаны')}${xmark('3 отзыва без ответа')}
+</div>
+<div class="cd" style="background:#fff;color:${C.ink};box-shadow:0 30px 60px -25px rgb(0 0 0 / .3)">
+  <h3 style="color:${C.blue}">Стало</h3>
+  ${vmark('Обложка и 12 светлых фото работ')}${vmark('Описание словами, которыми ищут')}${vmark('Прайс из 8 услуг')}${vmark('Часы и кнопка «Записаться»')}${vmark('Ответы на все отзывы')}
+</div></div>
+<div style="position:absolute;left:72px;bottom:40px;font-size:19px;color:${C.muted};font-weight:500">Пример для наглядности</div>
+<div class="brand" style="right:72px;bottom:40px">FOR.MI</div>
+</div></body></html>`;
+
+const oboMneHtml=()=>`<!doctype html><html lang="ru"><head>${head}</head><body><div class="c">
+<img src="${fileUrl(path.join(root,'avito','foto','foto-1-sidit.png'))}" style="position:absolute;right:-160px;top:24px;height:980px;-webkit-mask-image:linear-gradient(90deg,transparent 0,transparent 8%,#000 38%);mask-image:linear-gradient(90deg,transparent 0,transparent 8%,#000 38%)">
+<div style="position:absolute;left:72px;top:120px;width:520px">
+  <div class="eb">Кто будет работать с вами</div>
+  <h1 style="font-size:96px;line-height:1;margin-top:22px">Анастасия</h1>
+  <div style="font-size:28px;line-height:1.35;color:${C.muted};margin-top:20px">Делаю сайты и карточки на картах для малого бизнеса. Работаю удалённо, на связи в чате каждый день.</div>
+  <div style="display:grid;gap:14px;margin-top:34px;font-size:25px;font-weight:600">
+    ${vmark('Самозанятая, чек на каждую оплату')}${vmark('Договор и оплата по этапам')}${vmark('Все доступы оформляю на вас')}
+  </div>
+</div>
+<div class="brand" style="left:72px;bottom:48px">FOR.MI</div>
+</div></body></html>`;
+
 (async()=>{
   const b=await chromium.launch();
   for(const w of works)await shoot(b,w);
@@ -172,6 +208,8 @@ const kartyKakHtml=()=>`<!doctype html><html lang="ru"><head>${head}
   await render(stepsHtml(),'kak-rabotaem');
   await render(kartyVhoditHtml(),'karty-chto-vhodit');
   await render(kartyKakHtml(),'karty-kak-rabotaem');
+  await render(kartyDoPosleHtml(),'karty-do-posle');
+  await render(oboMneHtml(),'obo-mne',1.25);
   for(const w of works)await render(exampleHtml(w),'primer-'+w.dir);
   await b.close();
   console.log('готово:',fs.readdirSync(out).join(', '));
