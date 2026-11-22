@@ -140,7 +140,7 @@ const kartyVhoditHtml=()=>`<!doctype html><html lang="ru"><head>${head}
 <div class="it"><b>✓</b><div><h3>Категории и описание</h3><p>Словами, которыми вас ищут: «маникюр рядом», «шиномонтаж 24 часа»</p></div></div>
 <div class="it"><b>✓</b><div><h3>Фото и обложка</h3><p>Отберу лучшие, уберу старые и тёмные</p></div></div>
 <div class="it"><b>✓</b><div><h3>Услуги и цены</h3><p>Чтобы человек видел цену до звонка</p></div></div>
-<div class="it"><b>✓</b><div><h3>Ответы на отзывы</h3><p>Шаблоны на хорошие и плохие отзывы</p></div></div>
+<div class="it"><b>✓</b><div><h3>Ответы на отзывы</h3><p>Разные, с именем и деталями, без «Спасибо за отзыв!»</p></div></div>
 <div class="brand" style="right:72px;top:62px">FOR.MI</div>
 </div></body></html>`;
 
@@ -174,7 +174,7 @@ const kartyDoPosleHtml=()=>`<!doctype html><html lang="ru"><head>${head}
 </div>
 <div class="cd" style="background:#fff;color:${C.ink};box-shadow:0 30px 60px -25px rgb(0 0 0 / .3)">
   <h3 style="color:${C.blue}">Стало</h3>
-  ${vmark('Обложка и 12 светлых фото работ')}${vmark('Описание словами, которыми ищут')}${vmark('Прайс из 8 услуг')}${vmark('Часы и кнопка «Записаться»')}${vmark('Ответы на все отзывы')}
+  ${vmark('Обложка и 12 светлых фото работ')}${vmark('Описание словами, которыми ищут')}${vmark('Прайс из 8 услуг')}${vmark('Часы и кнопка «Записаться»')}${vmark('Свой ответ на каждый отзыв')}
 </div></div>
 <div style="position:absolute;left:72px;bottom:40px;font-size:19px;color:${C.muted};font-weight:500">Пример для наглядности</div>
 <div class="brand" style="right:72px;bottom:40px">FOR.MI</div>
