@@ -33,7 +33,7 @@ button,input{font:inherit}
 
 /* первый экран */
 .hero{position:relative;min-height:calc(100vh - 80px);display:grid;grid-template-columns:minmax(0,640px) 1fr;overflow:hidden}
-.hero-photo{position:absolute;inset:-80px 0 0 44%;background:url("img/anton-stol.jpg") 62% 30%/cover no-repeat}
+.hero-photo{position:absolute;inset:-80px 0 0 44%;background:url("img/anton-stol.jpg") 62% 0/cover no-repeat}
 .hero-photo::after{content:"";position:absolute;inset:0;background:
   linear-gradient(90deg,var(--navy) 0%,rgb(14 31 61 / .55) 22%,rgb(14 31 61 / 0) 46%),
   linear-gradient(0deg,rgb(14 31 61 / .55) 0%,rgb(14 31 61 / 0) 30%),
@@ -103,10 +103,10 @@ h1 mark{display:inline-block;white-space:nowrap;margin-top:8px;padding:2px 12px 
   .wa span{display:none}
   .wa svg{width:20px;height:20px}
   .hero{display:block;min-height:0}
-  .hero-photo{position:relative;inset:auto;height:196px;background-size:125% auto;background-position:72% 3%}
+  .hero-photo{position:relative;inset:auto;height:238px;background-size:120% auto;background-position:67% -30px}
   .hero-photo::after{background:linear-gradient(0deg,var(--navy) 0%,rgb(14 31 61 / 0) 50%),linear-gradient(90deg,rgb(14 31 61 / .6) 0%,rgb(14 31 61 / 0) 45%),linear-gradient(180deg,rgb(14 31 61 / .5) 0%,rgb(14 31 61 / 0) 18%)}
   .hero-text{padding:0 16px 28px;margin-top:-40px}
-  .eyebrow{font-size:11.5px;padding:6px 11px;margin-bottom:10px}
+  .eyebrow{display:none}
   h1{font-size:28px;line-height:1.06}
   h1 mark{margin-top:6px;padding:1px 9px 3px}
   .lead{font-size:15px;margin:12px 0 14px}
