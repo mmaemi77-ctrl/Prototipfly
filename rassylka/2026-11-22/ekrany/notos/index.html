@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>NOTOS · главный экран</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Onest:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: шале с бассейном на весь экран, тёмная бирюза слева, светлая карточка брони справа: три дома в одном календаре, занятая дата сразу подсказывает свободный дом. */
+:root{
+  --deep:#0E2228;--ink:#16252B;--muted:#5E6E73;--line:#DCE4E3;--card:#FFFFFF;--soft:#F1F5F4;
+  --pool:#1C8597;--pool-soft:#E1F1F3;--wood:#B9773E;--busy:#E9E2DA;--busy-ink:#A9988A;--snow:#F4F7F6;
+  --f-head:"Cormorant Garamond",Georgia,serif;--f-body:"Onest",system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--deep);color:var(--snow);font-family:var(--f-body);font-size:16px;line-height:1.5}
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit;cursor:pointer}
+.wrap{max-width:1280px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left));padding-right:max(18px,env(safe-area-inset-right))}
+.hero{position:relative;isolation:isolate;min-height:100vh;min-height:100svh;display:flex;flex-direction:column}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:url("img/shale2.jpg") center 62%/cover}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgb(10 26 31 / .92) 0%,rgb(10 26 31 / .66) 46%,rgb(10 26 31 / .2) 100%)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:18px}
+.mark{display:flex;align-items:baseline;gap:12px;color:var(--snow);text-decoration:none}
+.mark b{font-family:var(--f-head);font-weight:600;font-size:30px;letter-spacing:.14em;line-height:1}
+.mark small{font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.8}
+.links{display:flex;gap:24px;font-size:14.5px;opacity:.88}
+.tel{font-weight:700;font-size:15px;color:var(--snow);text-decoration:none;border:1px solid rgb(244 247 246 / .35);border-radius:999px;padding:8px 14px;white-space:nowrap}
+.main{flex:1;display:flex;align-items:center}
+.main .wrap{width:100%;display:grid;grid-template-columns:minmax(0,1fr) 450px;gap:48px;align-items:center;padding-block:6px 40px}
+.copy{display:grid;gap:16px;max-width:600px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#9FDDE5}
+.eyebrow::before{content:"";width:26px;height:1.5px;background:#9FDDE5}
+h1{margin:0;font-family:var(--f-head);font-weight:600;font-size:clamp(44px,5.4vw,76px);line-height:.98;text-wrap:balance}
+h1 em{font-style:italic;color:#9FDDE5}
+.sub{margin:0;font-size:18px;opacity:.92;max-width:48ch}
+.facts{display:flex;flex-wrap:wrap;gap:8px}
+.facts span{font-size:13.5px;font-weight:600;border:1px solid rgb(244 247 246 / .28);background:rgb(10 26 31 / .45);border-radius:999px;padding:6px 12px}
+.book{min-width:0;background:var(--card);color:var(--ink);border-radius:22px;padding:18px;display:grid;grid-template-columns:minmax(0,1fr);gap:12px;box-shadow:0 30px 70px -20px rgb(0 0 0 / .6)}
+.book h2{margin:0;font-family:var(--f-head);font-weight:600;font-size:27px;line-height:1}
+.objs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+.obj{border:1.5px solid var(--line);background:var(--soft);border-radius:12px;overflow:hidden;padding:0;text-align:left;color:var(--ink)}
+.obj img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.obj span{display:block;padding:6px 8px 7px;font-weight:700;font-size:13px;line-height:1.2}
+.obj small{display:block;font-weight:500;font-size:11.5px;color:var(--muted)}
+.obj[aria-pressed="true"]{border-color:var(--pool);box-shadow:0 0 0 1px var(--pool)}
+.cal-h{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:14.5px}
+.cal-h span{font-size:12.5px;color:var(--muted);font-weight:500}
+.dn,.days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:3px;text-align:center}
+.dn span{font-size:11px;color:var(--muted);font-weight:600}
+.days button{border:0;background:var(--soft);border-radius:7px;height:30px;font-size:13px;font-weight:600;padding:0;font-variant-numeric:tabular-nums;color:var(--ink)}
+.days button.busy{background:var(--busy);color:var(--busy-ink)}
+.days button.end{background:var(--pool);color:#fff}
+.days button.rng{background:var(--pool-soft);color:var(--pool)}
+.days button.miss{outline:2px solid var(--wood);outline-offset:-2px}
+.alt{background:#FBF3EA;border:1px solid #EBD3B8;border-radius:12px;padding:9px 11px;font-size:13.5px;display:grid;gap:7px}
+.alt b{color:#8A5526}
+.alt div{display:flex;gap:6px;flex-wrap:wrap}
+.alt button{border:1px solid var(--wood);background:#fff;color:#8A5526;border-radius:999px;padding:5px 11px;font-size:13px;font-weight:700}
+.row{display:flex;gap:8px}
+.pill{flex:1;min-width:0;background:var(--soft);border-radius:11px;padding:7px 11px;display:grid}
+.pill small{font-size:11px;color:var(--muted);font-weight:600}
+.pill b{font-size:14.5px}
+.step{display:flex;align-items:center;justify-content:space-between;gap:6px}
+.step div{display:flex;gap:5px}
+.step button{width:26px;height:26px;border-radius:7px;border:1px solid var(--line);background:#fff;font-size:16px;line-height:1;padding:0;color:var(--ink)}
+.sum{display:flex;justify-content:space-between;align-items:center;gap:10px;border-top:1px dashed var(--line);padding-top:11px}
+.sum small{display:block;font-size:12px;color:var(--muted)}
+.sum b{font-family:var(--f-head);font-weight:600;font-size:32px;line-height:1}
+.cta{border:0;background:var(--pool);color:#fff;border-radius:13px;padding:13px 18px;font-weight:800;font-size:15px}
+.note{margin:-4px 0 0;text-align:center;font-size:12px;color:var(--muted)}
+button:focus-visible{outline:2px solid var(--pool);outline-offset:2px}
+@media (max-width:1100px){.links{display:none}.main .wrap{grid-template-columns:minmax(0,1fr) 410px;gap:28px}}
+@media (max-width:820px){
+  .hero{min-height:0}
+  .hero::before{bottom:auto;height:520px}
+  .hero::after{background:linear-gradient(180deg,rgb(10 26 31 / .5) 0,rgb(10 26 31 / .78) 290px,var(--deep) 520px)}
+  .main .wrap{grid-template-columns:minmax(0,1fr);padding-block:14px 28px;gap:18px}
+  .mark b{font-size:24px}.mark small{display:none}.tel{padding:7px 11px;font-size:13.5px}
+  h1{font-size:42px}.sub{font-size:15.5px}
+  .facts{display:none}
+}
+</style>
+</head>
+<body>
+<section class="hero">
+  <header class="nav"><div class="wrap">
+    <a class="mark" href="#"><b>NOTOS</b><small>два шале · Ялта</small></a>
+    <nav class="links"><span>Шале</span><span>Баня</span><span>Большой дом</span><span>Как добраться</span></nav>
+    <a class="tel" href="tel:+79261195631">+7 926 119-56-31</a>
+  </div></header>
+  <div class="main"><div class="wrap">
+    <div class="copy">
+      <span class="eyebrow">Краснокаменка · 20 минут до Ялты</span>
+      <h1>Два шале <em>с&nbsp;бассейном</em> под&nbsp;Ялтой</h1>
+      <p class="sub">Выберите шале и даты: свободные ночи видно сразу. Если шале занято, календарь подскажет второе или большой дом в&nbsp;Ялте.</p>
+      <div class="facts"><span>Свой бассейн у&nbsp;шале</span><span>Баня и&nbsp;барбекю</span><span>от 13&nbsp;000&nbsp;₽ за&nbsp;дом</span></div>
+    </div>
+    <form class="book" id="book" novalidate>
+      <h2>Где и когда</h2>
+      <div class="objs" id="objs"></div>
+      <div class="cal-h">Июнь 2027 <span>заезд и выезд</span></div>
+      <div class="dn"><span>пн</span><span>вт</span><span>ср</span><span>чт</span><span>пт</span><span>сб</span><span>вс</span></div>
+      <div class="days" id="days"></div>
+      <div class="alt" id="alt" hidden></div>
+      <div class="row">
+        <div class="pill"><small>Заезд → выезд</small><b id="rng"></b></div>
+        <div class="pill step"><span><small style="display:block">Гостей</small><b id="g">4</b></span><div><button type="button" data-v="-1" aria-label="Меньше гостей">−</button><button type="button" data-v="1" aria-label="Больше гостей">+</button></div></div>
+      </div>
+      <div class="sum"><div><small id="how"></small><b id="tot"></b></div><button class="cta" type="submit">Забронировать</button></div>
+      <p class="note">Это набросок: даты и цены подставим ваши</p>
+    </form>
+  </div></div>
+</section>
+<script>
+const $=s=>document.querySelector(s);
+const O={
+  s1:{name:"Шале 1",sub:"с бассейном",img:"img/den.jpg",price:13000,busy:[4,5,6,11,19,20,25,26,27]},
+  s2:{name:"Шале 2",sub:"с бассейном",img:"img/shale2.jpg",price:13000,busy:[5,6,12,13,18,26]},
+  dom:{name:"Большой дом",sub:"до 20 гостей",img:"img/dom-bassein.jpg",price:15000,base:7,extra:1800,max:20,busy:[4,5,25,26]}
+};
+const WD=["вс","пн","вт","ср","чт","пт","сб"],dow=d=>new Date(2027,5,d).getDay();
+const rub=n=>n.toLocaleString("ru-RU").replace(/[  ]/g," ")+" ₽";
+let S={o:"s1",a:12,b:14,g:4,miss:19};
+const freeOn=(k,d)=>!O[k].busy.includes(d);
+function draw(){
+  $("#objs").innerHTML=Object.entries(O).map(([k,o])=>`<button type="button" class="obj" data-o="${k}" aria-pressed="${k===S.o}"><img src="${o.img}" alt=""><span>${o.name}<small>${o.sub}</small></span></button>`).join("");
+  const o=O[S.o];let h="<i></i>";
+  for(let d=1;d<=30;d++){const c=[o.busy.includes(d)?"busy":"",d===S.a||d===S.b?"end":"",d>S.a&&d<S.b?"rng":"",d===S.miss?"miss":""].join(" ");h+=`<button type="button" class="${c}" data-d="${d}">${d}</button>`}
+  $("#days").innerHTML=h;
+  if(S.miss){
+    const alts=Object.keys(O).filter(k=>k!==S.o&&freeOn(k,S.miss));
+    $("#alt").hidden=false;
+    $("#alt").innerHTML=`<span><b>${S.miss} июня ${o.name.toLowerCase()} занято.</b> ${alts.length?"В этот день свободно:":"Свободных домов нет, выберите другую дату."}</span><div>${alts.map(k=>`<button type="button" data-alt="${k}">${O[k].name}</button>`).join("")}</div>`;
+  } else $("#alt").hidden=true;
+  const n=S.b-S.a,ex=o.base?Math.max(0,S.g-o.base):0,t=n*o.price+(ex?ex*o.extra*n:0);
+  $("#rng").textContent=`${WD[dow(S.a)]} ${S.a} → ${WD[dow(S.b)]} ${S.b}`;
+  $("#how").textContent=`${o.name}: ${n} ${n===1?"ночь":n<5?"ночи":"ночей"} × ${rub(o.price).replace(" ₽","")}${ex?` + ${ex} гост. × 1 800`:""}`;
+  $("#tot").textContent=rub(t);$("#g").textContent=S.g;
+}
+$("#objs").addEventListener("click",e=>{const b=e.target.closest("[data-o]");if(!b)return;S.o=b.dataset.o;S.miss=0;draw()});
+$("#alt").addEventListener("click",e=>{const b=e.target.closest("[data-alt]");if(!b)return;S.o=b.dataset.alt;S.a=S.miss;S.b=S.miss+1;S.miss=0;draw()});
+$("#days").addEventListener("click",e=>{const t=e.target.closest("[data-d]");if(!t)return;const d=+t.dataset.d;
+  if(O[S.o].busy.includes(d)){S.miss=d;draw();return}
+  S.miss=0;if(d>S.a&&S.b===S.a+1&&d!==S.b){let ok=true;for(let x=S.a;x<d;x++)if(O[S.o].busy.includes(x))ok=false;if(ok){S.b=d;draw();return}}
+  S.a=d;S.b=Math.min(d+1,31);draw()});
+document.querySelectorAll(".step button").forEach(b=>b.addEventListener("click",()=>{S.g=Math.max(1,Math.min(20,S.g+ +b.dataset.v));draw()}));
+$("#book").addEventListener("submit",e=>e.preventDefault());
+draw();
+</script>
+</body>
+</html>
