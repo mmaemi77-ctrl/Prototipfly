@@ -73,19 +73,20 @@ nav a:hover{color:var(--gold-hi)}
 .stats b{font-size:clamp(22px,2vw,28px);font-weight:800;line-height:1.05}
 .stats span{font-size:13px;color:var(--muted);line-height:1.3}
 
+.stage{position:relative;isolation:isolate}
+.stage::before{content:"";position:absolute;inset:0;z-index:-2;background:url(img/spusk.jpg) 0% 38%/116% auto no-repeat}
+.stage::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--bg) 0%,rgb(11 16 23 / .93) 36%,rgb(11 16 23 / .5) 54%,rgb(11 16 23 / .15) 70%,rgb(11 16 23 / .3) 100%),linear-gradient(180deg,rgb(11 16 23 / .55) 0%,transparent 16%,transparent 58%,var(--bg) 100%)}
 .h-pics{position:relative}
-.collage{position:relative;min-height:500px;height:100%}
-.ph-main{position:absolute;top:0;right:0;bottom:0;width:70%;border-radius:28px;overflow:hidden;background:url(img/denis-kaska.jpg) 38% 30%/cover;box-shadow:0 40px 80px -40px rgb(0 0 0 / .9)}
+.collage{position:relative;min-height:520px;height:100%}
+.ph-main{position:absolute;top:0;right:0;bottom:0;width:60%;border-radius:28px;overflow:hidden;background:url(img/denis-kaska.jpg) 34% 30%/cover;box-shadow:0 40px 80px -30px rgb(0 0 0 / .9);outline:1px solid rgb(255 255 255 / .16);outline-offset:-1px}
 .ph-main::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgb(11 16 23 / .25) 0%,transparent 28%,transparent 62%,rgb(11 16 23 / .8) 100%)}
-.ph-side{position:absolute;left:0;bottom:7%;width:50%;aspect-ratio:4/5;border-radius:22px;overflow:hidden;background:url(img/spusk.jpg) 48% 50%/cover;border:5px solid var(--bg);box-shadow:0 30px 60px -24px rgb(0 0 0 / .9)}
-.ph-side::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgb(11 16 23 / .85) 100%)}
-.cap{position:absolute;z-index:2;font-family:var(--script);font-size:34px;line-height:1;color:var(--ink);text-shadow:0 2px 12px rgb(0 0 0 / .6)}
+.cap{position:absolute;z-index:2;font-family:var(--script);font-size:34px;line-height:1;color:var(--ink);text-shadow:0 2px 14px rgb(0 0 0 / .7)}
 .ph-main .cap{right:22px;bottom:20px}
-.ph-side .cap{left:16px;bottom:14px;font-size:30px}
+.cap.peak{left:0;top:13%;display:grid;gap:2px;justify-items:start}
+.cap.peak svg{width:58px;height:70px;color:var(--gold-hi);margin-left:40px;filter:drop-shadow(0 2px 6px rgb(0 0 0 / .6))}
 .chip{position:absolute;z-index:3;display:inline-flex;align-items:center;gap:8px;background:rgb(11 16 23 / .7);backdrop-filter:blur(8px);border:1px solid rgb(255 255 255 / .14);border-radius:999px;padding:7px 13px;font-size:13px;font-weight:700;white-space:nowrap}
 .chip::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold-hi);box-shadow:0 0 10px 2px rgb(240 197 106 / .6)}
 .chip.sber{top:18px;right:18px}
-.chip.geo{top:18px;left:calc(30% + 18px)}
 
 /* четыре входа */
 .dirs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding-block:24px 34px}
@@ -103,15 +104,15 @@ nav a:hover{color:var(--gold-hi)}
   .hero{grid-template-columns:1fr;gap:18px;padding-top:14px}
   .h-pics{order:-1}
   .collage{min-height:0;height:320px}
-  .ph-main{width:72%}
-  .ph-side{width:44%;bottom:-14px}
-  .chip.geo{display:none}
+  .ph-main{width:58%}
+  .stage::before{inset:0 0 auto 0;height:470px;background-position:97% 50%;background-size:auto 470px;background-repeat:no-repeat}
+  .stage::after{background:linear-gradient(180deg,rgb(11 16 23 / .2) 0,rgb(11 16 23 / .05) 150px,rgb(11 16 23 / .55) 330px,var(--bg) 460px)}
 }
 @media (max-width:640px){
   .collage{height:300px}
-  .ph-main{width:74%;border-radius:22px}
-  .ph-side{width:46%;border-radius:18px;border-width:4px}
-  .cap{font-size:27px}.ph-side .cap{font-size:24px;left:12px;bottom:10px}.ph-main .cap{right:14px;bottom:12px}
+  .ph-main{width:56%;border-radius:22px}
+  .cap{font-size:27px}.ph-main .cap{right:14px;bottom:12px}
+  .cap.peak{left:0;top:10px;font-size:27px}.cap.peak svg{width:40px;height:50px;margin-left:18px}
   .chip{font-size:11.5px;padding:5px 10px}.chip.sber{top:12px;right:12px}
   .hero h1{font-size:37px}
   .hero h1 .scr{font-size:35px;width:max-content}
@@ -215,6 +216,7 @@ dialog p{color:var(--muted);font-size:14.5px;margin-bottom:8px}
 </header>
 
 <main id="top">
+  <div class="stage">
   <div class="wrap">
     <div class="hero">
       <div class="h-left">
@@ -235,7 +237,7 @@ dialog p{color:var(--muted);font-size:14.5px;margin-bottom:8px}
       <div class="h-pics">
         <div class="collage">
           <div class="ph-main"><span class="chip sber">Золотой партнёр Сбербанка</span><span class="cap">Строю дома</span></div>
-          <div class="ph-side"><span class="cap">Беру вершины</span></div>
+          <span class="cap peak">Беру вершины<svg viewBox="0 0 58 70" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M40 4c8 18 2 40-26 58"/><path d="M14 52v11h11"/></svg></span>
         </div>
       </div>
     </div>
@@ -246,6 +248,7 @@ dialog p{color:var(--muted);font-size:14.5px;margin-bottom:8px}
       <a class="dir" href="#struktura"><span class="th gt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5"/><path d="M4 19h16"/><path d="m7 15 4-4 3 3 5-6"/><path d="M15 8h4v4"/></svg></span><span><b>Инвестиции</b><small>Россия и&nbsp;зарубеж, сделки между городами</small></span><span class="ar">→</span></a>
       <a class="dir" href="#struktura"><span class="th" style="background-image:url(img/frirayd.jpg);background-position:45% 40%"></span><span><b>Жизнь и&nbsp;вершины</b><small>Эльбрус, Байкал, «Суперниндзя», фильмы</small></span><span class="ar">→</span></a>
     </div>
+  </div>
   </div>
 
   <section id="struktura">
