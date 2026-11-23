@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Денис Викулов · структура</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Caveat:wght@700&display=swap">
+<style>
+/* Слайды структуры 4:5 для чата: 540×675 CSS, снимаются в 2x = 1080×1350 */
+:root{--bg:#0B1017;--bg2:#0F1620;--surface:#141C27;--surface2:#1B2431;--surface3:#253041;--ink:#F3EEE4;--muted:#AAB3C0;--dim:#7C8696;--line:#212B39;--line2:#2E3A4C;--gold:#D6A645;--gold-hi:#F0C56A;--gold-tint:#2A2414}
+*{box-sizing:border-box}
+body{margin:0;background:#000;display:grid;gap:20px;justify-content:center;padding:20px;font-family:Onest,system-ui,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+h1,h2,h3,p{margin:0}
+.slide{width:540px;height:675px;position:relative;overflow:hidden;background:var(--bg);isolation:isolate;padding:24px 24px 18px;display:grid;grid-template-rows:auto 1fr auto;gap:14px}
+.slide::before{content:"";position:absolute;inset:0;z-index:-2;background:url(img/frirayd.jpg) 50% 30%/cover;opacity:.16}
+.slide::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgb(11 16 23 / .5) 0%,var(--bg) 34%)}
+.top{display:grid;gap:8px}
+.br{display:flex;align-items:center;gap:9px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-hi)}
+.br img{width:30px;height:30px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px var(--gold)}
+.br span{margin-left:auto;color:var(--muted)}
+h1{font-weight:800;font-size:29px;line-height:1.08;letter-spacing:-.015em}
+h1 em{font-style:normal;color:var(--gold-hi)}
+.top p{font-size:13.5px;color:#D5D9E0;line-height:1.45}
+
+.rows{display:grid;gap:8px;align-content:start}
+.r{display:grid;grid-template-columns:minmax(0,1fr) 150px;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:9px 9px 9px 14px}
+.r .t{display:grid;gap:3px}
+.r .no{font-size:11px;font-weight:800;letter-spacing:.14em;color:var(--gold)}
+.r h3{font-weight:700;font-size:17.5px;line-height:1.15}
+.r p{font-size:12.5px;line-height:1.38;color:var(--muted)}
+.v{height:84px;border-radius:11px;background:var(--bg2);border:1px solid var(--line);padding:7px;display:grid;gap:4px;align-content:start;overflow:hidden}
+.v>*{min-width:0}
+.ln{display:block;height:5px;border-radius:3px;background:#3A4556}
+.ln.w{background:#E6E1D7}
+.ln.g{background:var(--gold)}
+.pl{display:block;height:13px;border-radius:5px;background:var(--surface3)}
+.pl.g{background:var(--gold)}
+.ph{border-radius:6px;background:var(--surface3) center/cover}
+.scr{font-family:Caveat,cursive;font-weight:700;color:var(--gold-hi);font-size:15px;line-height:1}
+.st{display:grid;gap:2px;border-top:2px solid var(--gold);padding-top:4px}
+.st b{font-size:11px;line-height:1}
+.st i{display:block;height:4px;border-radius:2px;background:#3A4556;width:80%}
+.stars{color:var(--gold-hi);font-size:10px;letter-spacing:1px;line-height:1}
+.foot{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--dim);font-weight:600;letter-spacing:.04em}
+.foot b{color:var(--muted);font-weight:700}
+
+/* слайд 3 */
+.msg{background:#0B2E21;border:1px solid #1C5A40;border-radius:16px 16px 16px 4px;padding:12px 14px;font-size:13.5px;line-height:1.5;white-space:pre-line}
+.msg b{display:block;color:#6EE2A0;font-size:12px;margin-bottom:3px}
+.hub{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px;display:grid;grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr);gap:8px;align-items:center}
+.hub .src{display:grid;gap:5px}
+.hub .src span{font-size:12px;font-weight:600;background:var(--surface2);border:1px solid var(--line2);border-radius:8px;padding:5px 9px;color:#D5D9E0}
+.hub .arr{display:grid;gap:5px;justify-items:center;color:var(--gold)}
+.hub .arr i{display:block;width:28px;height:2px;background:repeating-linear-gradient(90deg,var(--gold) 0 5px,transparent 5px 9px)}
+.hub .dst{display:grid;gap:6px;justify-items:center;text-align:center;background:var(--gold-tint);border:1px solid #5C4A22;border-radius:12px;padding:12px 8px}
+.hub .dst img{width:44px;height:44px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px var(--gold)}
+.hub .dst b{font-size:13.5px;line-height:1.2}
+.hub .dst small{font-size:11px;color:var(--muted);line-height:1.3}
+.pts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.pts div{border-top:2px solid var(--gold);padding-top:8px;display:grid;gap:2px;align-content:start}
+.pts b{font-size:13.5px}
+.pts span{font-size:11.5px;color:var(--muted);line-height:1.35}
+</style>
+</head>
+<body>
+
+<!-- 1 -->
+<div class="slide" id="s1">
+  <div class="top">
+    <div class="br"><img src="img/avatar.jpg" alt="">Структура сайта<span>1/3</span></div>
+    <h1>Всё о&nbsp;вас <em>на&nbsp;одной странице</em></h1>
+    <p>Сейчас вы разбросаны по&nbsp;Rutube, ВК, Яндекс Картам, Авито и&nbsp;презентациям. Сайт собирает это в&nbsp;один образ: предприниматель, который строит дома и&nbsp;берёт вершины.</p>
+  </div>
+  <div class="rows">
+    <div class="r"><div class="t"><span class="no">01</span><h3>Главный экран</h3><p>Ваше фото, слоган и&nbsp;четыре входа: «Гарант», посёлки, инвестиции, жизнь</p></div>
+      <div class="v" style="grid-template-columns:minmax(0,1fr) 44px;gap:6px">
+        <div style="display:grid;gap:3px;align-content:start"><span class="ln w" style="width:92%;height:7px"></span><span class="scr" style="font-size:12.5px">живи по своим правилам</span><div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px;margin-top:3px"><span class="pl" style="height:16px"></span><span class="pl" style="height:16px"></span><span class="pl" style="height:16px"></span><span class="pl" style="height:16px"></span></div></div>
+        <div class="ph" style="background-image:url(img/denis-kaska.jpg);background-position:30% 25%"></div>
+      </div></div>
+    <div class="r"><div class="t"><span class="no">02</span><h3>Цифры и&nbsp;доверие</h3><p>С&nbsp;2007 года, 200+ сделок в&nbsp;год, золотой партнёр Сбербанка, топ-100 Домклик</p></div>
+      <div class="v" style="grid-template-columns:repeat(2,minmax(0,1fr));gap:7px 8px;align-content:center">
+        <div class="st"><b>2007</b><i></i></div><div class="st"><b>200+</b><i></i></div><div class="st"><b>Сбер</b><i></i></div><div class="st"><b>Топ-100</b><i></i></div>
+      </div></div>
+    <div class="r"><div class="t"><span class="no">03</span><h3>Агентство «Гарант»</h3><p>Купить, продать, льготная ипотека, юрист и&nbsp;суд. Команда и&nbsp;отзывы с&nbsp;оценкой 4,9</p></div>
+      <div class="v" style="gap:5px">
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3px"><span class="pl g" style="height:11px"></span><span class="pl" style="height:11px"></span><span class="pl" style="height:11px"></span></div>
+        <span class="stars">★★★★★ <span style="color:#E6E1D7;font-weight:700">4,9</span></span>
+        <span class="ln" style="width:95%"></span><span class="ln" style="width:78%"></span>
+        <div style="display:flex;gap:3px;margin-top:2px"><span style="width:14px;height:14px;border-radius:50%;background:var(--surface3)"></span><span style="width:14px;height:14px;border-radius:50%;background:var(--surface3)"></span><span style="width:14px;height:14px;border-radius:50%;background:var(--surface3)"></span><span style="width:14px;height:14px;border-radius:50%;background:var(--surface3)"></span></div>
+      </div></div>
+    <div class="r"><div class="t"><span class="no">04</span><h3>Строим малоэтажную Россию</h3><p>Крылатый, Квартал Семейный, Зелёная долина: фото, презентация, видео</p></div>
+      <div class="v" style="grid-template-columns:repeat(3,minmax(0,1fr));gap:4px">
+        <div style="display:grid;gap:3px;align-content:start"><div class="ph" style="height:48px"></div><span class="ln w" style="width:85%"></span><span class="pl g" style="height:8px;width:70%"></span></div>
+        <div style="display:grid;gap:3px;align-content:start"><div class="ph" style="height:48px;background-image:url(img/dom-render.jpg)"></div><span class="ln w" style="width:80%"></span><span class="pl g" style="height:8px;width:70%"></span></div>
+        <div style="display:grid;gap:3px;align-content:start"><div class="ph" style="height:48px"></div><span class="ln w" style="width:75%"></span><span class="pl g" style="height:8px;width:70%"></span></div>
+      </div></div>
+  </div>
+  <div class="foot"><span>Набросок для&nbsp;<b>Дениса Викулова</b> · Шелехов</span><span>FOR.MI</span></div>
+</div>
+
+<!-- 2 -->
+<div class="slide" id="s2">
+  <div class="top">
+    <div class="br"><img src="img/avatar.jpg" alt="">Структура сайта<span>2/3</span></div>
+    <h1>Дальше человек <em>сам выбирает</em>, зачем пришёл</h1>
+    <p>Покупатель идёт к&nbsp;посёлкам, инвестор к&nbsp;сделкам, зритель ваших фильмов к&nbsp;вершинам. Квиз в&nbsp;конце сортирует заявки.</p>
+  </div>
+  <div class="rows">
+    <div class="r"><div class="t"><span class="no">05</span><h3>Как купить дом</h3><p>Пять шагов через эскроу: деньги в&nbsp;банке, пока дом не&nbsp;построен</p></div>
+      <div class="v" style="align-content:center;gap:7px">
+        <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:3px;align-items:center">
+          <span class="pl g" style="height:18px"></span><span class="pl" style="height:18px"></span><span class="pl" style="height:18px"></span><span class="pl" style="height:18px"></span><span class="pl" style="height:18px"></span>
+        </div>
+        <span style="height:2px;background:repeating-linear-gradient(90deg,var(--gold) 0 5px,transparent 5px 9px)"></span>
+        <div style="display:flex;justify-content:space-between"><span class="ln" style="width:26%"></span><span class="ln" style="width:22%"></span><span class="ln" style="width:26%"></span></div>
+      </div></div>
+    <div class="r"><div class="t"><span class="no">06</span><h3>Инвестиции</h3><p>Россия и&nbsp;зарубеж, «Риелторы России», флиппинг квартир «до и&nbsp;после»</p></div>
+      <div class="v" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:5px">
+        <div style="position:relative;border-radius:7px;background:var(--surface2);overflow:hidden">
+          <svg viewBox="0 0 60 40" preserveAspectRatio="none" style="position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px)"><polyline points="0,34 14,26 26,29 40,15 60,6" fill="none" stroke="#F0C56A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="display:grid;gap:4px;align-content:center"><span class="ln w" style="width:85%"></span><span class="ln" style="width:70%"></span><span class="ln" style="width:78%"></span><span class="pl g" style="height:10px;width:70%"></span></div>
+      </div></div>
+    <div class="r"><div class="t"><span class="no">07</span><h3>Жизнь и&nbsp;вершины</h3><p>Эльбрус, 200&nbsp;км по&nbsp;льду Байкала, Ольхон, «Суперниндзя» и&nbsp;фильмы</p></div>
+      <div class="v" style="grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);grid-template-rows:1fr 1fr;gap:3px;padding:5px">
+        <div class="ph" style="grid-row:span 2;background-image:url(img/frirayd.jpg);background-position:45% 40%"></div>
+        <div class="ph" style="background-image:url(img/baikal.jpg);background-position:60% 30%"></div>
+        <div class="ph" style="background-image:url(img/kajt.jpg);background-position:55% 50%"></div>
+      </div></div>
+    <div class="r"><div class="t"><span class="no">08</span><h3>Квиз и&nbsp;контакты</h3><p>«Чем могу помочь?»: три вопроса и&nbsp;заявка. Офис на&nbsp;карте и&nbsp;все каналы</p></div>
+      <div class="v" style="gap:5px">
+        <div style="display:flex;gap:3px;flex-wrap:wrap"><span class="pl g" style="width:30%;height:12px"></span><span class="pl" style="width:30%;height:12px"></span><span class="pl" style="width:32%;height:12px"></span></div>
+        <div style="display:flex;gap:3px;flex-wrap:wrap"><span class="pl" style="width:40%;height:12px"></span><span class="pl g" style="width:30%;height:12px"></span></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px"><span class="pl" style="height:14px"></span><span class="pl" style="height:14px"></span></div>
+        <span class="pl g" style="height:12px"></span>
+      </div></div>
+  </div>
+  <div class="foot"><span>Набросок для&nbsp;<b>Дениса Викулова</b> · Шелехов</span><span>FOR.MI</span></div>
+</div>
+
+<!-- 3 -->
+<div class="slide" id="s3">
+  <div class="top">
+    <div class="br"><img src="img/avatar.jpg" alt="">Что видите вы<span>3/3</span></div>
+    <h1>Заявки приходят <em>уже рассортированными</em></h1>
+    <p>Человек ответил на&nbsp;три вопроса, и&nbsp;вы сразу знаете, кто он и&nbsp;кому из&nbsp;команды передать. Пример, имя условное.</p>
+  </div>
+  <div class="rows" style="gap:12px">
+    <div class="msg"><b>Заявка с&nbsp;сайта</b>• Дом в&nbsp;посёлке Дениса
+• Шелехов и&nbsp;район
+• В&nbsp;течение полугода
+• Анна, +7&nbsp;9…</div>
+    <div class="hub">
+      <div class="src"><span>Rutube и&nbsp;ВК Видео</span><span>YouTube</span><span>Яндекс Карты</span><span>Авито</span></div>
+      <div class="arr"><i></i><i></i><i></i></div>
+      <div class="dst"><img src="img/avatar.jpg" alt=""><b>Один сайт</b><small>одна ссылка в&nbsp;шапку каждого канала</small></div>
+    </div>
+    <div class="pts">
+      <div><b>Кто пишет</b><span>покупатель, продавец, инвестор или вопрос к&nbsp;юристу</span></div>
+      <div><b>Одна ссылка</b><span>в&nbsp;описание видео и&nbsp;профили вместо пяти</span></div>
+      <div><b>Ваши цифры</b><span>200+ сделок и&nbsp;Сбербанк видны до&nbsp;первого звонка</span></div>
+    </div>
+  </div>
+  <div class="foot"><span>Набросок для&nbsp;<b>Дениса Викулова</b> · Шелехов</span><span>FOR.MI</span></div>
+</div>
+
+</body>
+</html>
