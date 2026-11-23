@@ -17,6 +17,12 @@ const cfg=Object.assign({
   label:'#E9C9A8',
   accent:'#B8693A',
   accentText:'#F0B482',
+  accentInk:'#fff',
+  titleFont:'Lora,serif',
+  titleWeight:700,
+  titleCase:'none',
+  titleEmStyle:'italic',
+  fontsHref:'',
   photo:'',
   logo:'',
   phoneWait:0
@@ -45,7 +51,7 @@ const esc=s=>String(s).replace(/[<>&"]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;',
   const logo=cfg.logo?`<img src="${url(cfg.logo)}" alt="">`:'';
   const chips=cfg.chips.map((c,i)=>`<span class="${i===0?'c':''}">${esc(c)}</span>`).join('');
   const html=`<!doctype html><html lang="ru"><head><meta charset="utf-8">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,700;1,700&family=Onest:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,700;1,700&family=Onest:wght@600;700;800&display=swap">${cfg.fontsHref?`<link rel="stylesheet" href="${esc(cfg.fontsHref)}">`:''}
 <style>
 *{box-sizing:border-box}body{margin:0}
 .s{width:540px;height:675px;position:relative;overflow:hidden;background:${cfg.bg};font-family:Onest,sans-serif;color:${cfg.ink};isolation:isolate}
@@ -54,8 +60,8 @@ const esc=s=>String(s).replace(/[<>&"]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;',
 .top{padding:26px 26px 0;display:grid;gap:8px}
 .br{display:flex;align-items:center;gap:9px;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:${cfg.label}}
 .br img{width:28px;height:28px;border-radius:50%;background:#fff;object-fit:cover}
-h1{margin:0;font-family:Lora,serif;font-weight:700;font-size:25px;line-height:1.15}
-h1 em{color:${cfg.accentText}}
+h1{margin:0;font-family:${cfg.titleFont};font-weight:${cfg.titleWeight};text-transform:${cfg.titleCase};font-size:25px;line-height:1.15}
+h1 em{color:${cfg.accentText};font-style:${cfg.titleEmStyle}}
 .lap{position:absolute;left:22px;top:150px;width:430px}
 .scr{background:#0B0F0C;border-radius:14px 14px 0 0;padding:9px 9px 10px;box-shadow:0 30px 60px -20px rgb(0 0 0 / .8)}
 .scr img{display:block;width:100%;border-radius:3px}
@@ -65,7 +71,7 @@ h1 em{color:${cfg.accentText}}
 .ph img{display:block;width:100%;border-radius:20px}
 .chips{position:absolute;left:26px;right:26px;bottom:24px;display:flex;flex-wrap:wrap;gap:6px}
 .chips span{font-size:11.5px;font-weight:700;background:rgb(255 255 255 / .1);border:1px solid rgb(255 255 255 / .2);border-radius:999px;padding:5px 11px}
-.chips span.c{background:${cfg.accent};border-color:${cfg.accent};color:#fff}
+.chips span.c{background:${cfg.accent};border-color:${cfg.accent};color:${cfg.accentInk}}
 </style></head><body>
 <div class="s" id="m">
   <div class="top"><div class="br">${logo}${esc(cfg.eyebrow)}</div><h1>${cfg.title}</h1></div>
