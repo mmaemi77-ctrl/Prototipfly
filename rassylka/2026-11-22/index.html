@@ -243,6 +243,7 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var
     ST=loadLocal(); day=pickDay();
     try{DATA=await (await fetch("klienty.json",{cache:"no-store"})).json()}
     catch(e){$("#day").innerHTML=`<div class="err">Список клиентов не загрузился. Обновите страницу.</div>`;return}
+    if(!/^#den-[123]$/.test(location.hash||"")){const n=new Date(),iso=n.getFullYear()+"-"+String(n.getMonth()+1).padStart(2,"0")+"-"+String(n.getDate()).padStart(2,"0");const td=DATA.days.find(x=>x.iso===iso);if(td)day=td.n}
     renderDays();renderDay();stats();
     try{const w=localStorage.getItem(LS+"-tips"); if(w===null){$("#tips").open=true; localStorage.setItem(LS+"-tips","1")}}catch(e){}
     if(window.claude&&window.claude.use){
