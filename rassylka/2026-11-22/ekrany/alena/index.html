@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Студия Алёны Рыжей · главный экран</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Onest:wght@400;500;600;700;800&family=Marck+Script&display=swap">
+<style>
+/* Layout: в стиле её сторис: чёрный фон, тёплый свет свечей, оранжевый акцент и рукописная строка. Слева заголовок и цифры, справа запись: что беспокоит → сеанс, цена и время. */
+:root{
+  --bg:#0D0B0A;--card:#171311;--card2:#211B18;--ink:#F3ECE4;--muted:#AFA399;--dim:#7A6F67;--line:#2F2723;
+  --or:#F07A26;--or-hi:#FF9A4D;--or-soft:#2E1C10;
+  --f-head:"Oswald","Arial Narrow",Impact,sans-serif;--f-body:"Onest",system-ui,-apple-system,sans-serif;--f-script:"Marck Script",cursive;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5}
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit;cursor:pointer}
+.wrap{max-width:1280px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left));padding-right:max(18px,env(safe-area-inset-right))}
+.hero{position:relative;isolation:isolate;min-height:100vh;min-height:100svh;display:flex;flex-direction:column}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:url("img/alena.jpg") 70% 40%/cover}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgb(13 11 10 / .96) 0%,rgb(13 11 10 / .78) 45%,rgb(13 11 10 / .35) 100%)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:18px}
+.mark{text-decoration:none;color:var(--ink);line-height:1}
+.mark small{display:block;font-family:var(--f-script);font-size:20px;color:var(--ink)}
+.mark b{font-family:var(--f-head);font-weight:600;font-size:19px;letter-spacing:.06em;text-transform:uppercase;color:var(--or)}
+.links{display:flex;gap:24px;font-size:14.5px;color:var(--muted)}
+.btn-o{border:1px solid var(--or);background:none;color:var(--or-hi);border-radius:999px;padding:8px 16px;font-weight:700;font-size:14px}
+.main{flex:1;display:flex;align-items:center}
+.main .wrap{width:100%;display:grid;grid-template-columns:minmax(0,1fr) 440px;gap:48px;align-items:center;padding-block:6px 40px}
+.copy{display:grid;gap:16px;max-width:600px}
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+h1{margin:0;font-family:var(--f-head);font-weight:700;font-size:clamp(42px,5vw,70px);line-height:1;text-transform:uppercase;text-wrap:balance}
+h1 .scr{display:block;font-family:var(--f-script);font-weight:400;text-transform:none;color:var(--or);font-size:.78em;line-height:1.1;margin-top:4px}
+.sub{margin:0;font-size:18px;color:var(--ink);opacity:.9;max-width:48ch}
+.nums{display:flex;gap:26px;flex-wrap:wrap}
+.nums div{display:grid}
+.nums b{font-family:var(--f-head);font-weight:700;font-size:40px;line-height:1;color:var(--or)}
+.nums span{font-size:13px;color:var(--muted)}
+.book{min-width:0;background:rgb(23 19 17 / .96);border:1px solid var(--line);border-radius:20px;padding:18px;display:grid;grid-template-columns:minmax(0,1fr);gap:12px;box-shadow:0 30px 70px -20px rgb(0 0 0 / .8)}
+.book h2{margin:0;font-family:var(--f-head);font-weight:600;font-size:24px;text-transform:uppercase;letter-spacing:.02em}
+.lbl{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{border:1px solid var(--line);background:var(--card2);border-radius:999px;padding:7px 12px;font-size:13.5px;font-weight:600}
+.chips button[aria-pressed="true"]{border-color:var(--or);background:var(--or-soft);color:var(--or-hi)}
+.sess{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;background:var(--card2);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.sess img{width:96px;height:100%;min-height:112px;object-fit:cover}
+.sess .in{padding:10px 12px 10px 0;display:grid;gap:3px;align-content:center}
+.sess b{font-family:var(--f-head);font-weight:600;font-size:18px;text-transform:uppercase;line-height:1.1}
+.sess p{margin:0;font-size:13px;color:var(--muted);line-height:1.35}
+.sess .pr{display:flex;gap:10px;align-items:baseline;margin-top:2px}
+.sess .pr strong{font-family:var(--f-head);font-size:24px;color:var(--ink)}
+.sess .pr span{font-size:13px;color:var(--or-hi);font-weight:700}
+.days{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}
+.days button{border:1px solid var(--line);background:var(--card2);border-radius:10px;padding:5px 0;text-align:center;font-weight:700;font-size:15px;line-height:1.15}
+.days small{display:block;font-size:10.5px;color:var(--muted);font-weight:600}
+.days button[aria-pressed="true"]{background:var(--or);border-color:var(--or);color:#1A0E05}
+.days button[aria-pressed="true"] small{color:#3A1E08}
+.times{display:flex;gap:6px}
+.times button{flex:1;border:1px solid var(--line);background:var(--card2);border-radius:10px;padding:7px 0;font-weight:700;font-size:14px}
+.times button[aria-pressed="true"]{border-color:var(--or);color:var(--or-hi)}
+.times button:disabled{opacity:.35;text-decoration:line-through;cursor:default}
+.cta{border:0;background:var(--or);color:#1A0E05;border-radius:13px;padding:14px;font-weight:800;font-size:15.5px}
+.learn{display:flex;justify-content:space-between;align-items:center;gap:10px;border-top:1px dashed var(--line);padding-top:10px;font-size:13.5px;color:var(--muted)}
+.learn a{color:var(--or-hi);font-weight:700;text-decoration:none;white-space:nowrap}
+.note{margin:-4px 0 0;text-align:center;font-size:12px;color:var(--dim)}
+button:focus-visible,a:focus-visible{outline:2px solid var(--or);outline-offset:2px}
+@media (max-width:1100px){.links{display:none}.main .wrap{grid-template-columns:minmax(0,1fr) 400px;gap:28px}}
+@media (max-width:820px){
+  .hero{min-height:0}
+  .hero::before{bottom:auto;height:520px;background-position:65% 30%}
+  .hero::after{background:linear-gradient(180deg,rgb(13 11 10 / .55) 0,rgb(13 11 10 / .82) 280px,var(--bg) 520px)}
+  .main .wrap{grid-template-columns:minmax(0,1fr);padding-block:14px 28px;gap:18px}
+  h1{font-size:40px}.sub{font-size:15.5px}
+  .nums{gap:18px}.nums b{font-size:30px}
+}
+</style>
+</head>
+<body>
+<section class="hero">
+  <header class="nav"><div class="wrap">
+    <a class="mark" href="#"><small>Студия</small><b>Алёны Рыжей</b></a>
+    <nav class="links"><span>Сеансы и цены</span><span>Отзывы</span><span>Обучение</span><span>Как добраться</span></nav>
+    <button class="btn-o" type="button">Записаться</button>
+  </div></header>
+  <div class="main"><div class="wrap">
+    <div class="copy">
+      <span class="eyebrow">Иркутск · Академическая, 30</span>
+      <h1>Массаж, который убирает причину боли<span class="scr">а не только напряжение</span></h1>
+      <p class="sub">Врач с медицинским образованием и своя методика восстановления. Отметьте, что беспокоит, и сразу увидите нужный сеанс, цену и свободное время.</p>
+      <div class="nums"><div><b>12+</b><span>лет опыта</span></div><div><b>5000+</b><span>отзывов</span></div><div><b>587</b><span>учеников</span></div></div>
+    </div>
+    <form class="book" id="book" novalidate>
+      <h2>Что беспокоит?</h2>
+      <div class="chips" id="chips">
+        <button type="button" data-s="bol" aria-pressed="true">Болит спина или шея</button>
+        <button type="button" data-s="hron" aria-pressed="false">Давние зажимы</button>
+        <button type="button" data-s="lico" aria-pressed="false">Отёки и овал лица</button>
+      </div>
+      <div class="sess" id="sess"></div>
+      <div class="lbl">Ближайшие дни</div>
+      <div class="days" id="days">
+        <button type="button" aria-pressed="false">24<small>вт</small></button>
+        <button type="button" aria-pressed="true">25<small>ср</small></button>
+        <button type="button" aria-pressed="false">26<small>чт</small></button>
+        <button type="button" aria-pressed="false">27<small>пт</small></button>
+        <button type="button" aria-pressed="false">28<small>сб</small></button>
+      </div>
+      <div class="times" id="times"><button type="button" disabled>10:00</button><button type="button" aria-pressed="true">13:00</button><button type="button" aria-pressed="false">16:30</button><button type="button" disabled>19:00</button></div>
+      <button class="cta" type="submit" id="cta">Записаться</button>
+      <div class="learn"><span>Хотите освоить методику?</span><a href="#">Обучение для массажистов →</a></div>
+      <p class="note">Это набросок: время для примера, запись никуда не уйдёт</p>
+    </form>
+  </div></div>
+</section>
+<script>
+const $=s=>document.querySelector(s);
+const S={
+  bol:{t:"Снятие боли и спазмов",p:"Острая боль, напряжение или скованность в конкретной зоне. Анамнез, проработка через первопричину, рекомендации.",price:"4 500 ₽",min:"70 минут",img:"img/spina.jpg"},
+  hron:{t:"Восстановление тела",p:"Хронические зажимы и нарушения подвижности. Диагностика всего тела и обучение самопомощи.",price:"5 800 ₽",min:"100 минут",img:"img/svechi.jpg"},
+  lico:{t:"Скульптурирование лица",p:"Отёчность, тонус, контур лица и зона декольте. Лимфодренажные приёмы.",price:"5 200 ₽",min:"60 минут",img:"img/lico.jpg"}
+};
+function show(k){const s=S[k];$("#sess").innerHTML=`<img src="${s.img}" alt=""><div class="in"><b>${s.t}</b><p>${s.p}</p><div class="pr"><strong>${s.price.replace(" "," ")}</strong><span>${s.min}</span></div></div>`;
+  $("#cta").textContent=`Записаться · ${s.price.replace(" "," ")}`}
+$("#chips").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;[...$("#chips").children].forEach(x=>x.setAttribute("aria-pressed",x===b));show(b.dataset.s)});
+["#days","#times"].forEach(id=>$(id).addEventListener("click",e=>{const b=e.target.closest("button");if(!b||b.disabled)return;[...$(id).children].forEach(x=>{if(!x.disabled)x.setAttribute("aria-pressed",x===b)})}));
+$("#book").addEventListener("submit",e=>e.preventDefault());
+show("bol");
+</script>
+</body>
+</html>
