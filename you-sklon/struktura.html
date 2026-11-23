@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Южный склон: гости и сумма</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap">
+<style>
+/* Слайд 540×675 CSS, снимок 2x = 1080×1350. Поправка структуры по ответу клиентки 23.11: купель в цене, скидка без неё, гости +/−, возраст детей. */
+:root{--bg:#F3EFE8;--ink:#1E2428;--soft:#5D646B;--accent:#2D5C6E;--accent-soft:#DCE8EE;--card:#fff;--panel:#F1ECE4;--line:#E4DED4;--orange:#C98431;--orange-soft:#F7E6CF;--dark:#1F2427;--ok:#2F7A55}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#ccc;font-family:"Montserrat","Inter",system-ui,sans-serif;color:var(--ink)}
+.slide{width:540px;height:675px;background:var(--bg);padding:24px 22px 20px;display:flex;flex-direction:column;gap:12px;overflow:hidden}
+.eyebrow{font-size:10.5px;font-weight:700;letter-spacing:.12em;color:var(--accent);display:flex;align-items:center;gap:7px}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--orange)}
+h1{font-size:25px;font-weight:800;line-height:1.1;letter-spacing:-.01em}
+h1 em{font-style:normal;color:var(--accent)}
+.sub{font-size:12px;line-height:1.45;color:var(--soft);font-weight:500;margin-top:-4px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:7px}
+.dates{display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:10px;padding:8px 11px}
+.dates span{font-weight:600;color:var(--soft)}
+.row{display:flex;align-items:center;justify-content:space-between;background:var(--panel);border-radius:11px;padding:8px 10px 8px 12px;gap:8px}
+.row .lbl{font-size:13px;font-weight:600}
+.row .lbl small{display:block;font-size:10px;font-weight:500;color:var(--soft);margin-top:1px}
+.counter{display:flex;align-items:center;gap:10px}
+.counter i{font-style:normal;width:28px;height:28px;border-radius:50%;border:1.5px solid var(--accent);color:var(--accent);display:grid;place-items:center;font-size:17px;font-weight:700;line-height:1;background:#fff}
+.counter b{font-size:16px;font-weight:800;min-width:14px;text-align:center}
+.kids{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:-1px}
+.kid{background:#fff;border:1px solid var(--line);border-radius:10px;padding:6px 8px;display:flex;flex-direction:column;gap:2px}
+.kid .age{font-size:12px;font-weight:700;display:flex;justify-content:space-between;align-items:center}
+.kid .age::after{content:"▾";font-size:9px;color:var(--soft)}
+.kid .st{font-size:9.5px;font-weight:600;color:var(--ok)}
+.kid.paid{border-color:var(--orange);background:var(--orange-soft)}
+.kid.paid .st{color:#9A5B12}
+.seg{display:flex;background:#fff;border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px}
+.seg span{font-size:10.5px;font-weight:700;padding:5px 10px;border-radius:999px;color:var(--soft);white-space:nowrap}
+.seg span.on{background:var(--accent);color:#fff}
+.incl{font-size:10.5px;font-weight:700;color:var(--ok);background:#E2F1E8;border-radius:999px;padding:5px 10px}
+.total{background:var(--dark);color:#fff;border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:5px}
+.total .ln{display:flex;justify-content:space-between;font-size:11px;color:#C9CED2;font-weight:500}
+.total .sum{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid #3A4146;padding-top:6px;font-size:14px;font-weight:800}
+.total .sum span:last-child{font-size:12.5px}
+.btn{background:var(--orange);color:#fff;text-align:center;border-radius:11px;padding:10px;font-size:13px;font-weight:800}
+.note{background:var(--accent);color:#fff;border-radius:14px;padding:11px 14px;font-size:12px;line-height:1.45;font-weight:500;margin-top:auto}
+.note b{color:#F6CF96;font-weight:700}
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="eyebrow">ЮЖНЫЙ СКЛОН · ПОПРАВИЛА СТРУКТУРУ</div>
+  <h1>Гости и сумма <em>как на Авито</em></h1>
+  <p class="sub">Купель и сауна уже в цене дома. Гость отмечает плюсом и минусом, сколько едет взрослых и детей, и сразу видит итог.</p>
+
+  <div class="box">
+    <div class="dates">18–20 декабря <span>2 ночи</span></div>
+
+    <div class="row">
+      <div class="lbl">Взрослые</div>
+      <div class="counter"><i>−</i><b>6</b><i>+</i></div>
+    </div>
+
+    <div class="row">
+      <div class="lbl">Дети<small>возраст каждого ребёнка</small></div>
+      <div class="counter"><i>−</i><b>3</b><i>+</i></div>
+    </div>
+    <div class="kids">
+      <div class="kid"><div class="age">5 лет</div><div class="st">до 14 лет, в цене</div></div>
+      <div class="kid"><div class="age">9 лет</div><div class="st">до 14 лет, в цене</div></div>
+      <div class="kid paid"><div class="age">15 лет</div><div class="st">с 14 лет, как взрослый</div></div>
+    </div>
+
+    <div class="row">
+      <div class="lbl">Купель</div>
+      <div class="seg"><span class="on">С купелью</span><span>Без купели, скидка</span></div>
+    </div>
+
+    <div class="row">
+      <div class="lbl">Сауна</div>
+      <div class="incl">включена</div>
+    </div>
+
+    <div class="total">
+      <div class="ln"><span>Платных гостей: 7</span><span>детей до 14 лет: 2</span></div>
+      <div class="ln"><span>Дом, купель, сауна</span><span>по вашему прайсу</span></div>
+      <div class="sum"><span>Итого</span><span>сумма видна сразу</span></div>
+    </div>
+    <div class="btn">Отправить заявку в WhatsApp</div>
+  </div>
+
+  <div class="note">Допуслуг на странице <b>нет</b>: всё уже входит в цену. Гость может только отказаться от купели и сразу увидит сумму со скидкой.</div>
+</div>
+</body>
+</html>
