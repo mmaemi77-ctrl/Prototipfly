@@ -74,19 +74,16 @@ nav a:hover{color:var(--gold-hi)}
 .stats span{font-size:13px;color:var(--muted);line-height:1.3}
 
 .stage{position:relative;isolation:isolate}
-.stage::before{content:"";position:absolute;inset:0;z-index:-2;background:url(img/spusk.jpg) 0% 38%/116% auto no-repeat}
-.stage::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--bg) 0%,rgb(11 16 23 / .93) 36%,rgb(11 16 23 / .5) 54%,rgb(11 16 23 / .15) 70%,rgb(11 16 23 / .3) 100%),linear-gradient(180deg,rgb(11 16 23 / .55) 0%,transparent 16%,transparent 58%,var(--bg) 100%)}
+.stage::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(60% 70% at 78% 30%,rgb(214 166 69 / .13),transparent 70%),radial-gradient(50% 60% at 10% 0%,rgb(60 90 130 / .18),transparent 70%)}
 .h-pics{position:relative}
-.collage{position:relative;min-height:520px;height:100%}
-.ph-main{position:absolute;top:0;right:0;bottom:0;width:60%;border-radius:28px;overflow:hidden;background:url(img/denis-kaska.jpg) 34% 30%/cover;box-shadow:0 40px 80px -30px rgb(0 0 0 / .9);outline:1px solid rgb(255 255 255 / .16);outline-offset:-1px}
-.ph-main::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgb(11 16 23 / .25) 0%,transparent 28%,transparent 62%,rgb(11 16 23 / .8) 100%)}
-.cap{position:absolute;z-index:2;font-family:var(--script);font-size:34px;line-height:1;color:var(--ink);text-shadow:0 2px 14px rgb(0 0 0 / .7)}
-.ph-main .cap{right:22px;bottom:20px}
-.cap.peak{left:0;top:13%;display:grid;gap:2px;justify-items:start}
-.cap.peak svg{width:58px;height:70px;color:var(--gold-hi);margin-left:40px;filter:drop-shadow(0 2px 6px rgb(0 0 0 / .6))}
+.collage{position:relative;min-height:540px;height:100%}
+.ph-main{position:absolute;inset:0;border-radius:28px;overflow:hidden;background:url(img/denis-kaska.jpg) 30% 28%/cover;box-shadow:0 40px 80px -30px rgb(0 0 0 / .9);outline:1px solid rgb(255 255 255 / .16);outline-offset:-1px}
+.ph-main::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgb(11 16 23 / .2) 0%,transparent 26%,transparent 60%,rgb(11 16 23 / .85) 100%)}
+.sign{position:absolute;z-index:2;right:24px;bottom:18px;font-family:var(--script);font-size:40px;line-height:1;color:var(--ink);text-shadow:0 2px 14px rgb(0 0 0 / .7);transform:rotate(-4deg)}
 .chip{position:absolute;z-index:3;display:inline-flex;align-items:center;gap:8px;background:rgb(11 16 23 / .7);backdrop-filter:blur(8px);border:1px solid rgb(255 255 255 / .14);border-radius:999px;padding:7px 13px;font-size:13px;font-weight:700;white-space:nowrap}
 .chip::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold-hi);box-shadow:0 0 10px 2px rgb(240 197 106 / .6)}
 .chip.sber{top:18px;right:18px}
+.chip.akk{left:18px;bottom:22px}
 
 /* четыре входа */
 .dirs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding-block:24px 34px}
@@ -104,15 +101,13 @@ nav a:hover{color:var(--gold-hi)}
   .hero{grid-template-columns:1fr;gap:18px;padding-top:14px}
   .h-pics{order:-1}
   .collage{min-height:0;height:320px}
-  .ph-main{width:58%}
-  .stage::before{inset:0 0 auto 0;height:470px;background-position:97% 50%;background-size:auto 470px;background-repeat:no-repeat}
-  .stage::after{background:linear-gradient(180deg,rgb(11 16 23 / .2) 0,rgb(11 16 23 / .05) 150px,rgb(11 16 23 / .55) 330px,var(--bg) 460px)}
+  .collage{height:360px}
 }
 @media (max-width:640px){
   .collage{height:300px}
-  .ph-main{width:56%;border-radius:22px}
-  .cap{font-size:27px}.ph-main .cap{right:14px;bottom:12px}
-  .cap.peak{left:0;top:10px;font-size:27px}.cap.peak svg{width:40px;height:50px;margin-left:18px}
+  .collage{height:340px}
+  .ph-main{border-radius:22px;background-position:30% 22%}
+  .sign{font-size:32px;right:14px;bottom:12px}.chip.akk{display:none}
   .chip{font-size:11.5px;padding:5px 10px}.chip.sber{top:12px;right:12px}
   .hero h1{font-size:37px}
   .hero h1 .scr{font-size:35px;width:max-content}
@@ -203,7 +198,7 @@ dialog p{color:var(--muted);font-size:14.5px;margin-bottom:8px}
       <a href="#struktura">Агентство «Гарант»</a>
       <a href="#struktura">Посёлки</a>
       <a href="#struktura">Инвестиции</a>
-      <a href="#struktura">Жизнь</a>
+      <a href="#struktura">Обо мне</a>
       <a href="#kviz">Контакты</a>
     </nav>
     <div class="h-right">
@@ -220,12 +215,12 @@ dialog p{color:var(--muted);font-size:14.5px;margin-bottom:8px}
   <div class="wrap">
     <div class="hero">
       <div class="h-left">
-        <span class="eyebrow"><span>Предприниматель · застройщик<span class="long2"> · эксперт по&nbsp;недвижимости</span></span></span>
+        <span class="eyebrow"><span>Агентство «Гарант» · застройщик<span class="long2"> · инвестор</span></span></span>
         <h1>Строй своё дело, <span class="scr">живи по&nbsp;своим правилам</span></h1>
-        <p class="sub">С&nbsp;2007 года продаю и&nbsp;покупаю недвижимость с&nbsp;командой «Гаранта», строю свои коттеджные посёлки и&nbsp;инвестирую по&nbsp;России. <span class="long">А&nbsp;ещё поднялся на&nbsp;Эльбрус пешком и&nbsp;спустился с&nbsp;него на&nbsp;сноуборде.</span></p>
+        <p class="sub">Продаю, покупаю и&nbsp;строю недвижимость в&nbsp;Шелехове и&nbsp;Иркутском районе с&nbsp;2007 года. <span class="long">Свои коттеджные посёлки, аккредитация Сбербанка и&nbsp;сделки по&nbsp;всей России.</span></p>
         <div class="acts">
           <a class="btn gold" href="#kviz">Чем могу помочь?</a>
-          <a class="btn ghost" href="#struktura"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>Смотреть фильмы</a>
+          <a class="btn ghost" href="#struktura">Смотреть посёлки</a>
         </div>
         <div class="stats">
           <div><b>с 2007</b><span>в&nbsp;недвижимости</span></div>
@@ -236,8 +231,7 @@ dialog p{color:var(--muted);font-size:14.5px;margin-bottom:8px}
       </div>
       <div class="h-pics">
         <div class="collage">
-          <div class="ph-main"><span class="chip sber">Золотой партнёр Сбербанка</span><span class="cap">Строю дома</span></div>
-          <span class="cap peak">Беру вершины<svg viewBox="0 0 58 70" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M40 4c8 18 2 40-26 58"/><path d="M14 52v11h11"/></svg></span>
+          <div class="ph-main"><span class="chip sber">Золотой партнёр Сбербанка</span><span class="chip akk">Аккредитованный застройщик</span><span class="sign">Денис Викулов</span></div>
         </div>
       </div>
     </div>
@@ -246,7 +240,7 @@ dialog p{color:var(--muted);font-size:14.5px;margin-bottom:8px}
       <a class="dir" href="#struktura"><span class="th gt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><circle cx="12" cy="14" r="2"/><path d="M12 16v3"/></svg></span><span><b>Агентство «Гарант»</b><small>Купить, продать, ипотека, юрист. 4,9 на&nbsp;Яндексе</small></span><span class="ar">→</span></a>
       <a class="dir" href="#struktura"><span class="th" style="background-image:url(img/dom-render.jpg)"></span><span><b>Свои посёлки</b><small>Крылатый, Квартал Семейный, Зелёная долина</small></span><span class="ar">→</span></a>
       <a class="dir" href="#struktura"><span class="th gt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5"/><path d="M4 19h16"/><path d="m7 15 4-4 3 3 5-6"/><path d="M15 8h4v4"/></svg></span><span><b>Инвестиции</b><small>Россия и&nbsp;зарубеж, сделки между городами</small></span><span class="ar">→</span></a>
-      <a class="dir" href="#struktura"><span class="th" style="background-image:url(img/frirayd.jpg);background-position:45% 40%"></span><span><b>Жизнь и&nbsp;вершины</b><small>Эльбрус, Байкал, «Суперниндзя», фильмы</small></span><span class="ar">→</span></a>
+      <a class="dir" href="#struktura"><span class="th" style="background-image:url(img/frirayd.jpg);background-position:45% 40%"></span><span><b>Обо мне</b><small>Днём брус и&nbsp;бетон, утром сделка. Эльбрус и&nbsp;Байкал</small></span><span class="ar">→</span></a>
     </div>
   </div>
   </div>
@@ -255,17 +249,17 @@ dialog p{color:var(--muted);font-size:14.5px;margin-bottom:8px}
     <div class="wrap">
       <div class="sec-h">
         <span class="eyebrow">Структура сайта</span>
-        <h2>Всё о&nbsp;вас на&nbsp;одной странице: <em>дома, сделки и&nbsp;вершины</em></h2>
+        <h2>Всё о&nbsp;вас на&nbsp;одной странице: <em>сначала дело, потом характер</em></h2>
         <p>Сейчас это разбросано по&nbsp;Rutube, ВК, Яндекс Картам, Авито и&nbsp;презентациям. Здесь человек за&nbsp;минуту понимает, кто вы и&nbsp;с&nbsp;чем к&nbsp;вам прийти.</p>
       </div>
       <div class="blocks">
-        <div class="blk"><span class="no">01</span><h3>Главный экран</h3><p>Фото, имя, слоган и&nbsp;четыре входа: агентство, посёлки, инвестиции, жизнь. Ниже цифры, которые говорят за&nbsp;вас.</p></div>
+        <div class="blk"><span class="no">01</span><h3>Главный экран</h3><p>Фото на&nbsp;стройке, слоган и&nbsp;четыре входа: агентство, посёлки, инвестиции, обо мне. С&nbsp;первого взгляда понятно, чем вы заняты.</p></div>
         <div class="blk"><span class="no">02</span><h3>Цифры и&nbsp;доверие</h3><p>С&nbsp;2007 года, 200+ сделок в&nbsp;год, аккредитованный застройщик и&nbsp;золотой партнёр Сбербанка, топ-100 Домклик, дипломы.</p></div>
         <div class="blk"><span class="no">03</span><h3>Агентство «Гарант»</h3><p>Покупка, продажа, льготные ипотеки (семейная, сельская, IT), маткапитал, юрист и&nbsp;суд. Команда и&nbsp;отзывы с&nbsp;Яндекса.</p></div>
         <div class="blk"><div class="pic" style="background-image:url(img/dom-render.jpg)"></div><span class="no">04</span><h3>Строим малоэтажную Россию</h3><p>Три посёлка карточками: фото, площадь домов, ипотека, кнопки «Презентация» и&nbsp;«Видео», плейлист «Обзоры домов».</p></div>
         <div class="blk"><span class="no">05</span><h3>Как купить дом</h3><p>Пять шагов через эскроу-счёт: деньги лежат в&nbsp;банке, пока дом не&nbsp;построен и&nbsp;не&nbsp;поставлен на&nbsp;кадастр.</p></div>
         <div class="blk"><span class="no">06</span><h3>Инвестиции</h3><p>Россия и&nbsp;зарубеж, «Риелторы России», сделки между городами, флиппинг квартир с&nbsp;примером «до и&nbsp;после».</p></div>
-        <div class="blk"><div class="pic" style="background-image:url(img/vershina.jpg);background-position:50% 40%"></div><span class="no">07</span><h3>Жизнь и&nbsp;вершины</h3><p>Эльбрус пешком со&nbsp;сноубордом, 200&nbsp;км по&nbsp;льду Байкала за&nbsp;2&nbsp;дня, Ольхон, «Суперниндзя». Лучшие кадры и&nbsp;кнопки на&nbsp;плейлисты «Спорт» и&nbsp;«Путешествия».</p></div>
+        <div class="blk"><div class="pic" style="background-image:url(img/vershina.jpg);background-position:50% 40%"></div><span class="no">07</span><h3>Обо мне</h3><p>Днём брус с&nbsp;бригадами, утром сделка в&nbsp;галстуке. Эльбрус и&nbsp;200&nbsp;км по&nbsp;льду Байкала как характер: такой человек доведёт сделку до&nbsp;конца. Кнопки на&nbsp;плейлисты «Спорт» и&nbsp;«Путешествия».</p></div>
         <div class="blk"><span class="no">08</span><h3>Квиз «Чем могу помочь?»</h3><p>Три вопроса, и&nbsp;заявка приходит уже с&nbsp;пометкой: покупатель, продавец, инвестор или вопрос к&nbsp;юристу.</p></div>
         <div class="blk"><span class="no">09</span><h3>Контакты и&nbsp;все каналы</h3><p>Офис в&nbsp;Шелехове на&nbsp;карте, мессенджеры, Rutube, ВК и&nbsp;YouTube одной строкой.</p></div>
       </div>
