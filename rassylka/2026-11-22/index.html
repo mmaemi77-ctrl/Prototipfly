@@ -31,7 +31,7 @@ h1{margin:0;font-size:26px;line-height:1.12;font-weight:800;letter-spacing:-.01e
 .stat{background:var(--card);border-radius:12px;padding:9px 10px;display:grid;gap:1px}
 .stat b{font-size:20px;font-weight:800;font-variant-numeric:tabular-nums}
 .stat span{font-size:11.5px;color:var(--muted)}
-nav.days{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+nav.days{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}
 nav.days button{font:inherit;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;padding:8px 6px;display:grid;gap:1px;text-align:center;cursor:pointer}
 nav.days button b{font-size:14px;font-weight:700}
 nav.days button span{font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
@@ -94,10 +94,10 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var
 <div class="wrap">
   <header class="top">
     <div class="eyebrow">FOR.MI · первые касания</div>
-    <h1>70 бизнесов за 4 дня</h1>
+    <h1>80 бизнесов за 5 дней</h1>
     <p class="lead">20 сообщений в день, пятерым из них сразу картинка главного экрана. Нажмите на карточку: внутри ссылка, куда писать, и готовые сообщения.</p>
     <div class="stats" id="stats">
-      <div class="stat"><b id="s-sent">0</b><span>отправила из 70</span></div>
+      <div class="stat"><b id="s-sent">0</b><span>отправила из 80</span></div>
       <div class="stat"><b id="s-read">0</b><span>прочитали</span></div>
       <div class="stat"><b id="s-replied">0</b><span>ответили</span></div>
       <div class="stat"><b id="s-paid">0</b><span>оплатили</span></div>
@@ -133,9 +133,9 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var
   function saveLocal(){try{localStorage.setItem(LS,JSON.stringify(ST))}catch(e){}}
 
   function pickDay(){
-    const h=(location.hash||"").match(/^#den-([1-4])$/);
+    const h=(location.hash||"").match(/^#den-([1-5])$/);
     if(h) return +h[1];
-    try{const v=+localStorage.getItem(LS+"-day"); if(v>=1&&v<=4) return v}catch(e){}
+    try{const v=+localStorage.getItem(LS+"-day"); if(v>=1&&v<=5) return v}catch(e){}
     return 1;
   }
 
@@ -243,7 +243,7 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var
     ST=loadLocal(); day=pickDay();
     try{DATA=await (await fetch("klienty.json",{cache:"no-store"})).json()}
     catch(e){$("#day").innerHTML=`<div class="err">Список клиентов не загрузился. Обновите страницу.</div>`;return}
-    if(!/^#den-[1-4]$/.test(location.hash||"")){const n=new Date(),iso=n.getFullYear()+"-"+String(n.getMonth()+1).padStart(2,"0")+"-"+String(n.getDate()).padStart(2,"0");const td=DATA.days.find(x=>x.iso===iso);if(td)day=td.n}
+    if(!/^#den-[1-5]$/.test(location.hash||"")){const n=new Date(),iso=n.getFullYear()+"-"+String(n.getMonth()+1).padStart(2,"0")+"-"+String(n.getDate()).padStart(2,"0");const td=DATA.days.find(x=>x.iso===iso);if(td)day=td.n}
     renderDays();renderDay();stats();
     try{const w=localStorage.getItem(LS+"-tips"); if(w===null){$("#tips").open=true; localStorage.setItem(LS+"-tips","1")}}catch(e){}
     if(window.claude&&window.claude.use){
