@@ -1,0 +1,17 @@
+{
+  "page": "index.html",
+  "eyebrow": "GOOD Store · главный экран",
+  "title": "Покупатель выбирает MacBook, <em>вам&nbsp;приходит готовая заявка</em>",
+  "chips": [
+    "Цена без вопроса в директ",
+    "Модель, память и цвет уже в заявке",
+    "Новинки и подарки к Новому году"
+  ],
+  "bg": "#141113",
+  "ink": "#F6F1F3",
+  "label": "#E9BCCB",
+  "accent": "#7A1F3D",
+  "accentText": "#F0A6BE",
+  "photo": "img/cvety.jpg",
+  "logo": "img/logo.png"
+}
