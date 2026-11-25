@@ -121,7 +121,7 @@ section{padding:96px 0}
 .kicker{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cherry)}
 .h2{font-family:var(--display);font-weight:600;font-size:clamp(26px,3.4vw,46px);line-height:1.05;letter-spacing:-.03em;margin-top:12px}
 .colors{background:#fff;text-align:center}
-.colors .row{margin:44px auto 0;max-width:900px}
+.colors .row{margin:44px auto 0;max-width:min(900px,100%)}
 .names{display:grid;grid-template-columns:repeat(4,1fr);max-width:900px;margin:18px auto 0;font-weight:600;font-size:15px;color:var(--ink2)}
 .names span{display:flex;align-items:center;justify-content:center;gap:8px}
 .names i{width:12px;height:12px;border-radius:50%}
@@ -291,14 +291,14 @@ footer nav{margin:0;gap:18px}
       <div class="bento">
         <button class="tile tall" data-go="Dyson"><img src="img/dyson-airwrap.jpg" alt="Dyson Airwrap"><b>Dyson</b><small>Airwrap, Supersonic, Airstrait</small></button>
         <button class="tile" data-go="iPhone"><img src="img/iphone17-trio.jpg" alt="iPhone 17 Pro"><b>iPhone</b><small>18 Pro, 17 Pro, 17, 16</small></button>
-        <button class="tile mac" data-go="MacBook"><em>Air и Pro</em><span><b>MacBook</b><small style="color:#C9C5CF;display:block">Подберём память и цвет</small></span></button>
+        <button class="tile mac" data-go="MacBook"><em>Neo, Air и Pro</em><span><b>MacBook</b><small style="color:#C9C5CF;display:block">Подберём память и цвет</small></span></button>
         <button class="tile" data-go="Watch"><img src="img/watch.jpg" alt="Apple Watch"><b>Apple Watch</b><small>Ultra, Series, SE</small></button>
         <button class="tile gifts" data-go="AirPods"><b style="font-size:26px">Подарки к&nbsp;Новому году</b><small>Для неё ❤️ и для него ❤️</small></button>
       </div>
     </div>
   </section>
 
-  <section id="how" style="padding-top:0">
+  <section id="how" style="padding-top:64px">
     <div class="wrap">
       <div class="kicker">Как купить</div>
       <h2 class="h2">Три шага до покупки</h2>
@@ -347,7 +347,8 @@ const S={g:['Тёмно-серый','#3A3A3C'],lb:['Голубой','#A9C2E0'],c
   or:['Оранжевый','#D9773A'],db:['Тёмно-синий','#2F3E5C'],bk:['Чёрный','#222225'],wh:['Белый','#F2F2F0'],lv:['Лавандовый','#C9BEDF'],sg:['Шалфей','#B5C2A5'],
   pk:['Розовый','#EFC7D0'],tl:['Бирюзовый','#9CCFCB'],ul:['Ультрамарин','#5D6BD6'],sky:['Голубой','#B4CCDF'],star:['Сияющая звезда','#ECE3D2'],mid:['Тёмная ночь','#2E3642'],
   sb:['Космический чёрный','#2B2B2D'],nt:['Натуральный титан','#C8C1B4'],bt:['Чёрный титан','#3A3A3C'],rg:['Розовое золото','#E6C3B3'],
-  dp:['Розовый с медью','#E8C8C0'],dbl:['Синий с медью','#3B4A6B'],dn:['Никель с медью','#9A9CA0'],pu:['Фиолетовый','#B7A6D9']};
+  dp:['Розовый с медью','#E8C8C0'],dbl:['Синий с медью','#3B4A6B'],dn:['Никель с медью','#9A9CA0'],pu:['Фиолетовый','#B7A6D9'],
+  nsi:['Серебристый','#DCDCDE'],nbl:['Розовый','#EBC6C4'],nci:['Цитрус','#E3DC7A'],nin:['Индиго','#3F4C86']};
 const c=(...k)=>k.map(x=>S[x]);
 const D={
   iPhone:{models:{
@@ -357,6 +358,7 @@ const D={
     'iPhone 17':[['256 ГБ','512 ГБ'],c('lv','sg','lb','wh','bk')],
     'iPhone 16':[['128 ГБ','256 ГБ','512 ГБ'],c('bk','wh','pk','tl','ul')]}},
   MacBook:{models:{
+    'MacBook Neo':[['256 ГБ','512 ГБ'],c('nin','nbl','nci','nsi')],
     'MacBook Air 13':[['256 ГБ','512 ГБ','1 ТБ'],c('sky','si','star','mid')],
     'MacBook Air 15':[['256 ГБ','512 ГБ','1 ТБ'],c('sky','si','star','mid')],
     'MacBook Pro 14':[['512 ГБ','1 ТБ','2 ТБ'],c('sb','si')],
@@ -379,7 +381,7 @@ const D={
     'Galaxy Z Fold':[['256 ГБ','512 ГБ','1 ТБ'],c('bk','si','db')],
     'Galaxy Z Flip':[['256 ГБ','512 ГБ'],c('bk','si','lb')]}}
 };
-const st={cat:'MacBook',model:'MacBook Air 15',opt:'512 ГБ',col:'Голубой'};
+const st={cat:'MacBook',model:'MacBook Neo',opt:'256 ГБ',col:'Индиго'};
 const $=id=>document.getElementById(id);
 function btn(txt,on,fn){const b=document.createElement('button');b.type='button';b.textContent=txt;b.setAttribute('aria-pressed',on);b.onclick=fn;return b}
 function render(){
