@@ -1,0 +1,13 @@
+{
+  "page": "index.html",
+  "eyebrow": "Ramli Travel · главный экран",
+  "title": "Тур, даты и&nbsp;цена на&nbsp;сегодня, <em>бронь без «подробнее» в&nbsp;комментариях</em>",
+  "chips": ["Новый год первым", "Рассрочка в брони", "Место онлайн"],
+  "bg": "#0B1220",
+  "ink": "#F4F1EA",
+  "label": "#E8C982",
+  "accent": "#A8823E",
+  "accentText": "#E8C982",
+  "photo": "img/gruppa.jpg",
+  "logo": "img/logo.png"
+}
