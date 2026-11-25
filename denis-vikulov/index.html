@@ -66,7 +66,7 @@ nav a:hover{color:var(--gold-hi)}
 .bg-blur{inset:-40px;background:url(img/denis-kaska.jpg) 50% 30%/cover;filter:blur(34px) saturate(.9);opacity:.6}
 .bg-photo{z-index:-2;top:0;right:0;bottom:0;width:68%;background:url(img/denis-kaska.jpg) 22% 20%/cover;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 26%);mask-image:linear-gradient(90deg,transparent 0%,#000 26%)}
 .stage::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--bg) 0%,rgb(11 16 23 / .92) 30%,rgb(11 16 23 / .4) 48%,transparent 64%),linear-gradient(180deg,rgb(11 16 23 / .55) 0%,transparent 16%,transparent 70%,var(--bg) 100%)}
-.hero{position:relative;display:grid;grid-template-columns:minmax(0,620px) minmax(0,1fr);min-height:clamp(540px,calc(100vh - 200px),760px);padding-block:40px 24px;align-items:center}
+.hero{position:relative;display:grid;grid-template-columns:minmax(0,620px) minmax(0,1fr);min-height:clamp(600px,calc(100vh - 72px),900px);padding-block:40px;align-items:center}
 .h-left{display:grid;gap:28px;align-content:center}
 .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(40px,4.1vw,60px);line-height:1.06;letter-spacing:-.01em;text-wrap:wrap}
 .hero h1 .scr{display:block;font-style:italic;color:var(--gold-hi)}
@@ -74,13 +74,11 @@ nav a:hover{color:var(--gold-hi)}
 .cta{display:grid;gap:10px;justify-items:start}
 .cta .btn{padding:18px 30px;font-size:16.5px}
 .cta small{font-size:13.5px;color:var(--muted)}
-.sber{position:absolute;top:28px;right:0;z-index:3;display:inline-flex;align-items:center;gap:8px;background:rgb(11 16 23 / .62);backdrop-filter:blur(8px);border:1px solid rgb(255 255 255 / .16);border-radius:999px;padding:9px 15px;font-size:13.5px;font-weight:700;white-space:nowrap}
-.sber::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold-hi);box-shadow:0 0 10px 2px rgb(240 197 106 / .6)}
-.sign{position:absolute;right:0;bottom:24px;font-family:var(--script);font-size:46px;line-height:1;color:var(--ink);text-shadow:0 2px 14px rgb(0 0 0 / .7);transform:rotate(-4deg)}
+.sign{position:absolute;right:0;bottom:44px;font-family:var(--script);font-size:46px;line-height:1;color:var(--ink);text-shadow:0 2px 14px rgb(0 0 0 / .7);transform:rotate(-4deg)}
 
 /* сразу под первым экраном: цифры и четыре направления */
-.napr{padding-block:0 72px}
-.stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-block:1px solid var(--line);margin-top:28px}
+.napr{padding-block:8px 72px}
+.stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-block:1px solid var(--line);margin-bottom:28px}
 .stats a{padding:22px 20px;display:grid;gap:4px;align-content:start;text-decoration:none;transition:background .15s}
 .stats a:hover{background:var(--surface)}
 .stats i{font-style:normal;font-size:12.5px;font-weight:700;color:var(--gold);margin-top:4px}
@@ -103,7 +101,6 @@ nav a:hover{color:var(--gold-hi)}
   .stage{margin-top:-62px;padding-top:62px}
   .hero{grid-template-columns:1fr;min-height:0;padding-block:330px 36px}
   .bg-blur,.sign{display:none}
-  .sber{top:78px;right:16px;font-size:12px;padding:6px 11px}
   .bg-photo{left:0;width:auto;bottom:auto;height:470px;background-position:26% 16%;-webkit-mask-image:linear-gradient(180deg,#000 62%,transparent);mask-image:linear-gradient(180deg,#000 62%,transparent)}
   .stage::after{background:linear-gradient(180deg,rgb(11 16 23 / .35) 0,transparent 90px,transparent 220px,rgb(11 16 23 / .8) 360px,var(--bg) 460px)}
 }
@@ -226,25 +223,24 @@ dialog p{color:var(--muted);font-size:14.5px;margin-bottom:8px}
           <small>Три коротких вопроса, и&nbsp;заявка уходит Денису в&nbsp;мессенджер</small>
         </div>
       </div>
-      <span class="sber">Золотой партнёр Сбербанка</span>
       <span class="sign">Денис Викулов</span>
     </div>
   </div>
   </div>
 
   <div class="wrap napr" id="vhody">
-    <div class="dirs">
-      <a class="dir" href="#struktura"><span class="pic garant"></span><span class="txt"><b>Агентство «Гарант»</b><small>Купить, продать, ипотека, юрист</small><span class="ar">→</span></span></a>
-      <a class="dir" href="#struktura"><span class="pic" style="background-image:url(img/dom-noch.jpg)"></span><span class="txt"><b>Свои посёлки</b><small>Крылатый, Квартал Семейный, Зелёная долина</small><span class="ar">→</span></span></a>
-      <a class="dir" href="#struktura"><span class="pic" style="background-image:url(img/real-invest.jpg)"></span><span class="txt"><b>Инвестиции</b><small>Россия и&nbsp;зарубеж, сделки между городами</small><span class="ar">→</span></span></a>
-      <a class="dir" href="#struktura"><span class="pic" style="background-image:url(img/frirayd.jpg);background-position:45% 40%"></span><span class="txt"><b>Обо мне</b><small>Днём брус и&nbsp;бетон, утром сделка</small><span class="ar">→</span></span></a>
-    </div>
     <div class="stats">
       <a href="#struktura"><b>с 2007 года</b><span>в&nbsp;недвижимости</span><i>свидетельство</i></a>
       <a href="#struktura"><b>Топ-100</b><span>агентств России по&nbsp;версии Домклик</span><i>диплом</i></a>
       <a href="#struktura"><b>Сбербанк</b><span>золотой партнёр, аккредитованный застройщик</span><i>сертификат</i></a>
       <a href="#struktura"><b>4,9</b><span>на&nbsp;Яндексе, 27 оценок</span><i>отзывы</i></a>
       <a href="#struktura"><b>3 посёлка</b><span>строим сами</span><i>смотреть</i></a>
+    </div>
+    <div class="dirs">
+      <a class="dir" href="#struktura"><span class="pic garant"></span><span class="txt"><b>Агентство «Гарант»</b><small>Купить, продать, ипотека, юрист</small><span class="ar">→</span></span></a>
+      <a class="dir" href="#struktura"><span class="pic" style="background-image:url(img/dom-noch.jpg)"></span><span class="txt"><b>Свои посёлки</b><small>Крылатый, Квартал Семейный, Зелёная долина</small><span class="ar">→</span></span></a>
+      <a class="dir" href="#struktura"><span class="pic" style="background-image:url(img/real-invest.jpg)"></span><span class="txt"><b>Инвестиции</b><small>Россия и&nbsp;зарубеж, сделки между городами</small><span class="ar">→</span></span></a>
+      <a class="dir" href="#struktura"><span class="pic" style="background-image:url(img/frirayd.jpg);background-position:45% 40%"></span><span class="txt"><b>Обо мне</b><small>Днём брус и&nbsp;бетон, утром сделка</small><span class="ar">→</span></span></a>
     </div>
   </div>
 
