@@ -47,7 +47,7 @@ h1 em{font-style:normal;color:var(--gold-hi)}
 .tour{display:flex;justify-content:space-between;align-items:center;gap:10px;border:1.5px solid var(--line);background:var(--soft);border-radius:13px;padding:9px 12px;text-align:left;color:var(--ink)}
 .tour b{display:block;font-size:14.5px;line-height:1.2}
 .tour small{display:block;font-size:12px;color:var(--muted)}
-.tour .pr{font-family:var(--f-head);font-size:20px;white-space:nowrap}
+.tour .pr{font-family:var(--f-head);font-size:19px;white-space:nowrap}
 .tour[aria-pressed="true"]{border-color:var(--navy);background:#EEF1F6;box-shadow:0 0 0 1px var(--navy)}
 .lbl{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .dates{display:flex;gap:6px;flex-wrap:wrap}
@@ -92,7 +92,7 @@ button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
       <p class="sub">Выберите тур и даты: цена на сегодня, что входит и рассрочка от банка видны сразу. Место бронируется онлайн, без «подробнее» в комментариях.</p>
       <div class="tiles">
         <div class="tile"><img src="img/gruppa.jpg" alt=""><span>Дербент, 31 декабря</span></div>
-        <div class="tile"><img src="img/kvest.jpg" alt=""><span>Квест по старому городу</span></div>
+        <div class="tile"><img src="img/pole.jpg" alt="" style="object-position:center 60%"><span>Своей компанией в горах</span></div>
         <div class="tile"><img src="img/kon.jpg" alt="" style="object-position:center 30%"><span>Конная прогулка по снегу</span></div>
       </div>
     </div>
@@ -112,15 +112,16 @@ button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 const $=s=>document.querySelector(s);
 const T={
   ny:{name:"Новый год по-дагестански",sub:"5 дней · баня и источники, катер, квадроциклы",price:47000,dates:[["30.12 – 03.01","осталось 8 мест"],["31.12 – 04.01","осталось 5 мест"]]},
-  ski:{name:"Горнолыжные: Архыз и Домбай",sub:"3 или 5 дней · всё включено",price:29990,from:true,dates:[["4 – 6 дек","Архыз, 3 дня"],["11 – 13 дек","Домбай, 3 дня"],["14 – 18 дек","Архыз + Домбай"],["18 – 20 дек","Архыз, 3 дня"]]},
-  win:{name:"Молодёжный зимний Дагестан",sub:"3 или 5 дней · квадроциклы, тюбинг",price:28000,dates:[["27 – 29 нояб","3 дня"],["декабрь","даты уточним"]]}
+  dom:{name:"Домбай, 3 дня",sub:"проживание, трансфер, источники, питание",price:29990,dates:[["4 – 6 дек",""],["11 – 13 дек",""],["18 – 20 дек",""]]},
+  arh:{name:"Архыз, 3 дня",sub:"квадрогиганты, хамам, питание",price:30990,dates:[["4 – 6 дек",""],["11 – 13 дек",""],["18 – 20 дек",""]]},
+  ad:{name:"Архыз + Домбай, 5 дней",sub:"джиппинг, квадрогиганты, источники",price:47990,dates:[["14 – 18 дек",""],["21 – 25 дек",""]]}
 };
 const rub=n=>n.toLocaleString("ru-RU").replace(/[  ]/g," ")+" ₽";
 let S={t:"ny",d:0,n:2};
 function draw(){
-  $("#tours").innerHTML=Object.entries(T).map(([k,t])=>`<button type="button" class="tour" data-t="${k}" aria-pressed="${k===S.t}"><span><b>${t.name}</b><small>${t.sub}</small></span><span class="pr">${t.from?"от ":""}${rub(t.price)}</span></button>`).join("");
+  $("#tours").innerHTML=Object.entries(T).map(([k,t])=>`<button type="button" class="tour" data-t="${k}" aria-pressed="${k===S.t}"><span><b>${t.name}</b><small>${t.sub}</small></span><span class="pr">${rub(t.price)}</span></button>`).join("");
   const t=T[S.t];
-  $("#dates").innerHTML=t.dates.map((d,i)=>`<button type="button" data-d="${i}" aria-pressed="${i===S.d}">${d[0]}<small>${d[1]}</small></button>`).join("");
+  $("#dates").innerHTML=t.dates.map((d,i)=>`<button type="button" data-d="${i}" aria-pressed="${i===S.d}">${d[0]}${d[1]?`<small>${d[1]}</small>`:""}</button>`).join("");
   $("#n").textContent=S.n;
   const tot=t.price*S.n;
   $("#how").textContent=`${S.n} × ${rub(t.price).replace(" ₽","")}${t.from?" (от)":""}, всё включено`;
