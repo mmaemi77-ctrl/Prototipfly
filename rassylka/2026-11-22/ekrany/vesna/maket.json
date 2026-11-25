@@ -1,0 +1,12 @@
+{
+  "page": "index.html",
+  "eyebrow": "Vesna · главный экран",
+  "title": "Дом, кафе и&nbsp;аренда: <em>цена считается сама</em>",
+  "chips": ["Ваш прайс в расчёте", "Помощница 6 500 ₽", "Сумма в заявке"],
+  "bg": "#24173A",
+  "ink": "#F5F1FA",
+  "label": "#C9A9F0",
+  "accent": "#5B2D8F",
+  "accentText": "#9FE0DB",
+  "photo": "img/okna.jpg"
+}
