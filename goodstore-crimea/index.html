@@ -6,21 +6,23 @@
 <meta name="description" content="GOOD Store, Симферополь: iPhone, MacBook, Apple Watch, AirPods, Dyson и Samsung. Выберите модель, память и цвет, цену на сегодня и наличие пришлём в Telegram. Отправка СДЭК.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="GOOD Store · главный экран">
-<meta property="og:description" content="Цена на iPhone, MacBook и Dyson без поиска по ленте: модель, память, цвет и заявка в Telegram">
-<meta name="theme-color" content="#FFFFFF">
+<meta property="og:description" content="Цена на iPhone, MacBook и Dyson, не листая ленту: модель, память, цвет и заявка в Telegram">
+<meta name="theme-color" content="#F6F3F2">
 <title>GOOD Store · главный экран</title>
 <link rel="icon" href="img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&display=swap">
 <style>
-/* Главный экран: слева заголовок и подбор «модель → память → цвет → заявка», справа их фото iPhone 18 Pro веером.
-   Светлый, как лента магазина; акцент тёмная вишня из нового цвета iPhone 18 Pro. */
+/* Главный экран как презентация новинки: вырезанные iPhone 18 Pro крупно справа, за ними свечение в их цветах
+   (вишня, голубой, серебро), слева заголовок и подбор «модель → память → цвет» в стеклянной карточке. */
 :root{
-  --bg:#FFFFFF;--bg2:#F5F5F7;--bg3:#ECECEF;--ink:#111114;--muted:#6E6E73;--dim:#9A9AA0;--line:#E5E5EA;--line2:#D2D2D7;
-  --cherry:#7A1F3D;--cherry-hi:#93294C;--cherry-tint:#F7EBEF;--cherry-line:#E7C9D3;
-  --tg:#2AABEE;--ok:#1F8A4C;
-  --font:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --bg:#F6F3F2;--ink:#0E0D10;--ink2:#2B2930;--muted:#6B6870;--dim:#9B98A0;--line:rgb(14 13 16 / .09);--line2:rgb(14 13 16 / .16);
+  --cherry:#7A1F3D;--cherry2:#B4466E;--blue:#6F8FC4;--sky:#A9C2E0;--tg:#2AABEE;--ok:#1F8A4C;
+  --glass:rgb(255 255 255 / .66);--glass-line:rgb(255 255 255 / .85);
+  --grad:linear-gradient(95deg,#7A1F3D 0%,#B4466E 42%,#6F8FC4 100%);
+  --font:"Inter Tight",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --display:"Unbounded","Inter Tight",system-ui,sans-serif;
   color-scheme:light;
 }
 *{box-sizing:border-box}
@@ -33,226 +35,277 @@ a{color:inherit}
 button,input{font:inherit;color:inherit}
 button{cursor:pointer}
 :focus-visible{outline:2px solid var(--cherry);outline-offset:3px}
-.wrap{max-width:1280px;margin:0 auto;padding-left:max(clamp(16px,3.5vw,40px),env(safe-area-inset-left,0px));padding-right:max(clamp(16px,3.5vw,40px),env(safe-area-inset-right,0px))}
+.wrap{max-width:1400px;margin:0 auto;padding-left:max(clamp(16px,3.5vw,48px),env(safe-area-inset-left,0px));padding-right:max(clamp(16px,3.5vw,48px),env(safe-area-inset-right,0px))}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 
 /* шапка */
-header{position:sticky;top:0;z-index:20;background:rgb(255 255 255 / .86);backdrop-filter:saturate(1.6) blur(14px);border-bottom:1px solid var(--line)}
-header .wrap{display:flex;align-items:center;gap:28px;height:68px}
+header{position:fixed;inset:0 0 auto;z-index:30;background:rgb(246 243 242 / .62);backdrop-filter:saturate(1.6) blur(18px);-webkit-backdrop-filter:saturate(1.6) blur(18px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;gap:28px;height:64px}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex:none}
-.logo img{width:42px;height:42px;border-radius:50%;box-shadow:0 0 0 1px var(--line)}
-.logo b{display:block;font-weight:800;font-size:16px;letter-spacing:.02em;line-height:1.1}
-.logo small{display:block;font-size:12px;color:var(--muted)}
-nav{display:flex;gap:24px;margin-left:auto;font-size:14px;font-weight:500;color:#3A3A3F}
-nav a{text-decoration:none}
+.logo img{width:38px;height:38px;border-radius:50%;box-shadow:0 0 0 1px var(--line)}
+.logo b{font-family:var(--display);font-weight:600;font-size:14.5px;letter-spacing:.01em}
+nav{display:flex;gap:26px;margin-left:auto;font-size:14.5px;font-weight:500;color:var(--ink2)}
+nav a{text-decoration:none;transition:color .15s}
 nav a:hover{color:var(--cherry)}
 .h-right{display:flex;align-items:center;gap:8px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;border-radius:999px;padding:12px 20px;font-weight:700;font-size:15px;text-decoration:none;transition:transform .15s,background .15s,box-shadow .15s;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:999px;padding:12px 20px;font-weight:600;font-size:15px;text-decoration:none;transition:transform .2s,box-shadow .2s,background .2s;white-space:nowrap}
 .btn:hover{transform:translateY(-1px)}
 .btn svg{width:18px;height:18px;flex:none}
 .btn.dark{background:var(--ink);color:#fff}
-.btn.dark:hover{background:#2A2A30}
-.btn.cherry{background:var(--cherry);color:#fff;box-shadow:0 10px 24px -10px rgb(122 31 61 / .7)}
-.btn.cherry:hover{background:var(--cherry-hi)}
-.btn.tg{background:var(--tg);color:#fff}
-.btn.ghost{background:var(--bg2);color:var(--ink)}
-.btn.ghost:hover{background:var(--bg3)}
-.btn.sm{padding:9px 15px;font-size:14px}
-.ic{width:40px;height:40px;border-radius:50%;display:none;place-items:center;background:var(--bg2);border:0;text-decoration:none}
+.btn.tg{background:var(--ink);color:#fff;padding:10px 18px}
+.btn.tg svg{color:#5CC3F5}
+.ic{width:40px;height:40px;border-radius:50%;display:none;place-items:center;background:rgb(255 255 255 / .7);border:1px solid var(--line);text-decoration:none}
 .ic svg{width:19px;height:19px}
 
 /* первый экран */
-.hero{padding:44px 0 56px}
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:52px;align-items:stretch}
-.lead{display:flex;flex-direction:column;gap:18px}
-.eyebrow{display:inline-flex;align-self:flex-start;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#3A3A3F;background:var(--bg2);border-radius:999px;padding:7px 14px 7px 10px}
-.eyebrow i{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px rgb(31 138 76 / .15)}
-h1{font-size:clamp(32px,4.2vw,56px);line-height:1.04;font-weight:800;letter-spacing:-.025em}
-h1 em{font-style:normal;color:var(--cherry)}
-.sub{font-size:18px;color:#45454B;max-width:34em}
+.hero{position:relative;min-height:max(100svh,760px);padding-top:64px;overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    radial-gradient(42% 52% at 74% 58%,rgb(180 70 110 / .38),transparent 70%),
+    radial-gradient(34% 40% at 92% 22%,rgb(111 143 196 / .45),transparent 70%),
+    radial-gradient(30% 36% at 58% 18%,rgb(214 206 230 / .7),transparent 70%),
+    radial-gradient(40% 50% at 10% 100%,rgb(169 194 224 / .35),transparent 70%),
+    var(--bg)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;opacity:.22;pointer-events:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 .5  0 0 0 .35 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,520px) 1fr;min-height:calc(max(100svh,760px) - 64px);align-items:center}
+.big{position:absolute;right:-1vw;top:3%;z-index:-1;font-family:var(--display);font-weight:700;font-size:clamp(120px,15vw,230px);line-height:.85;letter-spacing:-.04em;white-space:nowrap;
+  background:linear-gradient(180deg,rgb(255 255 255 / .95),rgb(255 255 255 / 0) 85%);-webkit-background-clip:text;background-clip:text;color:transparent;pointer-events:none;user-select:none}
+.lead{display:flex;flex-direction:column;gap:20px;padding:36px 0 44px;position:relative;z-index:2}
+.pill{display:inline-flex;align-self:flex-start;align-items:center;gap:9px;font-size:13.5px;font-weight:600;color:var(--ink2);background:var(--glass);border:1px solid var(--glass-line);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:999px;padding:7px 15px 7px 8px;box-shadow:0 8px 24px -14px rgb(60 20 35 / .35)}
+.pill b{font-weight:700;color:#fff;background:var(--grad);border-radius:999px;padding:3px 10px;font-size:12px;letter-spacing:.02em}
+h1{font-family:var(--display);font-weight:600;font-size:clamp(30px,4.2vw,60px);line-height:1.02;letter-spacing:-.035em}
+h1 .grad{display:inline-block;padding-bottom:.06em}
+.sub{font-size:19px;line-height:1.45;color:var(--ink2);max-width:27em}
+.sub b{font-weight:600;color:var(--ink)}
 
 /* подбор */
-.pick{margin-top:6px;background:#fff;border:1px solid var(--line);border-radius:26px;padding:20px 22px 22px;box-shadow:0 1px 0 rgb(0 0 0 / .02),0 24px 60px -34px rgb(17 17 20 / .35);display:grid;gap:14px}
-.tabs{display:flex;gap:4px;background:var(--bg2);border-radius:999px;padding:4px;overflow-x:auto;scrollbar-width:none}
+.pick{margin-top:4px;background:var(--glass);border:1px solid var(--glass-line);backdrop-filter:blur(26px) saturate(1.5);-webkit-backdrop-filter:blur(26px) saturate(1.5);border-radius:28px;padding:18px 18px 18px;box-shadow:0 1px 0 rgb(255 255 255 / .8) inset,0 40px 80px -40px rgb(70 20 40 / .45);display:grid;gap:12px}
+.tabs{display:flex;gap:2px;background:rgb(14 13 16 / .05);border-radius:999px;padding:4px;overflow-x:auto;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
-.tabs button{flex:1 0 auto;border:0;background:transparent;border-radius:999px;padding:8px 14px;font-size:14px;font-weight:600;color:#45454B;transition:background .15s,color .15s}
-.tabs button[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgb(0 0 0 / .12)}
-.row{display:grid;grid-template-columns:76px 1fr;align-items:center;gap:12px}
-.row > span{font-size:13px;font-weight:600;color:var(--muted)}
+.tabs button{flex:1 0 auto;border:0;background:transparent;border-radius:999px;padding:8px 13px;font-size:14px;font-weight:600;color:var(--ink2);transition:background .2s,color .2s}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:#fff;box-shadow:0 6px 16px -8px rgb(0 0 0 / .6)}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
-.chips button{border:1px solid var(--line2);background:#fff;border-radius:12px;padding:7px 12px;font-size:14px;font-weight:600;transition:border-color .15s,background .15s,color .15s}
+.chips button{border:1px solid var(--line2);background:rgb(255 255 255 / .75);border-radius:14px;padding:8px 13px;font-size:14px;font-weight:600;transition:border-color .15s,background .15s,color .15s}
 .chips button:hover{border-color:var(--ink)}
-.chips button[aria-pressed="true"]{border-color:var(--cherry);background:var(--cherry-tint);color:var(--cherry)}
-.sw{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.sw button{width:28px;height:28px;border-radius:50%;border:0;padding:0;box-shadow:inset 0 0 0 1px rgb(0 0 0 / .14);position:relative}
+.chips button[aria-pressed="true"]{border-color:var(--cherry);background:#fff;color:var(--cherry);box-shadow:0 0 0 1px var(--cherry) inset}
+.line{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.sw{display:flex;align-items:center;gap:9px}
+.sw button{width:28px;height:28px;border-radius:50%;border:0;padding:0;box-shadow:inset 0 0 0 1px rgb(0 0 0 / .14),inset 0 -6px 10px rgb(0 0 0 / .12),inset 0 4px 6px rgb(255 255 255 / .45);position:relative}
 .sw button[aria-pressed="true"]::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--cherry)}
-.sw em{font-style:normal;font-size:14px;font-weight:600;margin-left:6px;color:#3A3A3F}
-.pick-foot{display:flex;align-items:center;gap:14px;border-top:1px solid var(--line);padding-top:16px;margin-top:2px}
-.sum{min-width:0;flex:1}
-.sum small{display:block;font-size:12px;color:var(--muted);font-weight:500}
-.sum b{display:block;font-size:15.5px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sw em{font-style:normal;font-size:14px;font-weight:600;color:var(--ink2);margin-left:4px;white-space:nowrap}
+.cta{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;border:0;border-radius:20px;padding:10px 10px 10px 20px;background:linear-gradient(135deg,#8E2647,#5A162D);color:#fff;text-align:left;box-shadow:0 18px 36px -18px rgb(122 31 61 / .9);transition:transform .2s,box-shadow .2s}
+.cta:hover{transform:translateY(-1px);box-shadow:0 22px 40px -18px rgb(122 31 61 / 1)}
+.cta span{min-width:0}
+.cta small{display:block;font-size:12.5px;opacity:.72;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cta b{display:block;font-size:16.5px;font-weight:700}
+.cta i{flex:none;width:44px;height:44px;border-radius:14px;background:rgb(255 255 255 / .16);display:grid;place-items:center}
+.cta i svg{width:20px;height:20px}
 
-/* фото справа */
-.shot{position:relative;border-radius:32px;background:#fff;border:1px solid var(--line);overflow:hidden;min-height:560px}
-.shot > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
-.tag{position:absolute;left:20px;top:20px;display:flex;align-items:center;gap:8px;background:rgb(255 255 255 / .9);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:13.5px;font-weight:600}
-.tag b{color:var(--cherry)}
-.dots{display:flex;gap:4px}
-.dots i{width:11px;height:11px;border-radius:50%;box-shadow:inset 0 0 0 1px rgb(0 0 0 / .15)}
-.gift{position:absolute;right:20px;bottom:20px;display:flex;align-items:center;gap:12px;background:rgb(255 255 255 / .94);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:20px;padding:10px 16px 10px 10px;box-shadow:0 18px 40px -24px rgb(0 0 0 / .45);max-width:300px;text-decoration:none}
-.gift img{width:54px;height:54px;border-radius:12px;object-fit:cover;flex:none}
-.gift b{display:block;font-size:14px;line-height:1.25}
-.gift small{display:block;font-size:12.5px;color:var(--muted);margin-top:2px}
-.photo-m{display:none}
+/* телефоны */
+.stage{position:relative;align-self:stretch;min-height:520px}
+.phones{position:absolute;right:-3%;bottom:0;width:min(118%,860px);
+  -webkit-mask-image:linear-gradient(180deg,#000 78%,transparent 100%);mask-image:linear-gradient(180deg,#000 78%,transparent 100%)}
+.ph-img{filter:drop-shadow(0 40px 50px rgb(60 15 30 / .26)) drop-shadow(0 8px 14px rgb(0 0 0 / .1))}
+.ph-wrap{position:absolute;right:-2%;bottom:0;width:min(100%,860px);aspect-ratio:1003/927}
+.ph-wrap .phones{position:static;width:100%}
+.dot{position:absolute;display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:var(--ink2);background:var(--glass);border:1px solid var(--glass-line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:999px;padding:5px 11px 5px 6px;box-shadow:0 10px 24px -14px rgb(0 0 0 / .4);white-space:nowrap}
+.dot i{width:14px;height:14px;border-radius:50%;box-shadow:inset 0 0 0 1px rgb(0 0 0 / .15)}
+.gift{position:absolute;right:0;bottom:44px;z-index:3;display:flex;align-items:center;gap:12px;background:var(--glass);border:1px solid var(--glass-line);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:22px;padding:10px 16px 10px 10px;box-shadow:0 24px 50px -26px rgb(60 15 30 / .6);text-decoration:none}
+.gift img{width:52px;height:52px;border-radius:14px;object-fit:cover}
+.gift b{display:block;font-size:14.5px;line-height:1.2}
+.gift small{display:block;font-size:12.5px;color:var(--muted);margin-top:3px}
 
 /* ниже первого экрана */
-section{padding:64px 0}
-.h2{font-size:clamp(26px,3vw,38px);font-weight:800;letter-spacing:-.02em;line-height:1.1}
-.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}
-.cat{background:var(--bg2);border-radius:24px;overflow:hidden;display:flex;flex-direction:column}
-.cat img{aspect-ratio:1/1;object-fit:cover;width:100%}
-.cat div{padding:16px 18px 18px;display:grid;gap:10px}
-.cat b{font-size:17px}
-.cat p{font-size:14px;color:var(--muted)}
-.cat .btn{justify-self:start}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
-.step{border:1px solid var(--line);border-radius:24px;padding:22px}
-.step i{font-style:normal;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--cherry-tint);color:var(--cherry);font-weight:800;margin-bottom:14px}
-.step b{display:block;font-size:17px;margin-bottom:6px}
-.step p{font-size:14.5px;color:var(--muted)}
-.soon{display:inline-block;font-size:12px;font-weight:700;color:var(--cherry);background:var(--cherry-tint);border-radius:999px;padding:2px 9px;margin-left:6px;vertical-align:2px}
-footer{background:var(--bg2);padding:36px 0 40px;font-size:14px;color:var(--muted)}
+section{padding:96px 0}
+.kicker{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cherry)}
+.h2{font-family:var(--display);font-weight:600;font-size:clamp(26px,3.4vw,46px);line-height:1.05;letter-spacing:-.03em;margin-top:12px}
+.colors{background:#fff;text-align:center}
+.colors .row{margin:44px auto 0;max-width:900px}
+.names{display:grid;grid-template-columns:repeat(4,1fr);max-width:900px;margin:18px auto 0;font-weight:600;font-size:15px;color:var(--ink2)}
+.names span{display:flex;align-items:center;justify-content:center;gap:8px}
+.names i{width:12px;height:12px;border-radius:50%}
+.colors .btn{margin-top:36px}
+.bento{display:grid;grid-template-columns:1.2fr 1fr 1fr;grid-template-rows:260px 260px;gap:16px;margin-top:40px}
+.tile{position:relative;border-radius:28px;overflow:hidden;background:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:22px;text-decoration:none;isolation:isolate;border:0;text-align:left}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .5s}
+.tile:hover img{transform:scale(1.04)}
+.tile::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 45%,rgb(0 0 0 / .55))}
+.tile b{font-family:var(--display);font-weight:600;font-size:22px;letter-spacing:-.02em;color:#fff}
+.tile small{color:rgb(255 255 255 / .82);font-size:14px;margin-top:4px}
+.tile.tall{grid-row:span 2}
+.tile.mac{background:var(--ink);justify-content:space-between}
+.tile.mac::after,.tile.gifts::after{display:none}
+.tile.mac b{font-size:30px}
+.tile.mac em{font-style:normal;font-family:var(--display);font-size:13px;color:#C9C5CF;letter-spacing:.06em;text-transform:uppercase}
+.tile.gifts{background:var(--grad)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.step{background:#fff;border-radius:28px;padding:26px}
+.step i{font-style:normal;font-family:var(--display);font-weight:600;font-size:15px;display:grid;place-items:center;width:40px;height:40px;border-radius:14px;background:var(--ink);color:#fff;margin-bottom:18px}
+.step b{display:block;font-size:19px;margin-bottom:6px}
+.step p{font-size:15px;color:var(--muted)}
+.soon{display:inline-block;font-size:12px;font-weight:700;color:var(--cherry);background:#F4E6EB;border-radius:999px;padding:2px 9px;margin-left:4px;vertical-align:2px}
+footer{padding:36px 0 44px;font-size:14px;color:var(--muted);border-top:1px solid var(--line)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:16px 40px;align-items:center;justify-content:space-between}
 footer a{color:var(--ink);text-decoration:none;font-weight:600}
 footer nav{margin:0;gap:18px}
 
 /* окно заявки */
-.modal{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;padding:16px;background:rgb(17 17 20 / .45);backdrop-filter:blur(4px)}
+.modal{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;padding:16px;background:rgb(14 13 16 / .45);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 .modal.open{display:flex}
-.box{background:#fff;border-radius:28px;max-width:440px;width:100%;padding:26px;display:grid;gap:14px;max-height:calc(100dvh - 32px);overflow:auto;position:relative}
-.box h3{font-size:22px;font-weight:800;letter-spacing:-.01em;padding-right:36px}
-.box[hidden],[hidden]{display:none!important}
-.box .x{position:absolute;right:16px;top:16px;width:36px;height:36px;border-radius:50%;border:0;background:var(--bg2);font-size:20px;line-height:1}
-.pill{display:inline-flex;align-self:start;justify-self:start;font-size:13.5px;font-weight:600;background:var(--cherry-tint);color:var(--cherry);border-radius:999px;padding:6px 12px}
+.box{background:#fff;border-radius:30px;max-width:440px;width:100%;padding:26px;display:grid;gap:14px;max-height:calc(100dvh - 32px);overflow:auto;position:relative}
+[hidden]{display:none!important}
+.box h3{font-family:var(--display);font-weight:600;font-size:21px;letter-spacing:-.02em;padding-right:40px}
+.box .x{position:absolute;right:16px;top:16px;width:36px;height:36px;border-radius:50%;border:0;background:#F2EFEE;font-size:20px;line-height:1}
+.tagsum{justify-self:start;font-size:13.5px;font-weight:600;background:#F4E6EB;color:var(--cherry);border-radius:999px;padding:6px 12px}
 .field{display:grid;gap:6px;font-size:13px;font-weight:600;color:var(--muted)}
 .field input{border:1px solid var(--line2);border-radius:14px;padding:13px 14px;font-size:16px;color:var(--ink);font-weight:500}
 .field input:focus{outline:none;border-color:var(--cherry)}
 .how{display:flex;gap:6px}
 .how button{flex:1;border:1px solid var(--line2);background:#fff;border-radius:12px;padding:10px;font-weight:600;font-size:14px}
-.how button[aria-pressed="true"]{border-color:var(--cherry);background:var(--cherry-tint);color:var(--cherry)}
+.how button[aria-pressed="true"]{border-color:var(--cherry);color:var(--cherry);box-shadow:0 0 0 1px var(--cherry) inset}
 .agree{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);line-height:1.4}
 .agree input{width:18px;height:18px;margin:1px 0 0;accent-color:var(--cherry);flex:none}
 .note{font-size:12.5px;color:var(--dim);text-align:center}
-.btn[disabled]{opacity:.45;cursor:not-allowed;transform:none}
+.send{border:0;border-radius:16px;padding:15px;font-weight:700;font-size:16px;color:#fff;background:linear-gradient(135deg,#8E2647,#5A162D)}
+.send[disabled]{opacity:.4;cursor:not-allowed}
 .tgmsg{background:#E7F1F8;border-radius:20px;padding:14px}
 .tgmsg .who{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:700;margin-bottom:10px}
 .tgmsg .who img{width:28px;height:28px;border-radius:50%;background:#fff}
 .bubble{background:#fff;border-radius:16px 16px 16px 4px;padding:12px 14px;font-size:14.5px;line-height:1.5;white-space:pre-line;box-shadow:0 1px 1px rgb(0 0 0 / .06)}
 .bubble time{display:block;text-align:right;font-size:11px;color:var(--dim);margin-top:4px}
 
-@media (max-width:1100px){
+@media (max-width:1180px){
   nav{display:none}
   .h-right{margin-left:auto}
-  .cats{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:980px){
+  .hero{min-height:0}
+  .hero .wrap{grid-template-columns:1fr;min-height:0}
+  .bento{grid-template-columns:1fr 1fr;grid-template-rows:220px 220px 220px}
+  .tile.tall{grid-row:span 1}
 }
 @media (max-width:860px){
-  .hero{padding:12px 0 40px}
-  .hero .wrap{grid-template-columns:1fr;gap:0}
-  .shot{display:none}
-  .photo-m{display:block;margin:0 -16px 10px;height:118px;overflow:hidden}
-  .photo-m img{width:100%;height:100%;object-fit:contain;object-position:50% 50%}
-  .lead{gap:12px}
-  .eyebrow{font-size:12px;padding:6px 12px 6px 9px}
-  h1{font-size:31px;line-height:1.06}
-  .sub{font-size:15px;line-height:1.45}
-  .pick{padding:14px 14px 16px;border-radius:22px;gap:11px;margin-top:4px}
-  .tabs button{padding:7px 11px;font-size:13.5px;flex:0 0 auto}
-  .row{grid-template-columns:1fr;gap:6px}
-  .row > span{display:none}
-  .chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-right:-14px;padding-right:14px}
-  .chips::-webkit-scrollbar{display:none}
-  .chips button{flex:none;padding:6px 11px;font-size:13.5px}
-  .sw button{width:26px;height:26px}
-  .pick-foot{flex-direction:column;align-items:stretch;gap:10px;padding-top:12px}
-  .pick-foot .btn{padding:14px}
-  .sum{display:none}
+  header .wrap{height:56px}
+  .hero{padding-top:56px;min-height:100svh}
+  .hero::before{background:
+    radial-gradient(70% 34% at 70% 52%,rgb(180 70 110 / .38),transparent 70%),
+    radial-gradient(50% 24% at 96% 36%,rgb(111 143 196 / .45),transparent 70%),
+    radial-gradient(60% 26% at 20% 10%,rgb(214 206 230 / .8),transparent 70%),
+    var(--bg)}
+  .logo img{width:34px;height:34px}
   .h-right .btn{display:none}
   .ic{display:grid}
-  .ic.tgic{background:var(--tg)}
-  header .wrap{height:58px}
-  .logo img{width:36px;height:36px}
-  .cats{grid-template-columns:1fr 1fr;gap:10px}
-  .cat div{padding:12px}
-  .cat b{font-size:15px}
-  .cat p{display:none}
+  .ic.tgic{background:var(--ink);border-color:var(--ink)}
+  .big{display:none}
+  .lead{padding:16px 0 28px;gap:12px}
+  .pill{font-size:12px;padding:5px 12px 5px 6px}
+  .pill b{font-size:11px;padding:2px 8px}
+  h1{font-size:29px;line-height:1.06}
+  .sub{font-size:15px;line-height:1.42}
+  .stage{order:0;min-height:0;height:min(300px,82vw);margin:-6px -16px -66px;pointer-events:none}
+  .ph-wrap{right:auto;left:50%;transform:translateX(-47%);width:min(345px,92vw);bottom:auto;top:0}
+  .dot{display:none}
+  .gift{display:none}
+  .pick{position:relative;z-index:2;padding:12px;border-radius:24px;gap:10px;margin-top:0}
+  .tabs button{flex:0 0 auto;padding:7px 12px;font-size:13.5px}
+  .chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-right:-12px;padding-right:12px}
+  .chips::-webkit-scrollbar{display:none}
+  .chips button{flex:none;padding:7px 11px;font-size:13.5px;border-radius:12px}
+  .sw button{width:26px;height:26px}
+  .cta{padding:8px 8px 8px 16px;border-radius:18px}
+  .cta b{font-size:15.5px}
+  .cta i{width:40px;height:40px;border-radius:12px}
+  section{padding:64px 0}
+  .names{font-size:12.5px}
+  .names span{flex-direction:column;gap:6px}
+  .bento{grid-template-columns:1fr 1fr;grid-template-rows:180px 180px 180px;gap:10px}
+  .tile{padding:14px;border-radius:22px}
+  .tile b{font-size:16px}
+  .tile.mac b{font-size:19px}
+  .tile small{font-size:12.5px}
   .steps{grid-template-columns:1fr}
-  section{padding:44px 0}
 }
 </style>
 </head>
 <body>
 <header>
   <div class="wrap">
-    <a class="logo" href="#top"><img src="img/logo.png" alt="GOOD Store"><span><b>GOOD Store</b><small>Симферополь</small></span></a>
+    <a class="logo" href="#top"><img src="img/logo.png" alt=""><b>GOOD Store</b></a>
     <nav aria-label="Разделы">
-      <a href="#cats">iPhone</a><a href="#cats">MacBook</a><a href="#cats">Watch</a><a href="#cats">AirPods</a><a href="#cats">Dyson</a><a href="#cats">Samsung</a><a href="#how">Доставка</a><a href="#how">Отзывы</a>
+      <a href="#cats">iPhone</a><a href="#cats">MacBook</a><a href="#cats">Watch</a><a href="#cats">AirPods</a><a href="#cats">Dyson</a><a href="#cats">Samsung</a><a href="#how">Доставка</a>
     </nav>
     <div class="h-right">
-      <a class="btn ghost sm" href="#contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Позвонить</a>
-      <a class="btn tg sm" href="https://t.me/goodstore_crimea" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.7 19.4c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 13.2l-4.7-1.5c-1-.3-1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3z"/></svg>Telegram</a>
-      <a class="ic tgic" href="https://t.me/goodstore_crimea" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="#fff"><path d="M21.9 4.3 18.7 19.4c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 13.2l-4.7-1.5c-1-.3-1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3z"/></svg></a>
-      <button class="ic" aria-label="Меню"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <a class="btn tg" href="https://t.me/goodstore_crimea" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.7 19.4c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 13.2l-4.7-1.5c-1-.3-1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3z"/></svg>Написать в Telegram</a>
+      <a class="ic tgic" href="https://t.me/goodstore_crimea" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="#5CC3F5"><path d="M21.9 4.3 18.7 19.4c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 13.2l-4.7-1.5c-1-.3-1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3z"/></svg></a>
+      <button class="ic" aria-label="Меню"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg></button>
     </div>
   </div>
 </header>
 
 <main id="top">
-  <section class="hero">
+  <section class="hero" style="padding-bottom:0">
     <div class="wrap">
       <div class="lead">
-        <div class="photo-m"><img src="img/iphone18-cveta.jpg" alt="iPhone 18 Pro в четырёх цветах"></div>
-        <span class="eyebrow"><i></i>Крым, Симферополь · отправка СДЭК</span>
-        <h1>Цена на iPhone, MacBook и Dyson, <em>не листая ленту</em></h1>
-        <p class="sub">Выберите модель, память и цвет. Цену на сегодня и наличие пришлём в Telegram, заказ отправим СДЭК.</p>
+        <span class="pill"><b>Новинка</b>iPhone 18 Pro в четырёх цветах</span>
+        <h1>Узнайте цену, <span class="grad">не&nbsp;листая ленту</span></h1>
+        <p class="sub"><b>iPhone, MacBook и Dyson в Симферополе.</b> Выберите модель, а цену на сегодня и наличие пришлём в Telegram.</p>
+        <div class="stage m-stage" hidden></div>
 
         <div class="pick" id="pick">
           <div class="tabs" id="tabs" role="group" aria-label="Что ищете"></div>
-          <div class="row"><span>Модель</span><div class="chips" id="models"></div></div>
-          <div class="row" id="optRow"><span id="optLabel">Память</span><div class="chips" id="opts"></div></div>
-          <div class="row" id="colRow"><span>Цвет</span><div class="sw" id="colors"></div></div>
-          <div class="pick-foot">
-            <div class="sum"><small>Вы выбрали</small><b id="sum"></b></div>
-            <button class="btn cherry" id="ask">Узнать цену и наличие<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-          </div>
+          <div class="chips" id="models" role="group" aria-label="Модель"></div>
+          <div class="chips" id="opts" role="group" aria-label="Память"></div>
+          <div class="line"><div class="sw" id="colors" role="group" aria-label="Цвет"></div></div>
+          <button class="cta" id="ask"><span><small id="sum"></small><b>Узнать цену и наличие</b></span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></button>
         </div>
       </div>
 
-      <div class="shot">
-        <img src="img/iphone18-ruka.jpg" alt="iPhone 18 Pro в четырёх цветах в руке">
-        <span class="tag"><b>Новинка</b> iPhone 18 Pro <span class="dots"><i style="background:#4A4A4D"></i><i style="background:#A9C2E0"></i><i style="background:#5E2236"></i><i style="background:#DCDCDE"></i></span></span>
+      <div class="stage" id="stage">
+        <div class="ph-wrap">
+          <div class="ph-img"><img class="phones" src="img/iphone18-cut.png" alt="iPhone 18 Pro: тёмно-серый, серебристый, голубой и тёмная вишня"></div>
+          <span class="dot" style="left:16%;top:1%"><i style="background:#E4E3E1"></i>Серебристый</span>
+          <span class="dot" style="left:47%;top:-4%"><i style="background:#7E9CC8"></i>Голубой</span>
+          <span class="dot" style="left:74%;top:3%"><i style="background:#5E2236"></i>Тёмная вишня</span>
+          <span class="dot" style="left:-4%;top:27%"><i style="background:#2A2A2C"></i>Тёмно-серый</span>
+        </div>
         <a class="gift" href="#cats"><img src="img/dlya-neyo.jpg" alt=""><span><b>Подарки к Новому году</b><small>Для неё ❤️ и для него ❤️</small></span></a>
       </div>
     </div>
   </section>
 
-  <section id="cats" style="background:var(--bg2)">
+  <section class="colors" id="new">
     <div class="wrap">
+      <div class="kicker">Новинка</div>
+      <h2 class="h2">iPhone 18 Pro. <span class="grad">Четыре новых цвета</span></h2>
+      <img class="row" src="img/iphone18-ryad-cut.png" alt="iPhone 18 Pro в цветах Dark Gray, Light Blue, Dark Cherry и Silver">
+      <div class="names"><span><i style="background:#3A3A3C"></i>Тёмно-серый</span><span><i style="background:#A9C2E0"></i>Голубой</span><span><i style="background:#5E2236"></i>Тёмная вишня</span><span><i style="background:#C9C9CB"></i>Серебристый</span></div>
+      <button class="btn dark" data-go="iPhone" data-model="iPhone 18 Pro">Узнать цену на 18 Pro</button>
+    </div>
+  </section>
+
+  <section id="cats">
+    <div class="wrap">
+      <div class="kicker">Каталог</div>
       <h2 class="h2">Что ищете?</h2>
-      <div class="cats">
-        <div class="cat"><img src="img/iphone17-trio.jpg" alt="iPhone 17 Pro"><div><b>iPhone</b><p>18 Pro, 17 Pro, 17 и 16 в разных цветах</p><button class="btn dark sm" data-go="iPhone">Узнать цену</button></div></div>
-        <div class="cat"><img src="img/watch.jpg" alt="Apple Watch"><div><b>Apple Watch</b><p>Ultra, Series и SE, ремешки к ним</p><button class="btn dark sm" data-go="Watch">Узнать цену</button></div></div>
-        <div class="cat"><img src="img/dyson-airwrap.jpg" alt="Dyson Airwrap"><div><b>Dyson</b><p>Airwrap, Supersonic, выпрямитель</p><button class="btn dark sm" data-go="Dyson">Узнать цену</button></div></div>
-        <div class="cat"><img src="img/cvety.jpg" alt="iPhone в подарок"><div><b>В подарок</b><p>Упакуем и подскажем, что выбрать до 31 декабря</p><button class="btn dark sm" data-go="iPhone">Подобрать</button></div></div>
+      <div class="bento">
+        <button class="tile tall" data-go="Dyson"><img src="img/dyson-airwrap.jpg" alt="Dyson Airwrap"><b>Dyson</b><small>Airwrap, Supersonic, Airstrait</small></button>
+        <button class="tile" data-go="iPhone"><img src="img/iphone17-trio.jpg" alt="iPhone 17 Pro"><b>iPhone</b><small>18 Pro, 17 Pro, 17, 16</small></button>
+        <button class="tile mac" data-go="MacBook"><em>Air и Pro</em><span><b>MacBook</b><small style="color:#C9C5CF;display:block">Подберём память и цвет</small></span></button>
+        <button class="tile" data-go="Watch"><img src="img/watch.jpg" alt="Apple Watch"><b>Apple Watch</b><small>Ultra, Series, SE</small></button>
+        <button class="tile gifts" data-go="AirPods"><b style="font-size:26px">Подарки к&nbsp;Новому году</b><small>Для неё ❤️ и для него ❤️</small></button>
       </div>
     </div>
   </section>
 
-  <section id="how">
+  <section id="how" style="padding-top:0">
     <div class="wrap">
-      <h2 class="h2">Как купить</h2>
+      <div class="kicker">Как купить</div>
+      <h2 class="h2">Три шага до покупки</h2>
       <div class="steps">
         <div class="step"><i>1</i><b>Выбираете модель</b><p>Память и цвет в пару касаний, без вопросов в директ</p></div>
-        <div class="step"><i>2</i><b>Присылаем цену и фото</b><p>Цена на сегодня, наличие и живое фото именно вашего товара</p></div>
-        <div class="step"><i>3</i><b>Получаете</b><p>СДЭК по России или в Симферополе <span class="soon">уточним</span></p></div>
+        <div class="step"><i>2</i><b>Присылаем цену и фото</b><p>Цена на сегодня, наличие и живое фото вашего товара</p></div>
+        <div class="step"><i>3</i><b>Получаете</b><p>Отправка СДЭК или встреча в Симферополе <span class="soon">уточним</span></p></div>
       </div>
     </div>
   </section>
@@ -269,12 +322,12 @@ footer nav{margin:0;gap:18px}
   <div class="box" id="step1">
     <button class="x" data-close aria-label="Закрыть">×</button>
     <h3 id="mTitle">Куда прислать цену?</h3>
-    <span class="pill" id="mSum"></span>
+    <span class="tagsum" id="mSum"></span>
     <label class="field">Как к вам обращаться<input id="fName" autocomplete="given-name" placeholder="Имя"></label>
     <label class="field">Телефон или ник в Telegram<input id="fCont" autocomplete="tel" placeholder="+7 978 … или @ник"></label>
     <div class="field">Как удобнее ответить<div class="how" id="howPick"><button aria-pressed="true">Telegram</button><button aria-pressed="false">Звонок</button></div></div>
     <label class="agree"><input type="checkbox" id="fOk"><span>Согласен на обработку персональных данных по&nbsp;<a href="#policy">политике конфиденциальности</a></span></label>
-    <button class="btn cherry" id="send" disabled>Отправить</button>
+    <button class="send" id="send" disabled>Отправить</button>
     <p class="note">Это набросок: заявка никуда не отправится</p>
   </div>
   <div class="box" id="step2" hidden>
@@ -290,38 +343,38 @@ footer nav{margin:0;gap:18px}
 </div>
 
 <script>
-const S={g:['Тёмно-серый','#4A4A4D'],lb:['Голубой','#A9C2E0'],ch:['Тёмная вишня','#5E2236'],si:['Серебристый','#DCDCDE'],
+const S={g:['Тёмно-серый','#3A3A3C'],lb:['Голубой','#A9C2E0'],ch:['Тёмная вишня','#5E2236'],si:['Серебристый','#DCDCDE'],
   or:['Оранжевый','#D9773A'],db:['Тёмно-синий','#2F3E5C'],bk:['Чёрный','#222225'],wh:['Белый','#F2F2F0'],lv:['Лавандовый','#C9BEDF'],sg:['Шалфей','#B5C2A5'],
   pk:['Розовый','#EFC7D0'],tl:['Бирюзовый','#9CCFCB'],ul:['Ультрамарин','#5D6BD6'],sky:['Голубой','#B4CCDF'],star:['Сияющая звезда','#ECE3D2'],mid:['Тёмная ночь','#2E3642'],
   sb:['Космический чёрный','#2B2B2D'],nt:['Натуральный титан','#C8C1B4'],bt:['Чёрный титан','#3A3A3C'],rg:['Розовое золото','#E6C3B3'],
   dp:['Розовый с медью','#E8C8C0'],dbl:['Синий с медью','#3B4A6B'],dn:['Никель с медью','#9A9CA0'],pu:['Фиолетовый','#B7A6D9']};
 const c=(...k)=>k.map(x=>S[x]);
 const D={
-  iPhone:{label:'Память',models:{
+  iPhone:{models:{
     'iPhone 18 Pro':[['256 ГБ','512 ГБ','1 ТБ'],c('g','lb','ch','si')],
     'iPhone 18 Pro Max':[['256 ГБ','512 ГБ','1 ТБ','2 ТБ'],c('g','lb','ch','si')],
     'iPhone 17 Pro':[['256 ГБ','512 ГБ','1 ТБ'],c('or','db','si')],
     'iPhone 17':[['256 ГБ','512 ГБ'],c('lv','sg','lb','wh','bk')],
     'iPhone 16':[['128 ГБ','256 ГБ','512 ГБ'],c('bk','wh','pk','tl','ul')]}},
-  MacBook:{label:'Память',models:{
+  MacBook:{models:{
     'MacBook Air 13':[['256 ГБ','512 ГБ','1 ТБ'],c('sky','si','star','mid')],
     'MacBook Air 15':[['256 ГБ','512 ГБ','1 ТБ'],c('sky','si','star','mid')],
     'MacBook Pro 14':[['512 ГБ','1 ТБ','2 ТБ'],c('sb','si')],
     'MacBook Pro 16':[['512 ГБ','1 ТБ','2 ТБ'],c('sb','si')]}},
-  Watch:{label:'Размер',models:{
+  Watch:{models:{
     'Watch Ultra':[['49 мм'],c('nt','bt')],
     'Watch Series':[['42 мм','46 мм'],c('bk','si','rg')],
     'Watch SE':[['40 мм','44 мм'],c('mid','star')]}},
-  AirPods:{label:'Версия',models:{
+  AirPods:{models:{
     'AirPods Pro':[[],[]],
     'AirPods 4':[['Обычные','С шумоподавлением'],[]],
     'AirPods Max':[[],c('mid','sky','pu','or','star')]}},
-  Dyson:{label:'Комплект',models:{
+  Dyson:{models:{
     'Airwrap':[['Для длинных волос','Для коротких'],c('dp','dbl','dn')],
     'Supersonic':[[],c('dp','dbl','dn')],
     'Airstrait':[[],c('dp','dbl','dn')],
     'Пылесос':[['V15','Gen5'],[]]}},
-  Samsung:{label:'Память',models:{
+  Samsung:{models:{
     'Galaxy S Ultra':[['256 ГБ','512 ГБ','1 ТБ'],c('bk','si','db')],
     'Galaxy Z Fold':[['256 ГБ','512 ГБ','1 ТБ'],c('bk','si','db')],
     'Galaxy Z Flip':[['256 ГБ','512 ГБ'],c('bk','si','lb')]}}
@@ -330,14 +383,14 @@ const st={cat:'MacBook',model:'MacBook Air 15',opt:'512 ГБ',col:'Голубо�
 const $=id=>document.getElementById(id);
 function btn(txt,on,fn){const b=document.createElement('button');b.type='button';b.textContent=txt;b.setAttribute('aria-pressed',on);b.onclick=fn;return b}
 function render(){
-  const cat=D[st.cat],m=cat.models[st.model],[opts,cols]=m;
+  const cat=D[st.cat],[opts,cols]=cat.models[st.model];
   $('tabs').replaceChildren(...Object.keys(D).map(k=>btn(k,k===st.cat,()=>{st.cat=k;st.model=Object.keys(D[k].models)[0];st.opt=null;st.col=null;render()})));
   $('models').replaceChildren(...Object.keys(cat.models).map(k=>btn(k.replace(/^Watch /,''),k===st.model,()=>{st.model=k;st.opt=null;st.col=null;render()})));
   if(!opts.includes(st.opt))st.opt=opts[0]||null;
   if(!cols.some(x=>x[0]===st.col))st.col=cols[0]?cols[0][0]:null;
-  $('optRow').hidden=!opts.length;$('optLabel').textContent=cat.label;
+  $('opts').hidden=!opts.length;
   $('opts').replaceChildren(...opts.map(o=>btn(o,o===st.opt,()=>{st.opt=o;render()})));
-  $('colRow').hidden=!cols.length;
+  $('colors').parentElement.hidden=!cols.length;
   const sw=cols.map(([n,h])=>{const b=btn('',n===st.col,()=>{st.col=n;render()});b.style.background=h;b.title=n;b.setAttribute('aria-label',n);return b});
   const em=document.createElement('em');em.textContent=st.col||'';
   $('colors').replaceChildren(...sw,em);
@@ -345,7 +398,11 @@ function render(){
 }
 function summary(){const n=st.cat==='Watch'?'Apple '+st.model:st.cat==='Dyson'?'Dyson '+st.model:st.model;return [n,st.opt,st.col].filter(Boolean).join(' · ')}
 render();
-document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{st.cat=b.dataset.go;st.model=Object.keys(D[st.cat].models)[0];st.opt=null;st.col=null;render();$('pick').scrollIntoView({behavior:'smooth',block:'center'})});
+document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{st.cat=b.dataset.go;st.model=b.dataset.model||Object.keys(D[st.cat].models)[0];st.opt=null;st.col=null;render();$('pick').scrollIntoView({behavior:'smooth',block:'center'})});
+// на телефоне сцена с телефонами встаёт между текстом и подбором
+const mq=matchMedia('(max-width:860px)'),stage=$('stage'),slot=document.querySelector('.m-stage'),home=stage.parentElement;
+function place(){if(mq.matches){slot.replaceWith(stage)}else if(stage.parentElement!==home){home.append(stage);document.querySelector('.lead').insertBefore(slot,$('pick'))}}
+mq.addEventListener('change',place);place();
 const modal=$('modal');
 function check(){$('send').disabled=!($('fName').value.trim()&&$('fCont').value.trim()&&$('fOk').checked)}
 ['fName','fCont'].forEach(id=>$(id).addEventListener('input',check));$('fOk').addEventListener('change',check);

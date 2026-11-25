@@ -19,7 +19,17 @@ const cfg=Object.assign({
   accentText:'#F0B482',
   photo:'',
   logo:'',
-  phoneWait:0
+  phoneWait:0,
+  // шрифты рамки: по умолчанию Lora + Onest, можно заменить (пример: goodstore-crimea/maket.json)
+  fontsUrl:'https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,700;1,700&family=Onest:wght@600;700;800&display=swap',
+  titleFont:'Lora,serif',
+  titleWeight:700,
+  titleSize:25,
+  titleTracking:'0',
+  emStyle:'italic',
+  uiFont:'Onest,sans-serif',
+  backdrop:'',  // CSS-фон рамки вместо фото, например радиальные градиенты
+  emGradient:'' // градиент для выделенных слов заголовка
 },fs.existsSync(cfgPath)?JSON.parse(fs.readFileSync(cfgPath,'utf8')):{});
 
 const url=f=>'file://'+path.join(dir,f);
@@ -41,21 +51,22 @@ const esc=s=>String(s).replace(/[<>&"]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;',
   p=await open({width:390,height:844},{dsf:2,m:true});
   await p.screenshot({path:path.join(dir,'glavnyi-telefon.png')});
 
-  const bgPhoto=cfg.photo?`background:url("${url(cfg.photo)}") center 40%/cover;`:'';
+  const bgPhoto=cfg.photo?`background:url("${url(cfg.photo)}") center 40%/cover;opacity:.35;`:cfg.backdrop?`background:${cfg.backdrop};opacity:1;`:'';
   const logo=cfg.logo?`<img src="${url(cfg.logo)}" alt="">`:'';
   const chips=cfg.chips.map((c,i)=>`<span class="${i===0?'c':''}">${esc(c)}</span>`).join('');
   const html=`<!doctype html><html lang="ru"><head><meta charset="utf-8">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,700;1,700&family=Onest:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="${cfg.fontsUrl}">
 <style>
 *{box-sizing:border-box}body{margin:0}
-.s{width:540px;height:675px;position:relative;overflow:hidden;background:${cfg.bg};font-family:Onest,sans-serif;color:${cfg.ink};isolation:isolate}
-.s::before{content:"";position:absolute;inset:0;z-index:-2;${bgPhoto}opacity:.35}
-.s::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,color-mix(in srgb,${cfg.bg} 96%,transparent) 0%,color-mix(in srgb,${cfg.bg} 70%,transparent) 40%,color-mix(in srgb,${cfg.bg} 92%,transparent) 100%)}
+.s{width:540px;height:675px;position:relative;overflow:hidden;background:${cfg.bg};font-family:${cfg.uiFont};color:${cfg.ink};isolation:isolate}
+.s::before{content:"";position:absolute;inset:0;z-index:-2;${bgPhoto}}
+${cfg.photo?`.s::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,color-mix(in srgb,${cfg.bg} 96%,transparent) 0%,color-mix(in srgb,${cfg.bg} 70%,transparent) 40%,color-mix(in srgb,${cfg.bg} 92%,transparent) 100%)}`:''}
 .top{padding:26px 26px 0;display:grid;gap:8px}
 .br{display:flex;align-items:center;gap:9px;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:${cfg.label}}
 .br img{width:28px;height:28px;border-radius:50%;background:#fff;object-fit:cover}
-h1{margin:0;font-family:Lora,serif;font-weight:700;font-size:25px;line-height:1.15}
-h1 em{color:${cfg.accentText}}
+h1{margin:0;font-family:${cfg.titleFont};font-weight:${cfg.titleWeight};font-size:${cfg.titleSize}px;line-height:1.15;letter-spacing:${cfg.titleTracking}}
+h1 em{color:${cfg.accentText};font-style:${cfg.emStyle}}
+${cfg.emGradient?`h1 em{background:${cfg.emGradient};-webkit-background-clip:text;background-clip:text;color:transparent}`:''}
 .lap{position:absolute;left:22px;top:150px;width:430px}
 .scr{background:#0B0F0C;border-radius:14px 14px 0 0;padding:9px 9px 10px;box-shadow:0 30px 60px -20px rgb(0 0 0 / .8)}
 .scr img{display:block;width:100%;border-radius:3px}

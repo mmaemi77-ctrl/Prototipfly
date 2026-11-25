@@ -1,17 +1,22 @@
 {
   "page": "index.html",
   "eyebrow": "GOOD Store · главный экран",
-  "title": "Покупатель выбирает MacBook, <em>вам&nbsp;приходит готовая заявка</em>",
-  "chips": [
-    "Цена без вопроса в директ",
-    "Модель, память и цвет уже в заявке",
-    "Новинки и подарки к Новому году"
-  ],
-  "bg": "#141113",
-  "ink": "#F6F1F3",
+  "title": "Покупатель выбирает модель, <em>вам&nbsp;приходит готовая заявка</em>",
+  "chips": ["Цена без вопроса в директ", "Модель, память и цвет уже в заявке", "Новинки и подарки к Новому году"],
+  "bg": "#120E12",
+  "ink": "#F7F2F4",
   "label": "#E9BCCB",
-  "accent": "#7A1F3D",
+  "accent": "#8E2647",
   "accentText": "#F0A6BE",
-  "photo": "img/cvety.jpg",
-  "logo": "img/logo.png"
+  "emGradient": "linear-gradient(95deg,#F4A9C2 0%,#D98AB0 45%,#A9C2E0 100%)",
+  "photo": "",
+  "backdrop": "radial-gradient(60% 40% at 85% 62%,rgb(142 38 71 / .55),transparent 70%),radial-gradient(45% 32% at 10% 70%,rgb(111 143 196 / .32),transparent 70%),radial-gradient(50% 30% at 70% 0%,rgb(180 70 110 / .28),transparent 70%),#120E12",
+  "logo": "img/logo.png",
+  "fontsUrl": "https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600&family=Inter+Tight:wght@600;700&display=swap",
+  "titleFont": "Unbounded,sans-serif",
+  "titleWeight": 600,
+  "titleSize": 23,
+  "titleTracking": "-.02em",
+  "emStyle": "normal",
+  "uiFont": "\"Inter Tight\",sans-serif"
 }
