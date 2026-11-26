@@ -1,13 +1,14 @@
 // Главный экран одной картинкой 4:5 (1080×1350): ноутбук и телефон вместе.
 // Запуск из корня репозитория: node _instrumenty/maket.js <папка клиента>
 // Настройки берутся из <папка клиента>/maket.json (пример: oknovprirody/maket.json).
+// Второй вариант экрана: node _instrumenty/maket.js <папка> maket-v2.json, в нём page и out (имя картинки).
 // Если телефон закрывает важное на ноутбуке справа, уменьшите lapWidth (например 352) и phoneWidth (150): тогда они не пересекаются.
 // Результат: glavnyi-maket.png, а также glavnyi-noutbuk.png и glavnyi-telefon.png в папке клиента.
 const {chromium}=require('playwright');
 const fs=require('fs'),path=require('path'),os=require('os');
 
 const dir=path.resolve(process.argv[2]||'.');
-const cfgPath=path.join(dir,'maket.json');
+const cfgPath=path.join(dir,process.argv[3]||'maket.json');
 const cfg=Object.assign({
   page:'index.html',
   eyebrow:'Главный экран',
@@ -24,7 +25,8 @@ const cfg=Object.assign({
   lapWidth:430,
   lapTop:150,
   phoneWidth:156,
-  phoneTop:262
+  phoneTop:262,
+  out:'glavnyi-maket.png'
 },fs.existsSync(cfgPath)?JSON.parse(fs.readFileSync(cfgPath,'utf8')):{});
 
 const url=f=>'file://'+path.join(dir,f);
@@ -82,8 +84,8 @@ h1 em{color:${cfg.accentText}}
   fs.writeFileSync(tmp,html);
   p=await b.newPage({viewport:{width:540,height:675},deviceScaleFactor:2});
   await p.goto('file://'+tmp);await p.waitForLoadState('networkidle');await p.evaluate(()=>document.fonts.ready);
-  await p.locator('#m').screenshot({path:path.join(dir,'glavnyi-maket.png')});
+  await p.locator('#m').screenshot({path:path.join(dir,cfg.out)});
   fs.unlinkSync(tmp);
   await b.close();
-  console.log(errs.length?'ошибки на странице:\n'+errs.join('\n'):'готово: '+path.join(dir,'glavnyi-maket.png'));
+  console.log(errs.length?'ошибки на странице:\n'+errs.join('\n'):'готово: '+path.join(dir,cfg.out));
 })();

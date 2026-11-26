@@ -1,0 +1,22 @@
+{
+  "page": "index-v2.html",
+  "eyebrow": "Денис Викулов · главный экран, вариант 2",
+  "title": "Кнопки внизу, <em>по&nbsp;две с&nbsp;каждой стороны</em>",
+  "chips": [
+    "Две кнопки слева, две справа",
+    "На уровне подписи",
+    "Телефон как в варианте 1"
+  ],
+  "bg": "#0B1017",
+  "ink": "#F3EEE4",
+  "label": "#F0C56A",
+  "accent": "#B8892F",
+  "accentText": "#F0C56A",
+  "photo": "img/denis-kaska.jpg",
+  "logo": "img/avatar.jpg",
+  "lapWidth": 384,
+  "lapTop": 175,
+  "phoneWidth": 134,
+  "phoneTop": 262,
+  "out": "glavnyi-maket-v2.png"
+}

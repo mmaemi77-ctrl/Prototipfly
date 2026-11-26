@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Денис Викулов: агентство недвижимости «Гарант», свои коттеджные посёлки в Шелеховском районе, инвестиции и жизнь на полную">
+<meta name="theme-color" content="#0B1017">
+<title>Денис Викулов · главный экран, вариант 2</title>
+<link rel="icon" href="img/avatar.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Caveat:wght@700&display=swap">
+<style>
+/* Главный экран как баннер Дениса, только вживую: слева слоган и цифры, справа два мира (стройка и горы), снизу четыре входа в направления */
+:root{
+  --bg:#0B1017;--bg2:#0F1620;--surface:#141C27;--surface2:#1B2431;--surface3:#253041;
+  --ink:#F3EEE4;--muted:#AAB3C0;--dim:#7C8696;--line:#212B39;--line2:#2E3A4C;
+  --gold:#D6A645;--gold-hi:#F0C56A;--gold-ink:#1B1406;--gold-tint:#2A2414;--gold-line:#5C4A22;
+  --green:#8CC46F;--wa:#25D366;
+  --font:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --script:"Caveat","Segoe Script",cursive;
+  --serif:"Playfair Display",Georgia,serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px}
+.wrap{max-width:1320px;margin:0 auto;padding-left:max(clamp(16px,3.5vw,44px),env(safe-area-inset-left,0px));padding-right:max(clamp(16px,3.5vw,44px),env(safe-area-inset-right,0px))}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold-hi);box-shadow:0 0 12px 2px rgb(240 197 106 / .55)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:14px;padding:15px 22px;font-weight:700;font-size:15.5px;text-decoration:none;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn.gold{background:var(--gold);color:var(--gold-ink)}
+.btn.gold:hover{background:var(--gold-hi)}
+.btn.ghost{background:transparent;border:1px solid var(--line2);color:var(--ink)}
+.btn svg{width:18px;height:18px}
+.btn[disabled]{opacity:.45;cursor:not-allowed;transform:none}
+
+/* шапка */
+header{position:sticky;top:0;z-index:20;background:rgb(11 16 23 / .55);backdrop-filter:blur(14px);border-bottom:1px solid rgb(255 255 255 / .06)}
+header .wrap{display:flex;align-items:center;gap:24px;height:72px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.mono{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;border:1.5px solid var(--gold);color:var(--gold-hi);font-weight:800;font-size:14px;letter-spacing:.06em}
+.logo b{display:block;font-weight:700;font-size:16px;letter-spacing:.14em;text-transform:uppercase;line-height:1.1}
+.logo small{display:block;font-size:12px;color:var(--muted)}
+nav{display:flex;gap:24px;margin-left:auto;font-size:14.5px;font-weight:500;color:#D5D9E0}
+nav a{text-decoration:none}
+nav a:hover{color:var(--gold-hi)}
+.h-right{display:flex;align-items:center;gap:8px}
+.ic{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--surface2);border:0;text-decoration:none;color:#D5D9E0}
+.ic svg{width:19px;height:19px}
+.ic.menu{display:none}
+.h-cta{padding:10px 16px;border-radius:12px;font-size:14.5px}
+@media (max-width:1150px){nav{display:none}.h-right{margin-left:auto}}
+@media (max-width:640px){header .wrap{height:62px}.mono{width:36px;height:36px;font-size:12.5px}.logo b{font-size:14px}.h-cta,.ic.soc{display:none}.ic.menu{display:grid}}
+
+/* главный экран: одна мысль. Кто Денис и чем занят, одна кнопка заявки, крупное фото */
+.stage{position:relative;isolation:isolate;overflow:hidden;margin-top:-72px;padding-top:72px}
+.bg-blur,.bg-photo{position:absolute;z-index:-3;pointer-events:none}
+.bg-blur{inset:-40px;background:url(img/denis-kaska.jpg) 50% 30%/cover;filter:blur(34px) saturate(.9);opacity:.6}
+.bg-photo{z-index:-2;top:0;right:0;bottom:0;width:68%;background:url(img/denis-kaska.jpg) 22% 20%/cover;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 26%);mask-image:linear-gradient(90deg,transparent 0%,#000 26%)}
+.stage::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--bg) 0%,rgb(11 16 23 / .92) 30%,rgb(11 16 23 / .4) 48%,transparent 64%),linear-gradient(180deg,rgb(11 16 23 / .55) 0%,transparent 16%,transparent 70%,var(--bg) 100%)}
+.hero{position:relative;display:grid;grid-template-columns:minmax(0,620px) minmax(0,1fr);min-height:clamp(600px,calc(100vh - 72px),900px);padding-block:40px;align-items:center}
+.h-left{display:grid;gap:28px;align-content:center}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(36px,3.4vw,50px);line-height:1.06;letter-spacing:-.01em;text-wrap:wrap}
+.hero h1 .scr{display:block;font-style:italic;color:var(--gold-hi)}
+.sub{font-size:clamp(16px,1.3vw,18.5px);color:#D5D9E0;max-width:44ch;line-height:1.6}
+.cta{display:grid;gap:10px;justify-items:start}
+.cta .btn{padding:18px 30px;font-size:16.5px}
+.cta small{font-size:13.5px;color:var(--muted)}
+.hero{grid-template-columns:minmax(0,540px) minmax(0,1fr) 380px;column-gap:28px}
+.sign{position:absolute;left:calc(540px + 28px);bottom:40px;font-family:var(--script);font-size:44px;line-height:1;color:var(--ink);text-shadow:0 2px 14px rgb(0 0 0 / .7);transform:rotate(-4deg)}
+/* четыре кнопки-направления справа: стеклянные плашки, фото внутри почти без обрезки */
+.go{grid-column:3;display:grid;gap:14px;align-content:center}
+.go a{position:relative;display:grid;grid-template-columns:150px minmax(0,1fr) 36px;gap:16px;align-items:center;padding:8px 14px 8px 8px;border-radius:22px;text-decoration:none;
+  background:linear-gradient(135deg,rgb(255 255 255 / .14),rgb(255 255 255 / .03) 45%,rgb(214 166 69 / .1)),rgb(11 16 23 / .5);
+  backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);
+  border:1px solid rgb(255 255 255 / .22);
+  box-shadow:inset 0 1px 0 rgb(255 255 255 / .28),inset 0 -1px 0 rgb(0 0 0 / .25),0 24px 44px -24px rgb(0 0 0 / .85);
+  transition:border-color .2s,transform .2s,background .2s}
+.go a:hover{border-color:rgb(240 197 106 / .75);transform:translateX(-4px);background:linear-gradient(135deg,rgb(255 255 255 / .18),rgb(255 255 255 / .05) 45%,rgb(214 166 69 / .2)),rgb(11 16 23 / .55)}
+.go .pic{aspect-ratio:16/10;border-radius:15px;background:#000 center/cover;box-shadow:0 0 0 1px rgb(240 197 106 / .35),0 10px 20px -10px rgb(0 0 0 / .8)}
+.go .pic.gold{filter:grayscale(1) sepia(.35) contrast(1.1) brightness(.92)}
+.go b{display:block;font-size:16.5px;line-height:1.2;text-shadow:0 1px 8px rgb(0 0 0 / .5)}
+.go small{display:block;font-size:12.5px;color:#D9DEE6;line-height:1.35;margin-top:4px;text-shadow:0 1px 8px rgb(0 0 0 / .5)}
+.go .ar{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;color:var(--gold-hi);font-weight:800;background:rgb(11 16 23 / .35);border:1px solid rgb(240 197 106 / .6);transition:background .2s,color .2s}
+.go a:hover .ar{background:var(--gold);color:var(--gold-ink)}
+
+/* сразу под первым экраном: цифры и четыре направления */
+.napr{padding-block:8px 72px}
+.stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-block:1px solid var(--line)}
+.stats a{padding:22px 20px;display:grid;gap:4px;align-content:start;text-decoration:none;transition:background .15s}
+.stats a:hover{background:var(--surface)}
+.stats i{font-style:normal;font-size:12.5px;font-weight:700;color:var(--gold);margin-top:4px}
+.stats i::after{content:" →"}
+.stats a+a{border-left:1px solid var(--line)}
+.stats b{font-family:var(--serif);font-weight:600;font-variant-numeric:lining-nums;font-size:clamp(22px,2.1vw,30px);line-height:1.1;color:var(--gold-hi)}
+.stats span{font-size:13.5px;color:var(--muted);line-height:1.35}
+.dirs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.dir{display:grid;grid-template-rows:auto 1fr;border-radius:22px;overflow:hidden;background:var(--surface);border:1px solid var(--line);text-decoration:none;transition:border-color .15s,transform .15s}
+.dir:hover{border-color:var(--gold-line);transform:translateY(-2px)}
+.dir .pic{aspect-ratio:4/3;background:var(--surface3) center/cover}
+.dir .pic.garant{background:#000 url(img/garant-plashka.jpg) center/88% auto no-repeat}
+.dir .txt{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;padding:16px 18px 18px;align-items:start}
+.dir b{font-size:17px;line-height:1.25}
+.dir small{grid-column:1;font-size:13.5px;color:var(--muted);line-height:1.4}
+.dir .ar{grid-row:1/span 2;grid-column:2;color:var(--gold-hi);font-size:20px}
+
+@media (max-width:1240px){.hero{grid-template-columns:minmax(0,480px) minmax(0,1fr) 340px}.sign{left:calc(480px + 28px)}.go a{grid-template-columns:120px minmax(0,1fr) 32px;gap:12px}.go small{display:none}}
+@media (max-width:1100px){.stats{grid-template-columns:repeat(3,minmax(0,1fr))}.stats a:nth-child(4){border-left:0}.stats a:nth-child(n+4){border-top:1px solid var(--line)}}
+@media (max-width:960px){
+  .stage{margin-top:-62px;padding-top:62px}
+  .hero{grid-template-columns:1fr;min-height:0;padding-block:330px 36px;row-gap:22px}
+  .go{grid-column:1;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .bg-blur,.sign{display:none}
+  .bg-photo{left:0;width:auto;bottom:auto;height:470px;background-position:26% 16%;-webkit-mask-image:linear-gradient(180deg,#000 62%,transparent);mask-image:linear-gradient(180deg,#000 62%,transparent)}
+  .stage::after{background:linear-gradient(180deg,rgb(11 16 23 / .35) 0,transparent 90px,transparent 220px,rgb(11 16 23 / .8) 360px,var(--bg) 460px)}
+}
+@media (max-width:640px){
+  .h-left{gap:20px}
+  .hero h1{font-size:33px}
+  .sub{font-size:15.5px}
+  .cta{justify-items:stretch}
+  .cta .btn{width:100%}
+  .cta small{text-align:center}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stats a{padding:16px 12px}
+  .stats a:nth-child(n){border-left:0;border-top:1px solid var(--line)}
+  .stats a:nth-child(-n+2){border-top:0}
+  .stats a:nth-child(even){border-left:1px solid var(--line)}
+  .stats a:last-child{grid-column:span 2}
+  .go a{grid-template-columns:1fr;gap:9px;padding:6px 6px 11px;border-radius:18px}
+  .go .pic{border-radius:13px}
+  .go small,.go .ar{display:none}
+  .go b{font-size:13.5px;padding-inline:6px}
+}
+
+/* структура */
+section{padding-block:clamp(48px,7vw,88px)}
+.sec-h{display:grid;gap:12px;max-width:760px;margin-bottom:28px}
+.sec-h h2{font-family:var(--serif);font-weight:500;font-size:clamp(30px,3.4vw,46px);line-height:1.1;letter-spacing:-.005em}
+.sec-h h2 em{font-style:italic;color:var(--gold-hi)}
+.sec-h p{color:var(--muted);font-size:17px}
+.blocks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.blk{display:grid;gap:8px;align-content:start;padding:18px;border-radius:20px;background:var(--surface);border:1px solid var(--line)}
+.blk .no{font-size:12px;font-weight:800;letter-spacing:.14em;color:var(--gold)}
+.blk h3{font-size:19px;line-height:1.2}
+.blk p{font-size:14.5px;color:var(--muted);line-height:1.5}
+.blk .pic{height:150px;border-radius:14px;background:var(--surface2) center/cover;margin-bottom:4px}
+@media (max-width:960px){.blocks{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.blocks{grid-template-columns:1fr}}
+
+/* квиз */
+.quiz{background:var(--bg2);border-block:1px solid var(--line)}
+.qz{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(20px,4vw,56px);align-items:start}
+.qcard{background:linear-gradient(180deg,#18212E,#141B26);border:1px solid var(--line2);border-radius:24px;padding:18px;display:grid;gap:16px}
+.lbl{display:block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.opts{display:flex;flex-wrap:wrap;gap:6px}
+.opts label{position:relative}
+.opts input{position:absolute;opacity:0;pointer-events:none}
+.opts span{display:inline-flex;align-items:center;min-height:44px;padding:8px 14px;border-radius:12px;background:var(--surface2);border:1px solid var(--line2);font-size:14.5px;font-weight:600;cursor:pointer}
+.opts input:checked+span{border-color:var(--gold);background:var(--gold-tint);color:var(--gold-hi)}
+.opts input:focus-visible+span{outline:2px solid var(--gold-hi);outline-offset:2px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.inp{display:grid;gap:6px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.inp input{height:48px;border-radius:12px;border:1px solid var(--line2);background:var(--surface2);color:var(--ink);padding:0 14px;font:500 16px var(--font);letter-spacing:0;text-transform:none}
+.inp input:focus{outline:none;border-color:var(--gold)}
+.agree{display:grid;grid-template-columns:20px minmax(0,1fr);gap:10px;font-size:13.5px;color:var(--muted);line-height:1.45;align-items:start}
+.agree input{width:18px;height:18px;margin:1px 0 0;accent-color:var(--gold)}
+.agree button{background:none;border:0;padding:0;color:var(--gold-hi);text-decoration:underline;text-underline-offset:2px;font-size:inherit}
+.demo{font-size:13px;color:var(--dim);display:flex;gap:8px;align-items:center}
+.demo::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:#E0A23A}
+.side-list{display:grid;gap:12px;margin-top:22px}
+.side-list div{display:grid;grid-template-columns:36px minmax(0,1fr);gap:12px;align-items:start}
+.side-list i{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:var(--gold-tint);color:var(--gold-hi);font-style:normal;font-weight:800}
+.side-list b{display:block}
+.side-list span{color:var(--muted);font-size:14.5px}
+@media (max-width:960px){.qz{grid-template-columns:1fr}}
+@media (max-width:480px){.two{grid-template-columns:1fr}}
+
+/* что дальше */
+.next{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.next div{padding:18px;border-radius:18px;background:var(--surface);border:1px solid var(--line);display:grid;gap:6px}
+.next b{color:var(--gold-hi);font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+.next p{color:#D5D9E0;font-size:15px}
+@media (max-width:760px){.next{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line);padding-block:26px 34px;color:var(--dim);font-size:13.5px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center}
+footer button{background:none;border:0;padding:0;color:var(--muted);text-decoration:underline;text-underline-offset:2px;font-size:inherit}
+
+/* окна */
+dialog{width:min(520px,calc(100vw - 32px));border:1px solid var(--line2);border-radius:22px;background:var(--surface);color:var(--ink);padding:20px}
+dialog::backdrop{background:rgb(5 8 12 / .72);backdrop-filter:blur(4px)}
+dialog h3{font-size:20px;margin-bottom:10px}
+dialog p{color:var(--muted);font-size:14.5px;margin-bottom:8px}
+.msg{background:#0B2E21;border:1px solid #1C5A40;border-radius:16px 16px 16px 4px;padding:12px 14px;font-size:14.5px;line-height:1.55;white-space:pre-line;margin:10px 0 14px}
+.msg b{display:block;color:#6EE2A0;font-size:12.5px;margin-bottom:4px}
+</style>
+<style>
+/* Вариант 2 по просьбе Дениса 26.11: на компьютере кнопки внизу, две слева от фигуры и две справа, на уровне подписи. Телефон как в варианте 1 */
+@media (min-width:961px){
+  .bg-photo{width:76%;background-position:50% 20%}
+  .stage::after{background:linear-gradient(90deg,var(--bg) 0%,rgb(11 16 23 / .9) 26%,rgb(11 16 23 / .3) 40%,transparent 52%),linear-gradient(180deg,rgb(11 16 23 / .55) 0%,transparent 16%,transparent 58%,rgb(11 16 23 / .9) 100%)}
+  .hero{grid-template-columns:minmax(0,470px) minmax(0,1fr);padding-block:24px 214px}
+  .hero h1{font-size:clamp(34px,3.05vw,44px)}
+  .sub{max-width:40ch}
+  .sign{left:50%;bottom:30px;transform:translateX(-50%) rotate(-4deg)}
+  .go{position:absolute;left:0;right:0;bottom:26px;grid-column:auto;align-content:end;grid-template-columns:repeat(2,minmax(0,200px)) minmax(240px,1fr) repeat(2,minmax(0,200px));gap:12px}
+  .go a:nth-child(3){grid-column:4}
+  .go a:nth-child(4){grid-column:5}
+  .go a{grid-template-columns:minmax(0,1fr) 28px;grid-template-rows:auto auto;gap:9px 8px;padding:7px 9px 11px 7px;border-radius:18px}
+  .go a:hover{transform:translateY(-4px)}
+  .go .pic{grid-column:1/-1;border-radius:12px}
+  .go a>span:nth-child(2){padding-left:4px}
+  .go small{display:none}
+  .go b{font-size:14px;line-height:1.2}
+  .go .ar{width:28px;height:28px;font-size:13px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top"><span class="mono">ДВ</span><b>Денис Викулов</b></a>
+    <nav aria-label="Разделы">
+      <a href="#struktura">Агентство «Гарант»</a>
+      <a href="#struktura">Посёлки</a>
+      <a href="#struktura">Инвестиции</a>
+      <a href="#struktura">Обо мне</a>
+      <a href="#kviz">Контакты</a>
+    </nav>
+    <div class="h-right">
+      <a class="ic soc" href="#struktura" aria-label="Rutube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="4"/><path d="m10 9 5 3-5 3z" fill="currentColor"/></svg></a>
+      <a class="ic soc" href="#struktura" aria-label="ВКонтакте"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.8 17.5c-5.6 0-8.8-3.9-8.9-10.3h2.8c.1 4.7 2.1 6.7 3.8 7.1V7.2h2.6v4c1.6-.2 3.3-2 3.9-4h2.6c-.4 2.5-2.3 4.3-3.6 5.1 1.3.6 3.4 2.3 4.2 5.2h-2.9c-.6-1.9-2.2-3.4-4.2-3.6v3.6z"/></svg></a>
+      <a class="btn gold h-cta" href="#kviz">Написать Денису</a>
+      <button class="ic menu" type="button" aria-label="Меню"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="stage">
+  <div class="bg-blur"></div><div class="bg-photo"></div>
+  <div class="wrap">
+    <div class="hero">
+      <div class="h-left">
+        <span class="eyebrow">Застройщик и&nbsp;риелтор с&nbsp;2007 года</span>
+        <h1>Строю и&nbsp;продаю дома <span class="scr">под Иркутском</span></h1>
+        <p class="sub">Агентство недвижимости «Гарант» и&nbsp;три своих коттеджных посёлка в&nbsp;Шелеховском районе. Ипотека, юрист и&nbsp;сделка в&nbsp;одних руках.</p>
+        <div class="cta">
+          <a class="btn gold" href="#kviz">Написать Денису</a>
+          <small>Три коротких вопроса, и&nbsp;заявка уходит Денису в&nbsp;мессенджер</small>
+        </div>
+      </div>
+      <span class="sign">Денис Викулов</span>
+      <div class="go" role="navigation" aria-label="Направления">
+        <a href="#struktura"><span class="pic" style="background-image:url(img/garant-shirokij.jpg)"></span><span><b>Агентство «Гарант»</b><small>Купить, продать, ипотека, юрист</small></span><span class="ar">→</span></a>
+        <a href="#struktura"><span class="pic" style="background-image:url(img/dom-noch.jpg);background-position:50% 55%"></span><span><b>Свои посёлки</b><small>Три посёлка под Шелеховом</small></span><span class="ar">→</span></a>
+        <a href="#struktura"><span class="pic" style="background-image:url(img/real-invest-shirokij.jpg);background-position:50% 60%"></span><span><b>Инвестиции</b><small>Россия и&nbsp;зарубеж</small></span><span class="ar">→</span></a>
+        <a href="#struktura"><span class="pic gold" style="background-image:url(img/frirayd.jpg);background-position:45% 40%"></span><span><b>Обо мне</b><small>Днём брус и&nbsp;бетон, утром сделка</small></span><span class="ar">→</span></a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="wrap napr" id="vhody">
+    <div class="stats">
+      <a href="#struktura"><b>с 2007 года</b><span>в&nbsp;недвижимости</span><i>свидетельство</i></a>
+      <a href="#struktura"><b>Топ-100</b><span>агентств России по&nbsp;версии Домклик</span><i>диплом</i></a>
+      <a href="#struktura"><b>Сбербанк</b><span>золотой партнёр, аккредитованный застройщик</span><i>сертификат</i></a>
+      <a href="#struktura"><b>4,9</b><span>на&nbsp;Яндексе, 27 оценок</span><i>отзывы</i></a>
+      <a href="#struktura"><b>3 посёлка</b><span>строим сами</span><i>смотреть</i></a>
+    </div>
+  </div>
+
+  <section id="struktura">
+    <div class="wrap">
+      <div class="sec-h">
+        <span class="eyebrow">Структура сайта</span>
+        <h2>Всё о&nbsp;вас на&nbsp;одной странице: <em>сначала дело, потом характер</em></h2>
+        <p>Сейчас это разбросано по&nbsp;Rutube, ВК, Яндекс Картам, Авито и&nbsp;презентациям. Здесь человек за&nbsp;минуту понимает, кто вы и&nbsp;с&nbsp;чем к&nbsp;вам прийти.</p>
+      </div>
+      <div class="blocks">
+        <div class="blk"><span class="no">01</span><h3>Главный экран</h3><p>Фото на&nbsp;стройке, «Строю и&nbsp;продаю дома под Иркутском», кнопка «Написать Денису» и&nbsp;справа четыре кнопки направлений в&nbsp;чёрно-золотом. Под экраном цифры с&nbsp;документами.</p></div>
+        <div class="blk"><span class="no">02</span><h3>Цифры и&nbsp;доверие</h3><p>С&nbsp;2007 года, аккредитованный застройщик и&nbsp;золотой партнёр Сбербанка, топ-100 Домклик, дипломы.</p></div>
+        <div class="blk"><span class="no">03</span><h3>Агентство «Гарант»</h3><p>Покупка, продажа, льготные ипотеки (семейная, сельская, IT), маткапитал, юрист и&nbsp;суд. Команда и&nbsp;отзывы с&nbsp;Яндекса.</p></div>
+        <div class="blk"><div class="pic" style="background-image:url(img/dom-render.jpg)"></div><span class="no">04</span><h3>Строим малоэтажную Россию</h3><p>Три посёлка карточками: фото, площадь домов, ипотека, кнопки «Презентация» и&nbsp;«Видео», плейлист «Обзоры домов».</p></div>
+        <div class="blk"><span class="no">05</span><h3>Как купить дом</h3><p>Пять шагов через эскроу-счёт: деньги лежат в&nbsp;банке, пока дом не&nbsp;построен и&nbsp;не&nbsp;поставлен на&nbsp;кадастр.</p></div>
+        <div class="blk"><span class="no">06</span><h3>Инвестиции</h3><p>Россия и&nbsp;зарубеж, «Риелторы России», сделки между городами, флиппинг квартир с&nbsp;примером «до и&nbsp;после».</p></div>
+        <div class="blk"><div class="pic" style="background-image:url(img/vershina.jpg);background-position:50% 40%"></div><span class="no">07</span><h3>Обо мне</h3><p>Днём брус с&nbsp;бригадами, утром сделка в&nbsp;галстуке. Эльбрус и&nbsp;200&nbsp;км по&nbsp;льду Байкала как характер: такой человек доведёт сделку до&nbsp;конца. Кнопки на&nbsp;плейлисты «Спорт» и&nbsp;«Путешествия».</p></div>
+        <div class="blk"><span class="no">08</span><h3>Квиз «Чем могу помочь?»</h3><p>Три вопроса, и&nbsp;заявка приходит уже с&nbsp;пометкой: покупатель, продавец, инвестор или вопрос к&nbsp;юристу.</p></div>
+        <div class="blk"><span class="no">09</span><h3>Контакты и&nbsp;все каналы</h3><p>Офис в&nbsp;Шелехове на&nbsp;карте, мессенджеры, Rutube, ВК и&nbsp;YouTube одной строкой.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quiz" id="kviz">
+    <div class="wrap qz">
+      <div>
+        <div class="sec-h" style="margin-bottom:0">
+          <span class="eyebrow">Квиз</span>
+          <h2>Чем могу <em>помочь?</em></h2>
+          <p>Три коротких ответа, и&nbsp;Денис сразу понимает, с&nbsp;чем вы пришли и&nbsp;кому из&nbsp;команды передать заявку.</p>
+        </div>
+        <div class="side-list">
+          <div><i>1</i><span><b>Покупка или продажа</b>квартира, дом, участок в&nbsp;Шелехове и&nbsp;районе</span></div>
+          <div><i>2</i><span><b>Дом в&nbsp;своём посёлке</b>с&nbsp;проектом под вас и&nbsp;льготной ипотекой</span></div>
+          <div><i>3</i><span><b>Инвестиции и&nbsp;юрист</b>сделки в&nbsp;других городах, сложные случаи, суд</span></div>
+        </div>
+      </div>
+      <form class="qcard" id="qform" novalidate>
+        <div><span class="lbl">Что нужно</span>
+          <div class="opts" data-q="need">
+            <label><input type="radio" name="need" value="Купить квартиру или дом" checked><span>Купить</span></label>
+            <label><input type="radio" name="need" value="Продать недвижимость"><span>Продать</span></label>
+            <label><input type="radio" name="need" value="Дом в посёлке Дениса"><span>Дом в&nbsp;посёлке</span></label>
+            <label><input type="radio" name="need" value="Инвестировать"><span>Инвестировать</span></label>
+            <label><input type="radio" name="need" value="Вопрос к юристу"><span>Вопрос к&nbsp;юристу</span></label>
+          </div></div>
+        <div><span class="lbl">Где</span>
+          <div class="opts">
+            <label><input type="radio" name="where" value="Шелехов и район" checked><span>Шелехов и&nbsp;район</span></label>
+            <label><input type="radio" name="where" value="Иркутск"><span>Иркутск</span></label>
+            <label><input type="radio" name="where" value="Другой город или зарубеж"><span>Другой город или зарубеж</span></label>
+          </div></div>
+        <div><span class="lbl">Как планируете покупать</span>
+          <div class="opts">
+            <label><input type="radio" name="when" value="Семейная ипотека" checked><span>Семейная ипотека</span></label>
+            <label><input type="radio" name="when" value="С маткапиталом"><span>С&nbsp;маткапиталом</span></label>
+            <label><input type="radio" name="when" value="Другая ипотека"><span>Другая ипотека</span></label>
+            <label><input type="radio" name="when" value="Свои деньги"><span>Свои деньги</span></label>
+          </div></div>
+        <div class="two">
+          <label class="inp">Имя<input name="name" autocomplete="given-name" placeholder="Как к вам обращаться"></label>
+          <label class="inp">Телефон<input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7"></label>
+        </div>
+        <label class="agree"><input type="checkbox" id="ok"><span>Согласен на&nbsp;обработку персональных данных по&nbsp;<button type="button" data-open="pol">политике конфиденциальности</button></span></label>
+        <button class="btn gold" id="send" type="submit" disabled>Отправить Денису</button>
+        <p class="demo">Это набросок: заявка никуда не&nbsp;отправится, покажу, как она придёт</p>
+      </form>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-h"><span class="eyebrow">Что дальше</span><h2>Как соберём <em>сайт</em></h2></div>
+      <div class="next">
+        <div><b>Шаг 1</b><p>Утверждаем структуру и&nbsp;главный экран. Слоган и&nbsp;фото выбираете вы.</p></div>
+        <div><b>Шаг 2</b><p>Собираю все блоки: тексты по&nbsp;вашим материалам, видео с&nbsp;Rutube, презентации посёлков.</p></div>
+        <div><b>Шаг 3</b><p>Подключаю домен и&nbsp;заявки в&nbsp;мессенджер, проверяем на&nbsp;телефоне и&nbsp;запускаем.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Набросок сайта для&nbsp;Дениса Викулова · сделано FOR.MI</span>
+    <button type="button" data-open="pol">Политика конфиденциальности</button>
+  </div>
+</footer>
+
+<dialog id="pol">
+  <h3>Политика конфиденциальности</h3>
+  <p>Имя и&nbsp;телефон из&nbsp;формы нужны только для&nbsp;ответа на&nbsp;заявку. Мы не&nbsp;передаём их&nbsp;третьим лицам и&nbsp;удаляем по&nbsp;первому запросу.</p>
+  <p>Полный текст политики и&nbsp;реквизиты появятся на&nbsp;готовом сайте.</p>
+  <form method="dialog"><button class="btn gold" style="width:100%">Понятно</button></form>
+</dialog>
+
+<dialog id="done">
+  <h3>Так заявка придёт вам</h3>
+  <p>В&nbsp;Telegram или WhatsApp, сразу с&nbsp;ответами из&nbsp;квиза.</p>
+  <div class="msg" id="msg"></div>
+  <form method="dialog"><button class="btn gold" style="width:100%">Закрыть</button></form>
+</dialog>
+
+<script>
+const f=document.getElementById('qform'),ok=document.getElementById('ok'),send=document.getElementById('send');
+ok.addEventListener('change',()=>{send.disabled=!ok.checked});
+document.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>document.getElementById(b.dataset.open).showModal()));
+f.addEventListener('submit',e=>{
+  e.preventDefault();
+  const d=new FormData(f);
+  const name=(d.get('name')||'').trim()||'Имя не указано',phone=(d.get('phone')||'').trim()||'телефон не указан';
+  const m=document.getElementById('msg');
+  m.textContent='';
+  const t=document.createElement('b');t.textContent='Заявка с сайта denisvikulov';m.append(t);
+  m.append(document.createTextNode(`• ${d.get('need')}\n• ${d.get('where')}\n• ${d.get('when')}\n• ${name}, ${phone}`));
+  document.getElementById('done').showModal();
+});
+</script>
+</body>
+</html>
