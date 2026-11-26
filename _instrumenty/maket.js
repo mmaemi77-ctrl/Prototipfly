@@ -1,6 +1,7 @@
 // Главный экран одной картинкой 4:5 (1080×1350): ноутбук и телефон вместе.
 // Запуск из корня репозитория: node _instrumenty/maket.js <папка клиента>
 // Настройки берутся из <папка клиента>/maket.json (пример: oknovprirody/maket.json).
+// Если телефон закрывает важное на ноутбуке справа, уменьшите lapWidth (например 352) и phoneWidth (150): тогда они не пересекаются.
 // Результат: glavnyi-maket.png, а также glavnyi-noutbuk.png и glavnyi-telefon.png в папке клиента.
 const {chromium}=require('playwright');
 const fs=require('fs'),path=require('path'),os=require('os');
@@ -19,7 +20,11 @@ const cfg=Object.assign({
   accentText:'#F0B482',
   photo:'',
   logo:'',
-  phoneWait:0
+  phoneWait:0,
+  lapWidth:430,
+  lapTop:150,
+  phoneWidth:156,
+  phoneTop:262
 },fs.existsSync(cfgPath)?JSON.parse(fs.readFileSync(cfgPath,'utf8')):{});
 
 const url=f=>'file://'+path.join(dir,f);
@@ -56,12 +61,12 @@ const esc=s=>String(s).replace(/[<>&"]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;',
 .br img{width:28px;height:28px;border-radius:50%;background:#fff;object-fit:cover}
 h1{margin:0;font-family:Lora,serif;font-weight:700;font-size:25px;line-height:1.15}
 h1 em{color:${cfg.accentText}}
-.lap{position:absolute;left:22px;top:150px;width:430px}
+.lap{position:absolute;left:22px;top:${cfg.lapTop}px;width:${cfg.lapWidth}px}
 .scr{background:#0B0F0C;border-radius:14px 14px 0 0;padding:9px 9px 10px;box-shadow:0 30px 60px -20px rgb(0 0 0 / .8)}
 .scr img{display:block;width:100%;border-radius:3px}
 .base{height:12px;margin:0 -26px;background:linear-gradient(#C9CCC9,#8E928F);border-radius:0 0 14px 14px;position:relative}
 .base::before{content:"";position:absolute;left:50%;top:0;width:70px;height:5px;transform:translateX(-50%);background:#7A7E7B;border-radius:0 0 6px 6px}
-.ph{position:absolute;right:22px;top:262px;width:156px;background:#0B0F0C;border-radius:26px;padding:6px;box-shadow:0 30px 60px -16px rgb(0 0 0 / .85),0 0 0 1.5px rgb(255 255 255 / .12)}
+.ph{position:absolute;right:22px;top:${cfg.phoneTop}px;width:${cfg.phoneWidth}px;background:#0B0F0C;border-radius:26px;padding:6px;box-shadow:0 30px 60px -16px rgb(0 0 0 / .85),0 0 0 1.5px rgb(255 255 255 / .12)}
 .ph img{display:block;width:100%;border-radius:20px}
 .chips{position:absolute;left:26px;right:26px;bottom:24px;display:flex;flex-wrap:wrap;gap:6px}
 .chips span{font-size:11.5px;font-weight:700;background:rgb(255 255 255 / .1);border:1px solid rgb(255 255 255 / .2);border-radius:999px;padding:5px 11px}

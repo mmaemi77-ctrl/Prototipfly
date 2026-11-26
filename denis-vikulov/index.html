@@ -68,17 +68,27 @@ nav a:hover{color:var(--gold-hi)}
 .stage::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--bg) 0%,rgb(11 16 23 / .92) 30%,rgb(11 16 23 / .4) 48%,transparent 64%),linear-gradient(180deg,rgb(11 16 23 / .55) 0%,transparent 16%,transparent 70%,var(--bg) 100%)}
 .hero{position:relative;display:grid;grid-template-columns:minmax(0,620px) minmax(0,1fr);min-height:clamp(600px,calc(100vh - 72px),900px);padding-block:40px;align-items:center}
 .h-left{display:grid;gap:28px;align-content:center}
-.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(40px,4.1vw,60px);line-height:1.06;letter-spacing:-.01em;text-wrap:wrap}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(38px,3.7vw,54px);line-height:1.06;letter-spacing:-.01em;text-wrap:wrap}
 .hero h1 .scr{display:block;font-style:italic;color:var(--gold-hi)}
 .sub{font-size:clamp(16px,1.3vw,18.5px);color:#D5D9E0;max-width:44ch;line-height:1.6}
 .cta{display:grid;gap:10px;justify-items:start}
 .cta .btn{padding:18px 30px;font-size:16.5px}
 .cta small{font-size:13.5px;color:var(--muted)}
-.sign{position:absolute;right:0;bottom:44px;font-family:var(--script);font-size:46px;line-height:1;color:var(--ink);text-shadow:0 2px 14px rgb(0 0 0 / .7);transform:rotate(-4deg)}
+.hero{grid-template-columns:minmax(0,560px) minmax(0,1fr) 320px;column-gap:32px}
+.sign{position:absolute;left:calc(560px + 32px);bottom:40px;font-family:var(--script);font-size:44px;line-height:1;color:var(--ink);text-shadow:0 2px 14px rgb(0 0 0 / .7);transform:rotate(-4deg)}
+/* четыре кнопки-направления справа, все в чёрно-золотом */
+.go{grid-column:3;display:grid;gap:12px;align-content:center}
+.go a{display:grid;grid-template-columns:76px minmax(0,1fr) 34px;gap:14px;align-items:center;padding:10px 12px 10px 10px;border-radius:18px;background:rgb(11 16 23 / .72);backdrop-filter:blur(12px);border:1px solid rgb(214 166 69 / .38);text-decoration:none;transition:border-color .15s,background .15s,transform .15s}
+.go a:hover{border-color:var(--gold-hi);background:rgb(42 36 20 / .85);transform:translateX(-3px)}
+.go .pic{width:76px;height:76px;border-radius:12px;background:#000 center/cover;box-shadow:inset 0 0 0 1px rgb(214 166 69 / .35)}
+.go .pic.gold{filter:grayscale(1) sepia(.55) saturate(1.25) brightness(.85) contrast(1.15)}
+.go b{display:block;font-size:16px;line-height:1.2}
+.go small{display:block;font-size:12.5px;color:var(--muted);line-height:1.3;margin-top:3px}
+.go .ar{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--gold);color:var(--gold-ink);font-weight:800}
 
 /* сразу под первым экраном: цифры и четыре направления */
 .napr{padding-block:8px 72px}
-.stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-block:1px solid var(--line);margin-bottom:28px}
+.stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-block:1px solid var(--line)}
 .stats a{padding:22px 20px;display:grid;gap:4px;align-content:start;text-decoration:none;transition:background .15s}
 .stats a:hover{background:var(--surface)}
 .stats i{font-style:normal;font-size:12.5px;font-weight:700;color:var(--gold);margin-top:4px}
@@ -96,10 +106,12 @@ nav a:hover{color:var(--gold-hi)}
 .dir small{grid-column:1;font-size:13.5px;color:var(--muted);line-height:1.4}
 .dir .ar{grid-row:1/span 2;grid-column:2;color:var(--gold-hi);font-size:20px}
 
-@media (max-width:1100px){.dirs{grid-template-columns:repeat(2,minmax(0,1fr))}.stats{grid-template-columns:repeat(3,minmax(0,1fr))}.stats a:nth-child(4){border-left:0}.stats a:nth-child(n+4){border-top:1px solid var(--line)}}
+@media (max-width:1200px){.hero{grid-template-columns:minmax(0,500px) minmax(0,1fr) 290px}.sign{left:calc(500px + 32px)}}
+@media (max-width:1100px){.stats{grid-template-columns:repeat(3,minmax(0,1fr))}.stats a:nth-child(4){border-left:0}.stats a:nth-child(n+4){border-top:1px solid var(--line)}}
 @media (max-width:960px){
   .stage{margin-top:-62px;padding-top:62px}
-  .hero{grid-template-columns:1fr;min-height:0;padding-block:330px 36px}
+  .hero{grid-template-columns:1fr;min-height:0;padding-block:330px 36px;row-gap:22px}
+  .go{grid-column:1;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
   .bg-blur,.sign{display:none}
   .bg-photo{left:0;width:auto;bottom:auto;height:470px;background-position:26% 16%;-webkit-mask-image:linear-gradient(180deg,#000 62%,transparent);mask-image:linear-gradient(180deg,#000 62%,transparent)}
   .stage::after{background:linear-gradient(180deg,rgb(11 16 23 / .35) 0,transparent 90px,transparent 220px,rgb(11 16 23 / .8) 360px,var(--bg) 460px)}
@@ -117,12 +129,10 @@ nav a:hover{color:var(--gold-hi)}
   .stats a:nth-child(-n+2){border-top:0}
   .stats a:nth-child(even){border-left:1px solid var(--line)}
   .stats a:last-child{grid-column:span 2}
-  .dirs{gap:10px}
-  .dir{border-radius:16px}
-  .dir .pic{aspect-ratio:1/1}
-  .dir .txt{padding:10px 12px 12px;grid-template-columns:1fr}
-  .dir small,.dir .ar{display:none}
-  .dir b{font-size:14.5px}
+  .go a{grid-template-columns:44px minmax(0,1fr);gap:10px;padding:8px;border-radius:14px}
+  .go .pic{width:44px;height:44px;border-radius:9px}
+  .go small,.go .ar{display:none}
+  .go b{font-size:13.5px}
 }
 
 /* структура */
@@ -224,6 +234,12 @@ dialog p{color:var(--muted);font-size:14.5px;margin-bottom:8px}
         </div>
       </div>
       <span class="sign">Денис Викулов</span>
+      <nav class="go" aria-label="Направления">
+        <a href="#struktura"><span class="pic" style="background-image:url(img/garant-kvadrat.jpg)"></span><span><b>Агентство «Гарант»</b><small>Купить, продать, ипотека, юрист</small></span><span class="ar">→</span></a>
+        <a href="#struktura"><span class="pic" style="background-image:url(img/dom-noch.jpg);background-position:55% 60%"></span><span><b>Свои посёлки</b><small>Три посёлка под Шелеховом</small></span><span class="ar">→</span></a>
+        <a href="#struktura"><span class="pic" style="background-image:url(img/real-invest.jpg)"></span><span><b>Инвестиции</b><small>Россия и&nbsp;зарубеж</small></span><span class="ar">→</span></a>
+        <a href="#struktura"><span class="pic gold" style="background-image:url(img/frirayd.jpg);background-position:45% 40%"></span><span><b>Обо мне</b><small>Днём брус и&nbsp;бетон, утром сделка</small></span><span class="ar">→</span></a>
+      </nav>
     </div>
   </div>
   </div>
@@ -236,12 +252,6 @@ dialog p{color:var(--muted);font-size:14.5px;margin-bottom:8px}
       <a href="#struktura"><b>4,9</b><span>на&nbsp;Яндексе, 27 оценок</span><i>отзывы</i></a>
       <a href="#struktura"><b>3 посёлка</b><span>строим сами</span><i>смотреть</i></a>
     </div>
-    <div class="dirs">
-      <a class="dir" href="#struktura"><span class="pic garant"></span><span class="txt"><b>Агентство «Гарант»</b><small>Купить, продать, ипотека, юрист</small><span class="ar">→</span></span></a>
-      <a class="dir" href="#struktura"><span class="pic" style="background-image:url(img/dom-noch.jpg)"></span><span class="txt"><b>Свои посёлки</b><small>Крылатый, Квартал Семейный, Зелёная долина</small><span class="ar">→</span></span></a>
-      <a class="dir" href="#struktura"><span class="pic" style="background-image:url(img/real-invest.jpg)"></span><span class="txt"><b>Инвестиции</b><small>Россия и&nbsp;зарубеж, сделки между городами</small><span class="ar">→</span></span></a>
-      <a class="dir" href="#struktura"><span class="pic" style="background-image:url(img/frirayd.jpg);background-position:45% 40%"></span><span class="txt"><b>Обо мне</b><small>Днём брус и&nbsp;бетон, утром сделка</small><span class="ar">→</span></span></a>
-    </div>
   </div>
 
   <section id="struktura">
@@ -252,7 +262,7 @@ dialog p{color:var(--muted);font-size:14.5px;margin-bottom:8px}
         <p>Сейчас это разбросано по&nbsp;Rutube, ВК, Яндекс Картам, Авито и&nbsp;презентациям. Здесь человек за&nbsp;минуту понимает, кто вы и&nbsp;с&nbsp;чем к&nbsp;вам прийти.</p>
       </div>
       <div class="blocks">
-        <div class="blk"><span class="no">01</span><h3>Главный экран</h3><p>Крупное фото на&nbsp;стройке, кто вы и&nbsp;чем заняты, одна кнопка «Написать Денису». Сразу под ним цифры и&nbsp;четыре направления с&nbsp;вашими картинками.</p></div>
+        <div class="blk"><span class="no">01</span><h3>Главный экран</h3><p>Фото на&nbsp;стройке, «Строю и&nbsp;продаю дома под Иркутском», кнопка «Написать Денису» и&nbsp;справа четыре кнопки направлений в&nbsp;чёрно-золотом. Под экраном цифры с&nbsp;документами.</p></div>
         <div class="blk"><span class="no">02</span><h3>Цифры и&nbsp;доверие</h3><p>С&nbsp;2007 года, аккредитованный застройщик и&nbsp;золотой партнёр Сбербанка, топ-100 Домклик, дипломы.</p></div>
         <div class="blk"><span class="no">03</span><h3>Агентство «Гарант»</h3><p>Покупка, продажа, льготные ипотеки (семейная, сельская, IT), маткапитал, юрист и&nbsp;суд. Команда и&nbsp;отзывы с&nbsp;Яндекса.</p></div>
         <div class="blk"><div class="pic" style="background-image:url(img/dom-render.jpg)"></div><span class="no">04</span><h3>Строим малоэтажную Россию</h3><p>Три посёлка карточками: фото, площадь домов, ипотека, кнопки «Презентация» и&nbsp;«Видео», плейлист «Обзоры домов».</p></div>
@@ -294,11 +304,12 @@ dialog p{color:var(--muted);font-size:14.5px;margin-bottom:8px}
             <label><input type="radio" name="where" value="Иркутск"><span>Иркутск</span></label>
             <label><input type="radio" name="where" value="Другой город или зарубеж"><span>Другой город или зарубеж</span></label>
           </div></div>
-        <div><span class="lbl">Когда</span>
+        <div><span class="lbl">Как планируете покупать</span>
           <div class="opts">
-            <label><input type="radio" name="when" value="В ближайший месяц"><span>В&nbsp;ближайший месяц</span></label>
-            <label><input type="radio" name="when" value="В течение полугода" checked><span>В&nbsp;течение полугода</span></label>
-            <label><input type="radio" name="when" value="Пока присматриваюсь"><span>Пока присматриваюсь</span></label>
+            <label><input type="radio" name="when" value="Семейная ипотека" checked><span>Семейная ипотека</span></label>
+            <label><input type="radio" name="when" value="С маткапиталом"><span>С&nbsp;маткапиталом</span></label>
+            <label><input type="radio" name="when" value="Другая ипотека"><span>Другая ипотека</span></label>
+            <label><input type="radio" name="when" value="Свои деньги"><span>Свои деньги</span></label>
           </div></div>
         <div class="two">
           <label class="inp">Имя<input name="name" autocomplete="given-name" placeholder="Как к вам обращаться"></label>
