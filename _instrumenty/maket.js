@@ -1,12 +1,14 @@
 // Главный экран одной картинкой 4:5 (1080×1350): ноутбук и телефон вместе.
-// Запуск из корня репозитория: node _instrumenty/maket.js <папка клиента>
+// Запуск из корня репозитория: node _instrumenty/maket.js <папка клиента> [файл настроек]
 // Настройки берутся из <папка клиента>/maket.json (пример: oknovprirody/maket.json).
 // Результат: glavnyi-maket.png, а также glavnyi-noutbuk.png и glavnyi-telefon.png в папке клиента.
+// Вторая картинка «как выглядит сайт дальше»: свой файл настроек с out, laptop и phone
+// (пример: goodstore-crimea/maket-sait.json): ноутбук прокручен к блоку, на телефоне открыто окно заявки.
 const {chromium}=require('playwright');
 const fs=require('fs'),path=require('path'),os=require('os');
 
 const dir=path.resolve(process.argv[2]||'.');
-const cfgPath=path.join(dir,'maket.json');
+const cfgPath=path.join(dir,process.argv[3]||'maket.json');
 const cfg=Object.assign({
   page:'index.html',
   eyebrow:'Главный экран',
@@ -19,7 +21,20 @@ const cfg=Object.assign({
   accentText:'#F0B482',
   photo:'',
   logo:'',
-  phoneWait:0
+  phoneWait:0,
+  // шрифты рамки: по умолчанию Lora + Onest, можно заменить (пример: goodstore-crimea/maket.json)
+  fontsUrl:'https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,700;1,700&family=Onest:wght@600;700;800&display=swap',
+  titleFont:'Lora,serif',
+  titleWeight:700,
+  titleSize:25,
+  titleTracking:'0',
+  emStyle:'italic',
+  uiFont:'Onest,sans-serif',
+  backdrop:'',  // CSS-фон рамки вместо фото, например радиальные градиенты
+  emGradient:'', // градиент для выделенных слов заголовка
+  out:'glavnyi-maket.png', // имя итоговой картинки
+  laptop:null,  // {scrollTo:'#блок', offset:0, steps:[...]} что сделать на ноутбуке перед снимком
+  phone:null    // то же для телефона; steps: {click:'#id'}, {fill:['#id','текст']}, {check:'#id'}, {wait:300}
 },fs.existsSync(cfgPath)?JSON.parse(fs.readFileSync(cfgPath,'utf8')):{});
 
 const url=f=>'file://'+path.join(dir,f);
@@ -35,27 +50,45 @@ const esc=s=>String(s).replace(/[<>&"]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;',
     if(cfg.phoneWait)await p.waitForTimeout(cfg.phoneWait);
     return p;
   };
-  // ноутбук 1440×900 и телефон 390×844, только первый экран
+  const base=cfg.out.replace(/-maket\.png$|\.png$/,'');
+  const shotLap=base+'-noutbuk.png',shotPh=base+'-telefon.png';
+  const prep=async(p,o)=>{
+    if(!o)return;
+    if(o.scrollTo){await p.evaluate(([s,off])=>{const e=document.querySelector(s);window.scrollTo({top:e.getBoundingClientRect().top+scrollY+(off||0),behavior:'instant'})},[o.scrollTo,o.offset||0]);await p.waitForTimeout(300)}
+    // фокус выключен: иначе телефон приближает поле ввода и окно на снимке съезжает
+    if(o.steps)await p.evaluate(()=>{HTMLElement.prototype.focus=function(){}});
+    for(const s of o.steps||[]){
+      if(s.click)await p.$eval(s.click,e=>e.click());
+      if(s.fill)await p.$eval(s.fill[0],(e,v)=>{e.value=v;e.dispatchEvent(new Event('input',{bubbles:true}))},s.fill[1]);
+      if(s.check)await p.$eval(s.check,e=>{e.checked=true;e.dispatchEvent(new Event('change',{bubbles:true}))});
+      if(s.wait)await p.waitForTimeout(s.wait);
+    }
+    await p.waitForTimeout(200);
+  };
+  // ноутбук 1440×900 и телефон 390×844, первый экран или то, что задано в laptop/phone
   let p=await open({width:1440,height:900},{dsf:2});
-  await p.screenshot({path:path.join(dir,'glavnyi-noutbuk.png')});
+  await prep(p,cfg.laptop);
+  await p.screenshot({path:path.join(dir,shotLap)});
   p=await open({width:390,height:844},{dsf:2,m:true});
-  await p.screenshot({path:path.join(dir,'glavnyi-telefon.png')});
+  await prep(p,cfg.phone);
+  await p.screenshot({path:path.join(dir,shotPh)});
 
-  const bgPhoto=cfg.photo?`background:url("${url(cfg.photo)}") center 40%/cover;`:'';
+  const bgPhoto=cfg.photo?`background:url("${url(cfg.photo)}") center 40%/cover;opacity:.35;`:cfg.backdrop?`background:${cfg.backdrop};opacity:1;`:'';
   const logo=cfg.logo?`<img src="${url(cfg.logo)}" alt="">`:'';
   const chips=cfg.chips.map((c,i)=>`<span class="${i===0?'c':''}">${esc(c)}</span>`).join('');
   const html=`<!doctype html><html lang="ru"><head><meta charset="utf-8">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,700;1,700&family=Onest:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="${cfg.fontsUrl}">
 <style>
 *{box-sizing:border-box}body{margin:0}
-.s{width:540px;height:675px;position:relative;overflow:hidden;background:${cfg.bg};font-family:Onest,sans-serif;color:${cfg.ink};isolation:isolate}
-.s::before{content:"";position:absolute;inset:0;z-index:-2;${bgPhoto}opacity:.35}
-.s::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,color-mix(in srgb,${cfg.bg} 96%,transparent) 0%,color-mix(in srgb,${cfg.bg} 70%,transparent) 40%,color-mix(in srgb,${cfg.bg} 92%,transparent) 100%)}
+.s{width:540px;height:675px;position:relative;overflow:hidden;background:${cfg.bg};font-family:${cfg.uiFont};color:${cfg.ink};isolation:isolate}
+.s::before{content:"";position:absolute;inset:0;z-index:-2;${bgPhoto}}
+${cfg.photo?`.s::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,color-mix(in srgb,${cfg.bg} 96%,transparent) 0%,color-mix(in srgb,${cfg.bg} 70%,transparent) 40%,color-mix(in srgb,${cfg.bg} 92%,transparent) 100%)}`:''}
 .top{padding:26px 26px 0;display:grid;gap:8px}
 .br{display:flex;align-items:center;gap:9px;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:${cfg.label}}
 .br img{width:28px;height:28px;border-radius:50%;background:#fff;object-fit:cover}
-h1{margin:0;font-family:Lora,serif;font-weight:700;font-size:25px;line-height:1.15}
-h1 em{color:${cfg.accentText}}
+h1{margin:0;font-family:${cfg.titleFont};font-weight:${cfg.titleWeight};font-size:${cfg.titleSize}px;line-height:1.15;letter-spacing:${cfg.titleTracking}}
+h1 em{color:${cfg.accentText};font-style:${cfg.emStyle}}
+${cfg.emGradient?`h1 em{background:${cfg.emGradient};-webkit-background-clip:text;background-clip:text;color:transparent}`:''}
 .lap{position:absolute;left:22px;top:150px;width:430px}
 .scr{background:#0B0F0C;border-radius:14px 14px 0 0;padding:9px 9px 10px;box-shadow:0 30px 60px -20px rgb(0 0 0 / .8)}
 .scr img{display:block;width:100%;border-radius:3px}
@@ -69,16 +102,16 @@ h1 em{color:${cfg.accentText}}
 </style></head><body>
 <div class="s" id="m">
   <div class="top"><div class="br">${logo}${esc(cfg.eyebrow)}</div><h1>${cfg.title}</h1></div>
-  <div class="lap"><div class="scr"><img src="${url('glavnyi-noutbuk.png')}" alt=""></div><div class="base"></div></div>
-  <div class="ph"><img src="${url('glavnyi-telefon.png')}" alt=""></div>
+  <div class="lap"><div class="scr"><img src="${url(shotLap)}" alt=""></div><div class="base"></div></div>
+  <div class="ph"><img src="${url(shotPh)}" alt=""></div>
   <div class="chips">${chips}</div>
 </div></body></html>`;
   const tmp=path.join(os.tmpdir(),'maket-'+process.pid+'.html');
   fs.writeFileSync(tmp,html);
   p=await b.newPage({viewport:{width:540,height:675},deviceScaleFactor:2});
   await p.goto('file://'+tmp);await p.waitForLoadState('networkidle');await p.evaluate(()=>document.fonts.ready);
-  await p.locator('#m').screenshot({path:path.join(dir,'glavnyi-maket.png')});
+  await p.locator('#m').screenshot({path:path.join(dir,cfg.out)});
   fs.unlinkSync(tmp);
   await b.close();
-  console.log(errs.length?'ошибки на странице:\n'+errs.join('\n'):'готово: '+path.join(dir,'glavnyi-maket.png'));
+  console.log(errs.length?'ошибки на странице:\n'+errs.join('\n'):'готово: '+path.join(dir,cfg.out));
 })();
