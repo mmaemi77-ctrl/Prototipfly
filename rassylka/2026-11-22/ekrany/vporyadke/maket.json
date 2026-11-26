@@ -1,0 +1,12 @@
+{
+  "page": "index.html",
+  "eyebrow": "Клининг в порядке · главный экран",
+  "title": "Цена по&nbsp;комнатам и&nbsp;чек-лист <em>видны сразу</em>",
+  "chips": ["Поддерживающая от 5 000 ₽", "До и после", "Заявка с суммой"],
+  "bg": "#16261E",
+  "ink": "#F3F1EC",
+  "label": "#D9C08F",
+  "accent": "#2E6A4E",
+  "accentText": "#D9C08F",
+  "photo": "img/plita-posle.jpg"
+}

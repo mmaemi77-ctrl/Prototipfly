@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Разбор для Адамова озера: что уже сильное, где теряются брони, базы отдыха под Гродно и что должен делать сайт">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Сайт для Адамова озера: рынок и конкуренты">
+<meta property="og:description" content="Сильные стороны, где теряются брони, пять баз под Гродно и задачи сайта">
+<meta property="og:image" content="https://mmaemi77-ctrl.github.io/adamovo-ozero/og-analiz.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#11130F">
+<title>Адамово озеро · разбор</title>
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Oswald:wght@500;600&family=Marck+Script&display=swap">
+<style>
+/* Layout: разбор-документ в одну колонку в цветах Адамова озера: ночной лес, кремовый текст, золото как на их прайсах. */
+:root{
+  --bg:#11130F;--bg2:#161912;--surface:#1D2019;--surface2:#272A21;--ink:#F1E8D6;--muted:#B5AC9A;--dim:#857E6F;--line:#31342A;
+  --gold:#D6AE6A;--gold-hi:#E9C789;--gold-tint:#2A2517;--gold-line:#5B4A27;--moss:#8E9C6A;--lake:#8DB0B2;--bad:#D98C6A;
+  --f-body:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-head:"Oswald","Arial Narrow",Impact,sans-serif;
+  --f-script:"Marck Script","Segoe Script",cursive;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.55}
+img{max-width:100%;display:block}
+a{color:var(--gold-hi)}
+.wrap{max-width:860px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left));padding-right:max(18px,env(safe-area-inset-right))}
+.top{position:relative;isolation:isolate;overflow:hidden;border-bottom:1px solid var(--line)}
+.top::before{content:"";position:absolute;inset:0;z-index:-2;background:url("img/ozero-vecher.jpg") center 60%/cover;opacity:.5}
+.top::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgb(17 19 15 / .55),rgb(17 19 15 / .92) 70%,var(--bg))}
+.top .wrap{padding-block:44px 40px;display:grid;gap:14px}
+.brand{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-hi)}
+.brand img{width:38px;height:38px;border-radius:50%}
+h1{margin:0;font-family:var(--f-head);font-weight:600;font-size:clamp(34px,6vw,54px);line-height:1.05;text-transform:uppercase;letter-spacing:.01em;text-wrap:balance}
+h1 em{font-family:var(--f-script);font-style:normal;text-transform:none;color:var(--gold-hi);font-weight:400;font-size:1.05em}
+.lead{margin:0;font-size:18px;color:var(--ink);max-width:62ch}
+.meta{margin:0;font-size:13.5px;color:var(--muted)}
+main section{padding-block:34px;border-bottom:1px solid var(--line)}
+h2{margin:0 0 16px;font-family:var(--f-head);font-weight:600;font-size:28px;line-height:1.15;text-transform:uppercase;letter-spacing:.02em;text-wrap:balance}
+h2 small{display:block;font-family:var(--f-body);text-transform:none;letter-spacing:0;font-size:14px;font-weight:500;color:var(--muted);margin-top:6px}
+h3{margin:0 0 6px;font-size:17px;font-weight:700}
+p{margin:0 0 12px}
+.list{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+.list li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;align-items:start}
+.list li::before{content:attr(data-n);font-family:var(--f-head);font-weight:600;font-size:18px;color:var(--gold);line-height:1.4}
+.plus li::before{content:"+";color:var(--moss)}
+.minus li::before{content:"–";color:var(--bad)}
+.gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:18px}
+.gal figure{margin:0;display:grid;gap:6px}
+.gal img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px}
+.gal figcaption{font-size:12.5px;color:var(--muted)}
+.quote{font-family:var(--f-script);font-size:22px;color:var(--gold-hi);line-height:1.2}
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.box{background:var(--surface);border-radius:14px;padding:16px 16px 14px}
+.box p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.04em;border-radius:999px;padding:3px 10px;background:var(--gold-tint);color:var(--gold-hi);margin-bottom:8px}
+.comp{display:grid;gap:10px}
+.comp article{background:var(--surface);border-radius:14px;padding:16px}
+.comp .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 14px;align-items:baseline}
+.comp .km{font-size:13px;color:var(--muted)}
+.comp ul{margin:8px 0 8px;padding-left:18px;display:grid;gap:4px}
+.comp .src{font-size:13px;color:var(--dim)}
+.comp .src a{color:var(--muted)}
+.price{font-family:var(--f-head);font-size:18px;color:var(--gold-hi);white-space:nowrap}
+.norm{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
+.norm .box h3{font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.norm .no h3{color:var(--gold-hi)}
+.norm ul{margin:0;padding-left:18px;display:grid;gap:6px}
+.tasks{counter-reset:t;margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.tasks li{counter-increment:t;background:var(--surface);border-radius:12px;padding:12px 14px 12px 52px;position:relative}
+.tasks li::before{content:counter(t);position:absolute;left:14px;top:10px;width:26px;height:26px;border-radius:50%;background:var(--gold);color:var(--bg);font-weight:800;display:grid;place-items:center;font-size:14px}
+.ba{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.chat{background:var(--surface);border-radius:16px;padding:14px;display:grid;gap:8px;align-content:start}
+.chat .lbl{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.msg{max-width:88%;padding:8px 11px;border-radius:14px;font-size:14.5px;line-height:1.4}
+.msg.in{background:var(--surface2);justify-self:start;border-bottom-left-radius:4px}
+.msg.out{background:#3A3320;justify-self:end;border-bottom-right-radius:4px}
+.msg i{display:block;font-style:normal;font-size:11.5px;color:var(--dim);margin-top:3px}
+.req{background:var(--gold-tint);border:1px solid var(--gold-line);border-radius:12px;padding:12px;display:grid;gap:4px;font-size:14.5px}
+.req b{color:var(--gold-hi)}
+.chat .foot{font-size:13.5px;color:var(--muted);margin:2px 0 0}
+.idea{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+ol.q{margin:0;padding-left:22px;display:grid;gap:8px}
+footer{padding-block:28px 40px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 20px;justify-content:space-between;align-items:center}
+.sign{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap}
+.rnd{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--surface2);color:var(--ink)}
+.rnd:hover{background:var(--ink);color:var(--bg)}
+.rnd svg{width:16px;height:16px}
+@media (max-width:640px){
+  .gal{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cols,.norm,.ba,.idea{grid-template-columns:minmax(0,1fr)}
+  h2{font-size:24px}
+  .lead{font-size:16.5px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand"><img src="img/logo.png" alt="">Адамово озеро · разбор для&nbsp;сайта</div>
+    <h1>Сайт для&nbsp;Адамова озера: рынок и <em>конкуренты</em></h1>
+    <p class="lead">У&nbsp;вас 24,3 тысячи подписчиков, три дома с&nbsp;баней, беседки на&nbsp;10, 20, 30 и&nbsp;50 человек и&nbsp;открытые цены. Всё это уже есть в&nbsp;Инстаграме. Сайт нужен, чтобы гость сам выбрал домик или&nbsp;беседку, увидел сумму на&nbsp;свою дату и&nbsp;оставил бронь без&nbsp;переписки.</p>
+    <p class="meta">По&nbsp;скриншотам профиля и&nbsp;хайлайтс @adamovo.ozero, карточкам каталогов и&nbsp;поисковой выдаче на&nbsp;22 ноября 2026</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section>
+    <h2>Главное в&nbsp;пяти пунктах</h2>
+    <ul class="list">
+      <li data-n="1"><span>Цены у&nbsp;вас уже расписаны по&nbsp;дням недели и&nbsp;числу гостей. Под&nbsp;Гродно это редкость: у&nbsp;соседей в&nbsp;каталогах стоит «договорная» или&nbsp;вопрос «сколько стоит?».</span></li>
+      <li data-n="2"><span>Бронь сейчас идёт только через директ: «Для&nbsp;быстрого бронирования пиши «БРОНЬ» в&nbsp;Direct». Каждый гость спрашивает одно и&nbsp;то же: свободно ли, сколько за&nbsp;шестерых, входит ли баня.</span></li>
+      <li data-n="3"><span>Цены и&nbsp;условия разложены по&nbsp;девяти хайлайтс. Чтобы сравнить Ведьмин дом и&nbsp;Бобровую хатку, гость листает «Прайс домов», «Дом» и&nbsp;закрепы.</span></li>
+      <li data-n="4"><span>Сайт может считать сумму сам: дом, дата, гости, и&nbsp;сразу 30% предоплаты. Ваши правила для&nbsp;этого уже готовы.</span></li>
+      <li data-n="5"><span>«Затока» до&nbsp;50 человек приносит самые большие чеки: свадьбы и&nbsp;корпоративы. Ей нужна своя страница с&nbsp;фото и&nbsp;заявкой на&nbsp;расчёт.</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Что&nbsp;у&nbsp;вас уже сильное</h2>
+    <ul class="list plus">
+      <li><span>У&nbsp;каждого дома есть имя и&nbsp;характер. В&nbsp;закрепах: «Самый загадочный дом на&nbsp;Адамовом озере», «Не&nbsp;все домики у&nbsp;воды одинаковы», «Не&nbsp;домик, а&nbsp;целый остров». Такие подписи хочется читать, на&nbsp;сайте они станут заголовками карточек.</span></li>
+      <li><span>Баня входит в&nbsp;цену дома. В&nbsp;Кошкином доме баня прямо внутри, у&nbsp;Бобровой хатки рядом пирс и&nbsp;беседка с&nbsp;водой.</span></li>
+      <li><span>Беседки под&nbsp;любую компанию: до&nbsp;10 человек от&nbsp;60 BYN, Мулявина на&nbsp;10–20 человек, Бунгало до&nbsp;30, «Затока» до&nbsp;50.</span></li>
+      <li><span>Понятные правила: заезд с&nbsp;14:00, выезд до&nbsp;12:00, до&nbsp;4 гостей в&nbsp;цене, дальше +10 BYN за&nbsp;человека, бронь с&nbsp;предоплатой 30%.</span></li>
+      <li><span>Прокат на&nbsp;месте: сапборд 10 BYN в&nbsp;час, казан, шампуры и&nbsp;решётка с&nbsp;залогом, уголь и&nbsp;дрова по&nbsp;13 BYN. Гостю не&nbsp;нужно везти мангальный набор из&nbsp;города.</span></li>
+      <li><span>81 публикация и&nbsp;24,3 тысячи подписчиков: рилс смотрят. Есть свои события, например «Последний заброс сезона» 31 октября и&nbsp;1 ноября.</span></li>
+    </ul>
+    <div class="gal">
+      <figure><img src="img/bobrovaya.jpg" alt="Бобровая хатка у воды" loading="lazy"><figcaption>Бобровая хатка после реконструкции</figcaption></figure>
+      <figure><img src="img/vedmin.jpg" alt="Ведьмин дом" loading="lazy"><figcaption>Ведьмин дом</figcaption></figure>
+      <figure><img src="img/zatoka.jpg" alt="Беседка Затока" loading="lazy"><figcaption>«Затока» до&nbsp;50 человек</figcaption></figure>
+      <figure><img src="img/mulyavina.jpg" alt="Беседка имени Мулявина" loading="lazy"><figcaption>Беседка им. В. Мулявина</figcaption></figure>
+      <figure><img src="img/bungalo.jpg" alt="Беседка Бунгало" loading="lazy"><figcaption>Бунгало после реставрации</figcaption></figure>
+      <figure><img src="img/sap.jpg" alt="Сапборд на Адамовом озере" loading="lazy"><figcaption>Сапборды, 10 BYN в&nbsp;час</figcaption></figure>
+    </div>
+  </section>
+
+  <section>
+    <h2>Что&nbsp;сейчас мешает</h2>
+    <ul class="list minus">
+      <li><span>Гость выбирает по&nbsp;сторис. Цены домов в&nbsp;«Прайсе домов», условия в&nbsp;«Доме», беседки в&nbsp;пяти хайлайтс («&gt;10», «&gt;30», «&gt;50 человек», «Мулявина», «Бунгало»), прокат в&nbsp;«Оборудовании». Пока он собирает картину, половина вопросов уже ушла в&nbsp;директ.</span></li>
+      <li><span>Нет календаря. На&nbsp;вопрос «свободна ли суббота?» отвечает только администратор, а&nbsp;гость в&nbsp;это время пишет соседям.</span></li>
+      <li><span>В&nbsp;шапке профиля нет ни&nbsp;одной ссылки, только кнопка «Позвонить». После рилс человеку некуда перейти, кроме директа.</span></li>
+      <li><span>Валюта подписана по-разному: в&nbsp;«Прайсе домов» BYN, а&nbsp;на&nbsp;слайдах Бобровой хатки и&nbsp;Кошкина дома «руб.». Гость из&nbsp;России легко решит, что&nbsp;300 руб. это российские рубли.</span></li>
+      <li><span>Вас трудно найти в&nbsp;поиске. По&nbsp;запросу «Адамово озеро база отдыха» выдача показывает соседнюю усадьбу «Домашний очаг» и&nbsp;каталоги, а&nbsp;вашей страницы там нет.</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Что&nbsp;спрашивают перед бронью<small>И&nbsp;когда это спрашивают</small></h2>
+    <div class="cols">
+      <div class="box">
+        <span class="tag">Вопросы гостя</span>
+        <p>Свободен ли дом на&nbsp;мои даты? Сколько выйдет на&nbsp;шестерых? Баня входит? Можно ли с&nbsp;собакой? Есть ли постельное и&nbsp;посуда? Какая беседка подойдёт на&nbsp;день рождения на&nbsp;15 человек? Как&nbsp;к&nbsp;вам проехать?</p>
+        <p>Почти на&nbsp;все вопросы ответы у&nbsp;вас уже есть. Сайт покажет их&nbsp;до&nbsp;того, как&nbsp;гость напишет.</p>
+      </div>
+      <div class="box">
+        <span class="tag">Сезон</span>
+        <p>Зимой спрашивают домики с&nbsp;баней: Новый год, выходные, дни рождения. С&nbsp;мая приходят за&nbsp;беседками, сапбордами, рыбалкой и&nbsp;местами для&nbsp;палаток.</p>
+        <p>Свадьбы и&nbsp;корпоративы в&nbsp;«Затоке» бронируют за&nbsp;несколько месяцев. Значит, страница про&nbsp;праздники нужна уже в&nbsp;январе.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Кто ещё принимает гостей рядом<small>По&nbsp;открытым карточкам каталогов и&nbsp;поисковой выдаче на&nbsp;22 ноября 2026. Сайты агрегаторов из&nbsp;моей сессии не&nbsp;открываются, поэтому данные из&nbsp;карточек в&nbsp;выдаче.</small></h2>
+    <div class="comp">
+      <article>
+        <div class="row"><h3>Усадьба «Домашний очаг»</h3><span class="price">цена не&nbsp;указана</span></div>
+        <div class="km">д. Жукевичи, около 10 км от&nbsp;Гродно, 2 км от&nbsp;Адамова озера</div>
+        <ul>
+          <li>Жилой дом и&nbsp;гостевой домик с&nbsp;русской баней на&nbsp;дровах и&nbsp;камином</li>
+          <li>Сдают на&nbsp;сутки и&nbsp;на&nbsp;банные сеансы, доп. место 10 USD в&nbsp;сутки</li>
+          <li>Сплав на&nbsp;байдарках по&nbsp;Августовскому каналу</li>
+        </ul>
+        <div class="src">Ваш ближайший сосед. <a href="https://mirturbaz.ru/belarus/grodnenskaya-oblast/domashniy-ochag1" target="_blank" rel="noopener">Карточка на&nbsp;mirturbaz</a></div>
+      </article>
+      <article>
+        <div class="row"><h3>Усадьба «На&nbsp;озере»</h3><span class="price">цена не&nbsp;указана</span></div>
+        <div class="km">Вильяново, аг. Озёры, около 20 км от&nbsp;Гродно</div>
+        <ul>
+          <li>Два дома, беседка-шале на&nbsp;воде</li>
+          <li>Беседки на&nbsp;воде на&nbsp;6, 20 и&nbsp;30 человек, беседка до&nbsp;70 человек у&nbsp;банкетного зала</li>
+          <li>Лодка, катамаран, велосипеды, пруд для&nbsp;рыбалки</li>
+        </ul>
+        <div class="src">Главный соперник по&nbsp;праздникам. <a href="https://mirturbaz.ru/belarus/grodnenskaya-oblast/na-ozere7" target="_blank" rel="noopener">mirturbaz</a> · <a href="https://101hotels.com/belarus/ozery/usadba_na_ozere.html" target="_blank" rel="noopener">101hotels</a></div>
+      </article>
+      <article>
+        <div class="row"><h3>Озеро Белое</h3><span class="price">от&nbsp;160 BYN</span></div>
+        <div class="km">Гродненский район, около 26 км от&nbsp;Гродно</div>
+        <ul>
+          <li>Дом с&nbsp;русской баней на&nbsp;8 человек от&nbsp;160 BYN по&nbsp;карточке каталога</li>
+          <li>База «Химик» в&nbsp;д. Белое: вместо цены в&nbsp;карточке вопрос «сколько стоит?»</li>
+        </ul>
+        <div class="src"><a href="https://mirturbaz.ru/belarus/water/ozero-beloe1" target="_blank" rel="noopener">Озеро Белое на&nbsp;mirturbaz</a> · <a href="https://mirturbaz.ru/belarus/grodnenskaya-oblast/himik" target="_blank" rel="noopener">«Химик»</a></div>
+      </article>
+      <article>
+        <div class="row"><h3>Агроусадьба «Лесной Эдем»</h3><span class="price">договорная</span></div>
+        <div class="km">д. Лихачи, около 30 км от&nbsp;Гродно</div>
+        <ul>
+          <li>До&nbsp;16 гостей, бассейн, баня и&nbsp;сауна, берег в&nbsp;150 м</li>
+          <li>Оценка 5,0 на&nbsp;Яндекс Путешествиях</li>
+        </ul>
+        <div class="src"><a href="https://mirturbaz.ru/belarus/grodnenskaya-oblast/lesnoy-edem" target="_blank" rel="noopener">mirturbaz</a> · <a href="https://travel.yandex.ru/hotels/belarus/agrousadba-lesnoi-edem/" target="_blank" rel="noopener">Яндекс Путешествия</a></div>
+      </article>
+      <article>
+        <div class="row"><h3>Усадьба «Озеро Ладеники»</h3><span class="price">баня 100 BYN / 4 ч</span></div>
+        <div class="km">Новогрудский район, дальше от&nbsp;Гродно, для&nbsp;ориентира по&nbsp;ценам</div>
+        <ul>
+          <li>Баня отдельно: 100 BYN за&nbsp;4 часа, купание в&nbsp;озере</li>
+        </ul>
+        <div class="src"><a href="https://mirturbaz.ru/belarus/grodnenskaya-oblast/ozero-ladeniki" target="_blank" rel="noopener">mirturbaz</a></div>
+      </article>
+    </div>
+    <div class="norm">
+      <div class="box">
+        <h3>Что&nbsp;стало нормой</h3>
+        <ul>
+          <li>Баня в&nbsp;цене дома или&nbsp;отдельным сеансом</li>
+          <li>Беседки и&nbsp;залы под&nbsp;праздники, у&nbsp;«На&nbsp;озере» до&nbsp;70 человек</li>
+          <li>Развлечения на&nbsp;воде: лодки, катамараны, байдарки</li>
+        </ul>
+      </div>
+      <div class="box no">
+        <h3>Чего не&nbsp;встретила</h3>
+        <ul>
+          <li>Календаря свободных дат и&nbsp;брони с&nbsp;предоплатой на&nbsp;сайте</li>
+          <li>Цены беседки по&nbsp;числу гостей и&nbsp;дню недели</li>
+          <li>Открытых цен: чаще «договорная» или&nbsp;«уточняйте»</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:14px">Ваши открытые цены и&nbsp;готовые правила как&nbsp;раз закрывают то, чего нет у&nbsp;соседей. Осталось показать их&nbsp;на&nbsp;сайте так, чтобы сумма считалась сама.</p>
+  </section>
+
+  <section>
+    <h2>Что&nbsp;должен делать ваш сайт</h2>
+    <ol class="tasks">
+      <li>Показать три дома и&nbsp;четыре беседки с&nbsp;фото, вместимостью и&nbsp;ценой на&nbsp;выбранную дату.</li>
+      <li>Посчитать сумму: дом или&nbsp;беседка, будни или&nbsp;выходные, сколько гостей. И&nbsp;сразу показать 30% предоплаты.</li>
+      <li>Принять заявку и&nbsp;прислать её администратору готовой: что, когда, сколько гостей, сумма и&nbsp;телефон.</li>
+      <li>Отдельно рассказать про&nbsp;«Затоку»: свадьбы, корпоративы, большие компании, заявка на&nbsp;расчёт.</li>
+      <li>Ответить на&nbsp;частые вопросы до&nbsp;директа: заезд, выезд, что&nbsp;входит, прокат, как&nbsp;проехать.</li>
+      <li>Находиться в&nbsp;поиске по&nbsp;запросам «база отдыха Гродно», «домик с&nbsp;баней Гродно», «беседка на&nbsp;праздник Гродно».</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Было и&nbsp;стало</h2>
+    <div class="ba">
+      <div class="chat">
+        <span class="lbl">Сейчас, в&nbsp;директе</span>
+        <div class="msg in">Здравствуйте! Бобровая хатка на&nbsp;субботу 12 декабря свободна?<i>10:14</i></div>
+        <div class="msg in">Нас шестеро, сколько выйдет с&nbsp;баней?<i>10:15</i></div>
+        <div class="msg out">Добрый день! Свободна. 350 BYN за&nbsp;сутки и&nbsp;по&nbsp;10 BYN за&nbsp;двоих сверх четырёх, итого 370. Баня входит<i>11:52</i></div>
+        <div class="msg in">А&nbsp;Ведьмин дом в&nbsp;эту субботу? И&nbsp;можно с&nbsp;собакой?<i>12:30</i></div>
+        <p class="foot">Четыре сообщения и&nbsp;два часа, а&nbsp;гость всё ещё выбирает. Тем временем он уже написал соседям.</p>
+      </div>
+      <div class="chat">
+        <span class="lbl">С&nbsp;сайтом, заявка администратору</span>
+        <div class="req">
+          <b>Новая бронь с&nbsp;сайта</b>
+          <span>Бобровая хатка · сб, 12 декабря, 1 сутки</span>
+          <span>6 гостей · 370 BYN</span>
+          <span>Предоплата 30%: 111 BYN</span>
+          <span>Ольга, +375 29 000-00-00</span>
+        </div>
+        <p class="foot">Гость сам увидел свободную дату и&nbsp;сумму. Администратору остаётся подтвердить бронь и&nbsp;принять предоплату.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Что&nbsp;можно предложить вашим гостям</h2>
+    <div class="idea">
+      <div class="box"><h3>Сертификат к&nbsp;Новому году</h3><p>Домик с&nbsp;баней в&nbsp;подарок: человек выбирает сумму на&nbsp;сайте и&nbsp;сразу получает красивый сертификат.</p></div>
+      <div class="box"><h3>Прокат прямо в&nbsp;брони</h3><p>Сапборд на&nbsp;2 часа, казан, уголь и&nbsp;дрова гость добавляет галочкой, а&nbsp;вы заранее знаете, что&nbsp;подготовить.</p></div>
+      <div class="box"><h3>Календарь событий</h3><p>«Последний заброс сезона», открытие лета, рыбалка. Запись на&nbsp;событие прямо со&nbsp;страницы.</p></div>
+      <div class="box"><h3>Страница праздников в&nbsp;«Затоке»</h3><p>Фото с&nbsp;прошлых свадеб и&nbsp;корпоративов, вместимость, что&nbsp;входит, и&nbsp;заявка на&nbsp;расчёт под&nbsp;дату.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Что&nbsp;нужно уточнить</h2>
+    <ol class="q">
+      <li>Сколько беседок до&nbsp;10 человек и&nbsp;чем они отличаются? От&nbsp;чего зависит цена «от&nbsp;60 BYN»?</li>
+      <li>Кошкин дом стоит 300 BYN в&nbsp;любой день или&nbsp;в&nbsp;выходные дороже? Что&nbsp;за&nbsp;дополнительный дом на&nbsp;2 места за&nbsp;100 BYN?</li>
+      <li>В&nbsp;рилс «Домик с&nbsp;баней 250 BYN за&nbsp;сутки»: о&nbsp;каком доме речь и&nbsp;когда действует эта цена?</li>
+      <li>Сколько спальных мест в&nbsp;каждом доме? Можно ли с&nbsp;животными? Что&nbsp;есть в&nbsp;доме: постельное, полотенца, посуда?</li>
+      <li>Бунгало до&nbsp;30 человек: 250 BYN в&nbsp;любой день? Сколько стоит «Затока» в&nbsp;будни и&nbsp;выходные?</li>
+      <li>Какие цены на&nbsp;Новый год и&nbsp;праздники? Все ли дома работают зимой?</li>
+      <li>Места для&nbsp;палаток и&nbsp;рыбалка: сколько стоит и&nbsp;нужна ли бронь?</li>
+      <li>Как&nbsp;принимаете предоплату 30% и&nbsp;какие условия отмены?</li>
+      <li>Точный адрес для&nbsp;навигатора и&nbsp;на&nbsp;какой номер принимать заявки с&nbsp;сайта: +375 29 332-47-37?</li>
+      <li>Название ИП или&nbsp;организации для&nbsp;политики конфиденциальности.</li>
+    </ol>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Подготовила Анастасия Абдуллаева</span>
+    <span class="sign"><span><b>FOR.MI</b> designed &amp; developed by ABN</span><a class="rnd" href="https://t.me/abanev_dev" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.4 4.3 2.9 11.5c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.5c.2.6.4.8.9.8s.6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8L22.8 5.8c.3-1.3-.4-1.9-1.4-1.5zM8.6 14.1l9.6-6c.5-.3.9-.1.5.2l-7.8 7.1-.3 3.3-2-4.6z"/></svg></a></span>
+  </div>
+</footer>
+
+</body>
+</html>

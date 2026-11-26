@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Glamping Rassvet · главный экран</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Onest:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: в стиле их поста о запуске: почти чёрный фон, бежевое золото, тонкий антиквенный заголовок и разрядка. Слева вид из иглу ночью, справа выбор сферы и календарь. */
+:root{
+  --bg:#13110E;--card:#1C1915;--card2:#26221C;--ink:#EFE6D6;--muted:#ADA18D;--dim:#7B7263;--line:#342F27;
+  --beige:#D9BF94;--beige-d:#B39667;--busy:#3B302A;
+  --f-head:"Playfair Display",Georgia,serif;--f-body:"Onest",system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5}
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit;cursor:pointer}
+.wrap{max-width:1280px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left));padding-right:max(18px,env(safe-area-inset-right))}
+.hero{position:relative;isolation:isolate;min-height:100vh;min-height:100svh;display:flex;flex-direction:column}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:url("img/lestnica.jpg") center 45%/cover}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgb(14 12 10 / .9) 0%,rgb(14 12 10 / .55) 45%,rgb(14 12 10 / .15) 100%)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:16px}
+.mark{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none}
+.mark img{width:46px;height:46px;border-radius:50%}
+.mark b{font-size:12px;font-weight:600;letter-spacing:.32em;text-transform:uppercase}
+.links{display:flex;gap:26px;font-size:14px;color:var(--muted)}
+.btn-l{border:1px solid var(--beige-d);background:none;color:var(--beige);border-radius:8px;padding:9px 16px;font-weight:600;font-size:13.5px;letter-spacing:.04em}
+.main{flex:1;display:flex;align-items:center}
+.main .wrap{width:100%;display:grid;grid-template-columns:minmax(0,1fr) 430px;gap:48px;align-items:center;padding-block:10px 40px}
+.copy{display:grid;gap:16px;max-width:580px}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:var(--beige)}
+h1{margin:0;font-family:var(--f-head);font-weight:400;font-size:clamp(42px,5.2vw,72px);line-height:1.04;text-wrap:balance}
+h1 em{color:var(--beige)}
+.sub{margin:0;font-size:18px;opacity:.9;max-width:46ch}
+.facts{display:flex;flex-wrap:wrap;gap:8px}
+.facts span{font-size:13.5px;font-weight:600;border:1px solid rgb(217 191 148 / .3);background:rgb(14 12 10 / .5);border-radius:999px;padding:6px 12px}
+.book{min-width:0;background:rgb(28 25 21 / .95);border:1px solid var(--line);border-radius:20px;padding:18px;display:grid;grid-template-columns:minmax(0,1fr);gap:13px;box-shadow:0 30px 70px -20px rgb(0 0 0 / .75)}
+.book h2{margin:0;font-family:var(--f-head);font-weight:400;font-size:25px}
+.domes{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.dome{border:1.5px solid var(--line);background:var(--card2);border-radius:13px;overflow:hidden;padding:0;text-align:left}
+.dome img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.dome span{display:block;padding:7px 10px 8px;font-family:var(--f-head);font-size:16px;line-height:1.15}
+.dome small{display:block;font-family:var(--f-body);font-size:11.5px;color:var(--muted)}
+.dome[aria-pressed="true"]{border-color:var(--beige);box-shadow:0 0 0 1px var(--beige)}
+.cal-h{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:14.5px}
+.cal-h span{font-size:12.5px;color:var(--muted);font-weight:500}
+.dn,.days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:3px;text-align:center}
+.dn span{font-size:11px;color:var(--dim);font-weight:600}
+.days button{border:0;background:var(--card2);border-radius:7px;height:30px;font-size:13px;font-weight:600;padding:0;font-variant-numeric:tabular-nums}
+.days button.we{color:var(--beige)}
+.days button.busy{background:var(--busy);color:#7E6E62;opacity:.8;cursor:not-allowed}
+.days button.end{background:var(--beige);color:#1C160C}
+.days button.rng{background:rgb(217 191 148 / .2);color:var(--beige)}
+.row{display:flex;gap:8px}
+.pill{flex:1;background:var(--card2);border-radius:11px;padding:7px 11px;display:grid}
+.pill small{font-size:11px;color:var(--muted);font-weight:600}
+.pill b{font-size:14.5px}
+.step{display:flex;align-items:center;justify-content:space-between}
+.step div{display:flex;align-items:center;gap:6px}
+.step button{width:26px;height:26px;border-radius:7px;border:1px solid var(--line);background:var(--card);font-size:16px;line-height:1;padding:0}
+.cta{border:0;background:var(--beige);color:#1C160C;border-radius:12px;padding:14px;font-weight:800;font-size:15.5px}
+.gift{background:none;border:1px dashed var(--line);border-radius:12px;padding:10px;color:var(--beige);font-weight:600;font-size:14px}
+.note{margin:-5px 0 0;text-align:center;font-size:12px;color:var(--dim)}
+button:focus-visible{outline:2px solid var(--beige);outline-offset:2px}
+@media (max-width:1100px){.links{display:none}.main .wrap{grid-template-columns:minmax(0,1fr) 400px;gap:28px}}
+@media (max-width:820px){
+  .hero{min-height:0}
+  .hero::before{bottom:auto;height:520px;background-position:center 40%}
+  .hero::after{background:linear-gradient(180deg,rgb(14 12 10 / .55) 0,rgb(14 12 10 / .8) 300px,var(--bg) 520px)}
+  .main .wrap{grid-template-columns:minmax(0,1fr);padding-block:20px 28px;gap:20px}
+  .mark img{width:40px;height:40px}.mark b{font-size:10.5px;letter-spacing:.26em}.btn-l{padding:7px 12px;font-size:12.5px}
+  h1{font-size:42px}.sub{font-size:16px}
+}
+</style>
+</head>
+<body>
+<section class="hero">
+  <header class="nav"><div class="wrap">
+    <a class="mark" href="#"><img src="img/logo.png" alt=""><b>Glamping Rassvet</b></a>
+    <nav class="links"><span>Сферы</span><span>Галерея</span><span>Акции</span><span>Отзывы</span><span>Как добраться</span></nav>
+    <button class="btn-l" type="button">Сертификат</button>
+  </div></header>
+  <div class="main"><div class="wrap">
+    <div class="copy">
+      <span class="eyebrow">45 км от&nbsp;Нижнего Новгорода</span>
+      <h1>Ночь в&nbsp;сфере <em>среди берёз</em></h1>
+      <p class="sub">Стеклянное иглу «Космос» или сфера «Свобода» с&nbsp;бассейном. Выберите даты: свободные ночи видно сразу, бронь напрямую.</p>
+      <div class="facts"><span>Чан у&nbsp;каждой сферы</span><span>Костровая зона</span><span>Подарочный сертификат</span></div>
+    </div>
+    <form class="book" id="book" novalidate>
+      <h2>Выберите сферу</h2>
+      <div class="domes" id="domes">
+        <button type="button" class="dome" aria-pressed="true"><img src="img/iglu.jpg" alt="" style="object-position:center 35%"><span>Космос<small>стеклянное иглу</small></span></button>
+        <button type="button" class="dome" aria-pressed="false"><img src="img/svoboda.jpg" alt=""><span>Свобода<small>с&nbsp;бассейном летом</small></span></button>
+      </div>
+      <div class="cal-h">Декабрь 2026 <span>заезд и&nbsp;выезд</span></div>
+      <div class="dn"><span>пн</span><span>вт</span><span>ср</span><span>чт</span><span>пт</span><span>сб</span><span>вс</span></div>
+      <div class="days" id="days"></div>
+      <div class="row">
+        <div class="pill"><small>Заезд → выезд</small><b id="rng">сб 12 → вс 13 декабря</b></div>
+        <div class="pill step"><span><small style="display:block;font-size:11px;color:var(--muted);font-weight:600">Гостей</small><b id="g">2</b></span><div><button type="button" data-v="-1" aria-label="Меньше">−</button><button type="button" data-v="1" aria-label="Больше">+</button></div></div>
+      </div>
+      <button class="cta" type="submit" id="cta">Забронировать 1 ночь</button>
+      <p class="note">Это набросок: цены подставим ваши, бронь никуда не&nbsp;отправится</p>
+    </form>
+  </div></div>
+</section>
+<script>
+const $=s=>document.querySelector(s);
+const busy=[4,5,6,18,19,20,25,26,27,31];let a=12,b=13,g=2;
+const WD=["вс","пн","вт","ср","чт","пт","сб"],dow=d=>new Date(2026,11,d).getDay();
+function draw(){
+  let h="<i></i>";
+  for(let d=1;d<=31;d++){const w=dow(d),c=[w===0||w===5||w===6?"we":"",busy.includes(d)?"busy":"",d===a||d===b?"end":"",d>a&&d<b?"rng":""].join(" ");h+=`<button type="button" class="${c}" data-d="${d}">${d}</button>`}
+  $("#days").innerHTML=h;const n=b-a;
+  $("#rng").textContent=`${WD[dow(a)]} ${a} → ${WD[dow(b)]} ${b} декабря`;
+  $("#cta").textContent=`Забронировать ${n} ${n===1?"ночь":n<5?"ночи":"ночей"}`;$("#g").textContent=g;
+}
+$("#days").addEventListener("click",e=>{const t=e.target.closest("[data-d]");if(!t||t.classList.contains("busy"))return;const d=+t.dataset.d;
+  if(d<=a||b!==a+1||d===b){a=d;b=d+1}else b=d;
+  for(let x=a;x<b;x++)if(busy.includes(x)){b=x;break}if(b<=a)b=a+1;draw()});
+document.querySelectorAll(".step button").forEach(x=>x.addEventListener("click",()=>{g=Math.max(1,Math.min(4,g+ +x.dataset.v));draw()}));
+$("#domes").addEventListener("click",e=>{const t=e.target.closest(".dome");if(!t)return;[...$("#domes").children].forEach(x=>x.setAttribute("aria-pressed",x===t))});
+$("#book").addEventListener("submit",e=>e.preventDefault());
+draw();
+</script>
+</body>
+</html>

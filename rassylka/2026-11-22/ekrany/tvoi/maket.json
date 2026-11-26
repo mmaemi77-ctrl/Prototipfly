@@ -1,0 +1,13 @@
+{
+  "page": "index.html",
+  "eyebrow": "Твой клининг · главный экран",
+  "title": "Цена химчистки и&nbsp;свободное время <em>сразу на&nbsp;экране</em>",
+  "chips": ["Ваш прайс в калькуляторе", "Окна записи на неделю", "До и после"],
+  "bg": "#2A1E33",
+  "ink": "#F4EEF7",
+  "label": "#D7BEE8",
+  "accent": "#5E2E73",
+  "accentText": "#D7BEE8",
+  "photo": "img/divan-posle.jpg",
+  "logo": "img/logo.png"
+}

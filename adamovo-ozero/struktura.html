@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Адамово озеро · структура</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Oswald:wght@500;600&family=Marck+Script&display=swap">
+<style>
+/* Слайды 540×675 (4:5): тёмный лес, золото и узкий шрифт, как на прайсах Адамова озера */
+:root{
+  --bg:#11130F;--surface:#1D2019;--surface2:#272A21;--ink:#F1E8D6;--muted:#B5AC9A;--dim:#857E6F;--line:#33362C;
+  --gold:#D6AE6A;--gold-hi:#E9C789;--gold-tint:#2A2517;--gold-line:#5B4A27;--busy:#4A3B33;
+  --f-body:"Onest",system-ui,sans-serif;--f-head:"Oswald","Arial Narrow",sans-serif;--f-script:"Marck Script",cursive;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#000;display:grid;gap:20px;justify-content:center;padding:20px 0;font-family:var(--f-body);color:var(--ink)}
+.slide{width:540px;height:675px;position:relative;overflow:hidden;background:var(--bg);isolation:isolate;padding:26px 26px 22px;display:flex;flex-direction:column;gap:14px}
+.slide.photo::before{content:"";position:absolute;inset:0;z-index:-2;background:url("img/ozero-vecher.jpg") center/cover;opacity:.32}
+.slide.photo::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgb(17 19 15 / .75),rgb(17 19 15 / .95) 45%)}
+.brand{display:flex;align-items:center;gap:9px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-hi)}
+.brand img{width:28px;height:28px;border-radius:50%}
+.brand .pg{margin-left:auto;color:var(--dim);letter-spacing:.08em}
+.ttl{margin:0;font-family:var(--f-head);font-weight:600;font-size:34px;line-height:1.02;text-transform:uppercase}
+.ttl em{display:block;font-family:var(--f-script);font-style:normal;text-transform:none;font-weight:400;color:var(--gold-hi);font-size:25px;margin-top:4px}
+
+/* слайд 1 */
+.blocks{display:grid;gap:8px;flex:1;align-content:start}
+.bl{display:grid;grid-template-columns:26px 66px minmax(0,1fr);gap:12px;align-items:center;background:rgb(29 32 25 / .9);border-radius:12px;padding:8px 12px 8px 8px}
+.bl .num{font-family:var(--f-head);font-weight:600;font-size:18px;color:var(--gold);text-align:center}
+.bl img{width:66px;height:46px;border-radius:7px;object-fit:cover}
+.bl b{display:block;font-size:15px;line-height:1.2}
+.bl span{display:block;font-size:12.5px;color:var(--muted);line-height:1.3}
+.bl.main{background:var(--gold-tint);border:1px solid var(--gold-line)}
+
+/* слайд 2 */
+.card{background:#171A13;border:1px solid var(--line);border-radius:16px;padding:14px;display:grid;gap:10px}
+.tabs{display:grid;grid-template-columns:1fr 1fr;background:var(--surface2);border-radius:10px;padding:3px;gap:3px;font-size:12.5px;font-weight:700;text-align:center}
+.tabs span{padding:6px;border-radius:8px;color:var(--muted)}
+.tabs .on{background:var(--gold);color:#1A160D}
+.objs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.ob{border:1.5px solid var(--line);border-radius:9px;overflow:hidden;font-size:10.5px;font-weight:700}
+.ob img{width:100%;height:46px;object-fit:cover}
+.ob span{display:block;padding:4px 6px}
+.ob.on{border-color:var(--gold-hi)}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;text-align:center;font-size:11px;font-weight:600}
+.cal .h{color:var(--dim);font-size:10px}
+.cal i{font-style:normal;background:var(--surface);border-radius:5px;height:21px;display:grid;place-items:center}
+.cal i.we{color:var(--gold-hi)}
+.cal i.bz{background:var(--busy);color:#8F8074;opacity:.75}
+.cal i.sel{background:var(--gold);color:#1A160D}
+.cal i.e{background:none}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.pill{background:var(--surface);border-radius:9px;padding:6px 10px;font-size:12px;color:var(--muted);display:flex;gap:10px;align-items:center}
+.pill b{color:var(--ink);font-size:14px}
+.sum{display:flex;justify-content:space-between;align-items:end;border-top:1px dashed var(--line);padding-top:9px}
+.sum .t{font-family:var(--f-head);font-size:28px;color:var(--gold-hi);line-height:1}
+.sum small{display:block;font-size:11px;color:var(--muted)}
+.sum .p{text-align:right;font-size:11px;color:var(--muted)}
+.sum .p b{display:block;color:var(--ink);font-size:15px}
+.btn{background:var(--gold);color:#1A160D;font-weight:800;text-align:center;border-radius:10px;padding:10px;font-size:14px}
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.flow div{background:var(--surface);border-radius:11px;padding:9px 10px;font-size:12px;color:var(--muted);line-height:1.3}
+.flow b{display:block;color:var(--ink);font-size:13px;margin-bottom:2px}
+
+/* слайд 3 */
+.tg{background:#1F2A33;border-radius:14px 14px 14px 4px;padding:12px 14px;font-size:13.5px;display:grid;gap:2px}
+.tg .who{font-size:11.5px;font-weight:700;color:#7FB3E0}
+.tg i{font-style:normal;color:#93A3AF;font-size:10.5px;justify-self:end}
+.grid{background:var(--surface);border-radius:14px;padding:12px;display:grid;gap:5px}
+.grid .hd{display:grid;grid-template-columns:92px repeat(14,1fr);gap:2px;font-size:9.5px;color:var(--dim);text-align:center}
+.grid .hd span:first-child{text-align:left}
+.grid .r{display:grid;grid-template-columns:92px repeat(14,1fr);gap:2px;align-items:center}
+.grid .r span:first-child{font-size:11px;font-weight:600;white-space:nowrap;overflow:hidden}
+.grid .r i{height:15px;border-radius:3px;background:var(--surface2)}
+.grid .r i.b{background:var(--gold-line)}
+.grid .r i.n{background:var(--gold)}
+.lg{display:flex;gap:12px;font-size:10.5px;color:var(--muted)}
+.lg i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:4px}
+.pros{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.pros li{display:grid;grid-template-columns:20px 1fr;gap:8px;font-size:14.5px;line-height:1.35}
+.pros li::before{content:"✓";color:var(--gold-hi);font-weight:800}
+.foot{margin-top:auto;font-size:11px;color:var(--dim);display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+
+<div class="slide photo">
+  <div class="brand"><img src="img/logo.png" alt="">Адамово озеро · структура сайта<span class="pg">1 / 3</span></div>
+  <h1 class="ttl">Что&nbsp;будет на&nbsp;сайте<em>домики с&nbsp;баней на&nbsp;первом месте</em></h1>
+  <div class="blocks">
+    <div class="bl main"><span class="num">1</span><img src="img/ozero-den.jpg" alt=""><div><b>Главный экран с&nbsp;бронью</b><span>Дом или&nbsp;беседка, дата и&nbsp;гости, сумма сразу</span></div></div>
+    <div class="bl"><span class="num">2</span><img src="img/bobrovaya.jpg" alt=""><div><b>Три дома с&nbsp;баней</b><span>Ведьмин дом, Бобровая хатка, Кошкин дом: фото, цены, что&nbsp;входит</span></div></div>
+    <div class="bl"><span class="num">3</span><img src="img/mulyavina.jpg" alt=""><div><b>Беседки</b><span>До&nbsp;10 человек, Мулявина, Бунгало, «Затока»</span></div></div>
+    <div class="bl"><span class="num">4</span><img src="img/zatoka.jpg" alt=""><div><b>Праздники в&nbsp;«Затоке»</b><span>Свадьбы и&nbsp;корпоративы до&nbsp;50 гостей, заявка на&nbsp;расчёт</span></div></div>
+    <div class="bl"><span class="num">5</span><img src="img/sap.jpg" alt=""><div><b>Прокат на&nbsp;месте</b><span>Сапборды, казан, шампуры, уголь и&nbsp;дрова</span></div></div>
+    <div class="bl"><span class="num">6</span><img src="img/tropa.jpg" alt=""><div><b>Условия и&nbsp;вопросы</b><span>Заезд и&nbsp;выезд, предоплата, можно ли с&nbsp;собакой</span></div></div>
+    <div class="bl"><span class="num">7</span><img src="img/besedka.jpg" alt=""><div><b>Как&nbsp;добраться</b><span>Карта, маршрут от&nbsp;Гродно, телефон</span></div></div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="brand"><img src="img/logo.png" alt="">Адамово озеро · главный экран<span class="pg">2 / 3</span></div>
+  <h2 class="ttl">Бронь без&nbsp;переписки<em>гость сам видит дату и&nbsp;сумму</em></h2>
+  <div class="card">
+    <div class="tabs"><span class="on">Домик на&nbsp;сутки</span><span>Беседка на&nbsp;день</span></div>
+    <div class="objs">
+      <div class="ob"><img src="img/vedmin.jpg" alt=""><span>Ведьмин дом</span></div>
+      <div class="ob on"><img src="img/bobrovaya.jpg" alt=""><span>Бобровая хатка</span></div>
+      <div class="ob"><img src="img/koshkin.jpg" alt="" style="object-position:center 30%"><span>Кошкин дом</span></div>
+    </div>
+    <div class="cal">
+      <span class="h">пн</span><span class="h">вт</span><span class="h">ср</span><span class="h">чт</span><span class="h">пт</span><span class="h">сб</span><span class="h">вс</span>
+      <i class="e"></i><i>1</i><i>2</i><i class="bz">3</i><i class="we">4</i><i class="we bz">5</i><i class="we bz">6</i>
+      <i>7</i><i>8</i><i>9</i><i>10</i><i class="we">11</i><i class="sel">12</i><i class="we">13</i>
+      <i>14</i><i class="bz">15</i><i>16</i><i>17</i><i class="we bz">18</i><i class="we bz">19</i><i class="we">20</i>
+    </div>
+    <div class="row"><span class="pill">Гостей <b>6</b></span><span class="pill">Суток <b>1</b></span><span class="pill">сб, 12 декабря</span></div>
+    <div class="sum"><div><small>Итого: 350 + 2 гостя × 10</small><span class="t">370 BYN</span></div><div class="p">предоплата 30%<b>111 BYN</b></div></div>
+    <div class="btn">Забронировать</div>
+  </div>
+  <div class="flow">
+    <div><b>Выбрал дом</b>по&nbsp;фото и&nbsp;цене, без&nbsp;сторис</div>
+    <div><b>Дату и&nbsp;гостей</b>занятые дни уже закрыты</div>
+    <div><b>Оставил бронь</b>с&nbsp;суммой и&nbsp;предоплатой</div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="brand"><img src="img/logo.png" alt="">Адамово озеро · для&nbsp;вас<span class="pg">3 / 3</span></div>
+  <h2 class="ttl">Что&nbsp;видите вы<em>заявка уже посчитана</em></h2>
+  <div class="tg">
+    <span class="who">Адамово озеро · бронь с&nbsp;сайта</span>
+    <b>Бобровая хатка</b>
+    <span>сб, 12 декабря, 1 сутки · 6 гостей</span>
+    <span>370 BYN · предоплата 111 BYN</span>
+    <span>Ольга, +375 29 000-00-00</span>
+    <span>«Нужен сапборд и&nbsp;казан»</span>
+    <i>10:14</i>
+  </div>
+  <div class="grid">
+    <div class="hd"><span>декабрь</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span></div>
+    <div class="r"><span>Ведьмин дом</span><i></i><i></i><i></i><i></i><i class="b"></i><i class="b"></i><i class="b"></i><i></i><i></i><i></i><i></i><i class="b"></i><i class="b"></i><i></i></div>
+    <div class="r"><span>Бобровая хатка</span><i></i><i></i><i></i><i></i><i></i><i class="n"></i><i></i><i></i><i class="b"></i><i></i><i></i><i class="b"></i><i class="b"></i><i></i></div>
+    <div class="r"><span>Кошкин дом</span><i></i><i class="b"></i><i class="b"></i><i></i><i class="b"></i><i class="b"></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="b"></i><i class="b"></i></div>
+    <div class="r"><span>Мулявина</span><i></i><i></i><i></i><i></i><i></i><i class="b"></i><i class="b"></i><i></i><i></i><i></i><i></i><i></i><i class="b"></i><i></i></div>
+    <div class="r"><span>Бунгало</span><i></i><i></i><i></i><i></i><i></i><i></i><i class="b"></i><i></i><i></i><i></i><i></i><i></i><i class="b"></i><i class="b"></i></div>
+    <div class="r"><span>Затока</span><i></i><i></i><i></i><i></i><i></i><i class="b"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="b"></i></div>
+    <div class="lg"><span><i style="background:var(--gold)"></i>новая бронь</span><span><i style="background:var(--gold-line)"></i>занято</span><span><i style="background:var(--surface2)"></i>свободно</span></div>
+  </div>
+  <ul class="pros">
+    <li>Сумму и&nbsp;30% предоплаты не&nbsp;нужно пересчитывать</li>
+    <li>Все дома и&nbsp;беседки в&nbsp;одном календаре</li>
+    <li>Прокат гость отмечает сразу, вы знаете, что&nbsp;подготовить</li>
+  </ul>
+</div>
+
+</body>
+</html>

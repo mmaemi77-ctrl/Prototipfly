@@ -1,0 +1,12 @@
+{
+  "page": "index.html",
+  "eyebrow": "OformissimO · главный экран",
+  "title": "Шары с&nbsp;именем, <em>надпись видно до&nbsp;заказа</em>",
+  "chips": ["Сеты с ценами", "Надпись на шаре сразу", "Доставка по Самаре"],
+  "bg": "#2F3329",
+  "ink": "#F5EFE8",
+  "label": "#E2C3B6",
+  "accent": "#B07E70",
+  "accentText": "#EBC6B8",
+  "photo": "img/tekstura.jpg"
+}

@@ -1,0 +1,423 @@
+<title>Звонок Адамову озеру</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Oswald:wght@500;600&display=swap">
+<style>
+/* Шпаргалка на телефоне: таймер и этапы сверху, ниже по порядку звонка. Фразы «говоришь» крупно, под вопросами поля для ответов, всё сохраняется. */
+:root{
+  --bg:#ECEBE6; --card:#FFFFFF; --ink:#141416; --muted:#5C5A55; --line:#D9D6CF; --soft:#F4F3EF;
+  --blue:#2C4BDA; --blue-ink:#FFFFFF; --blue-soft:#E4E9FB; --say:#EEF1FD;
+  --ok:#1C7A4B; --ok-soft:#DDF1E6; --warn:#8A520F; --warn-soft:#F8ECDA; --lake:#2F5D58;
+  --f:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; --f-h:"Oswald","Arial Narrow",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0F1012; --card:#18191C; --ink:#F0EFEA; --muted:#A9A59C; --line:#2C2D31; --soft:#202125;
+  --blue:#7C93F4; --blue-ink:#0E0F12; --blue-soft:#1E2442; --say:#1A1F36;
+  --ok:#62C995; --ok-soft:#173327; --warn:#E8B46E; --warn-soft:#33270F; --lake:#8CC2BA; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1012; --card:#18191C; --ink:#F0EFEA; --muted:#A9A59C; --line:#2C2D31; --soft:#202125;
+  --blue:#7C93F4; --blue-ink:#0E0F12; --blue-soft:#1E2442; --say:#1A1F36;
+  --ok:#62C995; --ok-soft:#173327; --warn:#E8B46E; --warn-soft:#33270F; --lake:#8CC2BA; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f);font-size:15.5px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 60px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:720px;margin:0 auto}
+header.top{padding-block:20px 8px;display:grid;gap:8px}
+.eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+h1{margin:0;font-family:var(--f-h);font-weight:600;font-size:34px;line-height:1.05;text-transform:uppercase;letter-spacing:.01em}
+.meta{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;color:var(--muted)}
+.meta b{color:var(--ink);font-variant-numeric:tabular-nums}
+.goal{background:var(--card);border-radius:14px;padding:12px 14px;font-size:14.5px}
+.goal b{color:var(--lake)}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:8px;display:grid;gap:8px}
+.timer{display:flex;align-items:center;gap:10px;background:var(--card);border-radius:14px;padding:8px 8px 8px 14px}
+.timer output{font-family:var(--f-h);font-size:26px;font-weight:600;font-variant-numeric:tabular-nums;min-width:74px}
+.timer .hint{flex:1;font-size:12.5px;color:var(--muted);line-height:1.3;min-width:0}
+.timer button{border:0;border-radius:10px;padding:9px 14px;font:inherit;font-weight:700;font-size:14px;background:var(--blue);color:var(--blue-ink);cursor:pointer}
+.timer button.stop{background:var(--soft);color:var(--ink)}
+.timer.late output{color:var(--warn)}
+nav.steps{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+nav.steps::-webkit-scrollbar{display:none}
+nav.steps a{flex:none;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600;white-space:nowrap}
+nav.steps a small{color:var(--muted);font-weight:500;margin-left:4px;font-variant-numeric:tabular-nums}
+section{padding-top:18px;scroll-margin-top:120px}
+h2{margin:0 0 4px;font-family:var(--f-h);font-weight:600;font-size:22px;text-transform:uppercase;letter-spacing:.02em;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+h2 small{font-family:var(--f);text-transform:none;letter-spacing:0;font-size:13px;color:var(--muted);font-weight:600}
+.lead{margin:0 0 10px;color:var(--muted);font-size:14px}
+.stack{display:grid;gap:8px}
+.card{background:var(--card);border-radius:14px;padding:12px 14px;display:grid;gap:8px;min-width:0}
+.say{background:var(--say);border-radius:12px;padding:10px 12px;display:grid;gap:4px}
+.say::before{content:"Говоришь";font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+.say p{margin:0;font-size:16.5px;line-height:1.42;font-weight:500}
+.why{font-size:13px;color:var(--muted);margin:0}
+.why b{color:var(--ink);font-weight:600}
+.pause{background:var(--warn-soft);color:var(--ink);border-radius:12px;padding:9px 12px;font-size:14px;font-weight:600}
+.pause b{color:var(--warn)}
+.fill{background:var(--warn-soft);color:var(--warn);border-radius:6px;padding:0 5px;font-weight:700;white-space:nowrap}
+textarea{width:100%;font:inherit;font-size:15px;color:var(--ink);background:var(--soft);border:1.5px solid var(--line);border-radius:10px;padding:8px 10px;resize:vertical;min-height:40px}
+textarea:focus{outline:none;border-color:var(--blue)}
+textarea::placeholder{color:var(--muted)}
+.chk{display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:15px}
+.chk input{width:20px;height:20px;flex:none;margin-top:1px;accent-color:var(--ok)}
+.chk.done span{color:var(--muted);text-decoration:line-through}
+.chk small{display:block;color:var(--muted);font-size:13px;text-decoration:none}
+.q{display:grid;gap:6px}
+.q .chk{font-weight:700}
+.vars{display:grid;gap:8px}
+.var{background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:start}
+.var b{font-size:15.5px}
+.var p{margin:0;font-size:14px;color:var(--muted);grid-column:1/2}
+.var .price{font-family:var(--f-h);font-size:22px;font-weight:600;grid-row:1/3;grid-column:2;color:var(--lake);font-variant-numeric:tabular-nums;white-space:nowrap}
+.choice{display:flex;flex-wrap:wrap;gap:6px}
+.choice button{font:inherit;font-size:14px;font-weight:600;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:7px 13px;cursor:pointer}
+.choice button[aria-pressed="true"]{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}
+details.faq{background:var(--card);border-radius:14px}
+details.faq summary{list-style:none;cursor:pointer;padding:12px 40px 12px 14px;font-weight:700;position:relative}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{content:"+";position:absolute;right:14px;top:10px;font-size:20px;color:var(--muted);font-weight:500}
+details.faq[open] summary::after{content:"−"}
+details.faq .in{padding:0 14px 14px;display:grid;gap:8px}
+.copybox{background:var(--soft);border-radius:12px;padding:10px 12px;display:grid;gap:8px}
+.copybox p{margin:0;white-space:pre-wrap;font-size:15px}
+.copy{justify-self:start;font:inherit;font-size:13px;font-weight:700;border:0;border-radius:9px;padding:7px 13px;background:var(--blue);color:var(--blue-ink);cursor:pointer}
+.copy.done{background:var(--ok);color:var(--card)}
+ul.plain{margin:0;padding-left:18px;display:grid;gap:4px;font-size:14.5px}
+.status{font-size:12.5px;color:var(--muted);margin-top:22px}
+a{color:var(--blue)}
+button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+@media (prefers-reduced-motion:no-preference){.copy,.choice button{transition:background .15s,border-color .15s}}
+</style>
+
+<div class="wrap">
+<header class="top">
+  <div class="eyebrow">FOR.MI · звонок клиенту</div>
+  <h1>Адамово озеро</h1>
+  <div class="meta"><span>Пн, 23 ноября, время уточнить</span><span>WhatsApp <b id="tel">+375 29 861-72-83</b></span></div>
+  <button class="copy" type="button" data-text="+375298617283">Скопировать номер</button>
+  <div class="goal">Цель звонка: <b>выбрать вариант и договориться об оплате</b>. 15–20 минут. Они уже видели структуру и разбор, сказали, что домики продаются чаще, и сами позвали созвониться.</div>
+</header>
+
+<div class="bar">
+  <div class="timer" id="timer"><output id="clock">00:00</output><span class="hint" id="hint">Нажмите, когда клиент взял трубку</span><button type="button" id="tbtn">Начать</button></div>
+  <nav class="steps" aria-label="Этапы">
+    <a href="#pered">Перед звонком</a><a href="#nachalo">Начало<small>1 мин</small></a><a href="#voprosy">Вопросы<small>5–7</small></a><a href="#struktura">Структура<small>3</small></a><a href="#cena">Цена<small>3</small></a><a href="#vybor">Если выбрали</a><a href="#faq">Если спросят</a><a href="#melochi">Мелочи</a><a href="#posle">После</a>
+  </nav>
+</div>
+
+<section id="pered">
+  <h2>Перед звонком</h2>
+  <p class="lead">Решите это заранее, тогда на звонке не придётся импровизировать.</p>
+  <div class="card stack">
+    <label class="chk"><input type="checkbox" id="p-vremya"><span>Время звонка подтверждено в директе</span></label>
+    <label class="chk"><input type="checkbox" id="p-oplata"><span>Оплата из Беларуси: перевод по номеру телефона<small>Клиент переводит из приложения своего банка на вашу карту по номеру. Проверьте в своём приложении, что ваш банк принимает такие переводы, и какой номер и банк называть.</small></span></label>
+    <label class="chk"><input type="checkbox" id="p-ceny"><span>Цены решены: 25 000 / 35 000 / 40 000 ₽<small>Меньше 25 000 не соглашаемся. Просят дешевле: убираем блоки, а не снижаем цену.</small></span></label>
+    <label class="chk"><input type="checkbox" id="p-srok"><span>Сроки по договору<small>Структура и первый экран за 2 рабочих дня, все блоки за 5, запуск за 1. Всего около 8 рабочих дней с первой оплаты, без учёта времени на правки клиента.</small></span></label>
+    <label class="chk"><input type="checkbox" id="p-hosting"><span>Хостинг: тот, где оформляли сайт мужу<small>Название и цена в месяц: <span class="fill">название, цена</span></small></span></label>
+    <label class="chk"><input type="checkbox" id="p-pravki"><span>Правки после сдачи решены<small>3 000 ₽ в месяц при варианте за 25 000, 5 000 ₽ при 35 000 и 40 000.</small></span></label>
+    <label class="chk"><input type="checkbox" id="p-obedinit"><span>Знаю, что объединю, если скажут «дорого»<small>Дома с условиями, беседки с «Затокой», прокат с вопросами: вместо 8 блоков 6, это вариант за 25 000.</small></span></label>
+    <label class="chk"><input type="checkbox" id="p-kartinki"><span>Под рукой картинки структуры и разбора, ссылка на договор</span></label>
+    <label class="chk"><input type="checkbox" id="p-tishina"><span>Тихое место, наушники, телефон заряжен</span></label>
+  </div>
+</section>
+
+<section id="nachalo">
+  <h2>Начало <small>1 минута</small></h2>
+  <div class="stack">
+    <div class="say"><p>Добрый день! Это Анастасия, мы переписывались в Инстаграме про сайт для Адамова озера. Удобно сейчас говорить?</p></div>
+    <div class="card q">
+      <div class="say"><p>Как к вам обращаться?</p></div>
+      <textarea id="a-imya" rows="1" placeholder="Имя"></textarea>
+    </div>
+    <div class="say"><p>Предлагаю так: задам несколько вопросов, чтобы сайт был под вас, коротко пройдём по структуре, и я скажу, сколько стоит. Займёт минут пятнадцать, хорошо?</p></div>
+    <p class="why">Неудобно говорить: «Когда вам удобно, чтобы я перезвонила?» и назначьте точное время.</p>
+  </div>
+</section>
+
+<section id="voprosy">
+  <h2>Вопросы <small>5–7 минут</small></h2>
+  <p class="lead">Спрашивайте про их деньги и время, а не «что разместить на сайте». Отмечайте вопрос и пишите ответ коротко, можно потом.</p>
+  <div class="stack">
+    <div class="card q">
+      <label class="chk"><input type="checkbox" id="q1"><span>Кто решает</span></label>
+      <div class="say"><p>Вы владелец или решаете вместе с кем-то?</p></div>
+      <p class="why"><b>Зачем:</b> если решает партнёр, договоритесь, когда он сможет посмотреть, или позовите его на следующий звонок.</p>
+      <textarea id="a-q1" rows="1" placeholder="Ответ"></textarea>
+    </div>
+    <div class="card q">
+      <label class="chk"><input type="checkbox" id="q2"><span>Сколько броней</span></label>
+      <div class="say"><p>Сколько примерно броней домиков у вас в месяц сейчас? А летом?</p></div>
+      <p class="why"><b>Зачем:</b> на этом считается окупаемость. Один домик на выходные приносит 350–370 BYN.</p>
+      <textarea id="a-q2" rows="1" placeholder="Ответ"></textarea>
+    </div>
+    <div class="card q">
+      <label class="chk"><input type="checkbox" id="q3"><span>Откуда гости</span></label>
+      <div class="say"><p>Откуда сейчас приходят гости: из Инстаграма, по звонкам, от знакомых, из каталогов?</p></div>
+      <textarea id="a-q3" rows="1" placeholder="Ответ"></textarea>
+    </div>
+    <div class="card q">
+      <label class="chk"><input type="checkbox" id="q4"><span>Время на переписку</span></label>
+      <div class="say"><p>Кто у вас отвечает в директе? Сколько времени в день уходит на одни и те же вопросы: свободно ли, сколько стоит, как доехать?</p></div>
+      <p class="why"><b>Зачем:</b> это их боль словами клиента. Повторите её потом, когда будете называть цену.</p>
+      <textarea id="a-q4" rows="1" placeholder="Ответ"></textarea>
+    </div>
+    <div class="card q">
+      <label class="chk"><input type="checkbox" id="q5"><span>Где ведут брони</span></label>
+      <div class="say"><p>Где вы сейчас записываете брони: в тетради, в таблице, в каком-то сервисе?</p></div>
+      <p class="why"><b>Зачем:</b> если в таблице или сервисе, календарь из третьего варианта им точно нужен.</p>
+      <textarea id="a-q5" rows="1" placeholder="Ответ"></textarea>
+    </div>
+    <div class="card q">
+      <label class="chk"><input type="checkbox" id="q6"><span>Предоплата</span></label>
+      <div class="say"><p>Предоплату тридцать процентов как вы сейчас принимаете? Хотели бы, чтобы гость платил прямо на сайте?</p></div>
+      <p class="why"><b>Зачем:</b> оплата на сайте подключается через белорусскую платёжную систему. Это отдельная доработка: скажите, что посчитаете её отдельно.</p>
+      <textarea id="a-q6" rows="1" placeholder="Ответ"></textarea>
+    </div>
+    <div class="card q">
+      <label class="chk"><input type="checkbox" id="q7"><span>Кто меняет даты и цены</span></label>
+      <div class="say"><p>Занятые даты и цены вы хотели бы менять сами или удобнее, чтобы это делала я?</p></div>
+      <p class="why"><b>Зачем:</b> «сами» означает третий вариант с панелью. «Вы» означает обслуживание: 3 000 ₽ в месяц при первом варианте, 5 000 ₽ при втором и третьем.</p>
+      <textarea id="a-q7" rows="1" placeholder="Ответ"></textarea>
+    </div>
+    <div class="card q">
+      <label class="chk"><input type="checkbox" id="q8"><span>Срок</span></label>
+      <div class="say"><p>К какому сроку хотите сайт? Есть даты, к которым важно успеть?</p></div>
+      <textarea id="a-q8" rows="1" placeholder="Ответ"></textarea>
+    </div>
+  </div>
+</section>
+
+<section id="struktura">
+  <h2>Структура <small>3 минуты</small></h2>
+  <div class="stack">
+    <div class="say"><p>Коротко по структуре. Домики стоят первыми, как вы и сказали.</p></div>
+    <div class="card">
+      <ul class="plain">
+        <li><b>Главный экран:</b> гость выбирает домик, дату и число гостей, сумма и предоплата считаются сами.</li>
+        <li><b>Три дома с баней:</b> фото, цены по дням, что входит.</li>
+        <li><b>Беседки:</b> до 10 человек, имени Мулявина, Бунгало.</li>
+        <li><b>Праздники в «Затоке»:</b> до 50 гостей, заявка на расчёт.</li>
+        <li><b>Прокат:</b> сапборды, казан, уголь и дрова.</li>
+        <li><b>Условия:</b> заезд, выезд, предоплата, отмена.</li>
+        <li><b>Вопросы гостей:</b> собаки, что есть в доме, палатки.</li>
+        <li><b>Как добраться:</b> карта и маршрут от Гродно.</li>
+      </ul>
+    </div>
+    <div class="card q">
+      <div class="say"><p>Что бы вы добавили или убрали?</p></div>
+      <textarea id="a-struktura" rows="2" placeholder="Что добавить, что убрать"></textarea>
+    </div>
+  </div>
+</section>
+
+<section id="cena">
+  <h2>Цена <small>3 минуты</small></h2>
+  <div class="stack">
+    <div class="say"><p>Цена считается от блоков. Блок — это одна законченная часть страницы: главный экран, дома, беседки. Вариантов три, цены в российских рублях.</p></div>
+    <div class="vars">
+      <div class="var"><b>Первый: 6 блоков</b><span class="price">25 000 ₽</span><p>Главный экран с заявкой, дома, беседки вместе с «Затокой», прокат с условиями, вопросы, контакты. Заявка приходит вам в WhatsApp.</p></div>
+      <div class="var"><b>Второй: все 8 блоков</b><span class="price">35 000 ₽</span><p>Как в наброске, и расчёт суммы с предоплатой 30%. Гость сразу видит, сколько платить.</p></div>
+      <div class="var"><b>Третий: с календарём</b><span class="price">40 000 ₽</span><p>Как второй, плюс календарь занятых дат и простая панель, где вы сами отмечаете даты и меняете цены.</p></div>
+    </div>
+    <div class="say"><p>Домен и хостинг оформим на вас, их оплата отдельно: домен около 150–700 рублей в год, хостинг около <span class="fill">цена</span> в месяц.</p></div>
+    <div class="pause"><b>Пауза 3–5 секунд.</b> Молчите. Не объясняйте и не оправдывайтесь, пусть подумают.</div>
+    <div class="say"><p>Какой вариант вам ближе?</p></div>
+    <p class="why"><b>Если молчат долго:</b> «Сайт окупается, если приносит несколько броней домиков. Сейчас каждую из них вы ведёте вручную в директе».</p>
+    <div class="card q">
+      <span class="why"><b>Что выбрали</b></span>
+      <div class="choice" id="variant">
+        <button type="button" data-v="1" aria-pressed="false">Первый, 25 000</button>
+        <button type="button" data-v="2" aria-pressed="false">Второй, 35 000</button>
+        <button type="button" data-v="3" aria-pressed="false">Третий, 40 000</button>
+        <button type="button" data-v="dumayut" aria-pressed="false">Думают</button>
+      </div>
+      <textarea id="a-cena" rows="1" placeholder="Что сказали про цену"></textarea>
+    </div>
+  </div>
+</section>
+
+<section id="vybor">
+  <h2>Если выбрали</h2>
+  <div class="stack">
+    <div class="say"><p>Отлично. Оплату вам удобнее в две части или в три?</p></div>
+    <p class="why">Две части: 50% и 50%. Три части: 30%, 40%, 30%. Про оплату только сейчас, после выбора, раньше не спрашиваем.</p>
+    <div class="card q">
+      <div class="choice" id="chasti">
+        <button type="button" data-v="2" aria-pressed="false">Две части</button>
+        <button type="button" data-v="3" aria-pressed="false">Три части</button>
+      </div>
+    </div>
+    <div class="say"><p>Сегодня в течение часа пришлю договор и реквизиты в WhatsApp. Как придёт первая часть, начинаю, первый экран покажу через 2 рабочих дня, весь сайт будет готов примерно за 8 рабочих дней.</p></div>
+    <div class="say"><p>От вас понадобится немного: лучшие фото домов и беседок без надписей, логотип, номер, на который принимать заявки, и название ИП для политики конфиденциальности. Остальное соберу сама из вашего Инстаграма.</p></div>
+    <div class="card q">
+      <div class="say"><p>И домен: как бы вы хотели, чтобы назывался сайт? Например, adamovo-ozero.</p></div>
+      <textarea id="a-domen" rows="1" placeholder="Домен"></textarea>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <h2>Если спросят</h2>
+  <p class="lead">Нажмите на вопрос, чтобы увидеть ответ.</p>
+  <div class="stack">
+    <details class="faq"><summary>«Дорого» или «у других дешевле»</summary><div class="in">
+      <div class="say"><p>Понимаю. Давайте посмотрим, что можно объединить: дома с условиями, беседки с «Затокой». Получится шесть блоков за 25 000, а главное останется: домики, цены и заявка.</p></div>
+      <p class="why">Цену не режем. Скидку даём только в обмен на уступку: 10% за полную предоплату. Меньше 25 000 не соглашаемся.</p>
+    </div></details>
+    <details class="faq"><summary>«Сделаю сам на конструкторе» или «с помощью ИИ»</summary><div class="in">
+      <div class="say"><p>Можно, и это быстрее, чем кажется. Разница в том, что я делаю всё за вас: тексты, фото, расчёт по вашим правилам, заявки и подключение к поиску. Вам остаётся принимать брони.</p></div>
+    </div></details>
+    <details class="faq"><summary>«Вы делаете с помощью ИИ?»</summary><div class="in">
+      <div class="say"><p>Да, он помогает писать быстрее. Но что будет на сайте, как считается сумма, проверку и правки под вас делаю я сама.</p></div>
+    </div></details>
+    <details class="faq"><summary>«Сколько по времени?» и «Успеете к Новому году?»</summary><div class="in">
+      <div class="say"><p>Около восьми рабочих дней. Первые два дня структура и главный экран, потом пять дней все блоки и день на запуск. Если начнём на этой неделе, в начале декабря сайт уже будет работать, как раз к новогодним броням.</p></div>
+      <p class="why">Срок идёт со следующего рабочего дня после первой оплаты и материалов. Если клиент задерживает фото или ответы, срок сдвигается на столько же дней (п. 2.2 и 2.3 договора).</p>
+    </div></details>
+    <details class="faq"><summary>«Как оплатить из Беларуси?» и «В какой валюте?»</summary><div class="in">
+      <div class="say"><p>В российских рублях, по договору. Проще всего перевести по номеру телефона прямо из приложения вашего банка: между Беларусью и Россией это теперь работает. Номер, банк и сумму в рублях пришлю вместе с договором.</p></div>
+      <p class="why">Попросите отправить так, чтобы к вам пришла полная сумма: комиссия и обмен валюты на стороне их банка. В день оплаты выбейте чек в «Мой налог».</p>
+    </div></details>
+    <details class="faq"><summary>«Что входит в цену?»</summary><div class="in">
+      <div class="say"><p>Блоки по выбранному варианту, тексты, ваши фото, заявки вам в WhatsApp, версия для телефона и подключение к поиску. Домен и хостинг оформляем на вас, их оплата отдельно.</p></div>
+    </div></details>
+    <details class="faq"><summary>«Сайт будет наш?»</summary><div class="in">
+      <div class="say"><p>Да. Домен и доступы оформляю на вас, сайт ваш.</p></div>
+    </div></details>
+    <details class="faq"><summary>«Где он будет размещён и сколько платить в месяц?»</summary><div class="in">
+      <div class="say"><p>Размещу на хостинге, где недавно оформляла другой сайт: <span class="fill">название</span>, около <span class="fill">цена</span> в месяц. Оформим его на вас, чтобы всё было ваше.</p></div>
+      <p class="why">Хостинг оплачивается отдельно от работы, как и домен.</p>
+    </div></details>
+    <details class="faq"><summary>«А если надо поменять цены или фото?»</summary><div class="in">
+      <div class="say"><p>В третьем варианте вы меняете цены и даты сами в простой панели. Если удобнее, чтобы это делала я, это обслуживание: 3 000 ₽ в месяц к первому варианту, 5 000 ₽ ко второму и третьему.</p></div>
+    </div></details>
+    <details class="faq"><summary>«Можно, чтобы гость платил прямо на сайте?»</summary><div class="in">
+      <div class="say"><p>Можно, через белорусскую платёжную систему. Это отдельная доработка, посчитаю её, когда уточню, какой у вас банк.</p></div>
+    </div></details>
+    <details class="faq"><summary>«Будет ли сайт в Яндексе и Google?»</summary><div class="in">
+      <div class="say"><p>Да, подключу к поиску. По запросу «Адамово озеро» будет находиться ваш сайт, а не соседи. Первые места по общим запросам вроде «база отдыха Гродно» сразу не обещаю, это уже продвижение.</p></div>
+    </div></details>
+    <details class="faq"><summary>«Есть ли у вас работы?»</summary><div class="in">
+      <div class="say"><p>Набросок для вас вы уже видели, он сделан под ваши цены и фото. Могу прислать наброски для других баз, например для домов у Эльбруса.</p></div>
+    </div></details>
+    <details class="faq"><summary>«А гарантии?»</summary><div class="in">
+      <div class="say"><p>Работаем по договору, оплата частями. Последнюю часть вы платите после запуска. В каждый этап входят два круга правок, а ошибки, которые найдутся в первые 30 дней после запуска, исправляю без доплаты.</p></div>
+    </div></details>
+    <details class="faq"><summary>«Нам надо подумать» или «обсудить с партнёром»</summary><div class="in">
+      <div class="say"><p>Конечно. Если хотите, чтобы я оставила за вами время в декабре, можно внести бронь три тысячи, она входит в стоимость. Или скажите, когда мне вернуться с вопросом?</p></div>
+      <p class="why">Запишите в ответы, когда возвращаться.</p>
+    </div></details>
+    <details class="faq"><summary>«Сделайте сначала, оплатим потом»</summary><div class="in">
+      <div class="say"><p>Набросок вы уже видели до оплаты. Дальше я работаю по договору с оплатой частями: первая часть, и я начинаю.</p></div>
+    </div></details>
+  </div>
+</section>
+
+<section id="melochi">
+  <h2>Мелочи для сайта</h2>
+  <p class="lead">Если звонок идёт хорошо, уточните пару пунктов. Остальное попросите прислать текстом: «Чтобы не занимать ваше время, мелочи пришлю списком в WhatsApp».</p>
+  <div class="card stack">
+    <label class="chk"><input type="checkbox" id="m1"><span>Сколько спальных мест в каждом доме</span></label>
+    <label class="chk"><input type="checkbox" id="m2"><span>Можно ли с собакой</span></label>
+    <label class="chk"><input type="checkbox" id="m3"><span>Что есть в доме: постельное, полотенца, посуда</span></label>
+    <label class="chk"><input type="checkbox" id="m4"><span>Кошкин дом в выходные: 300 BYN или дороже? Что за дом на 2 места за 100 BYN?</span></label>
+    <label class="chk"><input type="checkbox" id="m5"><span>Рилс «домик с баней 250 BYN»: какой дом и когда действует цена</span></label>
+    <label class="chk"><input type="checkbox" id="m6"><span>Беседки до 10 человек: сколько их и от чего зависит цена «от 60 BYN»</span></label>
+    <label class="chk"><input type="checkbox" id="m7"><span>«Затока» и Бунгало: цены в будни и выходные</span></label>
+    <label class="chk"><input type="checkbox" id="m8"><span>Новый год: цены, работают ли все дома зимой</span></label>
+    <label class="chk"><input type="checkbox" id="m9"><span>Палатки и рыбалка: цена, нужна ли бронь</span></label>
+    <label class="chk"><input type="checkbox" id="m10"><span>Условия отмены и возврата предоплаты</span></label>
+    <label class="chk"><input type="checkbox" id="m11"><span>Точный адрес для навигатора</span></label>
+    <label class="chk"><input type="checkbox" id="m12"><span>На какой номер принимать заявки с сайта</span></label>
+    <label class="chk"><input type="checkbox" id="m13"><span>Название ИП или организации для политики</span></label>
+    <textarea id="a-melochi" rows="2" placeholder="Что узнали"></textarea>
+  </div>
+</section>
+
+<section id="posle">
+  <h2>После звонка</h2>
+  <div class="stack">
+    <div class="card">
+      <ul class="plain">
+        <li>В течение часа отправьте договор и реквизиты. <a href="https://claude.ai/artifact/GHbUGvViRjaMr9BqugbjDR" target="_blank" rel="noopener">Шаблон договора</a></li>
+        <li>Напишите в сессию «созвонились»: я прочитаю ответы с этой страницы, заполню договор и подготовлю список мелочей.</li>
+      </ul>
+    </div>
+    <div class="copybox"><span class="why"><b>Сообщение после звонка</b>, в WhatsApp</span>
+      <p id="msg-after">[Имя], спасибо за разговор! Как договорились: вариант [номер] за [сумма] ₽, оплата в [две / три] части. Ниже договор и реквизиты. Как придёт первая часть, начинаю)</p>
+      <button class="copy" type="button" data-src="msg-after">Скопировать</button>
+    </div>
+    <div class="copybox"><span class="why"><b>Если не взяли трубку</b>, в WhatsApp</span>
+      <p id="msg-miss">Добрый день! Звоню по поводу сайта для Адамова озера, не дозвонилась. Когда вам удобно, чтобы я перезвонила?</p>
+      <button class="copy" type="button" data-src="msg-miss">Скопировать</button>
+    </div>
+    <div class="card q">
+      <span class="why"><b>Итог звонка</b></span>
+      <textarea id="a-itog" rows="3" placeholder="О чём договорились, что дальше"></textarea>
+    </div>
+  </div>
+</section>
+
+<p class="status" id="status">Ответы сохраняются на этом телефоне.</p>
+</div>
+
+<script>
+(function(){
+  const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+  const LS="zvonok-adamovo";
+  let local={};try{local=JSON.parse(localStorage.getItem(LS)||"{}")}catch(e){}
+  let db=null;const timers={};
+
+  function apply(k,v){
+    const el=document.getElementById(k);
+    if(el&&el.type==="checkbox"){el.checked=!!v;el.closest(".chk")?.classList.toggle("done",!!v);return}
+    if(el&&el.tagName==="TEXTAREA"){if(document.activeElement!==el)el.value=v||"";return}
+    const grp=document.getElementById(k);
+    if(grp&&grp.classList.contains("choice"))[...grp.children].forEach(b=>b.setAttribute("aria-pressed",b.dataset.v===v));
+  }
+  function save(k,v,delay){
+    local[k]=v;try{localStorage.setItem(LS,JSON.stringify(local))}catch(e){}
+    if(!db)return;
+    clearTimeout(timers[k]);
+    timers[k]=setTimeout(()=>{db.doc("otvety/"+k).set({v:v,t:Date.now()}).catch(()=>{$("#status").textContent="Не сохранилось в общем хранилище, ответ есть только на этом телефоне."})},delay||0);
+  }
+  Object.entries(local).forEach(([k,v])=>apply(k,v));
+
+  $$("input[type=checkbox]").forEach(c=>c.addEventListener("change",()=>{c.closest(".chk")?.classList.toggle("done",c.checked);save(c.id,c.checked)}));
+  $$("textarea").forEach(t=>{
+    const fit=()=>{t.style.height="auto";t.style.height=Math.min(t.scrollHeight+2,260)+"px"};
+    t.addEventListener("input",()=>{fit();save(t.id,t.value,700)});setTimeout(fit,0);
+  });
+  $$(".choice").forEach(g=>g.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;
+    const on=b.getAttribute("aria-pressed")!=="true";[...g.children].forEach(x=>x.setAttribute("aria-pressed",on&&x===b));save(g.id,on?b.dataset.v:"")}));
+
+  function copyText(text,btn){
+    const ok=()=>{const o=btn.textContent;btn.textContent="Скопировано";btn.classList.add("done");setTimeout(()=>{btn.textContent=o;btn.classList.remove("done")},1400)};
+    const fb=()=>{const ta=document.createElement("textarea");ta.value=text;ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();try{document.execCommand("copy");ok()}catch(e){}ta.remove()};
+    try{navigator.clipboard.writeText(text).then(ok,fb)}catch(e){fb()}
+  }
+  $$(".copy").forEach(b=>b.addEventListener("click",()=>copyText(b.dataset.text||document.getElementById(b.dataset.src).textContent,b)));
+
+  let start=0,iv=null;
+  const tick=()=>{const s=Math.floor((Date.now()-start)/1000),m=Math.floor(s/60);
+    $("#clock").textContent=String(m).padStart(2,"0")+":"+String(s%60).padStart(2,"0");
+    $("#timer").classList.toggle("late",m>=15);
+    $("#hint").textContent=m<1?"Начало: представиться и спросить, как обращаться":m<7?"Вопросы про брони и время":m<10?"Пройдите по структуре":m<15?"Пора к цене":"15 минут прошло, переходите к выбору варианта"};
+  $("#tbtn").addEventListener("click",()=>{
+    if(iv){clearInterval(iv);iv=null;$("#tbtn").textContent="Заново";$("#tbtn").classList.remove("stop");return}
+    start=Date.now();iv=setInterval(tick,1000);tick();$("#tbtn").textContent="Стоп";$("#tbtn").classList.add("stop");
+    try{navigator.wakeLock&&navigator.wakeLock.request("screen").catch(()=>{})}catch(e){}
+  });
+
+  if(window.claude&&window.claude.use){
+    claude.use("db").then(d=>{
+      if(!d)return;db=d;
+      d.collection("otvety").onSnapshot(snap=>{
+        snap.docs.forEach(doc=>{const x=doc.data();if(x){local[doc.id]=x.v;apply(doc.id,x.v)}});
+        try{localStorage.setItem(LS,JSON.stringify(local))}catch(e){}
+        $("#status").textContent="Ответы сохраняются, я прочитаю их после звонка.";
+      },()=>{});
+    }).catch(()=>{});
+  }
+})();
+</script>

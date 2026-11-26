@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Твой клининг · главный экран</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Onest:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: в цветах их прайса: лавандовый фон, сливовый логотип. Слева заголовок и «до/после» дивана, справа калькулятор химчистки: что чистим → размер → цена из их прайса → свободное время на неделе. */
+:root{
+  --bg:#F4EEF7;--bg2:#EADFF0;--card:#FFFFFF;--ink:#2A1E33;--muted:#776A80;--line:#E2D6EA;
+  --plum:#5E2E73;--plum-hi:#8B5CA8;--lav:#B79BCB;--lav-soft:#F1E8F7;--wa:#1FA855;
+  --f-head:"Playfair Display",Georgia,serif;--f-body:"Onest",system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5}
+img{max-width:100%;display:block}
+button,input{font:inherit;color:inherit}
+.wrap{max-width:1280px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left));padding-right:max(18px,env(safe-area-inset-right))}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:16px}
+.mark{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--plum)}
+.mark img{width:48px;height:48px;border-radius:50%}
+.mark b{font-family:var(--f-head);font-weight:600;font-size:22px;line-height:1}
+.mark small{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+.links{display:flex;gap:24px;font-size:14.5px;color:var(--muted)}
+.wa{font-weight:700;font-size:14.5px;color:#fff;background:var(--wa);border-radius:999px;padding:9px 16px;text-decoration:none;white-space:nowrap}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) 440px;gap:48px;align-items:center;padding-block:6px 40px}
+.copy{display:grid;gap:16px;min-width:0}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--plum-hi)}
+h1{margin:0;font-family:var(--f-head);font-weight:600;font-size:clamp(38px,4.6vw,62px);line-height:1.04;color:var(--plum);text-wrap:balance}
+h1 em{font-style:italic;color:var(--plum-hi)}
+.sub{margin:0;font-size:18px;color:var(--muted);max-width:48ch}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:600px}
+.pair figure{margin:0;position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/3}
+.pair img{width:100%;height:100%;object-fit:cover}
+.pair figcaption{position:absolute;left:8px;bottom:8px;background:rgb(255 255 255 / .92);border-radius:8px;padding:3px 9px;font-size:12.5px;font-weight:700;color:var(--plum)}
+.facts{display:flex;flex-wrap:wrap;gap:8px}
+.facts span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13.5px;font-weight:600}
+.calc{background:var(--card);border-radius:24px;padding:18px;display:grid;grid-template-columns:minmax(0,1fr);gap:12px;box-shadow:0 30px 60px -30px rgb(70 30 90 / .4);min-width:0}
+.calc h2{margin:0;font-family:var(--f-head);font-weight:600;font-size:24px;color:var(--plum)}
+.lbl{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.types{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.types button{border:1.5px solid var(--line);background:var(--bg);border-radius:12px;padding:8px 4px;font-size:13px;font-weight:700;cursor:pointer;line-height:1.2}
+.types button[aria-pressed="true"]{background:var(--plum);border-color:var(--plum);color:#fff}
+.sizes{display:flex;flex-wrap:wrap;gap:6px}
+.sizes button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:6px 12px;font-size:13.5px;font-weight:600;cursor:pointer}
+.sizes button[aria-pressed="true"]{border-color:var(--plum-hi);background:var(--lav-soft);color:var(--plum)}
+.price{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--lav-soft);border-radius:14px;padding:10px 14px}
+.price small{display:block;font-size:12px;color:var(--muted)}
+.price b{font-family:var(--f-head);font-weight:600;font-size:30px;color:var(--plum);line-height:1.1;white-space:nowrap}
+.photo{font-size:12.5px;color:var(--muted);text-align:right;max-width:150px}
+.slots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.slots button{border:1.5px solid var(--line);background:#fff;border-radius:11px;padding:6px 4px;font-weight:700;font-size:13.5px;cursor:pointer;line-height:1.2}
+.slots small{display:block;font-size:11px;color:var(--muted);font-weight:600}
+.slots button[aria-pressed="true"]{border-color:var(--plum);background:var(--plum);color:#fff}
+.slots button[aria-pressed="true"] small{color:#E9DCF2}
+.cta{border:0;background:var(--plum);color:#fff;border-radius:13px;padding:14px;font-weight:800;font-size:15.5px;cursor:pointer}
+.note{margin:-4px 0 0;text-align:center;font-size:12px;color:var(--muted)}
+button:focus-visible{outline:2px solid var(--plum);outline-offset:2px}
+@media (max-width:1100px){.links{display:none}.hero .wrap{grid-template-columns:minmax(0,1fr) 410px;gap:28px}}
+@media (max-width:820px){
+  .hero .wrap{grid-template-columns:minmax(0,1fr);padding-block:0 28px;gap:16px}
+  .mark b{font-size:19px}.wa{padding:8px 12px;font-size:13px}
+  h1{font-size:36px}.sub{font-size:15.5px}
+  .copy{display:contents}.calc{order:3}.pair{order:4}.facts{order:5}
+  .price{flex-direction:column;align-items:flex-start;gap:2px}.photo{text-align:left;max-width:none}
+}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <a class="mark" href="#"><img src="img/logo.png" alt=""><span><b>Твой Клининг</b><small>Симферополь · Крым</small></span></a>
+  <nav class="links"><span>Химчистка мебели</span><span>Уборки</span><span>До и после</span><span>Отзывы</span></nav>
+  <a class="wa" href="https://wa.me/79788289872">WhatsApp</a>
+</div></header>
+<section class="hero"><div class="wrap">
+  <div class="copy">
+    <span class="eyebrow">Химчистка мебели на дому · уборка квартир</span>
+    <h1>Диван как новый <em>за&nbsp;один визит</em></h1>
+    <p class="sub">Выберите, что почистить, и сразу увидите цену и свободное время на этой неделе. Запись в пару касаний, без долгой переписки.</p>
+    <div class="pair">
+      <figure><img src="img/divan-do.jpg" alt="Диван до химчистки"><figcaption>до</figcaption></figure>
+      <figure><img src="img/divan-posle.jpg" alt="Диван после химчистки"><figcaption>после</figcaption></figure>
+    </div>
+    <div class="facts"><span>Матрасы, кресла, стулья</span><span>Ковролин от 450 ₽/м²</span><span>Генеральная уборка</span></div>
+  </div>
+  <form class="calc" id="c" novalidate>
+    <h2>Сколько стоит химчистка</h2>
+    <div class="types" id="types">
+      <button type="button" data-t="pr" aria-pressed="true">Прямой диван</button>
+      <button type="button" data-t="ug" aria-pressed="false">Угловой диван</button>
+      <button type="button" data-t="mt" aria-pressed="false">Матрас</button>
+      <button type="button" data-t="kr" aria-pressed="false">Кресло</button>
+    </div>
+    <div class="sizes" id="sizes"></div>
+    <div class="price"><div><small id="what"></small><b id="sum"></b></div><span class="photo">точную цену назовём по фото мебели</span></div>
+    <div class="lbl">Свободное время</div>
+    <div class="slots" id="slots">
+      <button type="button" aria-pressed="false">пт 27<small>11:00</small></button>
+      <button type="button" aria-pressed="true">пт 27<small>14:00</small></button>
+      <button type="button" aria-pressed="false">сб 28<small>11:00</small></button>
+    </div>
+    <button class="cta" type="submit">Записаться на химчистку</button>
+    <p class="note">Это набросок: время для примера, запись никуда не уйдёт</p>
+  </form>
+</div></section>
+<script>
+const $=s=>document.querySelector(s);
+const P={
+  pr:{n:"прямой диван",s:[["2-местный","2 500 – 3 500 ₽"],["3-местный","3 000 – 4 500 ₽"],["4-местный","3 500 – 5 500 ₽"]]},
+  ug:{n:"угловой диван",s:[["3 места","4 000 – 5 000 ₽"],["4 места","4 500 – 5 500 ₽"],["5 мест","5 000 – 6 500 ₽"]]},
+  mt:{n:"матрас",s:[["80×200","2 500 ₽"],["140×200","3 700 ₽"],["160×200","4 500 ₽"],["180×200","5 500 ₽"]]},
+  kr:{n:"кресло",s:[["нераскладное","1 500 – 3 000 ₽"],["раскладное","2 000 – 3 500 ₽"],["малютка","2 500 – 3 500 ₽"]]}
+};
+let T="pr",I=1;
+function draw(){
+  $("#sizes").innerHTML=P[T].s.map((x,i)=>`<button type="button" data-i="${i}" aria-pressed="${i===I}">${x[0]}</button>`).join("");
+  const x=P[T].s[I];$("#what").textContent=`${P[T].n}, ${x[0]}`;$("#sum").textContent=x[1].replace(/ (?=\d{3})/g," ").replace(" ₽"," ₽");
+}
+$("#types").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;T=b.dataset.t;I=Math.min(1,P[T].s.length-1);[...$("#types").children].forEach(x=>x.setAttribute("aria-pressed",x===b));draw()});
+$("#sizes").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;I=+b.dataset.i;draw()});
+$("#slots").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;[...$("#slots").children].forEach(x=>x.setAttribute("aria-pressed",x===b))});
+$("#c").addEventListener("submit",e=>e.preventDefault());
+draw();
+</script>
+</body>
+</html>
