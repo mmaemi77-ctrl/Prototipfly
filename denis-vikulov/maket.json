@@ -4,7 +4,7 @@
   "title": "Кто вы и&nbsp;куда нажать, <em>с&nbsp;первого взгляда</em>",
   "chips": [
     "Четыре кнопки справа, как на вашем эскизе",
-    "Всё в чёрно-золотом",
+    "Стекло и ваши фото",
     "Одна кнопка: заявка Денису"
   ],
   "bg": "#0B1017",
@@ -14,8 +14,8 @@
   "accentText": "#F0C56A",
   "photo": "img/denis-kaska.jpg",
   "logo": "img/avatar.jpg",
-  "lapWidth": 352,
-  "lapTop": 170,
-  "phoneWidth": 150,
-  "phoneTop": 250
+  "lapWidth": 384,
+  "lapTop": 175,
+  "phoneWidth": 134,
+  "phoneTop": 262
 }

@@ -68,23 +68,29 @@ nav a:hover{color:var(--gold-hi)}
 .stage::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--bg) 0%,rgb(11 16 23 / .92) 30%,rgb(11 16 23 / .4) 48%,transparent 64%),linear-gradient(180deg,rgb(11 16 23 / .55) 0%,transparent 16%,transparent 70%,var(--bg) 100%)}
 .hero{position:relative;display:grid;grid-template-columns:minmax(0,620px) minmax(0,1fr);min-height:clamp(600px,calc(100vh - 72px),900px);padding-block:40px;align-items:center}
 .h-left{display:grid;gap:28px;align-content:center}
-.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(38px,3.7vw,54px);line-height:1.06;letter-spacing:-.01em;text-wrap:wrap}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(36px,3.4vw,50px);line-height:1.06;letter-spacing:-.01em;text-wrap:wrap}
 .hero h1 .scr{display:block;font-style:italic;color:var(--gold-hi)}
 .sub{font-size:clamp(16px,1.3vw,18.5px);color:#D5D9E0;max-width:44ch;line-height:1.6}
 .cta{display:grid;gap:10px;justify-items:start}
 .cta .btn{padding:18px 30px;font-size:16.5px}
 .cta small{font-size:13.5px;color:var(--muted)}
-.hero{grid-template-columns:minmax(0,560px) minmax(0,1fr) 320px;column-gap:32px}
-.sign{position:absolute;left:calc(560px + 32px);bottom:40px;font-family:var(--script);font-size:44px;line-height:1;color:var(--ink);text-shadow:0 2px 14px rgb(0 0 0 / .7);transform:rotate(-4deg)}
-/* четыре кнопки-направления справа, все в чёрно-золотом */
-.go{grid-column:3;display:grid;gap:12px;align-content:center}
-.go a{display:grid;grid-template-columns:76px minmax(0,1fr) 34px;gap:14px;align-items:center;padding:10px 12px 10px 10px;border-radius:18px;background:rgb(11 16 23 / .72);backdrop-filter:blur(12px);border:1px solid rgb(214 166 69 / .38);text-decoration:none;transition:border-color .15s,background .15s,transform .15s}
-.go a:hover{border-color:var(--gold-hi);background:rgb(42 36 20 / .85);transform:translateX(-3px)}
-.go .pic{width:76px;height:76px;border-radius:12px;background:#000 center/cover;box-shadow:inset 0 0 0 1px rgb(214 166 69 / .35)}
-.go .pic.gold{filter:grayscale(1) sepia(.55) saturate(1.25) brightness(.85) contrast(1.15)}
-.go b{display:block;font-size:16px;line-height:1.2}
-.go small{display:block;font-size:12.5px;color:var(--muted);line-height:1.3;margin-top:3px}
-.go .ar{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--gold);color:var(--gold-ink);font-weight:800}
+.hero{grid-template-columns:minmax(0,540px) minmax(0,1fr) 380px;column-gap:28px}
+.sign{position:absolute;left:calc(540px + 28px);bottom:40px;font-family:var(--script);font-size:44px;line-height:1;color:var(--ink);text-shadow:0 2px 14px rgb(0 0 0 / .7);transform:rotate(-4deg)}
+/* четыре кнопки-направления справа: стеклянные плашки, фото внутри почти без обрезки */
+.go{grid-column:3;display:grid;gap:14px;align-content:center}
+.go a{position:relative;display:grid;grid-template-columns:150px minmax(0,1fr) 36px;gap:16px;align-items:center;padding:8px 14px 8px 8px;border-radius:22px;text-decoration:none;
+  background:linear-gradient(135deg,rgb(255 255 255 / .14),rgb(255 255 255 / .03) 45%,rgb(214 166 69 / .1)),rgb(11 16 23 / .5);
+  backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);
+  border:1px solid rgb(255 255 255 / .22);
+  box-shadow:inset 0 1px 0 rgb(255 255 255 / .28),inset 0 -1px 0 rgb(0 0 0 / .25),0 24px 44px -24px rgb(0 0 0 / .85);
+  transition:border-color .2s,transform .2s,background .2s}
+.go a:hover{border-color:rgb(240 197 106 / .75);transform:translateX(-4px);background:linear-gradient(135deg,rgb(255 255 255 / .18),rgb(255 255 255 / .05) 45%,rgb(214 166 69 / .2)),rgb(11 16 23 / .55)}
+.go .pic{aspect-ratio:16/10;border-radius:15px;background:#000 center/cover;box-shadow:0 0 0 1px rgb(240 197 106 / .35),0 10px 20px -10px rgb(0 0 0 / .8)}
+.go .pic.gold{filter:grayscale(1) sepia(.35) contrast(1.1) brightness(.92)}
+.go b{display:block;font-size:16.5px;line-height:1.2;text-shadow:0 1px 8px rgb(0 0 0 / .5)}
+.go small{display:block;font-size:12.5px;color:#D9DEE6;line-height:1.35;margin-top:4px;text-shadow:0 1px 8px rgb(0 0 0 / .5)}
+.go .ar{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;color:var(--gold-hi);font-weight:800;background:rgb(11 16 23 / .35);border:1px solid rgb(240 197 106 / .6);transition:background .2s,color .2s}
+.go a:hover .ar{background:var(--gold);color:var(--gold-ink)}
 
 /* сразу под первым экраном: цифры и четыре направления */
 .napr{padding-block:8px 72px}
@@ -106,7 +112,7 @@ nav a:hover{color:var(--gold-hi)}
 .dir small{grid-column:1;font-size:13.5px;color:var(--muted);line-height:1.4}
 .dir .ar{grid-row:1/span 2;grid-column:2;color:var(--gold-hi);font-size:20px}
 
-@media (max-width:1200px){.hero{grid-template-columns:minmax(0,500px) minmax(0,1fr) 290px}.sign{left:calc(500px + 32px)}}
+@media (max-width:1240px){.hero{grid-template-columns:minmax(0,480px) minmax(0,1fr) 340px}.sign{left:calc(480px + 28px)}.go a{grid-template-columns:120px minmax(0,1fr) 32px;gap:12px}.go small{display:none}}
 @media (max-width:1100px){.stats{grid-template-columns:repeat(3,minmax(0,1fr))}.stats a:nth-child(4){border-left:0}.stats a:nth-child(n+4){border-top:1px solid var(--line)}}
 @media (max-width:960px){
   .stage{margin-top:-62px;padding-top:62px}
@@ -129,10 +135,10 @@ nav a:hover{color:var(--gold-hi)}
   .stats a:nth-child(-n+2){border-top:0}
   .stats a:nth-child(even){border-left:1px solid var(--line)}
   .stats a:last-child{grid-column:span 2}
-  .go a{grid-template-columns:44px minmax(0,1fr);gap:10px;padding:8px;border-radius:14px}
-  .go .pic{width:44px;height:44px;border-radius:9px}
+  .go a{grid-template-columns:1fr;gap:9px;padding:6px 6px 11px;border-radius:18px}
+  .go .pic{border-radius:13px}
   .go small,.go .ar{display:none}
-  .go b{font-size:13.5px}
+  .go b{font-size:13.5px;padding-inline:6px}
 }
 
 /* структура */
@@ -234,12 +240,12 @@ dialog p{color:var(--muted);font-size:14.5px;margin-bottom:8px}
         </div>
       </div>
       <span class="sign">Денис Викулов</span>
-      <nav class="go" aria-label="Направления">
-        <a href="#struktura"><span class="pic" style="background-image:url(img/garant-kvadrat.jpg)"></span><span><b>Агентство «Гарант»</b><small>Купить, продать, ипотека, юрист</small></span><span class="ar">→</span></a>
-        <a href="#struktura"><span class="pic" style="background-image:url(img/dom-noch.jpg);background-position:55% 60%"></span><span><b>Свои посёлки</b><small>Три посёлка под Шелеховом</small></span><span class="ar">→</span></a>
-        <a href="#struktura"><span class="pic" style="background-image:url(img/real-invest.jpg)"></span><span><b>Инвестиции</b><small>Россия и&nbsp;зарубеж</small></span><span class="ar">→</span></a>
+      <div class="go" role="navigation" aria-label="Направления">
+        <a href="#struktura"><span class="pic" style="background-image:url(img/garant-shirokij.jpg)"></span><span><b>Агентство «Гарант»</b><small>Купить, продать, ипотека, юрист</small></span><span class="ar">→</span></a>
+        <a href="#struktura"><span class="pic" style="background-image:url(img/dom-noch.jpg);background-position:50% 55%"></span><span><b>Свои посёлки</b><small>Три посёлка под Шелеховом</small></span><span class="ar">→</span></a>
+        <a href="#struktura"><span class="pic" style="background-image:url(img/real-invest-shirokij.jpg);background-position:50% 60%"></span><span><b>Инвестиции</b><small>Россия и&nbsp;зарубеж</small></span><span class="ar">→</span></a>
         <a href="#struktura"><span class="pic gold" style="background-image:url(img/frirayd.jpg);background-position:45% 40%"></span><span><b>Обо мне</b><small>Днём брус и&nbsp;бетон, утром сделка</small></span><span class="ar">→</span></a>
-      </nav>
+      </div>
     </div>
   </div>
   </div>
