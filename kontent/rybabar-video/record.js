@@ -1,7 +1,8 @@
 // Видео 9:16 для Threads/Reels: живой сайт Рыба Бара на ноутбуке и трёх телефонах.
 // Время в браузере идёт покадрово (виртуальные часы), поэтому анимация плавная, сколько бы ни длился снимок кадра.
-// node record.js            — все кадры в kadry/
+// LANGUAGE=ru LC_ALL=ru_RU.UTF-8 node record.js — все кадры в kadry/ (переменные нужны, чтобы дата в форме была 28.11.2026)
 // node record.js test 0,4,9 — только кадры на этих секундах (проверка)
+// В ролике нет данных: адреса и телефоны скрыты, номер в форме печатается точками.
 // Нужен клон сайта: git clone https://github.com/mmaemi77-ctrl/territoriya <папка>/territoriya, путь к <папка> в SITES.
 // Видео: ffmpeg -framerate 30 -i kadry/f%04d.jpg -c:v libx264 -preset slow -crf 18 -pix_fmt yuv420p -movflags +faststart rybabar-video.mp4
 const {chromium}=require('playwright');
@@ -49,7 +50,7 @@ const LAP=[[0,1400,890],[.9,1180,640],[1.9,960,440],[2.9,1150,230],[3.7,1270,420
 const CLICKS=[4.5,7.45,12.1];
 
 (async()=>{
-  const b=await chromium.launch();
+  const b=await chromium.launch({args:['--lang=ru-RU']});
   const ctx=await b.newContext({viewport:{width:1080,height:1920},deviceScaleFactor:DSF,locale:'ru-RU',timezoneId:'Europe/Simferopol'});
   await ctx.route('**/*',r=>{const u=new URL(r.request().url());
     if(u.hostname==='site.local'){let p=decodeURIComponent(u.pathname);if(p.endsWith('/'))p+='index.html';
@@ -82,6 +83,13 @@ const CLICKS=[4.5,7.45,12.1];
   const tapSel=async(i,sel,act='click')=>{const r=await fr[i].evaluate(s=>{const e=[...document.querySelectorAll(s)].find(e=>e.offsetParent);const b=e.getBoundingClientRect();return[b.left+b.width/2,b.top+b.height/2]},sel);await tap(i,r[0],r[1],act)};
   const type=(i,sel,v)=>fr[i].evaluate(([s,v])=>{const e=document.querySelector(s);e.value=v;e.dispatchEvent(new Event('input',{bubbles:true}))},[sel,v]);
 
+  // в ролике не должно быть данных: адресов, телефонов, номера в форме
+  for(const f of fr)await f.evaluate(()=>{
+    const sub=document.querySelector('.hero-sub');
+    if(sub)sub.textContent='Черноморская рыба, устрицы, мидии и морепродукты в центре Симферополя. Два уютных заведения, у каждого своя атмосфера.';
+    for(const s of ['#bookInfo','#menuLoc','#bookLoc']){const e=document.querySelector(s);if(e)(s==='#bookLoc'?e.closest('fieldset'):e).style.display='none'}
+    const st=document.createElement('style');st.textContent='#tel{-webkit-text-security:disc}';document.head.append(st);
+  });
   // стартовые позиции телефонов
   const menuY=await pos(2,'#menu',8);
   await scroll(2,menuY);
@@ -108,6 +116,9 @@ const CLICKS=[4.5,7.45,12.1];
     [7.9,()=>fr[3].evaluate(()=>document.activeElement.blur())],
     [8.9,()=>tapSel(3,'#agree')],
     [9.5,()=>tapSel(3,'#form button[type=submit]')],
+    [9.52,()=>fr[3].evaluate(()=>{
+      document.getElementById('okText').textContent='28.11 в 19:00 · гостей: 2. Отправьте заявку в мессенджер одним нажатием или позвоните — администратор подтвердит бронь.';
+      document.getElementById('callBtn').textContent='📞 Позвонить'})],
     [9.55,async()=>{okY=await pos(3,'#ok',-170)}],
   ];
   const P2=()=>[[0,menuY],[3.4,menuY],[6.6,menuY+760],[8.0,menuY+760],[8.9,menuY],[9.3,menuY],[13.8,menuY+1500]];
