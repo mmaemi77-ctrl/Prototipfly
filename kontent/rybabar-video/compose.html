@@ -1,0 +1,83 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Inter+Tight:wght@600;700&display=swap">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden}
+body{position:relative;font-family:"Inter Tight",sans-serif;color:#EEF6FF;
+ background:
+  radial-gradient(55% 30% at 88% 30%,rgb(31 168 230 / .30),transparent 70%),
+  radial-gradient(50% 26% at 8% 62%,rgb(239 122 55 / .22),transparent 70%),
+  radial-gradient(60% 30% at 50% 100%,rgb(31 168 230 / .22),transparent 70%),
+  linear-gradient(180deg,#0A1B3D 0%,#0D2552 55%,#0A1B3D 100%)}
+.pill{position:absolute;top:78px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:12px;
+ background:rgb(255 255 255 / .1);border:1.5px solid rgb(255 255 255 / .22);border-radius:999px;padding:12px 26px;
+ font-weight:700;font-size:25px;letter-spacing:.06em;color:#FFD2B5;white-space:nowrap}
+.pill b{color:#fff;letter-spacing:.1em}
+h1{position:absolute;top:158px;left:40px;right:40px;margin:0;text-align:center;font-family:Unbounded,sans-serif;font-weight:600;
+ font-size:58px;line-height:1.12;letter-spacing:-.02em;color:#fff}
+h1 em{font-style:normal;background:linear-gradient(95deg,#9FE3FF 0%,#C9E9FF 40%,#FFB98E 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+.lap{position:absolute;left:46px;top:340px;width:988px}
+.scr{background:#05070B;border-radius:24px 24px 0 0;padding:14px;box-shadow:0 50px 90px -30px rgb(0 0 0 / .85),0 0 0 2px rgb(255 255 255 / .08)}
+.vp{position:relative;overflow:hidden;background:#000}
+.lap .vp{width:960px;height:600px;border-radius:6px}
+.lap iframe{width:1440px;height:900px;border:0;transform:scale(.666667);transform-origin:0 0;display:block}
+.base{height:24px;margin:0 -44px;background:linear-gradient(#D5D9DE,#8F959C);border-radius:0 0 22px 22px;position:relative}
+.base::before{content:"";position:absolute;left:50%;top:0;width:150px;height:9px;transform:translateX(-50%);background:#7C828A;border-radius:0 0 10px 10px}
+
+.ph{position:absolute;width:300px;background:#05070B;border-radius:48px;padding:10px;
+ box-shadow:0 40px 70px -24px rgb(0 0 0 / .9),0 0 0 2px rgb(255 255 255 / .14)}
+.ph .in{border-radius:38px;overflow:hidden;position:relative;width:280px;height:606px;background:#173a7a}
+.sb{height:30px;background:#173a7a;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:4px 22px 0 26px;font:700 13px/1 "Inter Tight",sans-serif}
+.sb i{display:inline-flex;gap:4px;align-items:center;font-style:normal}
+.sb i::before{content:"";width:16px;height:9px;background:linear-gradient(90deg,#fff 0 22%,transparent 22% 26%,#fff 26% 48%,transparent 48% 52%,#fff 52% 74%,transparent 74% 78%,#fff 78%);clip-path:polygon(0 100%,100% 0,100% 100%)}
+.sb i::after{content:"";width:20px;height:9px;border:1.5px solid #fff;border-radius:3px;background:linear-gradient(90deg,#fff 70%,transparent 70%) content-box;padding:1px}
+.isl{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:86px;height:24px;background:#000;border-radius:999px;z-index:3}
+.ph .vp{width:280px;height:576px}
+.ph iframe{width:390px;height:802px;border:0;transform:scale(.717949);transform-origin:0 0;display:block}
+#p1{left:50px;top:1090px}
+#p2{left:390px;top:1040px}
+#p3{left:730px;top:1090px}
+
+.chips{position:absolute;left:40px;right:40px;top:1756px;display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+.chips span{font-size:24px;font-weight:700;background:rgb(255 255 255 / .1);border:1.5px solid rgb(255 255 255 / .22);border-radius:999px;padding:10px 20px;white-space:nowrap}
+.chips span.c{background:#EF7A37;border-color:#EF7A37;color:#fff}
+
+/* курсор и касания рисуются поверх, их двигает скрипт записи */
+#cur{position:absolute;left:0;top:0;width:34px;height:48px;z-index:20;pointer-events:none;filter:drop-shadow(0 3px 4px rgb(0 0 0 / .45));transform-origin:4px 4px}
+.ring{position:absolute;z-index:19;pointer-events:none;border-radius:50%;border:3px solid #fff;transform:translate(-50%,-50%)}
+.dot{position:absolute;z-index:19;pointer-events:none;border-radius:50%;background:rgb(255 255 255 / .55);border:2px solid rgb(255 255 255 / .9);transform:translate(-50%,-50%)}
+</style></head><body>
+<div class="pill"><b>FOR.MI</b> · сайт для Рыба Бара</div>
+<h1>Покормите рыбок<br><em>прямо на&nbsp;сайте</em></h1>
+
+<div class="lap"><div class="scr"><div class="vp" id="v0"><iframe id="f0" src="/territoriya/?v=lap" scrolling="no"></iframe></div></div><div class="base"></div></div>
+
+<div class="ph" id="p1"><div class="in"><div class="isl"></div><div class="sb">9:41<i></i></div><div class="vp" id="v1"><iframe id="f1" src="/territoriya/?v=p1" scrolling="no"></iframe></div></div></div>
+<div class="ph" id="p2"><div class="in"><div class="isl"></div><div class="sb">9:41<i></i></div><div class="vp" id="v2"><iframe id="f2" src="/territoriya/?v=p2" scrolling="no"></iframe></div></div></div>
+<div class="ph" id="p3"><div class="in"><div class="isl"></div><div class="sb">9:41<i></i></div><div class="vp" id="v3"><iframe id="f3" src="/territoriya/?v=p3" scrolling="no"></iframe></div></div></div>
+
+<div class="chips"><span class="c">Живой аквариум</span><span>Поиск по меню</span><span>Бронь за минуту</span></div>
+
+<svg id="cur" viewBox="0 0 24 34"><path d="M2 2v25l6.2-6 4.3 10.2 4.4-1.9-4.3-10H21z" fill="#111" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg>
+<div id="fx"></div>
+<script>
+// оверлей: курсор, кольца клика, точки касаний; время приходит из скрипта записи
+const fx=document.getElementById('fx'),cur=document.getElementById('cur');let marks=[];
+window.__ui={
+  cursor(x,y,press){cur.style.transform=`translate(${x-4}px,${y-4}px) scale(${press?.88:1})`},
+  hideCursor(){cur.style.display='none'},
+  mark(kind,x,y,t){marks.push({kind,x,y,t})},
+  render(now){
+    fx.innerHTML='';
+    marks=marks.filter(m=>now-m.t<700);
+    for(const m of marks){
+      const k=(now-m.t)/700,e=document.createElement('div');
+      if(m.kind==='click'){const r=18+k*70;e.className='ring';Object.assign(e.style,{left:m.x+'px',top:m.y+'px',width:r+'px',height:r+'px',opacity:1-k})}
+      else{const r=46+k*40;e.className='dot';Object.assign(e.style,{left:m.x+'px',top:m.y+'px',width:r+'px',height:r+'px',opacity:(1-k)*.95})}
+      fx.append(e);
+    }
+  }
+};
+</script>
+</body></html>
