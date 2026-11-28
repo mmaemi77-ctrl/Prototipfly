@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Денис Викулов · схема квиза</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap">
+<style>
+/* Схема квиза одной картинкой 4:5: 540×675 CSS, снимается в 2x = 1080×1350 */
+:root{--bg:#0B1017;--surface:#141C27;--surface2:#1B2431;--ink:#F3EEE4;--muted:#AAB3C0;--dim:#7C8696;--line:#2A3546;--gold:#D6A645;--gold-hi:#F0C56A;--gold-tint:#2A2414;--green:#6EE2A0}
+*{box-sizing:border-box}
+body{margin:0;background:#000;display:grid;justify-content:center;padding:20px;font-family:Onest,system-ui,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+h1,h2,h3,p{margin:0}
+.slide{width:540px;height:675px;position:relative;overflow:hidden;background:radial-gradient(70% 45% at 85% 0%,rgb(214 166 69 / .14),transparent 70%),var(--bg);padding:20px 20px 14px;display:grid;grid-template-rows:auto auto auto 1fr auto auto;gap:10px}
+.br{display:flex;align-items:center;gap:9px;font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-hi)}
+.br img{width:26px;height:26px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px var(--gold)}
+.br span{margin-left:auto;color:var(--muted)}
+h1{font-family:"Playfair Display",serif;font-weight:500;font-size:22px;line-height:1.12;margin-top:6px}
+h1 em{color:var(--gold-hi)}
+
+.hook{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:center;padding:9px 12px;border-radius:14px;background:var(--surface);border:1px solid var(--line)}
+.no{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--gold);color:#1B1406;font-weight:800;font-size:12px}
+.hook b{display:block;font-size:13px;line-height:1.3}
+.hook small{display:block;font-size:11px;color:var(--muted);line-height:1.35;margin-top:2px}
+
+.q1{display:grid;gap:7px;justify-items:center}
+.q1 .t{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700}
+.fork{width:100%;height:14px;position:relative}
+.fork::before{content:"";position:absolute;left:16.6%;right:16.6%;top:0;height:12px;border:1.5px solid var(--gold);border-bottom:0;border-radius:10px 10px 0 0}
+.fork::after{content:"";position:absolute;left:50%;top:-7px;width:1.5px;height:19px;background:var(--gold)}
+
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;min-height:0}
+.col{display:grid;grid-template-rows:auto 1fr auto;border-radius:14px;background:var(--surface);border:1px solid var(--line);overflow:hidden}
+.col h3{font-size:12.5px;line-height:1.2;padding:9px 10px 8px;background:var(--gold-tint);border-bottom:1px solid #4A3C1C;color:var(--gold-hi)}
+.col h3 small{display:block;font-weight:500;font-size:10px;color:#C9B78E;margin-top:2px;letter-spacing:.02em}
+.qs{display:grid;gap:7px;padding:8px 10px;align-content:start}
+.qs div b{display:block;font-size:11.5px;line-height:1.25}
+.qs div span{display:block;font-size:10.3px;color:var(--muted);line-height:1.35;margin-top:2px}
+.qs div.flt{border-left:2px solid var(--gold-hi);padding-left:7px;margin-left:-9px}
+.get{margin:0 8px 8px;padding:8px 9px;border-radius:10px;background:rgb(214 166 69 / .12);border:1px solid rgb(240 197 106 / .45)}
+.get i{display:block;font-style:normal;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-hi)}
+.get b{display:block;font-size:11px;line-height:1.3;margin-top:2px}
+
+.fin{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:start;padding:10px 12px;border-radius:14px;background:var(--surface2);border:1px solid var(--line)}
+.fin b{display:block;font-size:12.5px;line-height:1.3}
+.fin small{display:block;font-size:10.5px;color:var(--muted);line-height:1.4;margin-top:3px}
+.calm{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+.calm span{font-size:10px;font-weight:600;padding:4px 8px;border-radius:999px;background:rgb(255 255 255 / .06);border:1px solid rgb(255 255 255 / .14)}
+.calm span::before{content:"✓ ";color:var(--green)}
+
+.foot{display:flex;justify-content:space-between;align-items:center;font-size:10.5px;color:var(--dim);font-weight:600}
+.foot b{color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="slide" id="kviz">
+  <div>
+    <div class="br"><img src="img/avatar.jpg" alt="">Квиз «Чем могу помочь?»<span>схема</span></div>
+    <h1>Один квиз, три дороги: <em>покупатель, стройка, продажа</em></h1>
+  </div>
+
+  <div class="hook"><span class="no">1</span><span><b>«Три вопроса, и&nbsp;Денис подберёт решение под&nbsp;вас»</b><small>Человек сразу видит, что получит. И&nbsp;обещание: не&nbsp;названиваем, отвечаем один раз, где удобно</small></span></div>
+
+  <div class="q1">
+    <span class="t"><span class="no">2</span>Что вам нужно?</span>
+    <div class="fork"></div>
+  </div>
+
+  <div class="cols">
+    <div class="col">
+      <h3>Купить дом<small>в&nbsp;ваших посёлках</small></h3>
+      <div class="qs">
+        <div><b>Какой дом нужен?</b><span>до 80&nbsp;м² · 80–120&nbsp;м² · подскажите</span></div>
+        <div><b>Как будете платить?</b><span>семейная ипотека · маткапитал · другая · свои</span></div>
+        <div class="flt"><b>Когда хотите заехать?</b><span>в&nbsp;этом году · за&nbsp;год · присматриваюсь</span></div>
+      </div>
+      <div class="get"><i>Получит</i><b>Свободные дома и&nbsp;расчёт платежа</b></div>
+    </div>
+    <div class="col">
+      <h3>Построить дом<small>на&nbsp;участке клиента</small></h3>
+      <div class="qs">
+        <div><b>Участок уже есть?</b><span>да, в&nbsp;собственности · ищу · нужен с&nbsp;домом</span></div>
+        <div><b>Какой площади дом?</b><span>до 80&nbsp;м² · 80–120&nbsp;м² · больше</span></div>
+        <div class="flt"><b>Как будете платить?</b><span>ипотека на&nbsp;стройку · маткапитал · свои</span></div>
+      </div>
+      <div class="get"><i>Получит</i><b>Проекты домов и&nbsp;ориентир по&nbsp;цене</b></div>
+    </div>
+    <div class="col">
+      <h3>Продать жильё<small>через «Гарант»</small></h3>
+      <div class="qs">
+        <div><b>Что продаёте?</b><span>квартира · дом · участок</span></div>
+        <div><b>Где?</b><span>Шелехов · Иркутск · район</span></div>
+        <div class="flt"><b>Когда нужно продать?</b><span>срочно · за&nbsp;2–3 месяца · пока узнать цену</span></div>
+      </div>
+      <div class="get"><i>Получит</i><b>Оценку, за&nbsp;сколько реально продать</b></div>
+    </div>
+  </div>
+
+  <div class="fin"><span class="no">3</span><span><b>Имя, телефон и&nbsp;где удобнее ответить: звонок, WhatsApp или Telegram</b><small>Вопрос с&nbsp;золотой чертой отсеивает тех, кто просто смотрит. Заявка приходит Денису с&nbsp;пометкой: покупка, стройка или продажа, срочно или «присматриваюсь»</small>
+    <span class="calm"><span>Любая ипотека и&nbsp;маткапитал</span><span>Сделку ведёт юрист</span><span>4,9 на&nbsp;Яндексе</span></span></span></div>
+
+  <div class="foot"><span>Схема квиза для&nbsp;<b>Дениса Викулова</b> · заглушки уточним</span><span>FOR.MI</span></div>
+</div>
+</body>
+</html>
